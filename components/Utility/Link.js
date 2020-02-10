@@ -8,12 +8,11 @@ import {
 export default class Link extends React.Component {
 	render() {
 		return (
-            <Text
-                style={{color: this.props.color, fontSize: 17, fontFamily: "Comic Sans MS"}}
-                onPress={this.props.onPress}
-            >
-                {this.props.children}
-            </Text>
+            <View>
+                <Text style={{color: this.props.color, fontSize: 17, fontFamily: "Comic Sans MS"}} onPress={this.props.onPress}>
+                    {this.props.children}
+                </Text>
+            </View>
 		);
 	}
 }
