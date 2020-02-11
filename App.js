@@ -12,7 +12,7 @@ export default class App extends React.Component {
 		return (
 			<View style={styles.container}>
 				<Header />
-				<View style = {{flex: 6, padding: 50}}>
+				<View style = {{padding: 50}}>
 					<MatchInfoContainer />
 				</View>
 			</View>

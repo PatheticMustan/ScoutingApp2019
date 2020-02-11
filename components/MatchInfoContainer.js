@@ -14,6 +14,11 @@ export default class Link extends React.Component {
                     <View style = {styles.teamInfoContainer}>
                         <View style = {styles.teamNumInputContainer}>
                             <Text style = {{fontSize: 17, fontWeight: "bold"}}>Team Number: </Text>
+                            <TextInput
+                                style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+                                onChangeText={text => onChangeText(text)}
+                                value={value}
+                            />
                         </View>
                         <View style = {styles.teamNumInputContainer}>
                             <Text style = {{fontSize: 17, fontWeight: "bold"}}>Team Number: </Text>
@@ -42,6 +47,7 @@ export default class Link extends React.Component {
 
 const styles = StyleSheet.create({
 	container: {
+        flex: 1,
 		backgroundColor: '#fff'
 	},
 	matchInfoContainer: {
@@ -57,7 +63,7 @@ const styles = StyleSheet.create({
     },
     teamNumInputContainer: {
         flex: 1,
-        paddingVertical: 10
+        paddingVertical: 20
     },  
     piecesContainer: {
         flex: 1

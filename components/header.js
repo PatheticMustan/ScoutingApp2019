@@ -30,12 +30,11 @@ export default class Header extends React.Component {
 
 const styles = StyleSheet.create({
 	container: {
-		flex: 1,
 		backgroundColor: '#FFF'
 	},
 	headerContainer: {
 		flexDirection: "column",
-		paddingVertical: 15,
+		paddingTop: 15,
 		backgroundColor: "#DDD",
 		justifyContent: "center"
 	},
@@ -54,7 +53,9 @@ const styles = StyleSheet.create({
 	},
 	linkContainer: {
 		justifyContent: "space-between",
-		padding: 20,
+		paddingHorizontal: 15,
+		paddingBottom: 15,
+		paddingTop: 30,
 		textAlign: "center"
 	}
 });
