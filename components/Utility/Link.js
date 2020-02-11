@@ -11,7 +11,7 @@ export default class Link extends React.Component {
 			<Text
                 style={{color: this.props.color, fontSize: 17}}
                 onPress={this.props.onPress}
-            	>
+            >
                 	{this.props.children}
             </Text>
 		);
