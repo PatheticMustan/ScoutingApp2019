@@ -15,7 +15,7 @@ export default class Header extends React.Component {
 						<Text style={styles.headerText}>2020 - Infinite Recharge</Text>
 					</View>
 
-					<View style={styles.optionContainer}>
+					<View style={[styles.flex, styles.linkContainer]}>
 						<Link color="red" onPress={() => alert(1)}>Reset</Link>
 						<Link color="blue" onPress={() => alert(1)}>Undo</Link>
 						<Link color="blue" onPress={() => alert(1)}>Reset</Link>
@@ -31,13 +31,13 @@ export default class Header extends React.Component {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: '#fff'
+		backgroundColor: '#FFF'
 	},
 	headerContainer: {
 		flexDirection: "column",
 		paddingVertical: 15,
-		backgroundColor: "#ddd",
-		alignItems: "center"
+		backgroundColor: "#DDD",
+		justifyContent: "center"
 	},
 	headerTextContainer: {
 		flex: 1,
@@ -49,6 +49,12 @@ const styles = StyleSheet.create({
 		textAlign: "center"
 	},
 	flex: {
-		display: "flex"
+		flex: 1,
+		flexDirection: "row"
+	},
+	linkContainer: {
+		justifyContent: "space-between",
+		padding: 20,
+		textAlign: "center"
 	}
 });
