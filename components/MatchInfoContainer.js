@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 
 import Incrementer from './Incrementer.js'
+import TabBarIcon from './TabBarIcon.js';
 
 export default class Link extends React.Component {
 	render() {
@@ -14,7 +15,7 @@ export default class Link extends React.Component {
             <View style = {styles.container}>
                 <View style = {styles.matchInfoContainer}>
                     <View style = {styles.teamInfoContainer}>
-                        <View style = {styles.teamNumInputContainer}>
+                        <View style = {styles.inputContainer}>
                             <Text style = {{fontSize: 17, fontWeight: "bold"}}>Team Number: </Text>
                             <View style = {{flex: 1, paddingLeft: 5}}>
                                 <TextInput
@@ -23,11 +24,15 @@ export default class Link extends React.Component {
                                 />
                             </View>
                         </View>
-                        <View style = {styles.teamNumInputContainer}>
+                        <View style = {styles.inputContainer}>
                             <Text style = {{fontSize: 17, fontWeight: "bold"}}>Match Number: Qualification # </Text>
-                            <Incrementer></Incrementer>
+                            <Incrementer />
                         </View>
-                        <View style = {styles.teamNumInputContainer}>
+                        <View style = {{flex: 1, marginTop: -15, flexDirection: "row"}}>
+                            <TabBarIcon color = "#29adff" name = "ellipsis-h" />
+                            <Text style = {{fontSize: 13}}> Change Match Type</Text>
+                        </View>
+                        <View style = {styles.inputContainer}>
                             <Text style = {{fontSize: 17, fontWeight: "bold"}}>Scouters: </Text>
                             <View style = {{flex: 1, paddingLeft: 5}}>
                                 <TextInput
@@ -39,13 +44,13 @@ export default class Link extends React.Component {
                     </View>
     
                     <View style = {styles.piecesContainer}>
-                        <View style = {styles.teamNumInputContainer}>
+                        <View style = {styles.inputContainer}>
                             <Text style = {{fontSize: 17, fontWeight: "bold"}}>Team Number: </Text>
                         </View>
-                        <View style = {styles.teamNumInputContainer}>
+                        <View style = {styles.inputContainer}>
                             <Text style = {{fontSize: 17, fontWeight: "bold"}}>Team Number: </Text>
                         </View>
-                        <View style = {styles.teamNumInputContainer}>
+                        <View style = {styles.inputContainer}>
                             <Text style = {{fontSize: 17, fontWeight: "bold"}}>Team Number: </Text>
                         </View>
                     </View>
@@ -71,7 +76,7 @@ const styles = StyleSheet.create({
         flex: 1,
         paddingLeft: 30
     },
-    teamNumInputContainer: {
+    inputContainer: {
         flex: 1,
         flexDirection: "row",
         paddingVertical: 15
