@@ -26,7 +26,7 @@ export default class Link extends React.Component {
                         </View>
                         <View style = {styles.inputContainer}>
                             <Text style = {{fontSize: 17, fontWeight: "bold"}}>Match Number: Qualification # </Text>
-                            <Incrementer />
+                            <Incrementer/>
                         </View>
                         <View style = {{flex: 1, marginTop: -15, flexDirection: "row"}}>
                             <TabBarIcon color = "#29adff" name = "ellipsis-h" />
@@ -45,13 +45,8 @@ export default class Link extends React.Component {
     
                     <View style = {styles.piecesContainer}>
                         <View style = {styles.inputContainer}>
-                            <Text style = {{fontSize: 17, fontWeight: "bold"}}>Team Number: </Text>
-                        </View>
-                        <View style = {styles.inputContainer}>
-                            <Text style = {{fontSize: 17, fontWeight: "bold"}}>Team Number: </Text>
-                        </View>
-                        <View style = {styles.inputContainer}>
-                            <Text style = {{fontSize: 17, fontWeight: "bold"}}>Team Number: </Text>
+                            <Text style = {{fontSize: 17, fontWeight: "bold"}}>Starting Game Pieces</Text>
+                                <Incrementer/>
                         </View>
                     </View>
                 </View>
