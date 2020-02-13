@@ -1,7 +1,8 @@
 {
   "expo": {
-    "name": "ScoutingApp",
-    "slug": "ScoutingApp",
+    "name": "Scouting App",
+    "description": "Scouting but in an app, so it's cooler.",
+    "slug": "Scouting-App",
     "privacy": "public",
     "sdkVersion": "36.0.0",
     "platforms": [
@@ -14,7 +15,7 @@
     "icon": "./Assets/icon.png",
     "splash": {
       "image": "./Assets/splash.png",
-      "resizeMode": "resize",
+      "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
     "updates": {
