@@ -65,6 +65,7 @@ export default class Link extends React.Component {
 
 const styles = StyleSheet.create({
 	container: {
+        padding: 50,
         flex: 1,
 		backgroundColor: '#fff'
 	},

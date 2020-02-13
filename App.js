@@ -12,9 +12,7 @@ export default class App extends React.Component {
 		return (
 			<View style={styles.container}>
 				<Header />
-				<View style = {{padding: 50}}>
-					<MatchInfoContainer />
-				</View>
+				<MatchInfoContainer />
 			</View>
 		);
 	}

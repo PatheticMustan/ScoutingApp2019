@@ -4,6 +4,7 @@ import {
 	Text,
 	View
 } from 'react-native';
+import * as Sharing from 'expo-sharing';
 import Link from './Utility/Link.js';
 
 export default class Header extends React.Component {
@@ -20,7 +21,7 @@ export default class Header extends React.Component {
 						<Link color="blue" onPress={() => alert(1)}>Undo</Link>
 						<Link color="blue" onPress={() => alert(1)}>Reset</Link>
 						<Link color="blue" onPress={() => alert(1)}>Save</Link>
-						<Link color="blue" onPress={() => alert(1)}>Save and Export</Link>
+						<Link color="blue" onPress={() => Sharing}>Save and Export</Link>
 					</View>
 				</View>
 			</View>
