@@ -1,6 +1,7 @@
 import React from 'react';
 import {
-	View
+	View,
+	StyleSheet
 } from 'react-native';
 
 import Header from './components/Header.js';
@@ -9,9 +10,10 @@ import MatchInfoContainer from './components/MatchInfoContainer.js';
 export default class App extends React.Component {
 	render() {
 		return (
-			<View style={styles.container}>
+			<View>
 				<Header />
 				<MatchInfoContainer />
+				
 			</View>
 		);
 	}
