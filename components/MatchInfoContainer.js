@@ -46,7 +46,7 @@ export default class Link extends React.Component {
                         </View>
                     </View>
                     <View style = {styles.piecesContainer}>
-                        <View style = {styles.inputContainer}>
+                        <View style = {styles.inputContainer2}>
                             <Text style = {{fontSize: 17, fontWeight: "bold"}}>Starting Game Pieces</Text>
                             <Incrementer/>
                             <View>
@@ -85,6 +85,11 @@ const styles = StyleSheet.create({
         paddingLeft: 30
     },
     inputContainer: {
+        flex: 1,
+        flexDirection: "row",
+        paddingVertical: 15
+    },
+    inputContainer2: {
         flex: 1,
         flexDirection: "column",
         paddingVertical: 15
