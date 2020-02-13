@@ -11,18 +11,14 @@ export default class Header extends React.Component {
 	render() {
 		return (
 			<View style={styles.container}>
-				<View style={styles.headerContainer}>
-					<View style={styles.flex}>
-						<Text style={styles.headerText}>2020 - Infinite Recharge</Text>
-					</View>
+				<Text style={styles.headerText}>2020 - Infinite Recharge</Text>
 
-					<View style={[styles.flex, styles.linkContainer]}>
-						<Link color="red" onPress={() => alert(1)}>Reset</Link>
-						<Link color="blue" onPress={() => alert(1)}>Undo</Link>
-						<Link color="blue" onPress={() => alert(1)}>Reset</Link>
-						<Link color="blue" onPress={() => alert(1)}>Save</Link>
-						<Link color="blue" onPress={() => Sharing}>Save and Export</Link>
-					</View>
+				<View style={styles.linkContainer}>
+					<Link color="red" onPress={() => alert(1)}>Reset</Link>
+					<Link color="blue" onPress={() => alert(1)}>Undo</Link>
+					<Link color="blue" onPress={() => alert(1)}>Reset</Link>
+					<Link color="blue" onPress={() => alert(1)}>Save</Link>
+					<Link color="blue" onPress={() => Sharing}>Save and Export</Link>
 				</View>
 			</View>
 		);
@@ -31,32 +27,20 @@ export default class Header extends React.Component {
 
 const styles = StyleSheet.create({
 	container: {
-		backgroundColor: '#FFF'
-	},
-	headerContainer: {
-		flexDirection: "column",
-		paddingTop: 15,
-		backgroundColor: "#DDD",
-		justifyContent: "center"
-	},
-	headerTextContainer: {
-		flex: 1,
-		flexDirection: "row"
+		backgroundColor: '#DDD'
 	},
 	headerText: {
 		flex: 1,
 		fontSize: 30,
+		paddingTop: 10,
 		textAlign: "center"
-	},
-	flex: {
-		flex: 1,
-		flexDirection: "row"
 	},
 	linkContainer: {
+		flex: 1,
+		flexDirection: "row",
 		justifyContent: "space-between",
-		paddingHorizontal: 15,
+		paddingHorizontal: 30,
 		paddingBottom: 15,
-		paddingTop: 30,
-		textAlign: "center"
+		paddingTop: 10
 	}
 });
