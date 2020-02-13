@@ -12,7 +12,7 @@ import TabBarIcon from './TabBarIcon.js';
 export default class Link extends React.Component {
 	render() {
 		return (
-            <View style = {styles.container}>
+            <View style={styles.container}>
                 <View style = {styles.matchInfoContainer}>
                     <View style = {styles.teamInfoContainer}>
                         <View style = {styles.inputContainer}>
@@ -62,6 +62,7 @@ export default class Link extends React.Component {
 
 const styles = StyleSheet.create({
 	container: {
+        padding: 50,
         flex: 1,
 		backgroundColor: '#fff'
 	},
