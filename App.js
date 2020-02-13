@@ -4,7 +4,7 @@ import {
 	View
 } from 'react-native';
 
-import Header from './components/Header.js';
+import Header from './components/header.js';
 import MatchInfoContainer from './components/MatchInfoContainer.js';
 
 export default class App extends React.Component {
