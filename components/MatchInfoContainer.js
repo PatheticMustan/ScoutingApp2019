@@ -3,16 +3,19 @@ import {
 	StyleSheet,
 	Text,
     View,
-    TextInput
+    TextInput,
+    ColorPropType,
+    Image
 } from 'react-native';
 
 import Incrementer from './Incrementer.js'
-import TabBarIcon from './TabBarIcon.js';
+import TabBarIcon from './TabBarIcon.js'
 
 export default class Link extends React.Component {
 	render() {
 		return (
             <View style = {styles.container}>
+                <Text style = {styles.matchInfoText}>Match Info</Text>
                 <View style = {styles.matchInfoContainer}>
                     <View style = {styles.teamInfoContainer}>
                         <View style = {styles.inputContainer}>
@@ -42,11 +45,16 @@ export default class Link extends React.Component {
                             </View>
                         </View>
                     </View>
-    
                     <View style = {styles.piecesContainer}>
                         <View style = {styles.inputContainer}>
                             <Text style = {{fontSize: 17, fontWeight: "bold"}}>Starting Game Pieces</Text>
-                                <Incrementer/>
+                            <Incrementer/>
+                            <View>
+                                <Image
+                                    source = {require('./Assets/am-4200-small-copy.png')}
+                                    style = {{width: 150, height: 150, alignContent: 'center'}}
+                                />
+                            </View>
                         </View>
                     </View>
                 </View>
@@ -63,9 +71,14 @@ const styles = StyleSheet.create({
 	matchInfoContainer: {
         flex: 1,
         flexDirection: "row",
-        borderColor: "#ddd",
+        borderColor: "#000000",
         borderWidth: StyleSheet.hairlineWidth,
         borderRadius: 10
+    },
+    matchInfoText: {
+        paddingLeft: 550,
+        fontSize: 35,
+        fontWeight: 'bold'
     },
     teamInfoContainer: {
         flex: 1,
