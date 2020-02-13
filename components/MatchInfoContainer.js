@@ -52,7 +52,7 @@ export default class Link extends React.Component {
                             <View>
                                 <Image
                                     source = {require('./Assets/am-4200-small-copy.png')}
-                                    style = {{width: 150, height: 150, alignContent: 'center'}}
+                                    style = {{width: 150, height: 150}}
                                 />
                             </View>
                         </View>
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     },
     inputContainer: {
         flex: 1,
-        flexDirection: "row",
+        flexDirection: "column",
         paddingVertical: 15
     },
     textInput: {
