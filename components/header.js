@@ -4,6 +4,7 @@ import {
 	Text,
 	View
 } from 'react-native';
+import * as Sharing from 'expo-sharing';
 import Link from './Utility/Link.js';
 
 export default class Header extends React.Component {
@@ -20,7 +21,7 @@ export default class Header extends React.Component {
 						<Link color="blue" onPress={() => alert(1)}>Undo</Link>
 						<Link color="blue" onPress={() => alert(1)}>Reset</Link>
 						<Link color="blue" onPress={() => alert(1)}>Save</Link>
-						<Link color="blue" onPress={() => alert(1)}>Save and Export</Link>
+						<Link color="blue" onPress={() => Sharing}>Save and Export</Link>
 					</View>
 				</View>
 			</View>
@@ -30,12 +31,11 @@ export default class Header extends React.Component {
 
 const styles = StyleSheet.create({
 	container: {
-		flex: 1,
 		backgroundColor: '#FFF'
 	},
 	headerContainer: {
 		flexDirection: "column",
-		paddingVertical: 15,
+		paddingTop: 15,
 		backgroundColor: "#DDD",
 		justifyContent: "center"
 	},
@@ -54,7 +54,9 @@ const styles = StyleSheet.create({
 	},
 	linkContainer: {
 		justifyContent: "space-between",
-		padding: 20,
+		paddingHorizontal: 15,
+		paddingBottom: 15,
+		paddingTop: 30,
 		textAlign: "center"
 	}
 });
