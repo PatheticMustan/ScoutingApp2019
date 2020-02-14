@@ -23,6 +23,19 @@ export default class Autonomous extends React.Component {
                         Add any comments that you feel are useful. Does the robot get any penalties? Where do they shoot from?
                         Anything else that shows evidence of good/poor performance?
                     </Text>
+                    <View style = {{paddingLeft: 20, paddingRight: 20, paddingTop: 20, paddingBottom: 20}}>
+                        <TextInput style = {{
+                        width: 1300,
+                        height: 200,
+                        backgroundColor: '#DDD',
+                        borderWidth: 0,
+                        borderRadius: 10
+                        }}
+                        editable
+                        multiline
+                        numberOfLines = {10}
+                        />
+                    </View>
                 </View>
             </View>
 		);
