@@ -11,7 +11,7 @@ import Incrementer from './Utility/Incrementer.js'
 import TabBarIcon from './Utility/TabBarIcon.js'
 import CustomTextBox from './Utility/CustomTextBox.js';
 
-export default class Link extends React.Component {
+export default class MatchInfoContainer extends React.Component {
 	render() {
 		return (
             <View style={styles.container}>

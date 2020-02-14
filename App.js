@@ -6,6 +6,8 @@ import {
 
 import Header from './components/Header.js';
 import MatchInfoContainer from './components/MatchInfoContainer.js';
+import Autonomous from './components/Autonomous.js';
+import TeleOp from './components/TeleOp.js'
 
 export default class App extends React.Component {
 	render() {
@@ -13,7 +15,8 @@ export default class App extends React.Component {
 			<View>
 				<Header />
 				<MatchInfoContainer />
-				
+				<Autonomous />
+				<TeleOp/> 
 			</View>
 		);
 	}
