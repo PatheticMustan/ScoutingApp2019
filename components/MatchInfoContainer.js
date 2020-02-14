@@ -9,6 +9,7 @@ import {
 
 import Incrementer from './Incrementer.js'
 import TabBarIcon from './TabBarIcon.js'
+import CustomTextBox from './Utility/CustomTextBox.js';
 
 export default class Link extends React.Component {
 	render() {
@@ -19,29 +20,27 @@ export default class Link extends React.Component {
                 <View style={styles.matchInfoContainer}>
                     <View style={{flex: 1, paddingHorizontal: 30}}>
                         <View style={styles.inputContainer}>
-                            <Text style={{fontSize: 17, fontWeight: "bold"}}>Team Number: </Text>
+                            <Text style={styles.bold}>Team Number: </Text>
                             <View style={{flex: 1, paddingLeft: 5}}>
-                                <TextInput
-                                    style={styles.textInput}
-                                    editable
-                                />
+                                <CustomTextBox width={60} height={30}/>
                             </View>
                         </View>
+                        
                         <View style={styles.inputContainer}>
-                            <Text style={{fontSize: 17, fontWeight: "bold"}}>Match Number: Qualification # </Text>
+                            <Text style={styles.bold}>Match Number: Qualification # </Text>
                             <Incrementer/>
                         </View>
+
                         <View style={{flex: 1, marginTop: -15, flexDirection: "row"}}>
                             <TabBarIcon color="#29adff" name="ellipsis-h" />
                             <Text style={{fontSize: 13}}> Change Match Type</Text>
                         </View>
+
                         <View style={styles.inputContainer}>
-                            <Text style={{fontSize: 17, fontWeight: "bold"}}>Scouters: </Text>
+                            <Text style={styles.bold}>Scouters: </Text>
+
                             <View style={{flex: 1, paddingLeft: 5}}>
-                                <TextInput
-                                    style={styles.textInput2}
-                                    editable
-                                />
+                                <CustomTextBox width={180} height={30}/>
                             </View>
                         </View>
                     </View>
@@ -50,8 +49,8 @@ export default class Link extends React.Component {
 
                     <View style={styles.piecesContainer}>
                         <View style={styles.inputContainer2}>
-                            <Text style={{fontSize: 17, fontWeight: "bold"}}>Starting Game Pieces</Text>
-                            <Incrementer/>
+                            <Text style={styles.bold}>Starting Game Pieces</Text>
+                                <Incrementer/>
                             <View>
                                 <Image
                                     source={require('./Assets/am-4200-small-copy.png')}
@@ -75,9 +74,13 @@ const styles=StyleSheet.create({
 	matchInfoContainer: {
         flex: 1,
         flexDirection: "row",
-        borderColor: "#000000",
+        borderColor: "black",
         borderWidth: StyleSheet.hairlineWidth,
         borderRadius: 10
+    },
+    bold: {
+        fontSize: 17,
+        fontWeight: "bold"
     },
     inputContainer: {
         flex: 1,
@@ -88,20 +91,6 @@ const styles=StyleSheet.create({
         flex: 1,
         flexDirection: "column",
         paddingVertical: 15
-    },
-    textInput: {
-        width: 60,
-        height: 30,
-        borderColor: "#aaa",
-        borderWidth: StyleSheet.hairlineWidth,
-        borderRadius: 5
-    },
-    textInput2: {
-        width: 180,
-        height: 30,
-        borderColor: "#aaa",
-        borderWidth: StyleSheet.hairlineWidth,
-        borderRadius: 5
     },
     piecesContainer: {
         flex: 1
