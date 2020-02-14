@@ -24,10 +24,26 @@ export default class TeleOp extends React.Component {
                         efficiently? Do they struggle with picking up balls or shooting? Do they play defense, and if so,
                         how? Where do they usually shoot from? Anything else that shows evidence of good/poor performance?
                     </Text>
+                    <View style = {{ backgroundColor: 'value', borderColor: '#000000', borderWidth: 1}}>
+                        <Comments
+                            multiline
+                            onChangeText = {test => onChangetext(text)}
+                        />
+                    </View>
                 </View>
             </View>
 		);
 	}
+}
+
+function Comments(props) {
+    return (
+        <TextInput
+            {...props}
+            editable
+            maxLength = {1000}
+        />
+    );
 }
 
 const styles=StyleSheet.create({
