@@ -7,8 +7,8 @@ import {
     Image
 } from 'react-native';
 
-import Incrementer from './Incrementer.js'
-import TabBarIcon from './TabBarIcon.js'
+import Incrementer from './Utility/Incrementer.js'
+import TabBarIcon from './Utility/TabBarIcon.js'
 import CustomTextBox from './Utility/CustomTextBox.js';
 
 export default class Link extends React.Component {
@@ -53,7 +53,7 @@ export default class Link extends React.Component {
                                 <Incrementer/>
                             <View>
                                 <Image
-                                    source={require('./Assets/am-4200-small-copy.png')}
+                                    source={require('../Assets/am-4200-small-copy.png')}
                                     style={{width: 150, height: 150}}
                                 />
                             </View>
