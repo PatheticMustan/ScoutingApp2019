@@ -31,9 +31,9 @@ export default class MatchInfoContainer extends React.Component {
                             <Incrementer/>
                         </View>
 
-                        <View style={{flex: 1, marginTop: -15, flexDirection: "row"}}>
-                            <TabBarIcon color="#29adff" name="ellipsis-h" />
-                            <Text style={{fontSize: 13}}> Change Match Type</Text>
+                        <View style={{flex: 1, marginTop: -45, flexDirection: "row"}}>
+                            <TabBarIcon color="#29adff" name="ellipsis-h"/>
+                            <Text style={{fontSize: 13, marginTop: 3}}> Change Match Type</Text>
                         </View>
 
                         <View style={styles.inputContainer}>
