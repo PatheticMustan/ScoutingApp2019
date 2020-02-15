@@ -90,6 +90,7 @@ const styles=StyleSheet.create({
     inputContainer2: {
         flex: 1,
         flexDirection: "column",
+        alignItems: 'center',
         paddingVertical: 15
     },
     piecesContainer: {
