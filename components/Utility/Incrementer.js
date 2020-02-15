@@ -5,8 +5,8 @@ import {
 	View,
     TouchableOpacity
 } from 'react-native';
-import TabBarIcon from './TabBarIcon.js';
 
+import TabBarIcon from './TabBarIcon.js';
 
 export default class Incrementer extends React.Component {
     state = {i: 0}
@@ -21,13 +21,13 @@ export default class Incrementer extends React.Component {
 			<View style={styles.container}>
                 <TouchableOpacity onPress = {() => this.dec(this.state.i)}>
                     <View style = {styles.iconContainer}>
-                        <TabBarIcon size = {18} name = "minus" color = "#29adff"></TabBarIcon>
+                        <TabBarIcon size = {30} name = "minus" color = "#29adff"></TabBarIcon>
                     </View>
                 </TouchableOpacity>
                 <Text style = {styles.iconContainer}>{this.state.i}</Text>
                 <TouchableOpacity onPress = {() => this.inc(this.state.i)}>
                     <View style = {styles.iconContainer}>
-                        <TabBarIcon size = {18} name = "plus" color = "#29adff"></TabBarIcon>
+                        <TabBarIcon size = {30} name = "plus" color = "#29adff"></TabBarIcon>
                     </View>
                 </TouchableOpacity>
 			</View>
@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
         flexDirection: "row"
     },
     iconContainer: {
-        padding: 5,
+        fontSize: 30,
+        padding: 5
     }
 });

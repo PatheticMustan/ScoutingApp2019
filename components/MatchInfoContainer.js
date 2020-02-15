@@ -7,11 +7,11 @@ import {
     Image
 } from 'react-native';
 
-import Incrementer from './Incrementer.js'
-import TabBarIcon from './TabBarIcon.js'
+import Incrementer from './Utility/Incrementer.js'
+import TabBarIcon from './Utility/TabBarIcon.js'
 import CustomTextBox from './Utility/CustomTextBox.js';
 
-export default class Link extends React.Component {
+export default class MatchInfoContainer extends React.Component {
 	render() {
 		return (
             <View style={styles.container}>
@@ -31,9 +31,9 @@ export default class Link extends React.Component {
                             <Incrementer/>
                         </View>
 
-                        <View style={{flex: 1, marginTop: -15, flexDirection: "row"}}>
-                            <TabBarIcon color="#29adff" name="ellipsis-h" />
-                            <Text style={{fontSize: 13}}> Change Match Type</Text>
+                        <View style={{flex: 1, marginTop: -45, flexDirection: "row"}}>
+                            <TabBarIcon color="#29adff" name="ellipsis-h"/>
+                            <Text style={{fontSize: 13, marginTop: 3}}> Change Match Type</Text>
                         </View>
 
                         <View style={styles.inputContainer}>
@@ -53,7 +53,7 @@ export default class Link extends React.Component {
                                 <Incrementer/>
                             <View>
                                 <Image
-                                    source={require('./Assets/am-4200-small-copy.png')}
+                                    source={require('../Assets/am-4200-small-copy.png')}
                                     style={{width: 150, height: 150}}
                                 />
                             </View>
@@ -90,6 +90,7 @@ const styles=StyleSheet.create({
     inputContainer2: {
         flex: 1,
         flexDirection: "column",
+        alignItems: 'center',
         paddingVertical: 15
     },
     piecesContainer: {
