@@ -3,7 +3,8 @@ import {
 	StyleSheet,
 	Text,
     View,
-    TouchableOpacity
+    TouchableOpacity,
+    TouchableWithoutFeedback
 } from 'react-native';
 
 export default class BoolButton extends React.Component {
@@ -18,14 +19,11 @@ export default class BoolButton extends React.Component {
 	render() {
 		return (
 			<View style={styles.container}>
-                <TouchableOpacity onPress = {() => this.switchValue(this.state.i)}>
-                    <View style = {styles.button}>
-                        <Text>Test BoolButton</Text>
+                <TouchableWithoutFeedback onPress = {() => this.switchValue(this.state.i)}>
+                    <View style = {[styles.button, {backgroundColor: (this.state.i? "#00FF00" : "#FFFFFF")}]}>
+                        <Text>{this.props.children}</Text>
                     </View>
-                    <View>
-                        <Text>{this.state.i}</Text>
-                    </View>
-                </TouchableOpacity>
+                </TouchableWithoutFeedback>
 			</View>
 		);
 	}

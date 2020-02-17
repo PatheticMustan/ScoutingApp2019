@@ -19,7 +19,7 @@ export default class App extends React.Component {
 				<MatchInfoContainer/>
 				<Autonomous/>
 				<TeleOp/>
-				<BoolButton/>
+				<BoolButton>Bool Button</BoolButton>
 				<NumButton/>
 			</View>
 		);
