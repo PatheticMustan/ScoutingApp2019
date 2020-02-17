@@ -9,6 +9,8 @@ import Incrementer from '../Utility/Incrementer.js';
 
 export default class BoolButton extends React.Component {
 	render() {
+        const p = this.props;
+        
 		return (
 			<View style={styles.container}>
                     <View style = {styles.button}>
@@ -30,7 +32,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         borderWidth: StyleSheet.hairlineWidth,
         borderColor: '#000000',
-        width: (this.props.width? this.props.width : 100),
-        height: (this.props.height? this.props.height : 40)
+        width: (p.width? p.width : 100),
+        height: (p.height? p.height : 40)
     }
 });
