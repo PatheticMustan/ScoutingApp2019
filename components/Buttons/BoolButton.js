@@ -22,7 +22,16 @@ export default class BoolButton extends React.Component {
 		return (
 			<View style={styles.container}>
                 <TouchableWithoutFeedback onPress = {() => this.switchValue(this.state.i)}>
-                    <View style = {[styles.button, {backgroundColor: (this.state.i? 'yellow' : 'white')}]}>
+                    <View style = {{
+                        textAlign: 'center',
+                        justifyContent: 'center',
+                        borderRadius: 10,
+                        borderWidth: StyleSheet.hairlineWidth,
+                        borderColor: '#000000',
+                        width: (p.width? p.width : 100),
+                        height: (p.height? p.height : 40),
+                        backgroundColor: (this.state.i? 'yellow' : 'white')
+                    }}>
                         <Text>{this.props.children}</Text>
                     </View>
                 </TouchableWithoutFeedback>
@@ -35,13 +44,4 @@ const styles = StyleSheet.create({
 	container: {
         backgroundColor: '#FFF',
     },
-    button: {
-        textAlign: 'center',
-        justifyContent: 'center',
-        borderRadius: 10,
-        borderWidth: StyleSheet.hairlineWidth,
-        borderColor: '#000000',
-        width: (p.width? p.width : 100),
-        height: (p.height? p.height : 40)
-    }
 });
