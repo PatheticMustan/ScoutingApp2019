@@ -8,8 +8,8 @@ import Header from './components/Header.js';
 import MatchInfoContainer from './components/MatchInfoContainer.js';
 import Autonomous from './components/Autonomous.js';
 import TeleOp from './components/TeleOp.js';
-import BoolButton from './components/Buttons/BoolButton.js';
-import NumButton from './components/Buttons/NumButton';
+import Endgame from './components/Endgame.js';
+import Other from './components/Other.js';
 
 export default class App extends React.Component {
 	render() {
@@ -19,8 +19,8 @@ export default class App extends React.Component {
 				<MatchInfoContainer/>
 				<Autonomous/>
 				<TeleOp/>
-				<BoolButton>Bool Button</BoolButton>
-				<NumButton>Num Button</NumButton>
+				<Endgame/>
+				<Other/>
 			</View>
 		);
 	}
