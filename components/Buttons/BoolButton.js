@@ -20,7 +20,7 @@ export default class BoolButton extends React.Component {
 		return (
 			<View style={styles.container}>
                 <TouchableWithoutFeedback onPress = {() => this.switchValue(this.state.i)}>
-                    <View style = {[styles.button, {backgroundColor: (this.state.i? "#00FF00" : "#FFFFFF")}]}>
+                    <View style = {[styles.button, {backgroundColor: (this.state.i? 'yellow' : 'white')}]}>
                         <Text>{this.props.children}</Text>
                     </View>
                 </TouchableWithoutFeedback>

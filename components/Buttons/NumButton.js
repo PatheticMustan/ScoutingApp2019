@@ -12,7 +12,7 @@ export default class BoolButton extends React.Component {
 		return (
 			<View style={styles.container}>
                     <View style = {styles.button}>
-                        <Text>Test NumButton</Text>
+                        <Text>{this.props.children}</Text>
                     </View>
                     <Incrementer/>
 			</View>
