@@ -27,10 +27,10 @@ const styles = StyleSheet.create({
     button: {
         textAlign: 'center',
         justifyContent: 'center',
-        width: 100,
-        height: 40,
         borderRadius: 10,
         borderWidth: StyleSheet.hairlineWidth,
-        borderColor: '#000000'
+        borderColor: '#000000',
+        width: (this.props.width? this.props.width : 100),
+        height: (p.height? p.height : 40)
     }
 });
