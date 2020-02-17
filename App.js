@@ -20,7 +20,7 @@ export default class App extends React.Component {
 				<Autonomous/>
 				<TeleOp/>
 				<BoolButton>Bool Button</BoolButton>
-				<NumButton/>
+				<NumButton>Num Button</NumButton>
 			</View>
 		);
 	}

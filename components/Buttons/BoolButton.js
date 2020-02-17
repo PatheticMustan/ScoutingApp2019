@@ -40,6 +40,6 @@ const styles = StyleSheet.create({
         borderWidth: StyleSheet.hairlineWidth,
         borderColor: '#000000',
         width: (this.props.width? this.props.width : 100),
-        height: (p.height? p.height : 40)
+        height: (this.props.height? this.props.height : 40)
     }
 });
