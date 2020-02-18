@@ -9,23 +9,22 @@ import {
 import TabBarIcon from './TabBarIcon.js';
 
 export default class Incrementer extends React.Component {
-    state = {i: 0}
-    inc = (v) => {
-        this.setState({i: v + 1})
+    state = {
+        value: 0
     }
-    dec = (v) => {
-        this.setState({i: Math.max(0, v - 1)})
-    }
+
 	render() {
 		return (
 			<View style={styles.container}>
-                <TouchableOpacity onPress = {() => this.dec(this.state.i)}>
+                <TouchableOpacity onPress = {() => this.setState({value: Math.max(0, this.state.value - 1)})}>
                     <View style = {styles.iconContainer}>
                         <TabBarIcon size = {30} name = "minus" color = "#29adff"></TabBarIcon>
                     </View>
                 </TouchableOpacity>
-                <Text style = {styles.iconContainer}>{this.state.i}</Text>
-                <TouchableOpacity onPress = {() => this.inc(this.state.i)}>
+
+                <Text style = {styles.iconContainer}>{this.state.value}</Text>
+
+                <TouchableOpacity onPress = {() => this.setState({value: this.state.value + 1})}>
                     <View style = {styles.iconContainer}>
                         <TabBarIcon size = {30} name = "plus" color = "#29adff"></TabBarIcon>
                     </View>
