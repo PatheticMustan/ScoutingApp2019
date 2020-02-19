@@ -14,9 +14,6 @@ export default class BoolButton extends React.Component {
 	render() {
         const p = this.props;
         const styles = StyleSheet.create({
-            container: {
-                backgroundColor: '#FFF',
-            },
             button: {
                 textAlign: 'center',
                 justifyContent: 'center',
@@ -40,7 +37,7 @@ export default class BoolButton extends React.Component {
                         borderColor: '#000000',
                         width: (p.width? p.width : 100),
                         height: (p.height? p.height : 40),
-                        backgroundColor: (this.state.i? 'yellow' : 'white')
+                        backgroundColor: (this.state.i? p.bgc : 'white')
                     }}>
                         <Text>{this.props.children}</Text>
                     </View>
