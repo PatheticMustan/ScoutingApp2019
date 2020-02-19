@@ -1,26 +1,15 @@
 import React from 'react';
 import {
-	View,
-	StyleSheet
+	View
 } from 'react-native';
 
-import Header from './components/Header.js';
-import MatchInfoContainer from './components/MatchInfoContainer.js';
-import Autonomous from './components/Autonomous.js';
-import TeleOp from './components/TeleOp.js';
-import Endgame from './components/Endgame.js';
-import Other from './components/Other.js';
+import Scout from './Routes/Scout.js';
 
 export default class App extends React.Component {
 	render() {
 		return (
 			<View>
-				<Header/>
-				<MatchInfoContainer/>
-				<Autonomous/>
-				<TeleOp/>
-				<Endgame/>
-				<Other/>
+				<Scout/>
 			</View>
 		);
 	}

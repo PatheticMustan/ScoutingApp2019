@@ -36,7 +36,7 @@ export default class Other extends React.Component {
                             height: (p.height? p.height : 40),
                             backgroundColor: (this.state.i? 'red' : 'white')
                         }}>
-                        <Text>Red Card</Text>
+                        <Text>{global.test}</Text>
                     </View>
                 </TouchableWithoutFeedback>
                 </View>

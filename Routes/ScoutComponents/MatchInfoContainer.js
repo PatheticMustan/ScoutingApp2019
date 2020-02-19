@@ -22,7 +22,7 @@ export default class MatchInfoContainer extends React.Component {
                         <View style={styles.inputContainer}>
                             <Text style={styles.bold}>Team Number: </Text>
                             <View style={{flex: 1, paddingLeft: 5}}>
-                                <CustomTextBox width={60} height={30}/>
+                                <CustomTextBox id="teamNumber" width={60} height={30}/>
                             </View>
                         </View>
                         
@@ -40,7 +40,7 @@ export default class MatchInfoContainer extends React.Component {
                             <Text style={styles.bold}>Scouters: </Text>
 
                             <View style={{flex: 1, paddingLeft: 5}}>
-                                <CustomTextBox width={180} height={30}/>
+                                <CustomTextBox id="scouters" width={180} height={30}/>
                             </View>
                         </View>
                     </View>
@@ -53,7 +53,7 @@ export default class MatchInfoContainer extends React.Component {
                                 <Incrementer/>
                             <View>
                                 <Image
-                                    source={require('../Assets/am-4200-small-copy.png')}
+                                    source={require('../../Assets/am-4200-small-copy.png')}
                                     style={{width: 150, height: 150}}
                                 />
                             </View>

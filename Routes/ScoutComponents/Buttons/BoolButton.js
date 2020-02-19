@@ -3,19 +3,14 @@ import {
 	StyleSheet,
 	Text,
     View,
-    TouchableOpacity,
     TouchableWithoutFeedback
 } from 'react-native';
 
 export default class BoolButton extends React.Component {
-    state = {i: 0}
-    switchValue = (i) => {
-        if (i == 0) {
-            this.setState({i: i + 1})
-        } else {
-            this.setState({i: i - 1})
-        }
+    state = {
+        i: 0
     }
+
 	render() {
         const p = this.props;
         const styles = StyleSheet.create({
@@ -36,7 +31,7 @@ export default class BoolButton extends React.Component {
 
 		return (
 			<View style={styles.container}>
-                <TouchableWithoutFeedback onPress = {() => this.switchValue(this.state.i)}>
+                <TouchableWithoutFeedback onPress = {() => this.setState({i: !this.state.i})}>
                     <View style = {{
                         textAlign: 'center',
                         justifyContent: 'center',
