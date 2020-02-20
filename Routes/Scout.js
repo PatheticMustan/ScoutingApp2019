@@ -1,7 +1,6 @@
 import React from 'react';
 import {
-    View,
-    Button
+    View
 } from 'react-native';
 
 import Header from './ScoutComponents/Header.js';
