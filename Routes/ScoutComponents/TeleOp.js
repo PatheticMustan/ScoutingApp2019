@@ -27,17 +27,17 @@ export default class TeleOp extends React.Component {
                         how? Where do they usually shoot from? Anything else that shows evidence of good/poor performance?
                     </Text>
                     <View style = {{paddingLeft: 20, paddingRight: 20, paddingTop: 20, paddingBottom: 20}}>
-                        <TextInput style = {{
-                        width: 1300,
-                        height: 200,
-                        backgroundColor: '#DDD',
-                        borderWidth: 0,
-                        borderRadius: 10
-                        }}
-                        editable
-                        multiline
-                        numberOfLines = {10}
-                        />
+                        <CustomTextBox
+                            id="TeleopComments"
+                            default=""
+                            width={1300}
+                            height={200}
+                            backgroundColor={"#DDD"}
+                            borderRadius={10}
+                            options={{
+                                multiline: true,
+                                numberOfLines: 10
+                            }}/>
                     </View>
                 </View>
             </View>

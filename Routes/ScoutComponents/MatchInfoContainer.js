@@ -40,7 +40,7 @@ export default class MatchInfoContainer extends React.Component {
                             <Text style={styles.bold}>Scouters: </Text>
 
                             <View style={{flex: 1, paddingLeft: 5}}>
-                                <CustomTextBox id="Scouters" default="" width={180} height={30}/>
+                                <CustomTextBox id="Scouters" default="" width={300} height={30}/>
                             </View>
                         </View>
                     </View>

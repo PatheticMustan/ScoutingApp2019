@@ -20,7 +20,7 @@ export default class Data extends React.Component {
     render() {
         return (
             <View>
-                <Text>{Object.entries(global.data).join("\n")}</Text>
+                <Text>{Object.entries(global.data).map(e=>`${e[0]}: ${JSON.stringify(e[1])}`).join("\n")}</Text>
             </View>
         );
     }
