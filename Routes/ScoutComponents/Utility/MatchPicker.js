@@ -18,7 +18,10 @@ export default class MatchPicker extends React.Component {
         return (
             <View style = {styles.picker}>
                 <Picker pickMatchType = {this.state.matchType} onValueChange = {this.newMatchType}>
-                    <Picker.Item label = "Test" value = "1" />
+                    /** Funny numbers haha */
+                    <Picker.Item label = "Qualification" value = "69" />
+                    <Picker.Item label = "Quarterfinal" value = "420" />
+                    <Picker.Item label = "Semifinal" value = "1337" />
                 </Picker>
                 <TabBarIcon color="#29adff" name="ellipsis-h"/>
             </View>
