@@ -13,16 +13,14 @@ export default class Data extends React.Component {
 
     /** Update data every second. */
     componentDidMount() {
-        this.interval = setInterval(() => {
-            this.setState({ time: Date.now() });
-        }, 100);
+        this.interval = setInterval(() => {this.setState({ time: Date.now() });}, 100);
     }
     componentWillUnmount() {clearInterval(this.interval);}
 
     render() {
         return (
             <View>
-                <Text>{JSON.stringify(Object.entries(global.data))}</Text>
+                <Text>{Object.entries(global.data).join("\n")}</Text>
             </View>
         );
     }

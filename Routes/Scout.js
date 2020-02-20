@@ -25,8 +25,6 @@ export default class Scout extends React.Component {
                 <TeleOp/>
                 <Endgame/>
                 <Other/>
-
-                
             </View>
         );
     }

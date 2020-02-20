@@ -2,8 +2,7 @@ import React from 'react';
 import {
     StyleSheet,
     Text,
-    View,
-    TouchableWithoutFeedback
+    View
 } from 'react-native';
 
 import BoolButton from './Buttons/BoolButton.js';
@@ -14,8 +13,8 @@ export default class Other extends React.Component {
             <View style = {styles.container}>
                 <Text style = {{textAlign: "center", fontSize: 35, fontWeight: 'bold'}}>Other</Text>
                 <View style = {styles.otherContainer}>
-                    <BoolButton bgc="yellow">Yellow Card</BoolButton>
-                    <BoolButton bgc="red">Red Card</BoolButton>
+                    <BoolButton id="YellowCard" bgc="yellow">Yellow Card</BoolButton>
+                    <BoolButton id="RedCard" bgc="red">Red Card</BoolButton>
                 </View>
             </View>
         );
@@ -30,9 +29,9 @@ const styles = StyleSheet.create({
     },
     otherContainer: {
         flex: 1,
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-around",
         borderColor: "black",
         borderWidth: StyleSheet.hairlineWidth,
         borderRadius: 10,

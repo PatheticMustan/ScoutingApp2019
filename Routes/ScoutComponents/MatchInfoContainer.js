@@ -22,13 +22,13 @@ export default class MatchInfoContainer extends React.Component {
                         <View style={styles.inputContainer}>
                             <Text style={styles.bold}>Team Number: </Text>
                             <View style={{flex: 1, paddingLeft: 5}}>
-                                <CustomTextBox id="teamNumber" default="" width={60} height={30}/>
+                                <CustomTextBox id="TeamNumber" default="" width={60} height={30}/>
                             </View>
                         </View>
                         
                         <View style={styles.inputContainer}>
                             <Text style={styles.bold}>Match Number: Qualification # </Text>
-                            <Incrementer/>
+                            <Incrementer id="MatchNumber"/>
                         </View>
 
                         <View style={{flex: 1, marginTop: -45, flexDirection: "row"}}>
@@ -40,7 +40,7 @@ export default class MatchInfoContainer extends React.Component {
                             <Text style={styles.bold}>Scouters: </Text>
 
                             <View style={{flex: 1, paddingLeft: 5}}>
-                                <CustomTextBox id="scouters" default="" width={180} height={30}/>
+                                <CustomTextBox id="Scouters" default="" width={180} height={30}/>
                             </View>
                         </View>
                     </View>
@@ -50,7 +50,7 @@ export default class MatchInfoContainer extends React.Component {
                     <View style={styles.piecesContainer}>
                         <View style={styles.inputContainer2}>
                             <Text style={styles.bold}>Starting Game Pieces</Text>
-                                <Incrementer/>
+                                <Incrementer id="StartingPieces"/>
                             <View>
                                 <Image
                                     source={require('../../Assets/am-4200-small-copy.png')}
