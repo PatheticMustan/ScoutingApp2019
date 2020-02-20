@@ -1,7 +1,7 @@
 import React from 'react';
 import {
-	StyleSheet,
-	Text,
+    StyleSheet,
+    Text,
     View,
     TouchableWithoutFeedback
 } from 'react-native';
@@ -9,8 +9,8 @@ import {
 import BoolButton from './Buttons/BoolButton.js';
 
 export default class Other extends React.Component {
-	render() {
-		return (
+    render() {
+        return (
             <View style = {styles.container}>
                 <Text style = {{textAlign: "center", fontSize: 35, fontWeight: 'bold'}}>Other</Text>
                 <View style = {styles.otherContainer}>
@@ -18,15 +18,15 @@ export default class Other extends React.Component {
                     <BoolButton bgc="red">Red Card</BoolButton>
                 </View>
             </View>
-		);
-	}
+        );
+    }
 }
 
-const styles=StyleSheet.create({
-	container: {
+const styles = StyleSheet.create({
+    container: {
         paddingHorizontal: 50,
         paddingVertical: 20,
-		backgroundColor: '#FFF'
+        backgroundColor: '#FFF'
     },
     otherContainer: {
         flex: 1,

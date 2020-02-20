@@ -1,15 +1,15 @@
 import React from 'react';
 import {
-	StyleSheet,
-	Text,
+    StyleSheet,
+    Text,
     View,
     TextInput,
     Image
 } from 'react-native';
 
 export default class Autonomous extends React.Component {
-	render() {
-		return (
+    render() {
+        return (
             <View style = {styles.container}>
                 <Text style = {{textAlign: "center", fontSize: 35, fontWeight: 'bold'}}>Autonomous</Text>
                 <View style = {styles.autonomousContainer}>
@@ -38,15 +38,15 @@ export default class Autonomous extends React.Component {
                     </View>
                 </View>
             </View>
-		);
-	}
+        );
+    }
 }
 
 const styles=StyleSheet.create({
-	container: {
+    container: {
         paddingHorizontal: 50,
         paddingVertical: 20,
-		backgroundColor: '#FFF'
+        backgroundColor: '#FFF'
     },
     autonomousContainer: {
         alignItems: 'center',

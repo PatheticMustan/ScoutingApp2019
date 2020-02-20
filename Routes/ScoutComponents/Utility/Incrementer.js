@@ -1,8 +1,8 @@
 import React from 'react';
 import {
-	StyleSheet,
-	Text,
-	View,
+    StyleSheet,
+    Text,
+    View,
     TouchableOpacity
 } from 'react-native';
 
@@ -13,9 +13,20 @@ export default class Incrementer extends React.Component {
         value: 0
     }
 
-	render() {
-		return (
-			<View style={styles.container}>
+    /** Update */
+    componentDidMount() {
+        /** Set default */
+        global.data[this.props.id] = this.props.default;
+
+        this.interval = setInterval(() => {
+            this.setState({ time: Date.now() });
+        }, 20)
+    }
+    componentWillUnmount() {clearInterval(this.interval)}
+
+    render() {
+        return (
+            <View style={styles.container}>
                 <TouchableOpacity onPress = {() => this.setState({value: Math.max(0, this.state.value - 1)})}>
                     <View style = {styles.iconContainer}>
                         <TabBarIcon size = {30} name = "minus" color = "#29adff"></TabBarIcon>
@@ -29,13 +40,13 @@ export default class Incrementer extends React.Component {
                         <TabBarIcon size = {30} name = "plus" color = "#29adff"></TabBarIcon>
                     </View>
                 </TouchableOpacity>
-			</View>
-		);
-	}
+            </View>
+        );
+    }
 }
 
 const styles = StyleSheet.create({
-	container: {
+    container: {
         flex: 1,
         backgroundColor: '#FFF',
         flexDirection: "row"

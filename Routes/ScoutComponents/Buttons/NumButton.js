@@ -1,14 +1,14 @@
 import React from 'react';
 import {
-	StyleSheet,
-	Text,
+    StyleSheet,
+    Text,
     View
 } from 'react-native';
 
 import Incrementer from '../Utility/Incrementer.js';
 
 export default class BoolButton extends React.Component {
-	render() {
+    render() {
         const p = this.props;
         const styles = StyleSheet.create({
             container: {
@@ -26,8 +26,8 @@ export default class BoolButton extends React.Component {
         });
         
         
-		return (
-			<View style={styles.container}>
+        return (
+            <View style={styles.container}>
                     <View style = {{
                         textAlign: 'center',
                         justifyContent: 'center',
@@ -40,7 +40,7 @@ export default class BoolButton extends React.Component {
                     <Text>{this.props.children}</Text>
                     </View>
                     <Incrementer/>
-			</View>
-		);
-	}
+            </View>
+        );
+    }
 }

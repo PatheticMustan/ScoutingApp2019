@@ -1,7 +1,7 @@
 import React from 'react';
 import {
-	StyleSheet,
-	Text,
+    StyleSheet,
+    Text,
     View,
     TouchableWithoutFeedback
 } from 'react-native';
@@ -11,7 +11,7 @@ export default class BoolButton extends React.Component {
         i: 0
     }
 
-	render() {
+    render() {
         const p = this.props;
         const styles = StyleSheet.create({
             button: {
@@ -26,8 +26,8 @@ export default class BoolButton extends React.Component {
         });
 
 
-		return (
-			<View style={styles.container}>
+        return (
+            <View style={styles.container}>
                 <TouchableWithoutFeedback onPress = {() => this.setState({i: !this.state.i})}>
                     <View style = {{
                         textAlign: 'center',
@@ -42,7 +42,7 @@ export default class BoolButton extends React.Component {
                         <Text>{this.props.children}</Text>
                     </View>
                 </TouchableWithoutFeedback>
-			</View>
-		);
-	}
+            </View>
+        );
+    }
 }

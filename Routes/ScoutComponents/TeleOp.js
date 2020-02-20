@@ -1,7 +1,7 @@
 import React from 'react';
 import {
-	StyleSheet,
-	Text,
+    StyleSheet,
+    Text,
     View,
     TextInput,
     Image
@@ -10,8 +10,8 @@ import {
 import CustomTextBox from './Utility/CustomTextBox.js';
 
 export default class TeleOp extends React.Component {
-	render() {
-		return (
+    render() {
+        return (
             <View style = {styles.container}>
                 <Text style = {{textAlign: "center", fontSize: 35, fontWeight: 'bold'}}>Tele-Op</Text>
                 <View style = {styles.teleOpContainer}>
@@ -41,15 +41,15 @@ export default class TeleOp extends React.Component {
                     </View>
                 </View>
             </View>
-		);
-	}
+        );
+    }
 }
 
 const styles = StyleSheet.create({
-	container: {
+    container: {
         paddingHorizontal: 50,
         paddingVertical: 20,
-		backgroundColor: '#FFF'
+        backgroundColor: '#FFF'
     },
     teleOpContainer: {
         alignItems: 'center',
