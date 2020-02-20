@@ -1,6 +1,7 @@
 import React from 'react';
 import {
-	View
+    View,
+    Button
 } from 'react-native';
 
 import Header from './ScoutComponents/Header.js';
@@ -13,18 +14,18 @@ import Other from './ScoutComponents/Other.js';
 import Data from './ScoutComponents/Data.js';
 
 export default class Scout extends React.Component {
-	render() {
-		return (
-			<View>
+    render() {
+        return (
+            <View>
                 <Data/>
 
-				<Header/>
-				<MatchInfoContainer/>
-				<Autonomous/>
-				<TeleOp/>
-				<Endgame/>
-				<Other/>
-			</View>
-		);
-	}
+                <Header/>
+                <MatchInfoContainer/>
+                <Autonomous/>
+                <TeleOp/>
+                <Endgame/>
+                <Other/>
+            </View>
+        );
+    }
 }

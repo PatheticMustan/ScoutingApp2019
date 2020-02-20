@@ -1,7 +1,7 @@
 import React from 'react';
 import {
-	StyleSheet,
-	Text,
+    StyleSheet,
+    Text,
     View,
     TextInput,
     Image
@@ -12,8 +12,8 @@ import TabBarIcon from './Utility/TabBarIcon.js'
 import CustomTextBox from './Utility/CustomTextBox.js';
 
 export default class MatchInfoContainer extends React.Component {
-	render() {
-		return (
+    render() {
+        return (
             <View style={styles.container}>
                 <Text style={{textAlign: "center", fontSize: 35, fontWeight: 'bold'}}>Match Info</Text>
 
@@ -22,13 +22,13 @@ export default class MatchInfoContainer extends React.Component {
                         <View style={styles.inputContainer}>
                             <Text style={styles.bold}>Team Number: </Text>
                             <View style={{flex: 1, paddingLeft: 5}}>
-                                <CustomTextBox id="teamNumber" width={60} height={30}/>
+                                <CustomTextBox id="TeamNumber" default="" width={60} height={30}/>
                             </View>
                         </View>
                         
                         <View style={styles.inputContainer}>
                             <Text style={styles.bold}>Match Number: Qualification # </Text>
-                            <Incrementer/>
+                            <Incrementer id="MatchNumber"/>
                         </View>
 
                         <View style={{flex: 1, marginTop: -45, flexDirection: "row"}}>
@@ -40,7 +40,7 @@ export default class MatchInfoContainer extends React.Component {
                             <Text style={styles.bold}>Scouters: </Text>
 
                             <View style={{flex: 1, paddingLeft: 5}}>
-                                <CustomTextBox id="scouters" width={180} height={30}/>
+                                <CustomTextBox id="Scouters" default="" width={300} height={30}/>
                             </View>
                         </View>
                     </View>
@@ -50,7 +50,7 @@ export default class MatchInfoContainer extends React.Component {
                     <View style={styles.piecesContainer}>
                         <View style={styles.inputContainer2}>
                             <Text style={styles.bold}>Starting Game Pieces</Text>
-                                <Incrementer/>
+                                <Incrementer id="StartingPieces"/>
                             <View>
                                 <Image
                                     source={require('../../Assets/am-4200-small-copy.png')}
@@ -61,17 +61,17 @@ export default class MatchInfoContainer extends React.Component {
                     </View>
                 </View>
             </View>
-		);
-	}
+        );
+    }
 }
 
 const styles=StyleSheet.create({
-	container: {
+    container: {
         paddingHorizontal: 50,
         paddingVertical: 20,
-		backgroundColor: '#FFF'
+        backgroundColor: '#FFF'
     },
-	matchInfoContainer: {
+    matchInfoContainer: {
         flex: 1,
         flexDirection: "row",
         borderColor: "black",

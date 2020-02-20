@@ -1,41 +1,57 @@
 import React from 'react';
 import {
-	StyleSheet,
-	Text,
-	View,
+    StyleSheet,
+    Text,
+    View,
     TouchableOpacity
 } from 'react-native';
 
 import TabBarIcon from './TabBarIcon.js';
 
 export default class Incrementer extends React.Component {
-    state = {
-        value: 0
+    /** Update */
+    componentDidMount() {
+        /** Set default */
+        global.data[this.props.id] = 0;
+
+        this.interval = setInterval(() => {this.setState({ time: Date.now() });}, 20);
+
+
+        this.increment = () => {
+            const min = this.props.min || 69420; /** heehee funny number */
+            global.data[this.props.id] = Math.min(min, global.data[this.props.id] + 1);
+        }
+        this.decrement = () => {
+            global.data[this.props.id] = Math.max(0, global.data[this.props.id] - 1);
+        }
     }
+    componentWillUnmount() {clearInterval(this.interval)}
 
-	render() {
-		return (
-			<View style={styles.container}>
-                <TouchableOpacity onPress = {() => this.setState({value: Math.max(0, this.state.value - 1)})}>
-                    <View style = {styles.iconContainer}>
-                        <TabBarIcon size = {30} name = "minus" color = "#29adff"></TabBarIcon>
+    
+
+    render() {
+        return (
+            <View style={styles.container}>
+                <TouchableOpacity onPress={this.decrement}>
+                    <View style={styles.iconContainer}>
+                        <TabBarIcon size={30} name="minus" color="#29adff"></TabBarIcon>
                     </View>
                 </TouchableOpacity>
 
-                <Text style = {styles.iconContainer}>{this.state.value}</Text>
+                <Text style = {styles.iconContainer}>{global.data[this.props.id]}</Text>
 
-                <TouchableOpacity onPress = {() => this.setState({value: this.state.value + 1})}>
+                <TouchableOpacity onPress={this.increment}>
                     <View style = {styles.iconContainer}>
-                        <TabBarIcon size = {30} name = "plus" color = "#29adff"></TabBarIcon>
+                        <TabBarIcon size={30} name="plus" color="#29adff"></TabBarIcon>
                     </View>
                 </TouchableOpacity>
-			</View>
-		);
-	}
+            </View>
+        );
+    }
 }
 
 const styles = StyleSheet.create({
-	container: {
+    container: {
         flex: 1,
         backgroundColor: '#FFF',
         flexDirection: "row"

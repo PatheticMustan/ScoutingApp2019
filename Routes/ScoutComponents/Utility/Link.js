@@ -1,26 +1,26 @@
 import React from 'react';
 import {
-	StyleSheet,
-	Text,
-	View
+    StyleSheet,
+    Text,
+    View
 } from 'react-native';
 
 export default class Link extends React.Component {
-	render() {
-		return (
-			<Text
+    render() {
+        return (
+            <Text
                 style={{color: this.props.color, fontSize: 17}}
                 onPress={this.props.onPress}
             >
-                	{this.props.children}
+                    {this.props.children}
             </Text>
-		);
-	}
+        );
+    }
 }
 
 const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: '#fff'
-	}
+    container: {
+        flex: 1,
+        backgroundColor: '#fff'
+    }
 });

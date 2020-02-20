@@ -1,7 +1,7 @@
 import React from 'react';
 import {
-	StyleSheet,
-	Text,
+    StyleSheet,
+    Text,
     View,
     TextInput,
     Button,
@@ -11,8 +11,8 @@ import {
 import NumButton from './Buttons/NumButton'
 
 export default class Endgame extends React.Component {
-	render() {
-		return (
+    render() {
+        return (
             <View style = {styles.container}>
                 <Text style = {{textAlign: "center", fontSize: 35, fontWeight: 'bold'}}>Endgame</Text>
                 <View style = {styles.endgameContainer}>
@@ -21,15 +21,15 @@ export default class Endgame extends React.Component {
                     </View>
                 </View>
             </View>
-		);
-	}
+        );
+    }
 }
 
 const styles=StyleSheet.create({
-	container: {
+    container: {
         paddingHorizontal: 50,
         paddingVertical: 20,
-		backgroundColor: '#FFF'
+        backgroundColor: '#FFF'
     },
     endgameContainer: {
         alignItems: 'center',

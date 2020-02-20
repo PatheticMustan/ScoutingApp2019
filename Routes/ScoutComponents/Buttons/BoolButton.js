@@ -1,17 +1,22 @@
 import React from 'react';
 import {
-	StyleSheet,
-	Text,
+    StyleSheet,
+    Text,
     View,
     TouchableWithoutFeedback
 } from 'react-native';
 
 export default class BoolButton extends React.Component {
-    state = {
-        i: 0
-    }
+    /** Update */
+    componentDidMount() {
+        /** Set default */
+        global.data[this.props.id] = false;
 
-	render() {
+        this.interval = setInterval(() => {this.setState({ time: Date.now() });}, 20);
+    }
+    componentWillUnmount() {clearInterval(this.interval)}
+
+    render() {
         const p = this.props;
         const styles = StyleSheet.create({
             button: {
@@ -26,9 +31,9 @@ export default class BoolButton extends React.Component {
         });
 
 
-		return (
-			<View style={styles.container}>
-                <TouchableWithoutFeedback onPress = {() => this.setState({i: !this.state.i})}>
+        return (
+            <View style={styles.container}>
+                <TouchableWithoutFeedback onPress = {() => global.data[this.props.id] = !global.data[this.props.id]}>
                     <View style = {{
                         textAlign: 'center',
                         justifyContent: 'center',
@@ -37,12 +42,12 @@ export default class BoolButton extends React.Component {
                         borderColor: '#000000',
                         width: (p.width? p.width : 100),
                         height: (p.height? p.height : 40),
-                        backgroundColor: (this.state.i? p.bgc : 'white')
+                        backgroundColor: (global.data[this.props.id]? p.bgc : 'white')
                     }}>
                         <Text>{this.props.children}</Text>
                     </View>
                 </TouchableWithoutFeedback>
-			</View>
-		);
-	}
+            </View>
+        );
+    }
 }
