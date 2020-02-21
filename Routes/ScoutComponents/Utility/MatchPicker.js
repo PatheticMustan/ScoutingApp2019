@@ -12,8 +12,6 @@ export default class MatchPicker extends React.Component {
 
         this.interval = setInterval(() => {this.setState({ time: Date.now() })}, 20);
         this.selectMatch = (v, i) => global.data[this.props.id] = v;
-
-        
     }
     componentWillUnmount() {clearInterval(this.interval)}
     

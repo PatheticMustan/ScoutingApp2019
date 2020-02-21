@@ -13,7 +13,7 @@ export default class Endgame extends React.Component {
             <View style = {styles.container}>
                 <Text style = {{textAlign: "center", fontSize: 35, fontWeight: 'bold'}}>Endgame</Text>
                 <View style = {styles.endgameContainer}>
-                    <NumButton id="BallsScored" title="Balls Scored"/>
+                    <NumButton id="BallsScored" width={120}>Balls Scored</NumButton>
                 </View>
             </View>
         );

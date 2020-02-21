@@ -9,11 +9,11 @@ import {
 import TabBarIcon from './TabBarIcon.js';
 
 export default class Incrementer extends React.Component {
-    /** Update */
+    
     componentDidMount() {
         /** Set default */
         global.data[this.props.id] = 0;
-
+        /** Update */
         this.interval = setInterval(() => {this.setState({ time: Date.now() });}, 20);
 
 
