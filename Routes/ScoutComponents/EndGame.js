@@ -2,10 +2,7 @@ import React from 'react';
 import {
     StyleSheet,
     Text,
-    View,
-    TextInput,
-    Button,
-    Image
+    View
 } from 'react-native';
 
 import NumButton from './Buttons/NumButton'
@@ -16,9 +13,7 @@ export default class Endgame extends React.Component {
             <View style = {styles.container}>
                 <Text style = {{textAlign: "center", fontSize: 35, fontWeight: 'bold'}}>Endgame</Text>
                 <View style = {styles.endgameContainer}>
-                    <View style = {styles.permanentEndgameComponent}>
-                        <NumButton>Balls Scored</NumButton>
-                    </View>
+                    <NumButton id="BallsScored" title="Balls Scored"/>
                 </View>
             </View>
         );
@@ -34,6 +29,7 @@ const styles=StyleSheet.create({
     endgameContainer: {
         alignItems: 'center',
         borderColor: "black",
+        padding: 20,
         borderWidth: StyleSheet.hairlineWidth,
         borderRadius: 10
     },

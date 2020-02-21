@@ -19,7 +19,6 @@ export default class Scout extends React.Component {
         return (
             <View>
                 <Data/>
-                <MatchPicker/>
 
                 <Header/>
                 <MatchInfoContainer/>

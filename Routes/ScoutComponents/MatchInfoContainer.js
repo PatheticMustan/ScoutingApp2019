@@ -10,6 +10,7 @@ import {
 import Incrementer from './Utility/Incrementer.js'
 import TabBarIcon from './Utility/TabBarIcon.js'
 import CustomTextBox from './Utility/CustomTextBox.js';
+import MatchPicker from './Utility/MatchPicker.js';
 
 export default class MatchInfoContainer extends React.Component {
     render() {
@@ -32,7 +33,7 @@ export default class MatchInfoContainer extends React.Component {
                         </View>
 
                         <View style={{flex: 1, marginTop: -45, flexDirection: "row"}}>
-                            <TabBarIcon color="#29adff" name="ellipsis-h"/>
+                            <MatchPicker id="MatchType" default="Qualification"/>
                             <Text style={{fontSize: 13, marginTop: 3}}> Change Match Type</Text>
                         </View>
 

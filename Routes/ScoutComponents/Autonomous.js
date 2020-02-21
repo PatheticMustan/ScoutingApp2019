@@ -3,7 +3,6 @@ import {
     StyleSheet,
     Text,
     View,
-    TextInput,
     Image
 } from 'react-native';
 
@@ -12,20 +11,20 @@ import CustomTextBox from './Utility/CustomTextBox.js';
 export default class Autonomous extends React.Component {
     render() {
         return (
-            <View style = {styles.container}>
-                <Text style = {{textAlign: "center", fontSize: 35, fontWeight: 'bold'}}>Autonomous</Text>
-                <View style = {styles.autonomousContainer}>
+            <View style={styles.container}>
+                <Text style={{textAlign: "center", fontSize: 35, fontWeight: 'bold'}}>Autonomous</Text>
+                <View style={styles.autonomousContainer}>
                     <Image
-                        source = {require('../../Assets/FRC-2020-Field-Color-Top-Cropped-More.png')}
-                        style = {{height: 700, width: 1300, marginTop: 20, borderRadius: 10}}
+                        source={require('../../Assets/FRC-2020-Field-Color-Top-Cropped-More.png')}
+                        style={{height: 700, width: 1300, marginTop: 20, borderRadius: 10}}
                     />
-                    {/* Alright alright, inline CSS is fine on <Text> tags */}
-                    <Text style = {{textAlign: "center", fontSize: 20, fontWeight: 'bold'}}>Comments</Text>
-                    <Text style = {{textAlign: "center", fontSize: 14, marginLeft: 20, marginRight: 20, marginTop: 10}}>
+                    
+                    <Text style={{textAlign: "center", fontSize: 20, fontWeight: 'bold'}}>Comments</Text>
+                    <Text style={{textAlign: "center", fontSize: 14, marginHorizontal: 20, marginTop: 10}}>
                         Add any comments that you feel are useful. Does the robot get any penalties? Where do they shoot from?
                         Anything else that shows evidence of good/poor performance?
                     </Text>
-                    <View style = {{paddingLeft: 20, paddingRight: 20, paddingTop: 20, paddingBottom: 20}}>
+                    <View style={{padding: 20}}>
                         <CustomTextBox
                             id="AutonomousComments"
                             default=""
@@ -44,7 +43,7 @@ export default class Autonomous extends React.Component {
     }
 }
 
-const styles=StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
         paddingHorizontal: 50,
         paddingVertical: 20,

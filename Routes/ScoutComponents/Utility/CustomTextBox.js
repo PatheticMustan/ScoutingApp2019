@@ -30,7 +30,6 @@ export default class CustomTextBox extends React.Component {
                     borderColor: "#AAA",
                     borderWidth: StyleSheet.hairlineWidth,
                     borderRadius: (this.props.borderRadius? this.props.borderRadius : this.props.height / 5)
-                    
                 }}
 
                 onChangeText={text => {global.data[this.props.id] = text}}
@@ -39,7 +38,3 @@ export default class CustomTextBox extends React.Component {
         );
     }
 }
-
-    
-    
-    

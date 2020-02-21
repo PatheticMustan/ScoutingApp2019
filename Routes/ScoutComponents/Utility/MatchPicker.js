@@ -1,36 +1,31 @@
 import React from 'react';
 import {
-    StyleSheet,
-    Text,
     View,
     Picker
 } from 'react-native';
 
-import TabBarIcon from './TabBarIcon.js';
-
 export default class MatchPicker extends React.Component {
-    state = {matchType: ""}
-    newMatchType = matchType => {
-        this.setState({matchType : matchType})
+    /** Update */
+    componentDidMount() {
+        /** Set default */
+        global.data[this.props.id] = this.props.default;
+
+        this.interval = setInterval(() => {this.setState({ time: Date.now() })}, 20);
+        this.selectMatch = (v, i) => global.data[this.props.id] = v;
+
+        
     }
+    componentWillUnmount() {clearInterval(this.interval)}
     
     render() {
         return (
-            <View style = {styles.picker}>
-                <Picker pickMatchType = {this.state.matchType} onValueChange = {this.newMatchType}>
-                    /** Funny numbers haha */
-                    <Picker.Item label = "Qualification" value = "69" />
-                    <Picker.Item label = "Quarterfinal" value = "420" />
-                    <Picker.Item label = "Semifinal" value = "1337" />
+            <View>
+                <Picker pickMatchType={global.data[this.props.id]} onValueChange={this.selectMatch}>
+                    <Picker.Item label="Qualification" value="Qualification" />
+                    <Picker.Item label="Quarterfinal" value="Quarterfinal" />
+                    <Picker.Item label="Semifinal" value="Semifinal" />
                 </Picker>
-                <TabBarIcon color="#29adff" name="ellipsis-h"/>
             </View>
         )
     }
 }
-
-const styles = StyleSheet.create ({
-    picker: {
-        backgroundColor: 'blue'
-    }
-});
