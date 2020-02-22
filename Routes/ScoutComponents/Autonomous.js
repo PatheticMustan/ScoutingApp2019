@@ -6,6 +6,9 @@ import {
     ImageBackground
 } from 'react-native';
 
+import BoolButton from './Buttons/BoolButton.js';
+import NumButton from './Buttons/NumButton.js';
+import RadioButton from './Buttons/RadioButton.js';
 import CustomTextBox from './Utility/CustomTextBox.js';
 
 export default class Autonomous extends React.Component {
@@ -19,6 +22,16 @@ export default class Autonomous extends React.Component {
                         style={{height: 700, width: 1300, marginTop: 20, borderRadius: 10}}
                     />
                     
+                    <BoolButton id="CrossesInitiationLine" bgc="lime" width={160}>Crosses Initation Line</BoolButton>
+                    <RadioButton id="LinePosition" data={["Left", "Middle", "Right"]} bgc={"orange"}/>
+                    
+                    <NumButton id="AutoLow">Low</NumButton>
+                    <NumButton id="AutoOuter">Outer</NumButton>
+                    <NumButton id="AutoInner">Inner</NumButton>
+                    <NumButton id="AutoMissed">Missed</NumButton>
+
+                    <NumButton id="BallsPickedUp" width={160}>Balls Picked Up</NumButton>
+
                     <Text style={{textAlign: "center", fontSize: 20, fontWeight: 'bold'}}>Comments</Text>
                     <Text style={{textAlign: "center", fontSize: 14, marginHorizontal: 20, marginTop: 10}}>
                         Add any comments that you feel are useful. Does the robot get any penalties? Where do they shoot from?

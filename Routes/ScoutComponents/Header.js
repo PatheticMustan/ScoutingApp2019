@@ -6,6 +6,8 @@ import {
 } from 'react-native';
 import * as Sharing from 'expo-sharing';
 import Link from './Utility/Link.js';
+import SegmentedControl from './Buttons/SegmentedControl.js';
+
 
 export default class Header extends React.Component {
     render() {
@@ -16,7 +18,17 @@ export default class Header extends React.Component {
                 <View style={styles.linkContainer}>
                     <Link color="red" onPress={() => alert(1)}>Reset</Link>
                     <Link color="blue" onPress={() => alert(1)}>Undo</Link>
-                    <Link color="blue" onPress={() => alert(1)}>Reset</Link>
+
+                    <SegmentedControl
+                        id="Team"
+                        data={["Blue Alliance", "Red Alliance"]}
+                        options={{
+                            firstTabStyle: {backgroundColor: "#007FFF"},
+                            lastTabStyle: {backgroundColor: "#FF3E3E"},
+                            tabTextStyle: {color: "white"}
+                        }}
+                    />
+                    
                     <Link color="blue" onPress={() => alert(1)}>Save</Link>
                     <Link color="blue" onPress={() => Sharing}>Save and Export</Link>
                 </View>

@@ -3,9 +3,12 @@ import {
     StyleSheet,
     Text,
     View,
-    ImageBackground
+    Image
 } from 'react-native';
 
+import BoolButton from './Buttons/BoolButton.js';
+import NumButton from './Buttons/NumButton.js';
+import RadioButton from './Buttons/RadioButton.js';
 import CustomTextBox from './Utility/CustomTextBox.js';
 
 export default class TeleOp extends React.Component {
@@ -18,7 +21,25 @@ export default class TeleOp extends React.Component {
                         source = {require('../../Assets/FRC-2020-Field-Color-Top-Cropped-More.png')}
                         style = {{height: 700, width: 1300, marginTop: 20, borderRadius: 10}}
                     />
-                    {/* Alright alright, inline CSS is fine on <Text> tags */}
+                    
+                    <BoolButton id="PlaysDefense" bgc="lime">Plays Defense</BoolButton>
+                    <NumButton id="BallsPickedUpFromLoadingStation" width={280}>Balls Picked Up from Loading Station</NumButton>
+
+                    <BoolButton id="Rotation" bgc="lime">Rotation</BoolButton>
+                    <BoolButton id="Color" bgc="lime">Color</BoolButton>
+
+                    <RadioButton id="ShootFrom" data={["Trench Zone", "Target Zone", "Other"]} bgc={"orange"}/>
+
+                    <NumButton id="BallsPickedUpFromFloor" width={200}>Balls Picked Up from Floor</NumButton>
+
+                    <BoolButton id="FitsUnderTrench" bgc="lime">Fits Under Trench</BoolButton>
+
+                    <NumButton id="TeleLow">Low</NumButton>
+                    <NumButton id="TeleOuter">Outer</NumButton>
+                    <NumButton id="TeleInner">Inner</NumButton>
+                    <NumButton id="TeleMissed">Missed</NumButton>
+
+
                     <Text style = {{textAlign: "center", fontSize: 20, fontWeight: 'bold'}}>Comments</Text>
                     <Text style = {{textAlign: "center", fontSize: 14, marginLeft: 20, marginRight: 20, marginTop: 10}}>
                         Add any comments that you feel are useful. Does the robot get any penalties? Does the robot cycle

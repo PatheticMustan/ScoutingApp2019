@@ -12,10 +12,46 @@ export default class Data extends React.Component {
     }
 
     /** Update data every second. */
-    componentDidMount() {
-        this.interval = setInterval(() => {this.setState({ time: Date.now() });}, 100);
+    componentDidMount() {this.interval = setInterval(() => {this.setState({ time: Date.now() })}, 100)}
+    componentWillUnmount() {clearInterval(this.interval)}
+    exportMatch() {
+        /**
+         * Team #
+         * Match #
+         * Fits under trench?
+         * Defense
+         * Penalties
+         * Starting Balls
+         * Starting Position
+         * Cross Line
+         * Balls Picked Up
+         * Low Goal
+         * Outer Goal
+         * Inner Goal
+         * Shots Missed
+         * Comments
+         * Loading Station
+         * Floor
+         * Low Goal
+         * Outer Goal
+         * Inner Goal
+         * Shots Missed
+         * Location of Shots
+         * Rotation
+         * Color
+         * Comments
+         * Endgame Type
+         * Balls Scored
+         * Initial Climb Height
+         * Initial Climb Position
+         * Climb Time
+         * Comments
+         */
+
+        const match = {
+            "Team #": global.data["TeamNumber"]
+        }
     }
-    componentWillUnmount() {clearInterval(this.interval);}
 
     render() {
         return (
