@@ -22,7 +22,10 @@ export default class SegmentedControl extends React.Component {
             <View>
                 <SegmentedControlTab
                     {...this.props.options}
-                    tabStyle={{paddingVertical: 5, paddingHorizontal: 10}}
+                    tabStyle={{
+                        paddingVertical: 5,
+                        paddingHorizontal: 10
+                    }}
                     values={this.props.data}
                     selectedIndex={global.data[this.props.id]}
                     onTabPress={index => global.data[this.props.id] = index}
