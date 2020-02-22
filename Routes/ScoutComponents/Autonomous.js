@@ -23,11 +23,14 @@ export default class Autonomous extends React.Component {
                     />
                     
                     <BoolButton id="CrossesInitiationLine" bgc="lime" width={160}>Crosses Initation Line</BoolButton>
-                    <RadioButton id="RadioButton" data={["Left", "Middle", "Right"]} bgc={"orange"}/>
-                    <NumButton id="Low">Low</NumButton>
-                    <NumButton id="Outer">Outer</NumButton>
-                    <NumButton id="Inner">Inner</NumButton>
-                    <NumButton id="Missed">Missed</NumButton>
+                    <RadioButton id="LinePosition" data={["Left", "Middle", "Right"]} bgc={"orange"}/>
+                    
+                    <NumButton id="AutoLow">Low</NumButton>
+                    <NumButton id="AutoOuter">Outer</NumButton>
+                    <NumButton id="AutoInner">Inner</NumButton>
+                    <NumButton id="AutoMissed">Missed</NumButton>
+
+                    <NumButton id="BallsPickedUp" width={160}>Balls Picked Up</NumButton>
 
                     <Text style={{textAlign: "center", fontSize: 20, fontWeight: 'bold'}}>Comments</Text>
                     <Text style={{textAlign: "center", fontSize: 14, marginHorizontal: 20, marginTop: 10}}>

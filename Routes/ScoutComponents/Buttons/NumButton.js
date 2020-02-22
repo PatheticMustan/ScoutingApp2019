@@ -22,7 +22,7 @@ export default class NumButton extends React.Component {
         const p = this.props;
 
         return (
-                <TouchableWithoutFeedback onPress={this.increment} onLongPress={this.decrement}>
+                <TouchableWithoutFeedback onPress={this.increment} onLongPress={this.decrement} >
                     <View style = {{
                         textAlign: 'center',
                         justifyContent: 'center',
