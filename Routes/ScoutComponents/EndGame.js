@@ -14,6 +14,9 @@ export default class Endgame extends React.Component {
                 <Text style = {{textAlign: "center", fontSize: 35, fontWeight: 'bold'}}>Endgame</Text>
                 <View style = {styles.endgameContainer}>
                     <NumButton id="BallsScored" title="Balls Scored"/>
+                        <View style = {styles.endgameButtons}>
+                            
+                        </View>
                 </View>
             </View>
         );

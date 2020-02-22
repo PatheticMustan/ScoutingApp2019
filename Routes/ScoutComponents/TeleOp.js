@@ -3,8 +3,7 @@ import {
     StyleSheet,
     Text,
     View,
-    TextInput,
-    Image
+    ImageBackground
 } from 'react-native';
 
 import CustomTextBox from './Utility/CustomTextBox.js';
@@ -15,7 +14,7 @@ export default class TeleOp extends React.Component {
             <View style = {styles.container}>
                 <Text style = {{textAlign: "center", fontSize: 35, fontWeight: 'bold'}}>Tele-Op</Text>
                 <View style = {styles.teleOpContainer}>
-                    <Image
+                    <ImageBackground
                         source = {require('../../Assets/FRC-2020-Field-Color-Top-Cropped-More.png')}
                         style = {{height: 700, width: 1300, marginTop: 20, borderRadius: 10}}
                     />
