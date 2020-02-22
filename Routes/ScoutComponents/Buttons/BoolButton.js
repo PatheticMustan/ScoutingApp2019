@@ -7,7 +7,6 @@ import {
 } from 'react-native';
 
 export default class BoolButton extends React.Component {
-    
     componentDidMount() {
         /** Set default */
         global.data[this.props.id] = false;
