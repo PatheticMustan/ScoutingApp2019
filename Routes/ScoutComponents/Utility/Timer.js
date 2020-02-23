@@ -19,7 +19,7 @@ export default class Timer extends React.Component {
     render() {
         return (
             <View>
-                <BoolButton id="timerOn">{global.data[this.props.id]}</BoolButton>
+                <BoolButton id="timerOn">{this.props.children}</BoolButton>
             </View>
         )
     }
