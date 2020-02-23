@@ -3,7 +3,7 @@ import {
     StyleSheet,
     Text,
     View,
-    Image
+    ImageBackground
 } from 'react-native';
 
 import BoolButton from './Buttons/BoolButton.js';
@@ -17,7 +17,7 @@ export default class Autonomous extends React.Component {
             <View style={styles.container}>
                 <Text style={{textAlign: "center", fontSize: 35, fontWeight: 'bold'}}>Autonomous</Text>
                 <View style={styles.autonomousContainer}>
-                    <Image
+                    <ImageBackground
                         source={require('../../Assets/FRC-2020-Field-Color-Top-Cropped-More.png')}
                         style={{height: 700, width: 1300, marginTop: 20, borderRadius: 10}}
                     />
