@@ -11,7 +11,7 @@ export default class BoolButton extends React.Component {
         /** Set default */
         global.data[this.props.id] = false;
         /** Update */
-        this.interval = setInterval(() => {this.setState({ time: Date.now() });}, 20);
+        this.interval = setInterval(() => {this.setState({ time: Date.now() })}, 20);
     }
     componentWillUnmount() {clearInterval(this.interval)}
 

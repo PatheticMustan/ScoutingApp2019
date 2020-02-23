@@ -1,7 +1,8 @@
 import React from 'react';
 import {
     View,
-    Text
+    Text,
+    Button
 } from 'react-native';
 
 export default class Data extends React.Component {
@@ -52,39 +53,39 @@ export default class Data extends React.Component {
         const g = id => global.data[id] //.split(`"`).join("").split(",").join("");
 
 
-        const header = ",,Other,,,Autonomous,,,,,,,,,Balls Picked Up,,Balls Scored,,,,,Control Panel,,,End Game,Balls Scored,If Climb...,,,Team #,Match #,Fits under trench?,Defense,Penalties,Starting Balls,Starting Position,Cross Line,Balls Picked Up,Low Goal,Outer Goal,Inner Goal,Shots Missed,Comments,Loading Station,Floor,Low Goal,Outer Goal,Inner Goal,Shots Missed,Location of Shots,Rotation,Color,Comments,Endgame Type,Balls Scored,Initial Climb Height,Initial Climb Position,Climb Time,Comments\n"
+        const header = ",,Other,,,Autonomous,,,,,,,,,Balls Picked Up,,Balls Scored,,,,,Control Panel,,,End Game,Balls Scored,If Climb...,,,\nTeam #,Match #,Fits under trench?,Defense,Penalties,Starting Balls,Starting Position,Cross Line,Balls Picked Up,Low Goal,Outer Goal,Inner Goal,Shots Missed,Comments,Loading Station,Floor,Low Goal,Outer Goal,Inner Goal,Shots Missed,Location of Shots,Rotation,Color,Comments,Endgame Type,Balls Scored,Initial Climb Height,Initial Climb Position,Climb Time,Comments\n"
 
         const entry = [
             g`TeamNumber`,
             g`MatchNumber`,
-            g`FitsUnderTrench`,
-            g`PlaysDefense`,
+            g`FitsUnderTrench`? "Yes" : "No",
+            g`PlaysDefense`? "Yes" : "No",
             g`RedCard`+g`YellowCard`>1?"Red and Yellow":!(g`RedCard`+g`YellowCard`)?"None":g`RedCard`?"Red":"Yellow",
             g`StartingPieces`,
             g`LinePosition`,
-            g`CrossesInitiationLine`,
+            g`CrossesInitiationLine`? "Yes" : "No",
             g`BallsPickedUp`,
             g`AutoLow`,
             g`AutoOuter`,
             g`AutoInner`,
             g`AutoMissed`,
             g`AutonomousComments`,
-            g`Loading Station`,
-            g`Floor`,
-            g`Low Goal`,
-            g`Outer Goal`,
-            g`Inner Goal`,
-            g`Shots Missed`,
-            g`Location of Shots`,
-            g`Rotation`,
-            g`Color`,
-            g`Comments`,
-            g`Endgame Type`,
-            g`Balls Scored`,
-            g`Initial Climb Height`,
-            g`Initial Climb Position`,
-            g`Climb Time`,
-            g`Comments`
+            g`BallsPickedUpFromLoadingStation`,
+            g`BallsPickedUpFromFloor`,
+            g`TeleLow`,
+            g`TeleOuter`,
+            g`TeleInner`,
+            g`TeleMissed`,
+            g`ShootFrom`,
+            g`Rotation`? "Yes" : "No",
+            g`Color`? "Yes" : "No",
+            g`TeleopComments`,
+            ["Park", "Climb", "None"][g`EndgameType`],
+            g`BallsScored`,
+            g`Initial Climb Height`, /** Finish */
+            g`Initial Climb Position`, /** Finish */
+            g`Climb Time`, /** Finish */
+            g`EndgameComments` /** Finish */
         ];
 
         let output = header + entry;
@@ -97,9 +98,9 @@ export default class Data extends React.Component {
             <View>
                 <Text>{Object.entries(global.data).map(e=>`${e[0]}: ${JSON.stringify(e[1])}`).join("\n")}</Text>
 
-                <Text>
+                <Button>
                     {this.exportMatch()}
-                </Text>
+                </Button>
             </View>
         );
     }

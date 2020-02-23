@@ -14,7 +14,7 @@ export default class SegmentedControl extends React.Component {
     componentWillUnmount() {clearInterval(this.interval)}
     
     handleIndexChange = index => {
-        global.data[this.props.id] = index
+        global.data[this.props.id] = index;
     }
 
     render() {

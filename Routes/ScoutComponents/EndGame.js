@@ -21,7 +21,7 @@ export default class Endgame extends React.Component {
 
                     <View style={{margin: 20}}>
                         <SegmentedControl
-                            id="Team"
+                            id="EndgameType"
                             data={["Park", "Climb", "None"]}
                         />
                     </View>
