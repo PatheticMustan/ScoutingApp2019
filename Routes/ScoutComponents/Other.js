@@ -13,8 +13,8 @@ export default class Other extends React.Component {
             <View style = {styles.container}>
                 <Text style = {{textAlign: "center", fontSize: 35, fontWeight: 'bold'}}>Other</Text>
                 <View style = {styles.otherContainer}>
-                    <BoolButton id="YellowCard" bgc="yellow">Yellow Card</BoolButton>
-                    <BoolButton id="RedCard" bgc="red">Red Card</BoolButton>
+                    <BoolButton id="YellowCard" bgc="yellow" width={160}>Yellow Card</BoolButton>
+                    <BoolButton id="RedCard" bgc="red" width={160}>Red Card</BoolButton>
                 </View>
             </View>
         );

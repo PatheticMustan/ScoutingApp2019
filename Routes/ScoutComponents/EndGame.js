@@ -2,11 +2,13 @@ import React from 'react';
 import {
     StyleSheet,
     Text,
-    View
+    View,
+    Image
 } from 'react-native';
 
 import SegmentedControl from './Buttons/SegmentedControl.js';
 import NumButton from './Buttons/NumButton.js';
+import BoolButton from './Buttons/BoolButton.js'
 import Timer from './Utility/Timer.js';
 
 export default class Endgame extends React.Component {
@@ -25,6 +27,25 @@ export default class Endgame extends React.Component {
                     </View>
 
                     <Timer id="Timer">Test</Timer>
+                    <View style={styles.climbHeight}>
+                        <Image
+                            source={require('../../Assets/End Low.png')}
+                            style={{width: 100, height: 50}}
+                        />
+                        <Image
+                            source={require('../../Assets/End Level.png')}
+                            style={{width: 100, height: 50}}
+                        />
+                        <Image
+                            source={require('../../Assets/End High.png')}
+                            style={{width: 100, height: 50}}
+                        />
+                        <View style = {styles.climbHeightButtons}>
+                            <BoolButton id="Low" bgc="yellow" width={100}>Low</BoolButton>
+                            <BoolButton id="Balanced" bgc="yellow" width={100}>Balanced</BoolButton>
+                            <BoolButton id="High" bgc="yellow" width={100}>High</BoolButton>
+                        </View>
+                    </View>
                 </View>
             </View>
         );
@@ -44,4 +65,12 @@ const styles=StyleSheet.create({
         borderWidth: StyleSheet.hairlineWidth,
         borderRadius: 10
     },
+    climbHeight: {
+        flex: 1,
+        flexDirection: row
+    },
+    climbHeightButtons: {
+        flex: 1,
+        flexDirection: row
+    }
 });
