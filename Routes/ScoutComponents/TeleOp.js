@@ -3,7 +3,7 @@ import {
     StyleSheet,
     Text,
     View,
-    Image
+    ImageBackground
 } from 'react-native';
 
 import BoolButton from './Buttons/BoolButton.js';
@@ -18,7 +18,7 @@ export default class TeleOp extends React.Component {
                 <Text style = {{textAlign: "center", fontSize: 35, fontWeight: 'bold'}}>Tele-Op</Text>
                 <View style = {styles.teleOpContainer}>
                     <ImageBackground
-                        source = {require('../../Assets/FRC-2020-Field-Color-Top-Cropped-More.png')}
+                        source = {require('../../Assets/2020 Field.png')}
                         style = {{height: 700, width: 1300, marginTop: 20, borderRadius: 10}}
                     />
                     

@@ -54,7 +54,7 @@ export default class MatchInfoContainer extends React.Component {
                                 <Incrementer id="StartingPieces"/>
                             <View>
                                 <Image
-                                    source={require('../../Assets/am-4200-small-copy.png')}
+                                    source={require('../../Assets/Ball.png')}
                                     style={{width: 150, height: 150}}
                                 />
                             </View>
