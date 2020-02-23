@@ -26,25 +26,30 @@ export default class Endgame extends React.Component {
                         />
                     </View>
 
-                    <Timer id="Timer">Test</Timer>
+                    <Timer id="Timer">Start Stopwatch</Timer>
+
+                    <View style={{paddingTop: 20, paddingBottom: 10}}>
+                        <Text style={{fontSize: 20, fontWeight: "bold"}}>Initial Climb Height</Text>
+                    </View>
+
                     <View style={styles.climbHeight}>
                         <Image
                             source={require('../../Assets/End Low.png')}
-                            style={{width: 100, height: 50}}
+                            style={{width: 300, height: 150, borderRadius: 10}}
                         />
                         <Image
                             source={require('../../Assets/End Level.png')}
-                            style={{width: 100, height: 50}}
+                            style={{width: 300, height: 150, borderRadius: 10}}
                         />
                         <Image
                             source={require('../../Assets/End High.png')}
-                            style={{width: 100, height: 50}}
+                            style={{width: 300, height: 150, borderRadius: 10}}
                         />
-                        <View style = {styles.climbHeightButtons}>
+                    </View>
+                    <View style = {styles.climbHeightButtons}>
                             <BoolButton id="Low" bgc="yellow" width={100}>Low</BoolButton>
                             <BoolButton id="Balanced" bgc="yellow" width={100}>Balanced</BoolButton>
                             <BoolButton id="High" bgc="yellow" width={100}>High</BoolButton>
-                        </View>
                     </View>
                 </View>
             </View>
@@ -67,10 +72,10 @@ const styles=StyleSheet.create({
     },
     climbHeight: {
         flex: 1,
-        flexDirection: row
+        flexDirection: 'row'
     },
     climbHeightButtons: {
         flex: 1,
-        flexDirection: row
+        flexDirection: 'row'
     }
 });
