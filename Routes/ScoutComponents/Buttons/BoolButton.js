@@ -21,7 +21,6 @@ export default class BoolButton extends React.Component {
         return (
             <TouchableWithoutFeedback onPress={() => global.data[p.id] = !global.data[p.id]}>
                 <View style = {{
-                    textAlign: "center",
                     justifyContent: "center",
                     borderRadius: 10,
                     borderWidth: StyleSheet.hairlineWidth,
@@ -29,7 +28,11 @@ export default class BoolButton extends React.Component {
                     height: 40,
                     backgroundColor: (global.data[p.id]? p.bgc : 'white')
                 }}>
-                    <Text>{p.children}</Text>
+                    <Text style={{
+                        textAlign: "center",
+                    }}>
+                        {p.children}
+                    </Text>
                 </View>
             </TouchableWithoutFeedback>
         );
