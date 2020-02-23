@@ -10,6 +10,7 @@ export default class Data extends React.Component {
         super();
         /* This is all the data. */
         global.data = {}
+        global.output = "";
     }
 
     /** Update data every second. */
@@ -90,7 +91,7 @@ export default class Data extends React.Component {
 
         let output = header + entry;
 
-        return output;
+        global.output = output;
     }
 
     render() {
@@ -98,9 +99,9 @@ export default class Data extends React.Component {
             <View>
                 <Text>{Object.entries(global.data).map(e=>`${e[0]}: ${JSON.stringify(e[1])}`).join("\n")}</Text>
 
-                <Button>
-                    {this.exportMatch()}
-                </Button>
+                <Button onPress={() => this.exportMatch()} title={"Export"}/>
+
+                <Text>{global.output}</Text>
             </View>
         );
     }
