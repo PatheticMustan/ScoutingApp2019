@@ -24,14 +24,13 @@ export default class NumButton extends React.Component {
         return (
                 <TouchableWithoutFeedback onPress={this.increment} onLongPress={this.decrement} >
                     <View style = {{
-                        textAlign: 'center',
-                        justifyContent: 'center',
+                        justifyContent: "center",
                         borderRadius: 10,
                         borderWidth: StyleSheet.hairlineWidth,
                         width: (p.width? p.width : 100),
                         height: 40
                     }}>
-                        <Text>{p.children} {`(${global.data[p.id]})`}</Text>
+                        <Text style={{textAlign: "center"}}>{p.children} {`(${global.data[p.id]})`}</Text>
                     </View>
                 </TouchableWithoutFeedback>
         );

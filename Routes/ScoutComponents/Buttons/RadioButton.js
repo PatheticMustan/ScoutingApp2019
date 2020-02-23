@@ -22,9 +22,8 @@ export default class RadioButton extends React.Component {
             <View style={{...p.options}}>
                 {
                     p.data.map(v =>
-                        <TouchableWithoutFeedback onPress={() => global.data[p.id] = (global.data[p.id]==v? "" : v)}>
+                        <TouchableWithoutFeedback key={v} onPress={() => global.data[p.id] = (global.data[p.id]==v? "" : v)}>
                             <View style={{
-                                textAlign: "center",
                                 justifyContent: "center",
                                 borderRadius: 10,
                                 borderWidth: StyleSheet.hairlineWidth,
@@ -32,7 +31,7 @@ export default class RadioButton extends React.Component {
                                 height: 40,
                                 backgroundColor: (global.data[p.id] === v? p.bgc : 'white')
                             }}>
-                                <Text>{v}</Text>
+                                <Text style={{textAlign: "center"}}>{v}</Text>
                             </View>
                         </TouchableWithoutFeedback>
                     )

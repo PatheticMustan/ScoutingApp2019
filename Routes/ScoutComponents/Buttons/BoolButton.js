@@ -28,11 +28,7 @@ export default class BoolButton extends React.Component {
                     height: 40,
                     backgroundColor: (global.data[p.id]? p.bgc : 'white')
                 }}>
-                    <Text style={{
-                        textAlign: "center",
-                    }}>
-                        {p.children}
-                    </Text>
+                    <Text style={{textAlign: "center"}}>{p.children}</Text>
                 </View>
             </TouchableWithoutFeedback>
         );
