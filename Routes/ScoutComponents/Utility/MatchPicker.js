@@ -18,7 +18,7 @@ export default class MatchPicker extends React.Component {
     render() {
         return (
             <View>
-                <Picker pickMatchType={global.data[this.props.id]} onValueChange={this.selectMatch}>
+                <Picker onValueChange={this.selectMatch}>
                     <Picker.Item label="Qualification" value="Qualification" />
                     <Picker.Item label="Quarterfinal" value="Quarterfinal" />
                     <Picker.Item label="Semifinal" value="Semifinal" />
