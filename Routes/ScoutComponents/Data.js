@@ -9,8 +9,6 @@ export default class Data extends React.Component {
         super();
         /* This is all the data. */
         global.data = {}
-
-        global.test = () => {alert(1)}
     }
 
     /** Update data every second. */

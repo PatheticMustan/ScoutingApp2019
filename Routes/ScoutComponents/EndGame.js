@@ -11,7 +11,6 @@ import Timer from './Utility/Timer.js';
 
 export default class Endgame extends React.Component {
     render() {
-        global.test();
         return (
             <View style = {styles.container}>
                 <Text style = {{textAlign: "center", fontSize: 35, fontWeight: 'bold'}}>Endgame</Text>
