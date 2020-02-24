@@ -49,6 +49,7 @@ export default class Data extends React.Component {
          */
 
         // shorten the monstrosity I'm about to type. Also clears data from `"` and `,`. Pretty lazy, but also I'm kinda tired.
+        // damn good job on backend, Kevin. I do read your comments lol
         const g = id => global.data[id] //.split(`"`).join("").split(",").join("");
 
 
