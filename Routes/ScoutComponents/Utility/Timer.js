@@ -29,6 +29,7 @@ export default class Timer extends React.Component {
         );
     };
 
+    /** might be useless */
     onEndTimer = (min, sec) => {
         this.time = (`${min} : ${sec}`)
     };
@@ -46,14 +47,27 @@ export default class Timer extends React.Component {
                         min: min + 1
                     });
                 }
+
+                this.time = (`${min} : ${sec}`)
             }, 1000);
+        } else {
+            clearInterval(this.interval);
         }
+    };
+
+    onResetTimer = () => {
+        this.setState ({
+            sec: 0,
+            min: 0,
+
+            start: false
+        });
     }
     render() {
         return (
             <View>
                 <TouchableWithoutFeedback style = {styles.timerButton}>
-                    <Text>Timer</Text>
+                    <Text>{this.state.time}</Text>
                 </TouchableWithoutFeedback>
             </View>
         )
@@ -62,6 +76,10 @@ export default class Timer extends React.Component {
 
 const styles = StyleSheet.create({
     timerButton: {
+        height: 160,
+        width: 40,
+        borderWidth: StyleSheet.hairlineWidth,
         borderRadius: 10,
+        backgroundColor: 'white'
     },
 })
