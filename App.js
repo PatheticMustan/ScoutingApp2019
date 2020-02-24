@@ -5,22 +5,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons } from 'react-native-vector-icons';
 
 import Scout from './Routes/Scout.js';
-
-function Feed() {
-    return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>Feed!</Text>
-        </View>
-    );
-}
-
-function Profile() {
-    return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>Profile!</Text>
-        </View>
-    );
-}
+import PastMatches from './Routes/PastMatches.js';
+import Settings from './Routes/Settings.js';
 
 function Notifications() {
     return (
@@ -41,30 +27,30 @@ function MyTabs() {
             }}
         >
             <Tab.Screen
-                name="Feed"
+                name="Scout"
                 component={Scout}
                 options={{
-                    tabBarLabel: 'Home',
+                    tabBarLabel: 'Scout',
                     tabBarIcon: ({ color, size }) => (
                         <MaterialCommunityIcons name="home" color={color} size={size} />
                     ),
                 }}
             />
             <Tab.Screen
-                name="Notifications"
-                component={Notifications}
+                name="PastMatches"
+                component={PastMatches}
                 options={{
-                    tabBarLabel: 'Updates',
+                    tabBarLabel: 'Past Matches',
                     tabBarIcon: ({ color, size }) => (
                         <MaterialCommunityIcons name="bell" color={color} size={size} />
                     ),
                 }}
             />
             <Tab.Screen
-                name="Profile"
-                component={Profile}
+                name="Settings"
+                component={Settings}
                 options={{
-                    tabBarLabel: 'Profile',
+                    tabBarLabel: 'Settings',
                     tabBarIcon: ({ color, size }) => (
                         <MaterialCommunityIcons name="account" color={color} size={size} />
                     ),

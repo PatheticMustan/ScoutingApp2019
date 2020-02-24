@@ -15,7 +15,7 @@ import Data from './ScoutComponents/Data.js';
 
 /** Test Components */
 
-export default class PastMatches extends React.Component {
+export default class Settings extends React.Component {
     render() {
         return (
             <ScrollView>
