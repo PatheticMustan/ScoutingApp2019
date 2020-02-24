@@ -38,7 +38,7 @@ export default class Incrementer extends React.Component {
                     </View>
                 </TouchableOpacity>
 
-                <Text style = {styles.iconContainer}>{global.data[this.props.id]}</Text>
+                <Text style = {{fontSize: 30}}>{global.data[this.props.id]}</Text>
 
                 <TouchableOpacity onPress={this.increment}>
                     <View style = {styles.iconContainer}>
@@ -57,7 +57,6 @@ const styles = StyleSheet.create({
         flexDirection: "row"
     },
     iconContainer: {
-        fontSize: 30,
         padding: 5
     }
 });
