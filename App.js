@@ -4,6 +4,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons } from 'react-native-vector-icons';
 
+import Scout from './Routes/Scout.js';
+
 function Feed() {
     return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -40,7 +42,7 @@ function MyTabs() {
         >
             <Tab.Screen
                 name="Feed"
-                component={Feed}
+                component={Scout}
                 options={{
                     tabBarLabel: 'Home',
                     tabBarIcon: ({ color, size }) => (
