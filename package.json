@@ -8,12 +8,16 @@
         "eject": "expo eject"
     },
     "dependencies": {
+        "@react-navigation/bottom-tabs": "^5.0.7",
+        "@react-navigation/native": "^5.0.7",
         "expo": "~36.0.0",
         "expo-sharing": "^8.0.0",
         "react": "~16.9.0",
         "react-dom": "~16.9.0",
         "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz",
         "react-native-popup-menu": "^0.15.7",
+        "react-native-safe-area-context": "^0.6.0",
+        "react-native-screens": "^2.0.0-beta.12",
         "react-native-segmented-control-tab": "^3.4.1",
         "react-native-unimodules": "^0.7.0",
         "react-native-web": "~0.11.7"
