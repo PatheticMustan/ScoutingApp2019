@@ -63,10 +63,11 @@ export default class Timer extends React.Component {
             start: false
         });
     }
+    
     render() {
         return (
             <View>
-                <TouchableWithoutFeedback style = {styles.timerButton}>
+                <TouchableWithoutFeedback style = {styles.timerButton} onPress{() => onPressTimer()}>
                     <Text>{this.state.time}</Text>
                 </TouchableWithoutFeedback>
             </View>
@@ -80,6 +81,7 @@ const styles = StyleSheet.create({
         width: 40,
         borderWidth: StyleSheet.hairlineWidth,
         borderRadius: 10,
+        borderColor: 'black',
         backgroundColor: 'white'
     },
 })
