@@ -26,9 +26,9 @@ export default class Endgame extends React.Component {
                             data={["Park", "Climb", "None"]}
                         />
                     </View>
-
-                    <Timer id="Timer">Start Stopwatch</Timer>
-
+                    <View>
+                    <Timer/>
+                    </View>
                     <View style={{paddingTop: 20, paddingBottom: 10}}>
                         <Text style={{fontSize: 20, fontWeight: "bold"}}>Initial Climb Height</Text>
                     </View>
