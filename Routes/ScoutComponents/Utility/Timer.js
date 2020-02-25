@@ -1,26 +1,87 @@
 import React from 'react';
 import {
-    View
+    View,
+    Text,
+    StyleSheet,
+    TouchableWithoutFeedback
 } from 'react-native';
 
-import BoolButton from '../Buttons/BoolButton.js';
-
 export default class Timer extends React.Component {
-    /** Update */
-    componentDidMount() {
-        /** Set default */
-        global.data[this.props.id] = this.props.default;
+    constructor(props) {
+        super(props)
 
-        this.interval = setInterval(() => {this.setState({ time: Date.now() })}, 20);
-        this.selectMatch = (v, i) => global.data[this.props.id] = v;
+        this.state = {
+            min: 0,
+            sec: 0
+        }
+
+        this.time = "";
+
+        this.interval = null;
     }
-    componentWillUnmount() {clearInterval(this.interval)}
+
+    onPressTimer = () => {
+        this.setState (
+            {
+                start: !this.state.start()
+            },
+            () => this.onStartTimer()
+        );
+    };
+
+    /** might be useless */
+    onEndTimer = (min, sec) => {
+        this.time = (`${min} : ${sec}`)
+    };
+
+    onStartTimer = () => {
+        if (this.state.start) {
+            this.interval = setInterval(() => {
+                if (this.state.sec != 59) {
+                    this.setState({
+                        sec: this.state.sec + 1
+                    });
+                } else {
+                    this.setState({
+                        sec: 0,
+                        min: min + 1
+                    });
+                }
+
+                this.time = (`${min} : ${sec}`)
+            }, 1000);
+        } else {
+            clearInterval(this.interval);
+        }
+    };
+
+    onResetTimer = () => {
+        this.setState ({
+            sec: 0,
+            min: 0,
+
+            start: false
+        });
+    }
     
     render() {
         return (
             <View>
-                <BoolButton id="timerOn">{this.props.children}</BoolButton>
+                <TouchableWithoutFeedback style = {styles.timerButton} onPress{() => onPressTimer()}>
+                    <Text>{this.state.time}</Text>
+                </TouchableWithoutFeedback>
             </View>
         )
     }
 }
+
+const styles = StyleSheet.create({
+    timerButton: {
+        height: 160,
+        width: 40,
+        borderWidth: StyleSheet.hairlineWidth,
+        borderRadius: 10,
+        borderColor: 'black',
+        backgroundColor: 'white'
+    },
+})
