@@ -12,11 +12,11 @@
         ],
         "version": "1.0.0",
         "orientation": "portrait",
-        "icon": "./Assets/icon.png",
+        "icon": "./Assets/appicon.png",
         "splash": {
-            "image": "./Assets/splash.png",
+            "image": "./Assets/appicon.png",
             "resizeMode": "contain",
-            "backgroundColor": "#ffffff"
+            "backgroundColor": "#2C2C2C"
         },
         "updates": {
             "fallbackToCacheTimeout": 0

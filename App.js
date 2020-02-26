@@ -2,7 +2,11 @@ import * as React from 'react';
 import { Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { MaterialCommunityIcons } from 'react-native-vector-icons';
+import {
+    Entypo,
+    Octicons,
+    Ionicons 
+} from 'react-native-vector-icons';
 
 import Scout from './Routes/Scout.js';
 import PastMatches from './Routes/PastMatches.js';
@@ -32,7 +36,7 @@ function MyTabs() {
                 options={{
                     tabBarLabel: 'Scout',
                     tabBarIcon: ({ color, size }) => (
-                        <MaterialCommunityIcons name="home" color={color} size={size} />
+                        <Octicons name="checklist" color={color} size={size} />
                     ),
                 }}
             />
@@ -42,7 +46,7 @@ function MyTabs() {
                 options={{
                     tabBarLabel: 'Past Matches',
                     tabBarIcon: ({ color, size }) => (
-                        <MaterialCommunityIcons name="bell" color={color} size={size} />
+                        <Entypo name="back-in-time" color={color} size={size} />
                     ),
                 }}
             />
@@ -52,7 +56,7 @@ function MyTabs() {
                 options={{
                     tabBarLabel: 'Settings',
                     tabBarIcon: ({ color, size }) => (
-                        <MaterialCommunityIcons name="account" color={color} size={size} />
+                        <Ionicons name="ios-settings" color={color} size={size} />
                     ),
                 }}
             />
