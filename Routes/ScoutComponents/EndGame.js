@@ -13,7 +13,53 @@ import CustomTextBox from './Utility/CustomTextBox'
 import Timer from './Utility/Timer.js';
 
 export default class Endgame extends React.Component {
+    constructor() {
+        super();
+
+        this.interval = setInterval(() => this.setState({time: Date.now()}), 100)
+    }
+
+    state = {
+        mode: 0
+    }
     render() {
+        const styles=StyleSheet.create({
+            container: {
+                paddingHorizontal: 50,
+                paddingVertical: 20,
+                backgroundColor: '#FFF'
+            },
+            endgameContainer: {
+                alignItems: 'center',
+                borderColor: "black",
+                padding: 20,
+                borderWidth: StyleSheet.hairlineWidth,
+                borderRadius: 10
+            },
+            climbContainer: {
+                flex: 1,
+                flexDirection: "column",
+                display: global.data["EndgameType"] == 1 ? "flex" : "none"
+            },
+            climbHeight: {
+                flex: 1,
+                flexDirection: 'row',
+                justifyContent: "space-around"
+            },
+            climbPosition: {
+                flex: 1,
+                flexDirection: 'column',
+                alignItems: 'center'
+            },
+            climbComments: {
+                flex: 1,
+                flexDirection: 'column',
+                justifyContent: 'center',
+                textAlign: 'center',
+                alignItems: 'center'
+            }
+        });
+
         return (
             <View style = {styles.container}>
                 <Text style = {{textAlign: "center", fontSize: 35, fontWeight: 'bold'}}>Endgame</Text>
@@ -26,12 +72,13 @@ export default class Endgame extends React.Component {
                             data={["Park", "Climb", "None"]}
                         />
                     </View>
-                    <View>
-                        <Timer/>
+                    <View style = {{display: global.data["EndgameType"] == 1 ? "flex" : "none"}}>
+                        <Timer id="Time"/>
                     </View>
                     <View style={{paddingTop: 20, paddingBottom: 10}}>
                         <Text style={{fontSize: 20, fontWeight: "bold"}}>Initial Climb Height</Text>
                     </View>
+                    
                     <View style={styles.climbContainer}>
                         <View style={styles.climbHeight}>
                             <Image
@@ -48,6 +95,7 @@ export default class Endgame extends React.Component {
                             />
                             <RadioButton id="parkPosition" data={["Low", "Balanced", "High"]} bgc={"orange"}/>
                         </View>
+
                         <View style = {{flex: 1, flexDirection: 'row'}}>
                             <View style = {styles.climbPosition}>
                                 <Text style = {{fontWeight: "bold", fontSize: 20}}>Climb Position</Text>
@@ -57,6 +105,10 @@ export default class Endgame extends React.Component {
                                 />
                                 <RadioButton id="climbPosition" data={["Edge", "Middle Bar", "Center"]} bgc={"orange"}/>
                             </View>
+
+
+
+
                             <View style = {styles.climbComments}>
                                 <Text style = {{fontWeight: "bold", fontSize: 20}}>Comments</Text>
                                 <Text style = {{fontSize: 12}}>
@@ -84,39 +136,3 @@ export default class Endgame extends React.Component {
         );
     }
 }
-
-const styles=StyleSheet.create({
-    container: {
-        paddingHorizontal: 50,
-        paddingVertical: 20,
-        backgroundColor: '#FFF'
-    },
-    endgameContainer: {
-        alignItems: 'center',
-        borderColor: "black",
-        padding: 20,
-        borderWidth: StyleSheet.hairlineWidth,
-        borderRadius: 10
-    },
-    climbContainer: {
-        flex: 1,
-        flexDirection: "column"
-    },
-    climbHeight: {
-        flex: 1,
-        flexDirection: 'row',
-        justifyContent: "space-around"
-    },
-    climbPosition: {
-        flex: 1,
-        flexDirection: 'column',
-        alignItems: 'center'
-    },
-    climbComments: {
-        flex: 1,
-        flexDirection: 'column',
-        justifyContent: 'center',
-        textAlign: 'center',
-        alignItems: 'center'
-    }
-});

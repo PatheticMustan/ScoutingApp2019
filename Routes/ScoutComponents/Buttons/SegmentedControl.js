@@ -28,7 +28,9 @@ export default class SegmentedControl extends React.Component {
                     }}
                     values={this.props.data}
                     selectedIndex={global.data[this.props.id]}
-                    onTabPress={index => global.data[this.props.id] = index}
+                    onTabPress={index => {
+                        global.data[this.props.id] = index;
+                    }}
                 />
             </View>
         );

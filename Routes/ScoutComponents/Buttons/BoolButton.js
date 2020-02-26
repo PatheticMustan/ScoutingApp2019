@@ -19,11 +19,15 @@ export default class BoolButton extends React.Component {
         const p = this.props;
 
         return (
-            <TouchableWithoutFeedback onPress={() => global.data[p.id] = !global.data[p.id]}>
+            <TouchableWithoutFeedback onPress={() => {
+                global.data[p.id] = !global.data[p.id];
+                this.props.press();
+            }}>
                 <View style = {{
                     justifyContent: "center",
                     borderRadius: 10,
                     borderWidth: StyleSheet.hairlineWidth,
+                    margin: 10,
                     width: (p.width? p.width : 100),
                     height: 40,
                     backgroundColor: (global.data[p.id]? p.bgc : 'white')

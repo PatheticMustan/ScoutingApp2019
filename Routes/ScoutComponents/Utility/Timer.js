@@ -17,24 +17,29 @@ export default class Timer extends React.Component {
         }
 
         this.time = "0:00";
+        global.data[this.props.id] = this.time;
     }
 
     timerClick = () => {
         if (this.state.start == false) {
+            this.setState({start: true});
+            
             this.interval = setInterval(() => {
-                this.setState({
-                    start: true,
-                    sec: this.state.sec + 1
-                });
+                this.setState({sec: this.state.sec + 1});
 
-                const s = this.state.sec + 1;
-                this.time = (`${(s-(s%60))/60}:${(s % 60)}`)
+                const s = this.state.sec;
+                this.time = (`${(s-(s%60))/60}:${s < 10?"0":""}${(s % 60)}`)
+
+                this.setState({
+                    poopoo: s
+                });
             }, 1000);
         } else {
             clearInterval(this.interval);
             this.setState({
                 start: false
             });
+            global.data[this.props.id] = this.time;
         }
     };
 
@@ -48,7 +53,7 @@ export default class Timer extends React.Component {
     render() {
         return (
             <View>
-                <View>
+                <View style = {{flex: 1, alignSelf: "center", paddingBottom: 5}}>
                     <Text>{this.time}</Text>
                 </View>
 
@@ -56,9 +61,9 @@ export default class Timer extends React.Component {
                     id="TimerClicked"
                     bgc="lime"
                     width={160}
-                    onPress={this.timerClick}
+                    press={this.timerClick}
                 >
-                        {this.state.start? "Stop" : "Start"} Stopwatch
+                        {this.state.start ? "Stop" : "Start"} Stopwatch
                 </BoolButton>
             </View>
         )
