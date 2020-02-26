@@ -7,9 +7,13 @@ import {
 } from 'react-native';
 
 export default class BoolButton extends React.Component {
-    componentDidMount() {
+    constructor() {
+        super();
         /** Set default */
         global.data[this.props.id] = false;
+        this.state = {
+            val: false
+        }
         /** Update */
         this.interval = setInterval(() => {this.setState({ time: Date.now() })}, 20);
     }
@@ -19,7 +23,10 @@ export default class BoolButton extends React.Component {
         const p = this.props;
 
         return (
-            <TouchableWithoutFeedback onPress={() => global.data[p.id] = !global.data[p.id]}>
+            <TouchableWithoutFeedback onPress={() => {
+                global.data[p.id] = !global.data[p.id];
+                this.props.onPress();
+            }}>
                 <View style = {{
                     justifyContent: "center",
                     borderRadius: 10,

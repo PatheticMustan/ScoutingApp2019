@@ -7,7 +7,8 @@ import {
 } from 'react-native';
 
 export default class RadioButton extends React.Component {
-    componentDidMount() {
+    constructor() {
+        super(props);
         /** Set default */
         global.data[this.props.id] = "";
         /** Update */
