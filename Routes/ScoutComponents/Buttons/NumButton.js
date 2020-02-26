@@ -7,7 +7,8 @@ import {
 } from 'react-native';
 
 export default class NumButton extends React.Component {
-    componentDidMount() {
+    constructor() {
+        super(props);
         /** Set default */
         global.data[this.props.id] = 0;
         /** Update */

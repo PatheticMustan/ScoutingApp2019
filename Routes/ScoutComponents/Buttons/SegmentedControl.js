@@ -5,7 +5,8 @@ import {
 import SegmentedControlTab from "react-native-segmented-control-tab";
 
 export default class SegmentedControl extends React.Component {
-    componentDidMount() {
+    constructor() {
+        super(props);
         /** Set default */
         global.data[this.props.id] = 0;
         /** Update */

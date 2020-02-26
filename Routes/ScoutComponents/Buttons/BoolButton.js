@@ -7,9 +7,13 @@ import {
 } from 'react-native';
 
 export default class BoolButton extends React.Component {
-    componentDidMount() {
+    constructor() {
+        super();
         /** Set default */
         global.data[this.props.id] = false;
+        this.state = {
+            val: false
+        }
         /** Update */
         this.interval = setInterval(() => {this.setState({ time: Date.now() })}, 20);
     }
