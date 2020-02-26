@@ -12,7 +12,7 @@
         ],
         "version": "1.0.0",
         "orientation": "portrait",
-        "icon": "./Assets/icon.png",
+        "icon": "./Assets/appicon.png",
         "splash": {
             "image": "./Assets/splash.png",
             "resizeMode": "contain",
