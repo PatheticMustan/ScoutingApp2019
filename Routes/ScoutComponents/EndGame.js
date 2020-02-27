@@ -16,12 +16,14 @@ export default class Endgame extends React.Component {
     constructor() {
         super();
 
+        /** This is an exception I promise. */
         this.interval = setInterval(() => this.setState({time: Date.now()}), 100)
     }
 
     state = {
         mode: 0
     }
+
     render() {
         const styles=StyleSheet.create({
             container: {
@@ -70,6 +72,7 @@ export default class Endgame extends React.Component {
                         <SegmentedControl
                             id="EndgameType"
                             data={["Park", "Climb", "None"]}
+                            default={2}
                         />
                     </View>
                     <View style = {{display: global.data["EndgameType"] == 1 ? "flex" : "none"}}>
@@ -112,10 +115,10 @@ export default class Endgame extends React.Component {
                             <View style = {styles.climbComments}>
                                 <Text style = {{fontWeight: "bold", fontSize: 20}}>Comments</Text>
                                 <Text style = {{fontSize: 12}}>
-                                Add any comments that you feel are useful. Do they attempt to climb but fall?
-                                Do they get in the way of other robots? Do they swing a lot on the climb? Are they able to balance the rung?
-                                Are they able to adjust their climb position? Do they slide on the run? Anything else that shows evidence of
-                                good/poor performance?
+                                    Add any comments that you feel are useful. Do they attempt to climb but fall?
+                                    Do they get in the way of other robots? Do they swing a lot on the climb? Are they able to balance the rung?
+                                    Are they able to adjust their climb position? Do they slide on the run? Anything else that shows evidence of
+                                    good/poor performance?
                                 </Text>
                                 <CustomTextBox
                                     id="AutonomousComments"
