@@ -1,65 +1,51 @@
-import React from 'react';
+import React from "react";
 import {
     View,
     Text,
     StyleSheet,
     TouchableWithoutFeedback
-} from 'react-native';
+} from "react-native";
+import BoolButton from "../Buttons/BoolButton.js";
 
 export default class Timer extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
 
         this.state = {
-            min: 0,
+            start: false,
             sec: 0
         }
 
-        this.time = "";
-
-        this.interval = null;
+        this.time = "0:00";
+        global.data[this.props.id] = this.time;
     }
 
-    onPressTimer = () => {
-        this.setState (
-            {
-                start: !this.state.start()
-            },
-            () => this.onStartTimer()
-        );
-    };
-
-    /** might be useless */
-    onEndTimer = (min, sec) => {
-        this.time = (`${min} : ${sec}`)
-    };
-
-    onStartTimer = () => {
-        if (this.state.start) {
+    timerClick = () => {
+        if (this.state.start == false) {
+            this.setState({start: true});
+            
             this.interval = setInterval(() => {
-                if (this.state.sec != 59) {
-                    this.setState({
-                        sec: this.state.sec + 1
-                    });
-                } else {
-                    this.setState({
-                        sec: 0,
-                        min: min + 1
-                    });
-                }
+                this.setState({sec: this.state.sec + 1});
 
-                this.time = (`${min} : ${sec}`)
+                const s = this.state.sec;
+                this.time = (`${(s-(s%60))/60}:${s < 10?"0":""}${(s % 60)}`)
+
+                this.setState({
+                    poopoo: s
+                });
             }, 1000);
         } else {
             clearInterval(this.interval);
+            this.setState({
+                start: false
+            });
+            global.data[this.props.id] = this.time;
         }
     };
 
     onResetTimer = () => {
         this.setState ({
             sec: 0,
-            min: 0,
-
             start: false
         });
     }
@@ -67,9 +53,18 @@ export default class Timer extends React.Component {
     render() {
         return (
             <View>
-                <TouchableWithoutFeedback style = {styles.timerButton} onPress{() => onPressTimer()}>
-                    <Text>{this.state.time}</Text>
-                </TouchableWithoutFeedback>
+                <View style = {{flex: 1, alignSelf: "center", paddingBottom: 5}}>
+                    <Text>{this.time}</Text>
+                </View>
+
+                <BoolButton
+                    id="TimerClicked"
+                    bgc="lime"
+                    width={160}
+                    press={this.timerClick}
+                >
+                        {this.state.start ? "Stop" : "Start"} Stopwatch
+                </BoolButton>
             </View>
         )
     }
@@ -77,11 +72,13 @@ export default class Timer extends React.Component {
 
 const styles = StyleSheet.create({
     timerButton: {
-        height: 160,
-        width: 40,
+        height: 40,
+        width: 160,
+        textAlign: "center",
+        justifyContent: "center",
         borderWidth: StyleSheet.hairlineWidth,
         borderRadius: 10,
-        borderColor: 'black',
-        backgroundColor: 'white'
+        borderColor: "black",
+        backgroundColor: "white"
     },
 })

@@ -1,24 +1,24 @@
-import React from 'react';
+import React from "react";
 import {
     StyleSheet,
     Text,
     View,
     ImageBackground
-} from 'react-native';
+} from "react-native";
 
-import BoolButton from './Buttons/BoolButton.js';
-import NumButton from './Buttons/NumButton.js';
-import RadioButton from './Buttons/RadioButton.js';
-import CustomTextBox from './Utility/CustomTextBox.js';
+import BoolButton from "./Buttons/BoolButton.js";
+import NumButton from "./Buttons/NumButton.js";
+import RadioButton from "./Buttons/RadioButton.js";
+import CustomTextBox from "./Utility/CustomTextBox.js";
 
 export default class TeleOp extends React.Component {
     render() {
         return (
             <View style = {styles.container}>
-                <Text style = {{textAlign: "center", fontSize: 35, fontWeight: 'bold'}}>Tele-Op</Text>
+                <Text style = {{textAlign: "center", fontSize: 35, fontWeight: "bold"}}>Tele-Op</Text>
                 <View style = {styles.teleOpContainer}>
                     <ImageBackground
-                        source = {require('../../Assets/2020 Field.png')}
+                        source = {require("../../Assets/2020 Field.png")}
                         style = {{height: 700, width: 1300, marginTop: 20, borderRadius: 10}}
                     />
                     
@@ -40,7 +40,7 @@ export default class TeleOp extends React.Component {
                     <NumButton id="TeleMissed">Missed</NumButton>
 
 
-                    <Text style = {{textAlign: "center", fontSize: 20, fontWeight: 'bold'}}>Comments</Text>
+                    <Text style = {{textAlign: "center", fontSize: 20, fontWeight: "bold"}}>Comments</Text>
                     <Text style = {{textAlign: "center", fontSize: 14, marginLeft: 20, marginRight: 20, marginTop: 10}}>
                         Add any comments that you feel are useful. Does the robot get any penalties? Does the robot cycle
                         efficiently? Do they struggle with picking up balls or shooting? Do they play defense, and if so,
@@ -69,10 +69,10 @@ const styles = StyleSheet.create({
     container: {
         paddingHorizontal: 50,
         paddingVertical: 20,
-        backgroundColor: '#FFF'
+        backgroundColor: "#FFF"
     },
     teleOpContainer: {
-        alignItems: 'center',
+        alignItems: "center",
         borderColor: "black",
         borderRadius: 10,
         borderWidth: StyleSheet.hairlineWidth

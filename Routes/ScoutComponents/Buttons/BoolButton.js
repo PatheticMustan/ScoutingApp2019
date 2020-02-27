@@ -1,17 +1,19 @@
-import React from 'react';
+import React from "react";
 import {
     StyleSheet,
     Text,
     View,
     TouchableWithoutFeedback
-} from 'react-native';
+} from "react-native";
 
 export default class BoolButton extends React.Component {
-    componentDidMount() {
+    constructor(props) {
+        super(props);
         /** Set default */
-        global.data[this.props.id] = false;
-        /** Update */
-        this.interval = setInterval(() => {this.setState({ time: Date.now() })}, 20);
+        this.state = {
+            val: false
+        }
+        global.data[props.id] = this.state.val;
     }
     componentWillUnmount() {clearInterval(this.interval)}
 
@@ -19,14 +21,22 @@ export default class BoolButton extends React.Component {
         const p = this.props;
 
         return (
-            <TouchableWithoutFeedback onPress={() => global.data[p.id] = !global.data[p.id]}>
+            <TouchableWithoutFeedback onPress={() => {
+                this.setState(
+                    {val: !this.state.val},
+                    () => {global.data[this.props.id] = this.state.val;}
+                );
+                
+                this.props.press && this.props.press();
+            }}>
                 <View style = {{
                     justifyContent: "center",
                     borderRadius: 10,
                     borderWidth: StyleSheet.hairlineWidth,
+                    margin: 10,
                     width: (p.width? p.width : 100),
                     height: 40,
-                    backgroundColor: (global.data[p.id]? p.bgc : 'white')
+                    backgroundColor: (this.state.val? p.bgc : 'white')
                 }}>
                     <Text style={{textAlign: "center"}}>{p.children}</Text>
                 </View>

@@ -1,15 +1,16 @@
-import React from 'react';
+import React from "react";
 import {
     StyleSheet,
     Text,
     View,
     TouchableWithoutFeedback
-} from 'react-native';
+} from "react-native";
 
 export default class NumButton extends React.Component {
-    componentDidMount() {
+    constructor(props) {
+        super(props);
         /** Set default */
-        global.data[this.props.id] = 0;
+        global.data[props.id] = 0;
         /** Update */
         this.interval = setInterval(() => {this.setState({ time: Date.now() })}, 20);
 
@@ -28,7 +29,8 @@ export default class NumButton extends React.Component {
                         borderRadius: 10,
                         borderWidth: StyleSheet.hairlineWidth,
                         width: (p.width? p.width : 100),
-                        height: 40
+                        height: 40,
+                        backgroundColor: "white"
                     }}>
                         <Text style={{textAlign: "center"}}>{p.children} {`(${global.data[p.id]})`}</Text>
                     </View>

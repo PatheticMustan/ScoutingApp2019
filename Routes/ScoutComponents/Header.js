@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
 import {
     StyleSheet,
     Text,
     View
-} from 'react-native';
-import * as Sharing from 'expo-sharing';
-import Link from './Utility/Link.js';
-import SegmentedControl from './Buttons/SegmentedControl.js';
+} from "react-native";
+import * as Sharing from "expo-sharing";
+import Link from "./Utility/Link.js";
+import SegmentedControl from "./Buttons/SegmentedControl.js";
 
 
 export default class Header extends React.Component {
@@ -27,6 +27,7 @@ export default class Header extends React.Component {
                             lastTabStyle: {backgroundColor: "#FF3E3E"},
                             tabTextStyle: {color: "white"}
                         }}
+                        default={0}
                     />
                     
                     <Link color="blue" onPress={() => alert(1)}>Save</Link>
@@ -39,7 +40,7 @@ export default class Header extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#DDD'
+        backgroundColor: "#DDD"
     },
     headerText: {
         flex: 1,

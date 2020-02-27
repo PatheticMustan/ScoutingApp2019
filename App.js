@@ -1,20 +1,20 @@
-import * as React from 'react';
-import { Text, View } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import * as React from "react";
+import { Text, View } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {
     Entypo,
     Octicons,
     Ionicons 
-} from 'react-native-vector-icons';
+} from "react-native-vector-icons";
 
-import Scout from './Routes/Scout.js';
-import PastMatches from './Routes/PastMatches.js';
-import Settings from './Routes/Settings.js';
+import Scout from "./Routes/Scout.js";
+import PastMatches from "./Routes/PastMatches.js";
+import Settings from "./Routes/Settings.js";
 
 function Notifications() {
     return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
             <Text>Notifications!</Text>
         </View>
     );
@@ -27,14 +27,14 @@ function MyTabs() {
         <Tab.Navigator
             initialRouteName="Feed"
             tabBarOptions={{
-                activeTintColor: '#e91e63',
+                activeTintColor: "#e91e63",
             }}
         >
             <Tab.Screen
                 name="Scout"
                 component={Scout}
                 options={{
-                    tabBarLabel: 'Scout',
+                    tabBarLabel: "Scout",
                     tabBarIcon: ({ color, size }) => (
                         <Octicons name="checklist" color={color} size={size} />
                     ),
@@ -44,7 +44,7 @@ function MyTabs() {
                 name="PastMatches"
                 component={PastMatches}
                 options={{
-                    tabBarLabel: 'Past Matches',
+                    tabBarLabel: "Past Matches",
                     tabBarIcon: ({ color, size }) => (
                         <Entypo name="back-in-time" color={color} size={size} />
                     ),
@@ -54,7 +54,7 @@ function MyTabs() {
                 name="Settings"
                 component={Settings}
                 options={{
-                    tabBarLabel: 'Settings',
+                    tabBarLabel: "Settings",
                     tabBarIcon: ({ color, size }) => (
                         <Ionicons name="ios-settings" color={color} size={size} />
                     ),
