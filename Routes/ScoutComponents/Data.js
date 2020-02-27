@@ -17,40 +17,7 @@ export default class Data extends React.Component {
     componentDidMount() {this.interval = setInterval(() => {this.setState({ time: Date.now() })}, 100)}
     componentWillUnmount() {clearInterval(this.interval)}
     exportMatch() {
-        /**
-         * Team #
-         * Match #
-         * Fits under trench?
-         * Defense
-         * Penalties
-         * Starting Balls
-         * Starting Position
-         * Cross Line
-         * Balls Picked Up
-         * Low Goal
-         * Outer Goal
-         * Inner Goal
-         * Shots Missed
-         * Comments
-         * Loading Station
-         * Floor
-         * Low Goal
-         * Outer Goal
-         * Inner Goal
-         * Shots Missed
-         * Location of Shots
-         * Rotation
-         * Color
-         * Comments
-         * Endgame Type
-         * Balls Scored
-         * Initial Climb Height
-         * Initial Climb Position
-         * Climb Time
-         * Comments
-         */
-
-        // shorten the monstrosity I"m about to type. Also clears data from `"` and `,`. Pretty lazy, but also I"m kinda tired.
+        // shorten the monstrosity I'm about to type. Also clears data from `"` and `,`. Pretty lazy, but also I'm kinda tired.
         // damn good job on backend, Kevin. I do read your comments lol
         const g = id => global.data[id] //.split(`"`).join("").split(",").join("");
 

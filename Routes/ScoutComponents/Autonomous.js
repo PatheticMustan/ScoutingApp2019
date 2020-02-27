@@ -18,8 +18,9 @@ export default class Autonomous extends React.Component {
                 <Text style={{textAlign: "center", fontSize: 35, fontWeight: "bold"}}>Autonomous</Text>
                 <View style={styles.autonomousContainer}>
                     <ImageBackground
-                        source={require("../../Assets/2020 Field.png")}
-                        style={{height: 700, width: 1300, marginTop: 20, borderRadius: 10}}
+                        source={require('../../Assets/2020 Field.png')}
+                        style={{height: 700, width: 1300, marginTop: 20}}
+                        imageStyle={{ borderRadius: 10}}
                     />
                     
                     <BoolButton id="CrossesInitiationLine" bgc="lime" width={160}>Crosses Initation Line</BoolButton>

@@ -10,12 +10,10 @@ export default class BoolButton extends React.Component {
     constructor(props) {
         super(props);
         /** Set default */
-        global.data[props.id] = false;
         this.state = {
             val: false
         }
-        /** Update */
-        this.interval = setInterval(() => {this.setState({ time: Date.now() })}, 20);
+        global.data[props.id] = this.state.val;
     }
     componentWillUnmount() {clearInterval(this.interval)}
 
@@ -24,8 +22,12 @@ export default class BoolButton extends React.Component {
 
         return (
             <TouchableWithoutFeedback onPress={() => {
-                global.data[p.id] = !global.data[p.id];
-                this.props.press();
+                this.setState(
+                    {val: !this.state.val},
+                    () => {global.data[this.props.id] = this.state.val;}
+                );
+                
+                this.props.press && this.props.press();
             }}>
                 <View style = {{
                     justifyContent: "center",
@@ -34,7 +36,7 @@ export default class BoolButton extends React.Component {
                     margin: 10,
                     width: (p.width? p.width : 100),
                     height: 40,
-                    backgroundColor: (global.data[p.id]? p.bgc : "white")
+                    backgroundColor: (this.state.val? p.bgc : 'white')
                 }}>
                     <Text style={{textAlign: "center"}}>{p.children}</Text>
                 </View>
