@@ -7,10 +7,10 @@ import {
 } from 'react-native';
 
 export default class BoolButton extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         /** Set default */
-        global.data[this.props.id] = false;
+        global.data[props.id] = false;
         this.state = {
             val: false
         }
@@ -20,12 +20,12 @@ export default class BoolButton extends React.Component {
     componentWillUnmount() {clearInterval(this.interval)}
 
     render() {
-        const p = this.props;
+        const p = props;
 
         return (
             <TouchableWithoutFeedback onPress={() => {
                 global.data[p.id] = !global.data[p.id];
-                this.props.press();
+                props.press();
             }}>
                 <View style = {{
                     justifyContent: "center",

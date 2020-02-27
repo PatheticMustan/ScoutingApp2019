@@ -7,17 +7,17 @@ import {
 } from 'react-native';
 
 export default class RadioButton extends React.Component {
-    constructor() {
+    constructor(props) {
         super(props);
         /** Set default */
-        global.data[this.props.id] = "";
+        global.data[props.id] = "";
         /** Update */
         this.interval = setInterval(() => {this.setState({ time: Date.now() });}, 20);
     }
     componentWillUnmount() {clearInterval(this.interval)}
 
     render() {
-        const p = this.props;
+        const p = props;
 
         return (
             <View style={{...p.options}}>

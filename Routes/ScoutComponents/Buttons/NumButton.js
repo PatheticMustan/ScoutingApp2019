@@ -7,20 +7,20 @@ import {
 } from 'react-native';
 
 export default class NumButton extends React.Component {
-    constructor() {
+    constructor(props) {
         super(props);
         /** Set default */
-        global.data[this.props.id] = 0;
+        global.data[props.id] = 0;
         /** Update */
         this.interval = setInterval(() => {this.setState({ time: Date.now() })}, 20);
 
-        this.increment = () => global.data[this.props.id] += 1;
-        this.decrement = () => global.data[this.props.id] = Math.max(0, global.data[this.props.id] - 1);
+        this.increment = () => global.data[props.id] += 1;
+        this.decrement = () => global.data[props.id] = Math.max(0, global.data[props.id] - 1);
     }
     componentWillUnmount() {clearInterval(this.interval)}
 
     render() {
-        const p = this.props;
+        const p = props;
 
         return (
                 <TouchableWithoutFeedback onPress={this.increment} onLongPress={this.decrement} >
