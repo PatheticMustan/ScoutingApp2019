@@ -29,7 +29,8 @@ export default class NumButton extends React.Component {
                         borderRadius: 10,
                         borderWidth: StyleSheet.hairlineWidth,
                         width: (p.width? p.width : 100),
-                        height: 40
+                        height: 40,
+                        backgroundColor: "white"
                     }}>
                         <Text style={{textAlign: "center"}}>{p.children} {`(${global.data[p.id]})`}</Text>
                     </View>
