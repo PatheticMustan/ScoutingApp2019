@@ -27,6 +27,7 @@ export default class Header extends React.Component {
                             lastTabStyle: {backgroundColor: "#FF3E3E"},
                             tabTextStyle: {color: "white"}
                         }}
+                        default={0}
                     />
                     
                     <Link color="blue" onPress={() => alert(1)}>Save</Link>
