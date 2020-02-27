@@ -17,7 +17,7 @@ export default class RadioButton extends React.Component {
     componentWillUnmount() {clearInterval(this.interval)}
 
     render() {
-        const p = props;
+        const p = this.props;
 
         return (
             <View style={{...p.options}}>

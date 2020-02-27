@@ -20,12 +20,12 @@ export default class BoolButton extends React.Component {
     componentWillUnmount() {clearInterval(this.interval)}
 
     render() {
-        const p = props;
+        const p = this.props;
 
         return (
             <TouchableWithoutFeedback onPress={() => {
                 global.data[p.id] = !global.data[p.id];
-                props.press();
+                this.props.press();
             }}>
                 <View style = {{
                     justifyContent: "center",

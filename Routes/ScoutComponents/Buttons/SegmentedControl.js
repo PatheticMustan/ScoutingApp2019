@@ -15,22 +15,22 @@ export default class SegmentedControl extends React.Component {
     componentWillUnmount() {clearInterval(this.interval)}
     
     handleIndexChange = index => {
-        global.data[props.id] = index;
+        global.data[this.props.id] = index;
     }
 
     render() {
         return (
             <View>
                 <SegmentedControlTab
-                    {...props.options}
+                    {...this.props.options}
                     tabStyle={{
                         paddingVertical: 5,
                         paddingHorizontal: 10
                     }}
-                    values={props.data}
-                    selectedIndex={global.data[props.id]}
+                    values={this.props.data}
+                    selectedIndex={global.data[this.props.id]}
                     onTabPress={index => {
-                        global.data[props.id] = index;
+                        global.data[this.props.id] = index;
                     }}
                 />
             </View>
