@@ -1,5 +1,5 @@
-import React from 'react';
-import { FontAwesome } from '@expo/vector-icons';
+import React from "react";
+import { FontAwesome } from "@expo/vector-icons";
 
 export default function TabBarIcon(props) {
     return (

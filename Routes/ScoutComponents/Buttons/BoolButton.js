@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 import {
     StyleSheet,
     Text,
     View,
     TouchableWithoutFeedback
-} from 'react-native';
+} from "react-native";
 
 export default class BoolButton extends React.Component {
     constructor(props) {
@@ -34,7 +34,7 @@ export default class BoolButton extends React.Component {
                     margin: 10,
                     width: (p.width? p.width : 100),
                     height: 40,
-                    backgroundColor: (global.data[p.id]? p.bgc : 'white')
+                    backgroundColor: (global.data[p.id]? p.bgc : "white")
                 }}>
                     <Text style={{textAlign: "center"}}>{p.children}</Text>
                 </View>

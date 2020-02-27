@@ -1,24 +1,24 @@
-import React from 'react';
+import React from "react";
 import {
     StyleSheet,
     Text,
     View,
     ImageBackground
-} from 'react-native';
+} from "react-native";
 
-import BoolButton from './Buttons/BoolButton.js';
-import NumButton from './Buttons/NumButton.js';
-import RadioButton from './Buttons/RadioButton.js';
-import CustomTextBox from './Utility/CustomTextBox.js';
+import BoolButton from "./Buttons/BoolButton.js";
+import NumButton from "./Buttons/NumButton.js";
+import RadioButton from "./Buttons/RadioButton.js";
+import CustomTextBox from "./Utility/CustomTextBox.js";
 
 export default class Autonomous extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text style={{textAlign: "center", fontSize: 35, fontWeight: 'bold'}}>Autonomous</Text>
+                <Text style={{textAlign: "center", fontSize: 35, fontWeight: "bold"}}>Autonomous</Text>
                 <View style={styles.autonomousContainer}>
                     <ImageBackground
-                        source={require('../../Assets/2020 Field.png')}
+                        source={require("../../Assets/2020 Field.png")}
                         style={{height: 700, width: 1300, marginTop: 20, borderRadius: 10}}
                     />
                     
@@ -32,7 +32,7 @@ export default class Autonomous extends React.Component {
 
                     <NumButton id="BallsPickedUp" width={160}>Balls Picked Up</NumButton>
 
-                    <Text style={{textAlign: "center", fontSize: 20, fontWeight: 'bold'}}>Comments</Text>
+                    <Text style={{textAlign: "center", fontSize: 20, fontWeight: "bold"}}>Comments</Text>
                     <Text style={{textAlign: "center", fontSize: 14, marginHorizontal: 20, marginTop: 10}}>
                         Add any comments that you feel are useful. Does the robot get any penalties? Where do they shoot from?
                         Anything else that shows evidence of good/poor performance?
@@ -60,10 +60,10 @@ const styles = StyleSheet.create({
     container: {
         paddingHorizontal: 50,
         paddingVertical: 20,
-        backgroundColor: '#FFF'
+        backgroundColor: "#FFF"
     },
     autonomousContainer: {
-        alignItems: 'center',
+        alignItems: "center",
         borderColor: "black",
         borderWidth: StyleSheet.hairlineWidth,
         borderRadius: 10

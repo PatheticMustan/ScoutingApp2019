@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 import {
     View,
     Text,
     Button
-} from 'react-native';
+} from "react-native";
 
 export default class Data extends React.Component {
     constructor() {
@@ -50,7 +50,7 @@ export default class Data extends React.Component {
          * Comments
          */
 
-        // shorten the monstrosity I'm about to type. Also clears data from `"` and `,`. Pretty lazy, but also I'm kinda tired.
+        // shorten the monstrosity I"m about to type. Also clears data from `"` and `,`. Pretty lazy, but also I"m kinda tired.
         // damn good job on backend, Kevin. I do read your comments lol
         const g = id => global.data[id] //.split(`"`).join("").split(",").join("");
 

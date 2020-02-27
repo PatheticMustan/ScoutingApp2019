@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 import {
     View,
     Text,
     StyleSheet,
     TouchableWithoutFeedback
-} from 'react-native';
-import BoolButton from '../Buttons/BoolButton.js';
+} from "react-native";
+import BoolButton from "../Buttons/BoolButton.js";
 
 export default class Timer extends React.Component {
     constructor(props) {
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         borderWidth: StyleSheet.hairlineWidth,
         borderRadius: 10,
-        borderColor: 'black',
-        backgroundColor: 'white'
+        borderColor: "black",
+        backgroundColor: "white"
     },
 })

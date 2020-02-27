@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 import {
     View,
     ScrollView
-} from 'react-native';
+} from "react-native";
 
 export default class Settings extends React.Component {
     render() {

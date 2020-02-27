@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
 import {
     StyleSheet,
     Text,
     View,
     TouchableOpacity
-} from 'react-native';
+} from "react-native";
 
-import TabBarIcon from './TabBarIcon.js';
+import TabBarIcon from "./TabBarIcon.js";
 
 export default class Incrementer extends React.Component {
     
@@ -53,7 +53,7 @@ export default class Incrementer extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#FFF',
+        backgroundColor: "#FFF",
         flexDirection: "row"
     },
     iconContainer: {

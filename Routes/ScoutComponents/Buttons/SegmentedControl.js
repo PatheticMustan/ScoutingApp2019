@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 import {
     View
-} from 'react-native';
+} from "react-native";
 import SegmentedControlTab from "react-native-segmented-control-tab";
 
 export default class SegmentedControl extends React.Component {

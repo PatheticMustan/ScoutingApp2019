@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 import {
     View,
     Picker
-} from 'react-native';
+} from "react-native";
 
 export default class MatchPicker extends React.Component {
     constructor (props) {

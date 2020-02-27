@@ -1,22 +1,22 @@
-import React from 'react';
+import React from "react";
 import {
     StyleSheet,
     Text,
     View,
     TextInput,
     Image
-} from 'react-native';
+} from "react-native";
 
-import Incrementer from './Utility/Incrementer.js'
-import TabBarIcon from './Utility/TabBarIcon.js'
-import CustomTextBox from './Utility/CustomTextBox.js';
-import MatchPicker from './Utility/MatchPicker.js';
+import Incrementer from "./Utility/Incrementer.js"
+import TabBarIcon from "./Utility/TabBarIcon.js"
+import CustomTextBox from "./Utility/CustomTextBox.js";
+import MatchPicker from "./Utility/MatchPicker.js";
 
 export default class MatchInfoContainer extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text style={{textAlign: "center", fontSize: 35, fontWeight: 'bold'}}>Match Info</Text>
+                <Text style={{textAlign: "center", fontSize: 35, fontWeight: "bold"}}>Match Info</Text>
 
                 <View style={styles.matchInfoContainer}>
                     <View style={{flex: 1, paddingHorizontal: 30}}>
@@ -54,7 +54,7 @@ export default class MatchInfoContainer extends React.Component {
                                 <Incrementer id="StartingPieces"/>
                             <View>
                                 <Image
-                                    source={require('../../Assets/Ball.png')}
+                                    source={require("../../Assets/Ball.png")}
                                     style={{width: 150, height: 150}}
                                 />
                             </View>
@@ -70,7 +70,7 @@ const styles=StyleSheet.create({
     container: {
         paddingHorizontal: 50,
         paddingVertical: 20,
-        backgroundColor: '#FFF'
+        backgroundColor: "#FFF"
     },
     matchInfoContainer: {
         flex: 1,
@@ -91,7 +91,7 @@ const styles=StyleSheet.create({
     inputContainer2: {
         flex: 1,
         flexDirection: "column",
-        alignItems: 'center',
+        alignItems: "center",
         paddingVertical: 15
     },
     piecesContainer: {

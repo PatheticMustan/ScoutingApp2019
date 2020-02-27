@@ -1,16 +1,16 @@
-import React from 'react';
+import React from "react";
 import {
     StyleSheet,
     Text,
     View,
     Image
-} from 'react-native';
+} from "react-native";
 
-import SegmentedControl from './Buttons/SegmentedControl.js';
-import NumButton from './Buttons/NumButton.js';
-import RadioButton from './Buttons/RadioButton.js'
-import CustomTextBox from './Utility/CustomTextBox'
-import Timer from './Utility/Timer.js';
+import SegmentedControl from "./Buttons/SegmentedControl.js";
+import NumButton from "./Buttons/NumButton.js";
+import RadioButton from "./Buttons/RadioButton.js"
+import CustomTextBox from "./Utility/CustomTextBox"
+import Timer from "./Utility/Timer.js";
 
 export default class Endgame extends React.Component {
     constructor() {
@@ -29,10 +29,10 @@ export default class Endgame extends React.Component {
             container: {
                 paddingHorizontal: 50,
                 paddingVertical: 20,
-                backgroundColor: '#FFF'
+                backgroundColor: "#FFF"
             },
             endgameContainer: {
-                alignItems: 'center',
+                alignItems: "center",
                 borderColor: "black",
                 padding: 20,
                 borderWidth: StyleSheet.hairlineWidth,
@@ -45,26 +45,26 @@ export default class Endgame extends React.Component {
             },
             climbHeight: {
                 flex: 1,
-                flexDirection: 'row',
+                flexDirection: "row",
                 justifyContent: "space-around"
             },
             climbPosition: {
                 flex: 1,
-                flexDirection: 'column',
-                alignItems: 'center'
+                flexDirection: "column",
+                alignItems: "center"
             },
             climbComments: {
                 flex: 1,
-                flexDirection: 'column',
-                justifyContent: 'center',
-                textAlign: 'center',
-                alignItems: 'center'
+                flexDirection: "column",
+                justifyContent: "center",
+                textAlign: "center",
+                alignItems: "center"
             }
         });
 
         return (
             <View style = {styles.container}>
-                <Text style = {{textAlign: "center", fontSize: 35, fontWeight: 'bold'}}>Endgame</Text>
+                <Text style = {{textAlign: "center", fontSize: 35, fontWeight: "bold"}}>Endgame</Text>
                 <View style = {styles.endgameContainer}>
                     <NumButton id="BallsScored" width={120}>Balls Scored</NumButton>
 
@@ -85,25 +85,25 @@ export default class Endgame extends React.Component {
                     <View style={styles.climbContainer}>
                         <View style={styles.climbHeight}>
                             <Image
-                                source={require('../../Assets/End Low.png')}
+                                source={require("../../Assets/End Low.png")}
                                 style={{width: 300, height: 150, borderRadius: 10}}
                             />
                           <Image
-                                source={require('../../Assets/End Level.png')}
+                                source={require("../../Assets/End Level.png")}
                                 style={{width: 300, height: 150, borderRadius: 10}}
                             />
                             <Image
-                                source={require('../../Assets/End High.png')}
+                                source={require("../../Assets/End High.png")}
                                 style={{width: 300, height: 150, borderRadius: 10}}
                             />
                             <RadioButton id="parkPosition" data={["Low", "Balanced", "High"]} bgc={"orange"}/>
                         </View>
 
-                        <View style = {{flex: 1, flexDirection: 'row'}}>
+                        <View style = {{flex: 1, flexDirection: "row"}}>
                             <View style = {styles.climbPosition}>
                                 <Text style = {{fontWeight: "bold", fontSize: 20}}>Climb Position</Text>
                                 <Image
-                                    source = {require('../../Assets/Climb Position.png')}
+                                    source = {require("../../Assets/Climb Position.png")}
                                     style = {{width: 300, height: 150}}
                                 />
                                 <RadioButton id="climbPosition" data={["Edge", "Middle Bar", "Center"]} bgc={"orange"}/>

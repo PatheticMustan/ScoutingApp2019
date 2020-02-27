@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 import {
     StyleSheet,
     Text,
     View,
     TouchableWithoutFeedback
-} from 'react-native';
+} from "react-native";
 
 export default class NumButton extends React.Component {
     constructor(props) {
