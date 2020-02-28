@@ -10,14 +10,20 @@ export default class NumButton extends React.Component {
     constructor(props) {
         super(props);
         /** Set default */
-        global.data[props.id] = 0;
-        /** Update */
-        this.interval = setInterval(() => {this.setState({ time: Date.now() })}, 20);
+        this.state = {
+            val: 0
+        }
+        global.data[props.id] = this.state.val;
 
-        this.increment = () => global.data[this.props.id] += 1;
-        this.decrement = () => global.data[this.props.id] = Math.max(0, global.data[this.props.id] - 1);
+        this.increment = () => this.setState(
+            {val: this.state.val + 1},
+            () => {global.data[this.props.id] = this.state.val}
+        );
+        this.decrement = () => this.setState(
+            {val: Math.max(0, this.state.val - 1)},
+            () => {global.data[this.props.id] = this.state.val}
+        );
     }
-    componentWillUnmount() {clearInterval(this.interval)}
 
     render() {
         const p = this.props;
@@ -32,7 +38,7 @@ export default class NumButton extends React.Component {
                         height: 40,
                         backgroundColor: "white"
                     }}>
-                        <Text style={{textAlign: "center"}}>{p.children} {`(${global.data[p.id]})`}</Text>
+                        <Text style={{textAlign: "center"}}>{p.children} {`(${this.state.val})`}</Text>
                     </View>
                 </TouchableWithoutFeedback>
         );
