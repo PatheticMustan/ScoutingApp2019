@@ -2,8 +2,7 @@ import React from "react";
 import {
     View,
     Text,
-    StyleSheet,
-    TouchableWithoutFeedback
+    StyleSheet
 } from "react-native";
 import BoolButton from "../Buttons/BoolButton.js";
 
@@ -25,14 +24,13 @@ export default class Timer extends React.Component {
             this.setState({start: true});
             
             this.interval = setInterval(() => {
-                this.setState({sec: this.state.sec + 1});
-
-                const s = this.state.sec;
-                this.time = (`${(s-(s%60))/60}:${s < 10?"0":""}${(s % 60)}`)
-
-                this.setState({
-                    poopoo: s
-                });
+                this.setState(
+                    {sec: this.state.sec + 1},
+                    () => {
+                        const s = this.state.sec;
+                        this.time = (`${(s-(s%60))/60}:${s < 10?"0":""}${(s % 60)}`)
+                    }
+                );
             }, 1000);
         } else {
             clearInterval(this.interval);

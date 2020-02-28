@@ -6,11 +6,11 @@ import {
     Image
 } from "react-native";
 
-import SegmentedControl from "./Buttons/SegmentedControl.js";
-import NumButton from "./Buttons/NumButton.js";
-import RadioButton from "./Buttons/RadioButton.js"
-import CustomTextBox from "./Utility/CustomTextBox"
-import Timer from "./Utility/Timer.js";
+import SegmentedControl from "../../Components/Buttons/SegmentedControl.js";
+import NumButton from "../../Components/Buttons/NumButton.js";
+import RadioButton from "../../Components/Buttons/RadioButton.js"
+import CustomTextBox from "../../Components/Utility/CustomTextBox"
+import Timer from "../../Components/Utility/Timer.js";
 
 export default class Endgame extends React.Component {
     constructor() {
@@ -41,7 +41,7 @@ export default class Endgame extends React.Component {
             climbContainer: {
                 flex: 1,
                 flexDirection: "column",
-                display: global.data["EndgameType"] == 1 ? "flex" : "none"
+                display: global.data["EndgameType"] == 1 ? "block" : "none"
             },
             climbHeight: {
                 flex: 1,
@@ -65,6 +65,7 @@ export default class Endgame extends React.Component {
         return (
             <View style = {styles.container}>
                 <Text style = {{textAlign: "center", fontSize: 35, fontWeight: "bold"}}>Endgame</Text>
+
                 <View style = {styles.endgameContainer}>
                     <NumButton id="BallsScored" width={120}>Balls Scored</NumButton>
 
@@ -75,10 +76,12 @@ export default class Endgame extends React.Component {
                             default={2}
                         />
                     </View>
-                    <View style = {{display: global.data["EndgameType"] == 1 ? "flex" : "none"}}>
+
+                    <View style={{display: global.data["EndgameType"] == 1 ? "flex" : "none"}}>
                         <Timer id="Time"/>
                     </View>
-                    <View style={{paddingTop: 20, paddingBottom: 10}}>
+                    
+                    <View style={{paddingTop: 20, paddingBottom: 10, display: global.data["EndgameType"] == 1 ? "flex" : "none"}}>
                         <Text style={{fontSize: 20, fontWeight: "bold"}}>Initial Climb Height</Text>
                     </View>
                     
