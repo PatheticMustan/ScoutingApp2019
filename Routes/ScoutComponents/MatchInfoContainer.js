@@ -49,7 +49,7 @@ export default class MatchInfoContainer extends React.Component {
                     <View style={styles.piecesContainer}>
                         <View style={styles.inputContainer2}>
                             <Text style={styles.bold}>Starting Game Pieces</Text>
-                                <Incrementer id="StartingPieces"/>
+                                <Incrementer id="StartingPieces" max={3}/>
                             <View>
                                 <Image
                                     source={require("../../Assets/Ball.png")}
