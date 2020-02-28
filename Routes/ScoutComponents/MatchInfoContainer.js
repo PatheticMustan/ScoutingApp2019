@@ -3,12 +3,10 @@ import {
     StyleSheet,
     Text,
     View,
-    TextInput,
     Image
 } from "react-native";
 
 import Incrementer from "./Utility/Incrementer.js"
-import TabBarIcon from "./Utility/TabBarIcon.js"
 import CustomTextBox from "./Utility/CustomTextBox.js";
 import MatchPicker from "./Utility/MatchPicker.js";
 
