@@ -18,8 +18,8 @@ export default class Incrementer extends React.Component {
 
 
         this.increment = () => {
-            const min = this.props.min || 69420; /** Kevin why are you like this */
-            global.data[this.props.id] = Math.min(min, global.data[this.props.id] + 1);
+            const max = this.props.max || 69420;
+            global.data[this.props.id] = Math.min(max, global.data[this.props.id] + 1);
         }
         this.decrement = () => {
             global.data[this.props.id] = Math.max(0, global.data[this.props.id] - 1);

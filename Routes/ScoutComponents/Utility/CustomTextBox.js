@@ -1,6 +1,5 @@
 import React from "react";
 import {
-    View,
     TextInput,
     StyleSheet
 } from "react-native";
@@ -24,6 +23,7 @@ export default class CustomTextBox extends React.Component {
                 editable
                 placeholder={this.props.placeholder || ""}
                 style={{
+                    flex: 1,
                     height: this.props.height,
                     width: this.props.width,
                     backgroundColor: (this.props.backgroundColor? this.props.backgroundColor : "#FFF"),

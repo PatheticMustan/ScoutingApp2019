@@ -46,15 +46,12 @@ export default class Autonomous extends React.Component {
                     </ImageBackground>
 
                     <Text style={{textAlign: "center", fontSize: 20, fontWeight: "bold"}}>Comments</Text>
-                    <Text style={{textAlign: "center", fontSize: 14, marginHorizontal: 20, marginTop: 10}}>
-                        Add any comments that you feel are useful. Does the robot get any penalties? Where do they shoot from?
-                        Anything else that shows evidence of good/poor performance?
-                    </Text>
                     <View style={{padding: 20}}>
                         <CustomTextBox
                             id="AutonomousComments"
-                            default=""
                             width={690}
+                            placeholder="Add any comments that you feel are useful. Does the robot get any penalties? Where do they shoot from?
+                            Anything else that shows evidence of good/poor performance?"
                             height={100}
                             backgroundColor={"#DDD"}
                             borderRadius={10}
@@ -79,7 +76,8 @@ const styles = StyleSheet.create({
         alignItems: "center",
         borderColor: "black",
         borderWidth: StyleSheet.hairlineWidth,
-        borderRadius: 10
+        borderRadius: 10,
+        display: "flex"
     },
     imageBackground: {
         height: 300,
