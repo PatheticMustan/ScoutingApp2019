@@ -52,13 +52,10 @@ export default class Autonomous extends React.Component {
                             width={690}
                             placeholder="Add any comments that you feel are useful. Does the robot get any penalties? Where do they shoot from?
                             Anything else that shows evidence of good/poor performance?"
-                            height={100}
                             backgroundColor={"#DDD"}
                             borderRadius={10}
-                            options={{
-                                multiline: true,
-                                numberOfLines: 10
-                            }}/>
+                            
+                        />
                     </View>
                 </View>
             </View>

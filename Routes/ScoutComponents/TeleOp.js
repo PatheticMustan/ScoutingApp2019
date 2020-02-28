@@ -51,7 +51,6 @@ export default class TeleOp extends React.Component {
                             id="TeleopComments"
                             default=""
                             width={690}
-                            height={100}
                             backgroundColor={"#DDD"}
                             borderRadius={10}
                             options={{
