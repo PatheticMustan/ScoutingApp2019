@@ -18,8 +18,8 @@ export default class TeleOp extends React.Component {
                 <Text style = {{textAlign: "center", fontSize: 35, fontWeight: "bold"}}>Tele-Op</Text>
                 <View style = {styles.teleOpContainer}>
                     <ImageBackground
-                        source = {require("../../Assets/2020 Field.png")}
-                        style = {{height: 700, width: 1300, marginTop: 20, borderRadius: 10}}
+                        source = {require("../../Assets/2020Field.png")}
+                        style = {{height: 300, width: 700, marginTop: 20, borderRadius: 10}}
                     />
                     
                     <BoolButton id="PlaysDefense" bgc="lime">Plays Defense</BoolButton>
@@ -50,13 +50,13 @@ export default class TeleOp extends React.Component {
                         <CustomTextBox
                             id="TeleopComments"
                             default=""
-                            width={1300}
-                            height={200}
+                            width={690}
+                            height={100}
                             backgroundColor={"#DDD"}
                             borderRadius={10}
                             options={{
                                 multiline: true,
-                                numberOfLines: 10
+                                numberOfLines: 1
                             }}/>
                     </View>
                 </View>

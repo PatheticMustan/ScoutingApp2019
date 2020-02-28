@@ -18,7 +18,7 @@ export default class Autonomous extends React.Component {
                 <Text style={{textAlign: "center", fontSize: 35, fontWeight: "bold"}}>Autonomous</Text>
                 <View style={styles.autonomousContainer}>
                     <ImageBackground
-                        source={require('../../Assets/2020 Field.png')}
+                        source={require('../../Assets/2020Field.png')}
                         style={styles.imageBackground}
                         imageStyle={{ borderRadius: 10}}
                     >
@@ -54,8 +54,8 @@ export default class Autonomous extends React.Component {
                         <CustomTextBox
                             id="AutonomousComments"
                             default=""
-                            width={1300}
-                            height={200}
+                            width={690}
+                            height={100}
                             backgroundColor={"#DDD"}
                             borderRadius={10}
                             options={{
@@ -82,8 +82,8 @@ const styles = StyleSheet.create({
         borderRadius: 10
     },
     imageBackground: {
-        height: 700,
-        width: 1300,
+        height: 300,
+        width: 700,
         marginTop: 20,
         flexDirection: "row"
     }
