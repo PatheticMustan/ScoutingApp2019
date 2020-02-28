@@ -28,6 +28,7 @@ export default class CustomTextBox extends React.Component {
                     placeholder={this.props.placeholder || ""}
                     style={{
                         flex: 1,
+                        padding: 10,
                         backgroundColor: (this.props.backgroundColor? this.props.backgroundColor : "#FFF"),
                         borderColor: "#AAA",
                         borderWidth: StyleSheet.hairlineWidth,

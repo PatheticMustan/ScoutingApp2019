@@ -46,15 +46,18 @@ export default class Autonomous extends React.Component {
                     </ImageBackground>
 
                     <Text style={{textAlign: "center", fontSize: 20, fontWeight: "bold"}}>Comments</Text>
+                    <Text style = {{textAlign: "center", fontSize: 14, marginLeft: 20, marginRight: 20, marginTop: 10}}>
+                        Add any comments that you feel are useful. Does the robot get any penalties? Does the robot cycle
+                        efficiently? Do they struggle with picking up balls or shooting? Do they play defense, and if so,
+                        how? Where do they usually shoot from? Anything else that shows evidence of good/poor performance?
+                    </Text>
                     <View style={{padding: 20}}>
                         <CustomTextBox
                             id="AutonomousComments"
                             width={690}
-                            placeholder="Add any comments that you feel are useful. Does the robot get any penalties? Where do they shoot from?
-                            Anything else that shows evidence of good/poor performance?"
+                            placeholder="Type your comments here..."
                             backgroundColor={"#DDD"}
                             borderRadius={10}
-                            
                         />
                     </View>
                 </View>

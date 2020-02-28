@@ -49,7 +49,7 @@ export default class TeleOp extends React.Component {
                     <View style = {{paddingLeft: 20, paddingRight: 20, paddingTop: 20, paddingBottom: 20}}>
                         <CustomTextBox
                             id="TeleopComments"
-                            default=""
+                            placeholder="Type your comments here..."
                             width={690}
                             backgroundColor={"#DDD"}
                             borderRadius={10}
