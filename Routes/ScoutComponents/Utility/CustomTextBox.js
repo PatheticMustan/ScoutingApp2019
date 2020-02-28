@@ -8,14 +8,13 @@ import {
 
 
 export default class CustomTextBox extends React.Component {
-    
     componentDidMount() {
         /** Set default */
-        global.data[this.props.id] = this.props.default;
-        /** Update */
-        this.interval = setInterval(() => {this.setState({ time: Date.now() })}, 20);
+        this.state = {
+            text: ""
+        }
+        global.data[this.props.id] = this.state.text;
     }
-    componentWillUnmount() {clearInterval(this.interval)}
     
     render() {
         return (
