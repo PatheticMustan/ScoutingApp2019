@@ -6,9 +6,9 @@ import {
     Image
 } from "react-native";
 
-import Incrementer from "./Utility/Incrementer.js"
-import CustomTextBox from "./Utility/CustomTextBox.js";
-import MatchPicker from "./Utility/MatchPicker.js";
+import Incrementer from "../../Components/Utility/Incrementer.js"
+import CustomTextBox from "../../Components/Utility/CustomTextBox.js";
+import MatchPicker from "../../Components/Utility/MatchPicker.js";
 
 export default class MatchInfoContainer extends React.Component {
     render() {

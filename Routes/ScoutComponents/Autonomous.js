@@ -6,10 +6,10 @@ import {
     ImageBackground
 } from "react-native";
 
-import BoolButton from "./Buttons/BoolButton.js";
-import NumButton from "./Buttons/NumButton.js";
-import RadioButton from "./Buttons/RadioButton.js";
-import CustomTextBox from "./Utility/CustomTextBox.js";
+import BoolButton from "../../Components/Buttons/BoolButton.js";
+import NumButton from "../../Components/Buttons/NumButton.js";
+import RadioButton from "../../Components/Buttons/RadioButton.js";
+import CustomTextBox from "../../Components/Utility/CustomTextBox.js";
 
 export default class Autonomous extends React.Component {
     render() {
