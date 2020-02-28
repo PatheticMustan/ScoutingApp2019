@@ -5,7 +5,7 @@ import {
     View
 } from "react-native";
 
-import BoolButton from "./Buttons/BoolButton.js";
+import BoolButton from "../../Components/Buttons/BoolButton.js";
 
 export default class Other extends React.Component {
     render() {
