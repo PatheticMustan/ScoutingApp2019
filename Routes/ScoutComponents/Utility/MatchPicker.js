@@ -1,7 +1,6 @@
 import React from "react";
 import {
     View,
-    Text,
     Picker
 } from "react-native";
 
@@ -35,7 +34,7 @@ export default class MatchPicker extends React.Component {
                 <Picker
                     mode="dropdown"
                     selectedValue={this.state.val}
-                    style={{height: 20, width: 60, fontSize: 5}}
+                    style={{height: 20, width: 150}}
                     onValueChange={this.selectMatch}
                 >
                     <Picker.Item label="Qualification" value="Qualification" />
