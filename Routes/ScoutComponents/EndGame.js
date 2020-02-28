@@ -85,15 +85,15 @@ export default class Endgame extends React.Component {
                     <View style={styles.climbContainer}>
                         <View style={styles.climbHeight}>
                             <Image
-                                source={require("../../Assets/End Low.png")}
+                                source={require("../../Assets/EndLow.png")}
                                 style={{width: 300, height: 150, borderRadius: 10}}
                             />
                           <Image
-                                source={require("../../Assets/End Level.png")}
+                                source={require("../../Assets/EndLevel.png")}
                                 style={{width: 300, height: 150, borderRadius: 10}}
                             />
                             <Image
-                                source={require("../../Assets/End High.png")}
+                                source={require("../../Assets/EndHigh.png")}
                                 style={{width: 300, height: 150, borderRadius: 10}}
                             />
                             <RadioButton id="parkPosition" data={["Low", "Balanced", "High"]} bgc={"orange"}/>
@@ -103,7 +103,7 @@ export default class Endgame extends React.Component {
                             <View style = {styles.climbPosition}>
                                 <Text style = {{fontWeight: "bold", fontSize: 20}}>Climb Position</Text>
                                 <Image
-                                    source = {require("../../Assets/Climb Position.png")}
+                                    source = {require("../../Assets/ClimbPosition.png")}
                                     style = {{width: 300, height: 150}}
                                 />
                                 <RadioButton id="climbPosition" data={["Edge", "Middle Bar", "Center"]} bgc={"orange"}/>

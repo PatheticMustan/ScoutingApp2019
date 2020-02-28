@@ -18,7 +18,7 @@ export default class Autonomous extends React.Component {
                 <Text style={{textAlign: "center", fontSize: 35, fontWeight: "bold"}}>Autonomous</Text>
                 <View style={styles.autonomousContainer}>
                     <ImageBackground
-                        source={require('../../Assets/2020 Field.png')}
+                        source={require('../../Assets/2020Field.png')}
                         style={styles.imageBackground}
                         imageStyle={{ borderRadius: 10}}
                     >
