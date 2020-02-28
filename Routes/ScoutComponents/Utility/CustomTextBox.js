@@ -24,6 +24,7 @@ export default class CustomTextBox extends React.Component {
                 editable
                 placeholder={this.props.placeholder || ""}
                 style={{
+                    height: this.props.height,
                     width: this.props.width,
                     backgroundColor: (this.props.backgroundColor? this.props.backgroundColor : "#FFF"),
                     borderColor: "#AAA",
