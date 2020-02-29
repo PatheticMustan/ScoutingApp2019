@@ -53,6 +53,7 @@ export default class Autonomous extends React.Component {
                     </Text>
                     <View style={{padding: 20}}>
                         <CustomTextBox
+                            multi={true}
                             id="AutonomousComments"
                             width={690}
                             placeholder="Type your comments here..."
