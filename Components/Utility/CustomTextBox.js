@@ -23,7 +23,7 @@ export default class CustomTextBox extends React.Component {
                 height: this.props.height || 200
             }}>
                 <TextInput
-                    multiline
+                    multiline={this.props.multi==true}
                     editable
                     placeholder={this.props.placeholder || ""}
                     style={{

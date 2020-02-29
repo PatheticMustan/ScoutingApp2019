@@ -48,6 +48,7 @@ export default class TeleOp extends React.Component {
                     </Text>
                     <View style = {{paddingLeft: 20, paddingRight: 20, paddingTop: 20, paddingBottom: 20}}>
                         <CustomTextBox
+                            multi={true}
                             id="TeleopComments"
                             placeholder="Type your comments here..."
                             width={690}
