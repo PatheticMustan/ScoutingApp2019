@@ -11,6 +11,7 @@ import NumButton from "../../Components/Buttons/NumButton.js";
 import RadioButton from "../../Components/Buttons/RadioButton.js"
 import CustomTextBox from "../../Components/Utility/CustomTextBox"
 import Timer from "../../Components/Utility/Timer.js";
+import ClimbPosition from "../../Components/Utility/ClimbPosition.js";
 
 export default class Endgame extends React.Component {
     constructor() {
@@ -87,19 +88,16 @@ export default class Endgame extends React.Component {
                     
                     <View style={styles.climbContainer}>
                         <View style={styles.climbHeight}>
-                            <Image
-                                source={require("../../Assets/EndLow.png")}
-                                style={{width: 300, height: 150, borderRadius: 10}}
+                            
+                            <ClimbPosition
+                                id="parkPosition"
+                                data={[
+                                    ["Low",      require("../../Assets/EndLow.png")],
+                                    ["Balanced", require("../../Assets/EndLevel.png")],
+                                    ["High",     require("../../Assets/EndHigh.png")]
+                                ]}
+                                bgc={"orange"}
                             />
-                          <Image
-                                source={require("../../Assets/EndLevel.png")}
-                                style={{width: 300, height: 150, borderRadius: 10}}
-                            />
-                            <Image
-                                source={require("../../Assets/EndHigh.png")}
-                                style={{width: 300, height: 150, borderRadius: 10}}
-                            />
-                            <RadioButton id="parkPosition" data={["Low", "Balanced", "High"]} bgc={"orange"}/>
                         </View>
 
                         <View style = {{flex: 1, flexDirection: "row"}}>
