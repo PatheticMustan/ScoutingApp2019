@@ -3,14 +3,12 @@ import {
     StyleSheet,
     Text,
     View,
-    TextInput,
     Image
 } from "react-native";
 
-import Incrementer from "./Utility/Incrementer.js"
-import TabBarIcon from "./Utility/TabBarIcon.js"
-import CustomTextBox from "./Utility/CustomTextBox.js";
-import MatchPicker from "./Utility/MatchPicker.js";
+import Incrementer from "../../Components/Utility/Incrementer.js"
+import CustomTextBox from "../../Components/Utility/CustomTextBox.js";
+import MatchPicker from "../../Components/Utility/MatchPicker.js";
 
 export default class MatchInfoContainer extends React.Component {
     render() {
@@ -23,7 +21,7 @@ export default class MatchInfoContainer extends React.Component {
                         <View style={styles.inputContainer}>
                             <Text style={styles.bold}>Team Number: </Text>
                             <View style={{flex: 1, paddingLeft: 5}}>
-                                <CustomTextBox id="TeamNumber" default="" width={60} height={30}/>
+                                <CustomTextBox id="TeamNumber" placeholder="177013" width={80} height={30}/>
                             </View>
                         </View>
                         
@@ -41,7 +39,7 @@ export default class MatchInfoContainer extends React.Component {
                             <Text style={styles.bold}>Scouters: </Text>
 
                             <View style={{flex: 1, paddingLeft: 5}}>
-                                <CustomTextBox id="Scouters" default="" width={300} height={30}/>
+                                <CustomTextBox id="Scouters" placeholder="Name and Name" width={350} height={30}/>
                             </View>
                         </View>
                     </View>
@@ -51,7 +49,7 @@ export default class MatchInfoContainer extends React.Component {
                     <View style={styles.piecesContainer}>
                         <View style={styles.inputContainer2}>
                             <Text style={styles.bold}>Starting Game Pieces</Text>
-                                <Incrementer id="StartingPieces"/>
+                                <Incrementer id="StartingPieces" max={3}/>
                             <View>
                                 <Image
                                     source={require("../../Assets/Ball.png")}

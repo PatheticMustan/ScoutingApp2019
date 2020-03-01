@@ -32,8 +32,9 @@ export default class MatchPicker extends React.Component {
         return (
             <View>
                 <Picker
+                    mode="dropdown"
                     selectedValue={this.state.val}
-                    style={{height: 50, width: 100}}
+                    style={{height: 20, width: 150}}
                     onValueChange={this.selectMatch}
                 >
                     <Picker.Item label="Qualification" value="Qualification" />

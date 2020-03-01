@@ -5,11 +5,23 @@ import {
     View
 } from "react-native";
 import * as Sharing from "expo-sharing";
-import Link from "./Utility/Link.js";
-import SegmentedControl from "./Buttons/SegmentedControl.js";
+import Link from "../../Components/Utility/Link.js";
+import SegmentedControl from "../../Components/Buttons/SegmentedControl.js";
+import {localStorage} from '../../Components/Storage/Storage.js';
 
 
 export default class Header extends React.Component {
+    constructor(props) {
+        super(props);
+        this.storage = localStorage;
+
+        // immediately invoked arrow function
+        (async () => {
+            await this.storage.set("test", "tesssssa testorosa");
+            alert(await this.storage.get("test"));
+        })()
+    }
+
     render() {
         return (
             <View style={styles.container}>
@@ -30,7 +42,9 @@ export default class Header extends React.Component {
                         default={0}
                     />
                     
-                    <Link color="blue" onPress={() => alert(1)}>Save</Link>
+                    <Link color="blue" onPress={() => {
+                        localStorage
+                    }}>Save</Link>
                     <Link color="blue" onPress={() => Sharing}>Save and Export</Link>
                 </View>
             </View>

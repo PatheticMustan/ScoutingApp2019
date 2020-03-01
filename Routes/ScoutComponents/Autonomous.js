@@ -6,10 +6,10 @@ import {
     ImageBackground
 } from "react-native";
 
-import BoolButton from "./Buttons/BoolButton.js";
-import NumButton from "./Buttons/NumButton.js";
-import RadioButton from "./Buttons/RadioButton.js";
-import CustomTextBox from "./Utility/CustomTextBox.js";
+import BoolButton from "../../Components/Buttons/BoolButton.js";
+import NumButton from "../../Components/Buttons/NumButton.js";
+import RadioButton from "../../Components/Buttons/RadioButton.js";
+import CustomTextBox from "../../Components/Utility/CustomTextBox.js";
 
 export default class Autonomous extends React.Component {
     render() {
@@ -18,7 +18,7 @@ export default class Autonomous extends React.Component {
                 <Text style={{textAlign: "center", fontSize: 35, fontWeight: "bold"}}>Autonomous</Text>
                 <View style={styles.autonomousContainer}>
                     <ImageBackground
-                        source={require('../../Assets/2020 Field.png')}
+                        source={require('../../Assets/2020Field.png')}
                         style={styles.imageBackground}
                         imageStyle={{ borderRadius: 10}}
                     >
@@ -46,22 +46,20 @@ export default class Autonomous extends React.Component {
                     </ImageBackground>
 
                     <Text style={{textAlign: "center", fontSize: 20, fontWeight: "bold"}}>Comments</Text>
-                    <Text style={{textAlign: "center", fontSize: 14, marginHorizontal: 20, marginTop: 10}}>
-                        Add any comments that you feel are useful. Does the robot get any penalties? Where do they shoot from?
-                        Anything else that shows evidence of good/poor performance?
+                    <Text style = {{textAlign: "center", fontSize: 14, marginLeft: 20, marginRight: 20, marginTop: 10}}>
+                        Add any comments that you feel are useful. Does the robot get any penalties? Does the robot cycle
+                        efficiently? Do they struggle with picking up balls or shooting? Do they play defense, and if so,
+                        how? Where do they usually shoot from? Anything else that shows evidence of good/poor performance?
                     </Text>
                     <View style={{padding: 20}}>
                         <CustomTextBox
+                            multi={true}
                             id="AutonomousComments"
-                            default=""
-                            width={1300}
-                            height={200}
+                            width={690}
+                            placeholder="Type your comments here..."
                             backgroundColor={"#DDD"}
                             borderRadius={10}
-                            options={{
-                                multiline: true,
-                                numberOfLines: 10
-                            }}/>
+                        />
                     </View>
                 </View>
             </View>
@@ -79,11 +77,12 @@ const styles = StyleSheet.create({
         alignItems: "center",
         borderColor: "black",
         borderWidth: StyleSheet.hairlineWidth,
-        borderRadius: 10
+        borderRadius: 10,
+        display: "flex"
     },
     imageBackground: {
-        height: 700,
-        width: 1300,
+        height: 300,
+        width: 700,
         marginTop: 20,
         flexDirection: "row"
     }

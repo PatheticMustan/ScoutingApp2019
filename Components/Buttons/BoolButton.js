@@ -15,7 +15,6 @@ export default class BoolButton extends React.Component {
         }
         global.data[props.id] = this.state.val;
     }
-    componentWillUnmount() {clearInterval(this.interval)}
 
     render() {
         const p = this.props;
