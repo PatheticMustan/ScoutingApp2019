@@ -26,37 +26,6 @@ export default class Endgame extends React.Component {
     }
 
     render() {
-        const styles=StyleSheet.create({
-            container: {
-                paddingHorizontal: 50,
-                paddingVertical: 20,
-                backgroundColor: "#FFF"
-            },
-            endgameContainer: {
-                alignItems: "center",
-                borderColor: "black",
-                padding: 20,
-                borderWidth: StyleSheet.hairlineWidth,
-                borderRadius: 10
-            },
-            climbContainer: {
-                flex: 1,
-                flexDirection: "column",
-                display: global.data["EndgameType"] == 1 ? "block" : "none"
-            },
-            climbPosition: {
-                flex: 1,
-                flexDirection: "column",
-                alignItems: "center"
-            },
-            climbComments: {
-                flex: 1,
-                flexDirection: "column",
-                justifyContent: "center",
-                textAlign: "center",
-                alignItems: "center"
-            }
-        });
 
         return (
             <View style = {styles.container}>
@@ -81,8 +50,9 @@ export default class Endgame extends React.Component {
                         <Text style={{fontSize: 20, fontWeight: "bold"}}>Initial Climb Height</Text>
                     </View>
                     
-                    <View style={styles.climbContainer}>
+                    <View style={[styles.climbContainer, {display: global.data["EndgameType"] == 1 ? "block" : "none"}]}>
                         <ClimbHeight bgc={"orange"}/>
+
                         <View style = {{flex: 1, flexDirection: "row"}}>
                             <View style = {styles.climbPosition}>
                                 <Text style = {{fontWeight: "bold", fontSize: 20}}>Climb Position</Text>
@@ -123,3 +93,34 @@ export default class Endgame extends React.Component {
         );
     }
 }
+
+const styles=StyleSheet.create({
+    container: {
+        paddingHorizontal: 50,
+        paddingVertical: 20,
+        backgroundColor: "#FFF"
+    },
+    endgameContainer: {
+        alignItems: "center",
+        borderColor: "black",
+        padding: 20,
+        borderWidth: StyleSheet.hairlineWidth,
+        borderRadius: 10
+    },
+    climbContainer: {
+        flex: 1,
+        flexDirection: "column"
+    },
+    climbPosition: {
+        flex: 1,
+        flexDirection: "column",
+        alignItems: "center"
+    },
+    climbComments: {
+        flex: 1,
+        flexDirection: "column",
+        justifyContent: "center",
+        textAlign: "center",
+        alignItems: "center"
+    }
+});
