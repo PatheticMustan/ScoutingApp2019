@@ -114,7 +114,6 @@ const styles=StyleSheet.create({
         flex: 1,
         flexDirection: "column",
         justifyContent: "center",
-        textAlign: "center",
         alignItems: "center"
     }
 });
