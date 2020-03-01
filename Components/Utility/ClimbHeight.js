@@ -11,15 +11,16 @@ export default class ClimbHeight extends React.Component {
     constructor(props) {
         super(props);
         /** Set default */
-        this.state = {flipFlop: false}
-        global.data[props.id] = "";
+        this.state = {
+            val: ""
+        }
+        global.data[props.id] = this.state.val;
+
         this.data = [
             ["Low",     require("../../Assets/EndLow.png")],
             ["Leveled", require("../../Assets/EndLevel.png")],
             ["High",    require("../../Assets/EndHigh.png")]
         ];
-        /** Update */
-        this.interval = setInterval(() => {this.setState({ flipFlop: !this.state.flipFlop })}, 50);
     }
     componentWillUnmount() {clearInterval(this.interval)}
 
@@ -32,18 +33,22 @@ export default class ClimbHeight extends React.Component {
                 flexDirection: "row",
                 justifyContent: "space-around"
             }}>
-                <TouchableWithoutFeedback key={this.data[0][0]} onPress={() => global.data[p.id] = (global.data[p.id]==this.data[0][0]? "" : this.data[0][0])}>
-                    <View style={{
-                        justifyContent: "center",
-                        borderRadius: 10,
-                        borderWidth: StyleSheet.hairlineWidth,
-                        margin: this.props.margin || 10,
-                        backgroundColor: (global.data[p.id] === this.data[0][0]? p.bgc : "white"),
-                        flexDirection: "column"
-                    }}>
+                <TouchableWithoutFeedback
+                    key={this.data[0][0]}
+                    onPress={() => {
+                        this.setState(
+                            {val: this.state.val==this.data[0][0]? "" : this.data[0][0]},
+                            () => global.data[p.id] = this.state.val
+                        )
+                    }}
+                >
+                    <View style={[
+                        styles.container,
+                        {backgroundColor: (this.state.val === this.data[0][0]? p.bgc : "white")}
+                    ]}>
                         <Image
                             source={this.data[0][1]}
-                            style={{width: 300, height: 150, borderRadius: 10}}
+                            style={styles.image}
                         />
                         <Text style={{textAlign: "center"}}>{this.data[0][0]}</Text>
                     </View>
@@ -51,18 +56,22 @@ export default class ClimbHeight extends React.Component {
 
 
 
-                <TouchableWithoutFeedback key={this.data[1][0]} onPress={() => global.data[p.id] = (global.data[p.id]==this.data[1][0]? "" : this.data[1][0])}>
-                    <View style={{
-                        justifyContent: "center",
-                        borderRadius: 10,
-                        borderWidth: StyleSheet.hairlineWidth,
-                        margin: this.props.margin || 10,
-                        backgroundColor: (global.data[p.id] === this.data[1][0]? p.bgc : "white"),
-                        flexDirection: "column"
-                    }}>
+                <TouchableWithoutFeedback
+                    key={this.data[1][0]}
+                    onPress={() => {
+                        this.setState(
+                            {val: this.state.val==this.data[1][0]? "" : this.data[1][0]},
+                            () => global.data[p.id] = this.state.val
+                        )
+                    }}
+                >
+                    <View style={[
+                        styles.container,
+                        {backgroundColor: (this.state.val === this.data[1][0]? p.bgc : "white")}
+                    ]}>
                         <Image
                             source={this.data[1][1]}
-                            style={{width: 300, height: 150, borderRadius: 10}}
+                            style={styles.image}
                         />
                         <Text style={{textAlign: "center"}}>{this.data[1][0]}</Text>
                     </View>
@@ -70,18 +79,22 @@ export default class ClimbHeight extends React.Component {
 
 
 
-                <TouchableWithoutFeedback key={this.data[2][0]} onPress={() => global.data[p.id] = (global.data[p.id]==this.data[2][0]? "" : this.data[2][0])}>
-                    <View style={{
-                        justifyContent: "center",
-                        borderRadius: 10,
-                        borderWidth: StyleSheet.hairlineWidth,
-                        margin: this.props.margin || 10,
-                        backgroundColor: (global.data[p.id] === this.data[2][0]? p.bgc : "white"),
-                        flexDirection: "column"
-                    }}>
+                <TouchableWithoutFeedback
+                    key={this.data[2][0]}
+                    onPress={() => {
+                        this.setState(
+                            {val: this.state.val==this.data[2][0]? "" : this.data[2][0]},
+                            () => global.data[p.id] = this.state.val
+                        )
+                    }}
+                >
+                    <View style={[
+                        styles.container,
+                        {backgroundColor: (this.state.val === this.data[2][0]? p.bgc : "white")}
+                    ]}>
                         <Image
                             source={this.data[2][1]}
-                            style={{width: 300, height: 150, borderRadius: 10}}
+                            style={styles.image}
                         />
                         <Text style={{textAlign: "center"}}>{this.data[2][0]}</Text>
                     </View>
@@ -91,10 +104,17 @@ export default class ClimbHeight extends React.Component {
     }
 }
 
-const styles=StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
-        paddingHorizontal: 50,
-        paddingVertical: 20,
-        backgroundColor: "#FFF"
+        justifyContent: "center",
+        borderRadius: 10,
+        borderWidth: StyleSheet.hairlineWidth,
+        margin: 10,
+        flexDirection: "column"
+    },
+    image: {
+        width: 300,
+        height: 150,
+        borderRadius: 10
     }
 });
