@@ -25,16 +25,17 @@ export default class Header extends React.Component {
             alert(await this.storage.get("test"));
         })()
     }
+    componentDidMount() {this.interval = setInterval(() => {this.setState({ time: Date.now() })}, 100)}
+    componentWillUnmount() {clearInterval(this.interval)}
 
     render() {
         return (
-            <View style={styles.container}>
+            <View style={{backgroundColor: !global.data["Team"]? "#D0F4FF" : "#FFD0D0"}}>
                 <Text style={styles.headerText}>2020 - Infinite Recharge</Text>
 
                 <View style={styles.linkContainer}>
                     <Link color="red" onPress={() => alert(1)}>Reset</Link>
-                    <Link color="blue" onPress={() => alert(1)}>Undo</Link>
-
+                    
                     <SegmentedControl
                         id="Team"
                         data={["Blue Alliance", "Red Alliance"]}
@@ -45,7 +46,7 @@ export default class Header extends React.Component {
                         }}
                         default={0}
                     />
-                    
+
                     <Link color="blue" onPress={() => {
                         localStorage
                     }}>Save</Link>
