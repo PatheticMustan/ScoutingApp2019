@@ -72,7 +72,7 @@ export default class Endgame extends React.Component {
                             </Text>
                             <CustomTextBox
                                 id="EndgameComments"
-                                default=""
+                                placeholder="Type your comments here..."
                                 width={600}
                                 height={400}
                                 backgroundColor={"#DDD"}
