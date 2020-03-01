@@ -13,9 +13,13 @@ import {localStorage} from '../../Components/Storage/Storage.js';
 export default class Header extends React.Component {
     constructor(props) {
         super(props);
-
         this.storage = localStorage;
-        alert(typeof this.storage);
+
+        const test = () => {
+            alert(typeof this.storage);
+            
+        }
+        test();
     }
 
     render() {
