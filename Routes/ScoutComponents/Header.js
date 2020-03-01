@@ -15,11 +15,11 @@ export default class Header extends React.Component {
         super(props);
         this.storage = localStorage;
 
-        const test = () => {
-            alert(typeof this.storage);
-            
-        }
-        test();
+        // immediately invoked arrow function
+        (async () => {
+            await this.storage.set("test", "tesssssa testorosa");
+            alert(await this.storage.get("test"));
+        })()
     }
 
     render() {
