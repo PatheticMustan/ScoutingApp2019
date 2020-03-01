@@ -61,11 +61,8 @@ export default class Endgame extends React.Component {
                             
                             <ClimbPosition id="climbPosition" bgc={"orange"}/>
                         </View>
-
-
-
-
-                        <View style = {styles.climbComments}>
+                    </View>
+                    <View style = {styles.climbComments}>
                             <Text style = {{fontWeight: "bold", fontSize: 20}}>Comments</Text>
                             <Text style = {{fontSize: 12}}>
                                 Add any comments that you feel are useful. Do they attempt to climb but fall?
@@ -85,7 +82,6 @@ export default class Endgame extends React.Component {
                                     numberOfLines: 10
                             }}/>
                         </View>
-                    </View>
                 </View>
             </View>
         );
