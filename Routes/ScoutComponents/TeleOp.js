@@ -14,12 +14,13 @@ import CustomTextBox from "../../Components/Utility/CustomTextBox.js";
 export default class TeleOp extends React.Component {
     render() {
         return (
-            <View style = {styles.container}>
-                <Text style = {{textAlign: "center", fontSize: 35, fontWeight: "bold"}}>Tele-Op</Text>
-                <View style = {styles.teleOpContainer}>
+            <View style={styles.container}>
+                <Text style={{textAlign: "center", fontSize: 35, fontWeight: "bold"}}>Tele-Op</Text>
+                <View style={styles.teleOpContainer}>
                     <ImageBackground
-                        source = {require("../../Assets/2020Field.png")}
-                        style = {{height: 300, width: 700, marginTop: 20, borderRadius: 10}}
+                        source={require("../../Assets/2020Field.png")}
+                        style={{height: 300, width: 700, marginTop: 20}}
+                        imageStyle={{ borderRadius: 10}}
                     />
                     
                     <BoolButton id="PlaysDefense" bgc="lime">Plays Defense</BoolButton>
