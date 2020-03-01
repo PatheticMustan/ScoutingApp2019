@@ -16,6 +16,7 @@ export default class Data extends React.Component {
     /** Update data every second. */
     componentDidMount() {this.interval = setInterval(() => {this.setState({ time: Date.now() })}, 100)}
     componentWillUnmount() {clearInterval(this.interval)}
+    
     exportMatch() {
         // shorten the monstrosity I'm about to type. Also clears data from `"` and `,`. Pretty lazy, but also I'm kinda tired.
         // damn good job on backend, Kevin. I do read your comments lol
@@ -51,10 +52,10 @@ export default class Data extends React.Component {
             g`TeleopComments`,
             ["Park", "Climb", "None"][g`EndgameType`],
             g`BallsScored`,
-            g`Initial Climb Height`, /** Finish */
-            g`Initial Climb Position`, /** Finish */
-            g`Climb Time`, /** Finish */
-            g`EndgameComments` /** Finish */
+            g`EndgameType`==1? g`ClimbHeight` : "",
+            g`EndgameType`==1? g`ClimbPosition` : "",
+            g`EndgameType`==1? g`Time` : "",
+            g`EndgameComments`
         ];
 
         let output = header + entry;

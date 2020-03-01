@@ -52,14 +52,14 @@ export default class Endgame extends React.Component {
                     </View>
                     
                     <View style={[styles.climbContainer, {display: global.data["EndgameType"] == 1 ? "block" : "none"}]}>
-                        <ClimbHeight bgc={"orange"}/>
+                        <ClimbHeight id="ClimbHeight" bgc={"orange"}/>
                         
 
 
                         <View style = {styles.climbPosition}>
                             <Text style = {{fontWeight: "bold", fontSize: 20}}>Climb Position</Text>
                             
-                            <ClimbPosition id="climbPosition" bgc={"orange"}/>
+                            <ClimbPosition id="ClimbPosition" bgc={"orange"}/>
                         </View>
                     </View>
                     <View style = {styles.climbComments}>
@@ -71,7 +71,7 @@ export default class Endgame extends React.Component {
                                 good/poor performance?
                             </Text>
                             <CustomTextBox
-                                id="AutonomousComments"
+                                id="EndgameComments"
                                 default=""
                                 width={600}
                                 height={400}

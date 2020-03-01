@@ -11,9 +11,8 @@ export default class ClimbHeight extends React.Component {
     constructor(props) {
         super(props);
         /** Set default */
-        this.id = "climbHeight"
-        global.data["climbHeight"] = "Low";
         this.state = {flipFlop: false}
+        global.data[props.id] = "";
         this.data = [
             ["Low",     require("../../Assets/EndLow.png")],
             ["Leveled", require("../../Assets/EndLevel.png")],
@@ -33,13 +32,13 @@ export default class ClimbHeight extends React.Component {
                 flexDirection: "row",
                 justifyContent: "space-around"
             }}>
-                <TouchableWithoutFeedback key={this.data[0][0]} onPress={() => global.data[this.id] = (global.data[this.id]==this.data[0][0]? "" : this.data[0][0])}>
+                <TouchableWithoutFeedback key={this.data[0][0]} onPress={() => global.data[p.id] = (global.data[p.id]==this.data[0][0]? "" : this.data[0][0])}>
                     <View style={{
                         justifyContent: "center",
                         borderRadius: 10,
                         borderWidth: StyleSheet.hairlineWidth,
                         margin: this.props.margin || 10,
-                        backgroundColor: (global.data[this.id] === this.data[0][0]? p.bgc : "white"),
+                        backgroundColor: (global.data[p.id] === this.data[0][0]? p.bgc : "white"),
                         flexDirection: "column"
                     }}>
                         <Image
@@ -52,13 +51,13 @@ export default class ClimbHeight extends React.Component {
 
 
 
-                <TouchableWithoutFeedback key={this.data[1][0]} onPress={() => global.data[this.id] = (global.data[this.id]==this.data[1][0]? "" : this.data[1][0])}>
+                <TouchableWithoutFeedback key={this.data[1][0]} onPress={() => global.data[p.id] = (global.data[p.id]==this.data[1][0]? "" : this.data[1][0])}>
                     <View style={{
                         justifyContent: "center",
                         borderRadius: 10,
                         borderWidth: StyleSheet.hairlineWidth,
                         margin: this.props.margin || 10,
-                        backgroundColor: (global.data[this.id] === this.data[1][0]? p.bgc : "white"),
+                        backgroundColor: (global.data[p.id] === this.data[1][0]? p.bgc : "white"),
                         flexDirection: "column"
                     }}>
                         <Image
@@ -71,13 +70,13 @@ export default class ClimbHeight extends React.Component {
 
 
 
-                <TouchableWithoutFeedback key={this.data[2][0]} onPress={() => global.data[this.id] = (global.data[this.id]==this.data[2][0]? "" : this.data[2][0])}>
+                <TouchableWithoutFeedback key={this.data[2][0]} onPress={() => global.data[p.id] = (global.data[p.id]==this.data[2][0]? "" : this.data[2][0])}>
                     <View style={{
                         justifyContent: "center",
                         borderRadius: 10,
                         borderWidth: StyleSheet.hairlineWidth,
                         margin: this.props.margin || 10,
-                        backgroundColor: (global.data[this.id] === this.data[2][0]? p.bgc : "white"),
+                        backgroundColor: (global.data[p.id] === this.data[2][0]? p.bgc : "white"),
                         flexDirection: "column"
                     }}>
                         <Image

@@ -12,8 +12,7 @@ export default class ClimbPosition extends React.Component {
     constructor(props) {
         super(props);
         /** Set default */
-        this.id = "climbHeight"
-        global.data["climbHeight"] = "Low";
+        global.data[this.props.id] = "";
         this.state = {flipFlop: false}
         this.data = ["Edge", "Middle Bar", "Center"];
         /** Update */
