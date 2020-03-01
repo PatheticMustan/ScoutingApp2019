@@ -11,7 +11,7 @@ import NumButton from "../../Components/Buttons/NumButton.js";
 import RadioButton from "../../Components/Buttons/RadioButton.js"
 import CustomTextBox from "../../Components/Utility/CustomTextBox"
 import Timer from "../../Components/Utility/Timer.js";
-import ClimbPosition from "../../Components/Utility/ClimbPosition.js";
+import ClimbHeight from "../../Components/Utility/ClimbHeight.js";
 
 export default class Endgame extends React.Component {
     constructor() {
@@ -43,11 +43,6 @@ export default class Endgame extends React.Component {
                 flex: 1,
                 flexDirection: "column",
                 display: global.data["EndgameType"] == 1 ? "block" : "none"
-            },
-            climbHeight: {
-                flex: 1,
-                flexDirection: "row",
-                justifyContent: "space-around"
             },
             climbPosition: {
                 flex: 1,
@@ -87,19 +82,7 @@ export default class Endgame extends React.Component {
                     </View>
                     
                     <View style={styles.climbContainer}>
-                        <View style={styles.climbHeight}>
-                            
-                            <ClimbPosition
-                                id="parkPosition"
-                                data={[
-                                    ["Low",      require("../../Assets/EndLow.png")],
-                                    ["Balanced", require("../../Assets/EndLevel.png")],
-                                    ["High",     require("../../Assets/EndHigh.png")]
-                                ]}
-                                bgc={"orange"}
-                            />
-                        </View>
-
+                        <ClimbHeight bgc={"orange"}/>
                         <View style = {{flex: 1, flexDirection: "row"}}>
                             <View style = {styles.climbPosition}>
                                 <Text style = {{fontWeight: "bold", fontSize: 20}}>Climb Position</Text>
