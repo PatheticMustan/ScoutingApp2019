@@ -3,7 +3,7 @@ import {
     StyleSheet,
     Text,
     View,
-    Image
+    ImageBackground
 } from "react-native";
 
 import SegmentedControl from "../../Components/Buttons/SegmentedControl.js";
@@ -12,6 +12,7 @@ import RadioButton from "../../Components/Buttons/RadioButton.js"
 import CustomTextBox from "../../Components/Utility/CustomTextBox"
 import Timer from "../../Components/Utility/Timer.js";
 import ClimbHeight from "../../Components/Utility/ClimbHeight.js";
+import ClimbPosition from '../../Components/Utility/ClimbPosition.js';
 
 export default class Endgame extends React.Component {
     constructor() {
@@ -52,40 +53,37 @@ export default class Endgame extends React.Component {
                     
                     <View style={[styles.climbContainer, {display: global.data["EndgameType"] == 1 ? "block" : "none"}]}>
                         <ClimbHeight bgc={"orange"}/>
+                        
 
-                        <View style = {{flex: 1, flexDirection: "row"}}>
-                            <View style = {styles.climbPosition}>
-                                <Text style = {{fontWeight: "bold", fontSize: 20}}>Climb Position</Text>
-                                <Image
-                                    source = {require("../../Assets/ClimbPosition.png")}
-                                    style = {{width: 300, height: 150}}
-                                />
-                                <RadioButton id="climbPosition" data={["Edge", "Middle Bar", "Center"]} bgc={"orange"}/>
-                            </View>
+
+                        <View style = {styles.climbPosition}>
+                            <Text style = {{fontWeight: "bold", fontSize: 20}}>Climb Position</Text>
+                            
+                            <ClimbPosition id="climbPosition" bgc={"orange"}/>
+                        </View>
 
 
 
 
-                            <View style = {styles.climbComments}>
-                                <Text style = {{fontWeight: "bold", fontSize: 20}}>Comments</Text>
-                                <Text style = {{fontSize: 12}}>
-                                    Add any comments that you feel are useful. Do they attempt to climb but fall?
-                                    Do they get in the way of other robots? Do they swing a lot on the climb? Are they able to balance the rung?
-                                    Are they able to adjust their climb position? Do they slide on the run? Anything else that shows evidence of
-                                    good/poor performance?
-                                </Text>
-                                <CustomTextBox
-                                    id="AutonomousComments"
-                                    default=""
-                                    width={600}
-                                    height={400}
-                                    backgroundColor={"#DDD"}
-                                    borderRadius={10}
-                                    options={{
-                                        multiline: true,
-                                        numberOfLines: 10
-                                }}/>
-                            </View>
+                        <View style = {styles.climbComments}>
+                            <Text style = {{fontWeight: "bold", fontSize: 20}}>Comments</Text>
+                            <Text style = {{fontSize: 12}}>
+                                Add any comments that you feel are useful. Do they attempt to climb but fall?
+                                Do they get in the way of other robots? Do they swing a lot on the climb? Are they able to balance the rung?
+                                Are they able to adjust their climb position? Do they slide on the run? Anything else that shows evidence of
+                                good/poor performance?
+                            </Text>
+                            <CustomTextBox
+                                id="AutonomousComments"
+                                default=""
+                                width={600}
+                                height={400}
+                                backgroundColor={"#DDD"}
+                                borderRadius={10}
+                                options={{
+                                    multiline: true,
+                                    numberOfLines: 10
+                            }}/>
                         </View>
                     </View>
                 </View>
