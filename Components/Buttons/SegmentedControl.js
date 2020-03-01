@@ -8,11 +8,11 @@ export default class SegmentedControl extends React.Component {
     constructor(props) {
         super(props);
         /** Set default */
-        global.data[props.id] = this.props.default || 0;
-        /** Update */
-        this.interval = setInterval(() => {this.setState({ time: Date.now() })}, 20);
+        this.state = {
+            val: this.props.default || 0
+        }
+        global.data[props.id] = this.state.val;
     }
-    componentWillUnmount() {clearInterval(this.interval)}
     
     handleIndexChange = index => {
         global.data[this.props.id] = index;
@@ -30,7 +30,10 @@ export default class SegmentedControl extends React.Component {
                     values={this.props.data}
                     selectedIndex={global.data[this.props.id]}
                     onTabPress={index => {
-                        global.data[this.props.id] = index;
+                        this.setState(
+                            {val: index},
+                            () => global.data[this.props.id] = this.state.val
+                        )
                     }}
                 />
             </View>
