@@ -35,10 +35,13 @@ export default class NumButton extends React.Component {
                         borderRadius: 10,
                         borderWidth: StyleSheet.hairlineWidth,
                         width: (p.width? p.width : 100),
-                        height: 40,
-                        backgroundColor: "white"
+                        height: (p.height? p.height : 40),
+                        backgroundColor: "white",
+                        justifyContent: "center",
                     }}>
-                        <Text style={{textAlign: "center"}}>{p.children} {`(${this.state.val})`}</Text>
+                        <View style = {{flex: 1, justifyContent: "center"}}>
+                            <Text style={{textAlign: "center"}}>{p.children} {`(${this.state.val})`}</Text>
+                        </View>
                     </View>
                 </TouchableWithoutFeedback>
         );

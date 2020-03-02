@@ -24,7 +24,7 @@ export default class Autonomous extends React.Component {
                     >
                         <View style = {{flex: 4, justifyContent: "center"}}></View>
                         <View style = {{flex: 1, justifyContent: "center"}}>
-                            <View style = {{flex: 2.5}}/>
+                            <View style = {{flex: 2}}/>
                             <View style = {{flex: 1, alignItems: "center"}}>
                                 <NumButton id="BallsPickedUp" width={160}>Balls Picked Up</NumButton>
                             </View>
@@ -55,7 +55,7 @@ export default class Autonomous extends React.Component {
                         <CustomTextBox
                             multi={true}
                             id="AutonomousComments"
-                            width={690}
+                            width={975}
                             placeholder="Type your comments here..."
                             backgroundColor={"#DDD"}
                             borderRadius={10}
@@ -81,8 +81,8 @@ const styles = StyleSheet.create({
         display: "flex"
     },
     imageBackground: {
-        height: 300,
-        width: 700,
+        height: 500,
+        width: 975,
         marginTop: 20,
         flexDirection: "row"
     }

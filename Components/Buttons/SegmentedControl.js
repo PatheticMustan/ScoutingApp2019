@@ -1,6 +1,7 @@
 import React from "react";
 import {
-    View
+    View,
+    SegmentedControlIOS
 } from "react-native";
 import SegmentedControlTab from "react-native-segmented-control-tab";
 
@@ -20,7 +21,6 @@ export default class SegmentedControl extends React.Component {
 
     render() {
         return (
-            <View>
                 <SegmentedControlTab
                     {...this.props.options}
                     tabStyle={{
@@ -36,7 +36,6 @@ export default class SegmentedControl extends React.Component {
                         )
                     }}
                 />
-            </View>
         );
     }
 }
