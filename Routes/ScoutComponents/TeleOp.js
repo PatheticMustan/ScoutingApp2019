@@ -10,6 +10,7 @@ import BoolButton from "../../Components/Buttons/BoolButton.js";
 import NumButton from "../../Components/Buttons/NumButton.js";
 import RadioButton from "../../Components/Buttons/RadioButton.js";
 import CustomTextBox from "../../Components/Utility/CustomTextBox.js";
+import Arena from '../../Components/Utility/Arena.js';
 
 export default class TeleOp extends React.Component {
     render() {
@@ -17,11 +18,8 @@ export default class TeleOp extends React.Component {
             <View style={styles.container}>
                 <Text style={{textAlign: "center", fontSize: 35, fontWeight: "bold"}}>Tele-Op</Text>
                 <View style={styles.teleOpContainer}>
-                    <ImageBackground
-                        source={require("../../Assets/2020Field.png")}
-                        style={{height: 500, width: 975, marginTop: 20, flex: 1, flexDirection: "row"}}
-                        imageStyle={{ borderRadius: 10}}
-                    >
+
+                    <Arena>
                         <View style = {{flex: 1, justifyContent: "center", alignItems: "center"}}>
                             <View style = {{flex: 1, justifyContent: "center"}}>
                                 <BoolButton id="PlaysDefense" bgc="lime" >Plays Defense</BoolButton>
@@ -49,9 +47,7 @@ export default class TeleOp extends React.Component {
                         </View>
 
                         <View style = {{flex: 1, justifyContent: "center", alignItems: "center"}}>
-                            <View style = {{paddingVertical: 10, paddingHorizontal: 5}}>
-                                <Text style = {{color: "white"}}>Where can they shoot from?</Text>
-                            </View>
+    
                             <RadioButton id="ShootFrom" data={["Trench Zone", "Target Zone", "Other"]} bgc={"orange"}/>
                         </View>
 
@@ -62,7 +58,7 @@ export default class TeleOp extends React.Component {
                             <NumButton id="TeleMissed">Missed</NumButton>
                         </View>
                     
-                    </ImageBackground>
+                    </Arena>
 
                     <Text style = {{textAlign: "center", fontSize: 20, fontWeight: "bold"}}>Comments</Text>
                     <Text style = {{textAlign: "center", fontSize: 14, marginLeft: 20, marginRight: 20, marginTop: 10}}>

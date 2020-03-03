@@ -10,6 +10,7 @@ import BoolButton from "../../Components/Buttons/BoolButton.js";
 import NumButton from "../../Components/Buttons/NumButton.js";
 import RadioButton from "../../Components/Buttons/RadioButton.js";
 import CustomTextBox from "../../Components/Utility/CustomTextBox.js";
+import Arena from '../../Components/Utility/Arena.js';
 
 export default class Autonomous extends React.Component {
     render() {
@@ -17,11 +18,7 @@ export default class Autonomous extends React.Component {
             <View style={styles.container}>
                 <Text style={{textAlign: "center", fontSize: 35, fontWeight: "bold"}}>Autonomous</Text>
                 <View style={styles.autonomousContainer}>
-                    <ImageBackground
-                        source={require('../../Assets/2020Field.png')}
-                        style={styles.imageBackground}
-                        imageStyle={{ borderRadius: 10}}
-                    >
+                    <Arena>
                         <View style = {{flex: 4, justifyContent: "center"}}></View>
                         <View style = {{flex: 1, justifyContent: "center"}}>
                             <View style = {{flex: 2}}/>
@@ -43,7 +40,7 @@ export default class Autonomous extends React.Component {
                             <NumButton id="AutoInner">Inner</NumButton>
                             <NumButton id="AutoMissed">Missed</NumButton>
                         </View>
-                    </ImageBackground>
+                    </Arena>
 
                     <Text style={{textAlign: "center", fontSize: 20, fontWeight: "bold"}}>Comments</Text>
                     <Text style = {{textAlign: "center", fontSize: 14, marginLeft: 20, marginRight: 20, marginTop: 10}}>

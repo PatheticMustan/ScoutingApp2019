@@ -33,6 +33,7 @@ export default class Header extends React.Component {
     }
 
     save() {
+        alert(1);
         (async () => {
             await this.storage.get("meta")
             await this.storage.set("test", "tesssssa testorosa");
@@ -52,10 +53,7 @@ export default class Header extends React.Component {
                 <Text style={styles.headerText}>2020 - Infinite Recharge</Text>
 
                 <View style={styles.linkContainer}>
-                    <View style = {{flex: 1}}>
                         <Link color="red" onPress={() => this.reset()}>Reset</Link>
-                    </View>
-                    <View style = {{flex: 1, flexDirection: "row", alignItems: "center"}}>
                         <SegmentedControl
                             id="Team"
                             data={["Blue Alliance", "Red Alliance"]}
@@ -66,16 +64,10 @@ export default class Header extends React.Component {
                             }}
                             default={0}
                         />
-                    </View>
-                    <View style = {{flex: 1}}>
-                    <Link color="blue" onPress={() => {
-                        localStorage
-                    }}>Save</Link>
-                    </View>
 
-                    <View style = {{flex: 1}}>
-                    <Link color="blue" onPress={() => Sharing}>Save and Export</Link>
-                    </View>
+                    <Link color="blue" onPress={() => this.save()}>Save</Link>
+
+                    <Link color="blue" onPress={() => this.saveAndExport()}>Save and Export</Link>
                 </View>
             </View>
         );
