@@ -47,8 +47,16 @@ export default class TeleOp extends React.Component {
                         </View>
 
                         <View style = {{flex: 1, justifyContent: "center", alignItems: "center"}}>
-    
-                            <RadioButton id="ShootFrom" data={["Trench Zone", "Target Zone", "Other"]} bgc={"orange"}/>
+                            <View style = {{flex: 1}}>
+                                <Text
+                                    style= {{fontSize: 12, color: "white", width: 120, textAlign: "center"}}
+                                    margin = {0}
+                                >
+                                    Where can they shoot from?
+                                </Text>
+                                <RadioButton id="ShootFrom" data={["Trench Zone", "Target Zone", "Other"]} margin={0} bgc={"orange"}/>
+                            </View>
+                            <View style = {{flex: 5}}></View>
                         </View>
 
                         <View style = {{flex: 1, justifyContent: "center", alignItems: "center"}}>
@@ -76,7 +84,7 @@ export default class TeleOp extends React.Component {
                             borderRadius={10}
                             options={{
                                 multiline: true,
-                                numberOfLines: 1
+                                numberOfLines: 10
                             }}/>
                     </View>
                 </View>
