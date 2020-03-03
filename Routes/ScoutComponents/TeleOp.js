@@ -38,11 +38,20 @@ export default class TeleOp extends React.Component {
                         </View>
 
                         <View style = {{flex: 1, justifyContent: "center", alignItems: "center"}}>
-                            <NumButton id="BallsPickedUpFromFloor" height={80}>Balls Picked Up from Floor</NumButton>
-                            <BoolButton id="FitsUnderTrench" bgc="lime">Fits Under Trench</BoolButton>
+                            <View style = {{flex: 3}}>
+                            </View>
+                            <View style = {{flex: 1}}>
+                                <NumButton id="BallsPickedUpFromFloor" height={80}>Balls Picked Up from Floor</NumButton>
+                            </View>
+                            <View style = {{flex: 1.5, justifyContent: "center"}}>
+                                <BoolButton id="FitsUnderTrench" bgc="lime">Fits Under Trench</BoolButton>
+                            </View>
                         </View>
 
                         <View style = {{flex: 1, justifyContent: "center", alignItems: "center"}}>
+                            <View style = {{paddingVertical: 10, paddingHorizontal: 5}}>
+                                <Text style = {{color: "white"}}>Where can they shoot from?</Text>
+                            </View>
                             <RadioButton id="ShootFrom" data={["Trench Zone", "Target Zone", "Other"]} bgc={"orange"}/>
                         </View>
 
