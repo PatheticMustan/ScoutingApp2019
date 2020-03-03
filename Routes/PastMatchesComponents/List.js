@@ -69,10 +69,10 @@ const styles = StyleSheet.create({
         marginTop: Constants.statusBarHeight,
     },
     item: {
-        backgroundColor: '#f9c2ff',
+        backgroundColor: '#F9C2FF',
         padding: 20,
-        marginVertical: 8,
-        marginHorizontal: 16,
+        borderColor: "#696969",
+        borderWidth: 1
     },
     title: {
         fontSize: 32,
