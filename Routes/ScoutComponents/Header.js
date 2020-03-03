@@ -33,13 +33,11 @@ export default class Header extends React.Component {
     }
 
     save() {
-        alert(1);
         (async () => {
             await this.storage.get("meta")
             await this.storage.set("test", "tesssssa testorosa");
             alert(await this.storage.get("test"));
-        })()
-        //
+        })();
     }
 
     saveAndExport() {

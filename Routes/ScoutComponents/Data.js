@@ -11,6 +11,7 @@ export default class Data extends React.Component {
         /* This is all the data. */
         global.data = {}
         global.output = "";
+        global.storage = localStorage;
     }
 
     /** Update data every second. */
