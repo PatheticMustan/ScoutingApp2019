@@ -4,11 +4,14 @@ import {
     ScrollView
 } from "react-native";
 
+import Header from "./SettingsComponents/Header.js"
+
 export default class Settings extends React.Component {
     render() {
         return (
             <ScrollView>
                 <View>
+                    <Header />
                 </View>
             </ScrollView>
         );

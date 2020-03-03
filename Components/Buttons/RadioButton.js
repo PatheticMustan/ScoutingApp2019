@@ -28,7 +28,7 @@ export default class RadioButton extends React.Component {
                                 justifyContent: "center",
                                 borderRadius: 10,
                                 borderWidth: StyleSheet.hairlineWidth,
-                                margin: this.props.margin || 10,
+                                margin: this.props.margin? this.props.margin : 0,
                                 width: (p.width? p.width : 100),
                                 height: 40,
                                 backgroundColor: (global.data[p.id] === v? p.bgc : "white")

@@ -64,7 +64,7 @@ export default class Endgame extends React.Component {
                     </View>
                     <View style = {styles.climbComments}>
                             <Text style = {{fontWeight: "bold", fontSize: 20}}>Comments</Text>
-                            <Text style = {{fontSize: 12}}>
+                            <Text style = {{fontSize: 12, textAlign: "center"}}>
                                 Add any comments that you feel are useful. Do they attempt to climb but fall?
                                 Do they get in the way of other robots? Do they swing a lot on the climb? Are they able to balance the rung?
                                 Are they able to adjust their climb position? Do they slide on the run? Anything else that shows evidence of
@@ -74,7 +74,6 @@ export default class Endgame extends React.Component {
                                 id="EndgameComments"
                                 placeholder="Type your comments here..."
                                 width={975}
-                                height={500}
                                 backgroundColor={"#DDD"}
                                 borderRadius={10}
                                 options={{
