@@ -8,10 +8,6 @@ import {
 import * as Sharing from "expo-sharing";
 import Link from "../../Components/Utility/Link.js";
 import SegmentedControl from "../../Components/Buttons/SegmentedControl.js";
-/* import {localStorage} from '../../Components/Storage/WebStorage.js';*/
-/**
- * legacy storage */
- /**/
 
 
 export default class Header extends React.Component {

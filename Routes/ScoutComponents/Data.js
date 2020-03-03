@@ -5,6 +5,9 @@ import {
     Button
 } from "react-native";
 
+import {localStorage} from '../../Components/Storage/WebStorage.js';
+import storage from '../../Components/Storage/LegacyStorage.js';
+
 export default class Data extends React.Component {
     constructor() {
         super();
