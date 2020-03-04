@@ -5,8 +5,7 @@ import {
     Button
 } from "react-native";
 
-//import {localStorage} from '../../Components/Storage/WebStorage.js';
-import storage from '../../Components/Storage/LegacyStorage';
+import { AsyncStorage } from 'react-native';
 
 export default class Data extends React.Component {
     constructor() {
@@ -14,8 +13,6 @@ export default class Data extends React.Component {
         /* This is all the data. */
         global.data = {}
         global.output = "";
-        //global.storage = localStorage;
-        global.storage = storage;
     }
 
     /** Update data every second. */
@@ -118,7 +115,10 @@ export default class Data extends React.Component {
                 <Text>{Object.entries(global.data).map(e=>`${e[0]}: ${JSON.stringify(e[1])}`).join("\n")}</Text>
 
                 <Button onPress={() => this.exportMatch()} title={"Export"}/>
-                <Button onPress={() => global.data["RESET"] = true} title={"RESET"}/>
+                <Button onPress={async () => {
+                    await AsyncStorage.setItem("@test", "Shizune Hakamichi is best girl");
+                    alert(await AsyncStorage.getItem("@test"))
+                }} title={"SAVE TEST"}/>
 
                 <Text>{global.output}</Text>
             </View>

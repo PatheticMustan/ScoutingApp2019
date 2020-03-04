@@ -31,9 +31,6 @@ export default class Header extends React.Component {
 
     save() {
         (async () => {
-            await global.storage.get("meta")
-            await global.storage.set("test", "tesssssa testorosa");
-            alert(await global.storage.get("test"));
         })();
     }
 
