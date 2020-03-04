@@ -2,8 +2,7 @@ import React from "react";
 import {
     StyleSheet,
     Text,
-    View,
-    ImageBackground
+    View
 } from "react-native";
 
 import SegmentedControl from "../../Components/Buttons/SegmentedControl.js";
@@ -40,6 +39,17 @@ export default class Endgame extends React.Component {
                             id="EndgameType"
                             data={["Park", "Climb", "None"]}
                             default={2}
+                        />
+                        <RadioButton
+                            id="EndgameType"
+                            data={["Park", "Climb", "None"]}
+                            bgc={"orange"}
+                            segmentedButton={true}
+                            options={{
+                                flex: 1,
+                                flexDirection: "row",
+                                justifyContent: "space-between"
+                            }}
                         />
                     </View>
 
