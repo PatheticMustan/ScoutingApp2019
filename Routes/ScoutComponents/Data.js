@@ -5,7 +5,8 @@ import {
     Button
 } from "react-native";
 
-import {localStorage} from '../../Components/Storage/WebStorage.js';
+//import {localStorage} from '../../Components/Storage/WebStorage.js';
+import storage from '../../Components/Storage/LegacyStorage';
 
 export default class Data extends React.Component {
     constructor() {
@@ -13,7 +14,8 @@ export default class Data extends React.Component {
         /* This is all the data. */
         global.data = {}
         global.output = "";
-        global.storage = localStorage;
+        //global.storage = localStorage;
+        global.storage = storage;
     }
 
     /** Update data every second. */

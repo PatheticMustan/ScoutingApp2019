@@ -7,7 +7,6 @@ import {
 } from "react-native";
 import * as Sharing from "expo-sharing";
 import Link from "../../Components/Utility/Link.js";
-import SegmentedControl from "../../Components/Buttons/SegmentedControl.js";
 
 
 export default class Header extends React.Component {
