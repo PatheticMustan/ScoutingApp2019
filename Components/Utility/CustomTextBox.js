@@ -8,12 +8,13 @@ import {
 
 
 export default class CustomTextBox extends React.Component {
-    componentDidMount() {
+    constructor(props) {
+        super(props);
         /** Set default */
         this.state = {
             text: ""
         }
-        global.data[this.props.id] = this.state.text;
+        global.data[props.id] = this.state.text;
     }
     
     render() {

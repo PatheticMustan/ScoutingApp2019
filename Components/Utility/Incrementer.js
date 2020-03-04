@@ -6,7 +6,7 @@ import {
     TouchableOpacity
 } from "react-native";
 
-import TabBarIcon from "./TabBarIcon.js";
+import {FontAwesome} from 'react-native-vector-icons';
 
 export default class Incrementer extends React.Component {
     constructor(props) {
@@ -31,7 +31,6 @@ export default class Incrementer extends React.Component {
             )
         }
     }
-    componentWillUnmount() {clearInterval(this.interval)}
 
     
 
@@ -40,7 +39,7 @@ export default class Incrementer extends React.Component {
             <View style={styles.container}>
                 <TouchableOpacity onPress={this.decrement}>
                     <View style={styles.iconContainer}>
-                        <TabBarIcon size={30} name="minus" color="#29adff"></TabBarIcon>
+                        <FontAwesome name="minus" size={30} color="#29ADFF"/>
                     </View>
                 </TouchableOpacity>
                 
@@ -48,7 +47,7 @@ export default class Incrementer extends React.Component {
 
                 <TouchableOpacity onPress={this.increment}>
                     <View style = {styles.iconContainer}>
-                        <TabBarIcon size={30} name="plus" color="#29adff"></TabBarIcon>
+                        <FontAwesome name="plus" size={30} color="#29ADFF"/>
                     </View>
                 </TouchableOpacity>
             </View>
