@@ -22,9 +22,9 @@ export default class Header extends React.Component {
 
                 <View style={styles.linkContainer}>
 
-                    <Link color="blue" onPress={() => this.save()}>Save</Link>
+                    <Link color="blue" onPress={()=>{}}>Edit</Link>
 
-                    <Link color="blue" onPress={() => this.saveAndExport()}>Save and Export</Link>
+                    <Link color="blue" onPress={()=>{}}>Add Competition</Link>
                 </View>
             </View>
         );

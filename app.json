@@ -1,31 +1,31 @@
 {
-    "expo": {
-        "name": "Scouting App",
-        "description": "Scouting but in an app, so it's cooler.",
-        "slug": "Scouting-App",
-        "privacy": "public",
-        "sdkVersion": "36.0.0",
-        "platforms": [
-            "ios",
-            "android",
-            "web"
-        ],
-        "version": "1.0.0",
-        "orientation": "portrait",
-        "icon": "./Assets/appicon.png",
-        "splash": {
-            "image": "./Assets/appicon.png",
-            "resizeMode": "contain",
-            "backgroundColor": "#2C2C2C"
-        },
-        "updates": {
-            "fallbackToCacheTimeout": 0
-        },
-        "assetBundlePatterns": [
-            "**/*"
-        ],
-        "ios": {
-            "supportsTablet": true
-        }
-    }
+  "expo": {
+    "name": "Scouting App",
+    "description": "Scouting but in an app, so it's cooler. Please don't use this app.",
+    "slug": "Scouting-App",
+    "privacy": "public",
+    "sdkVersion": "36.0.0",
+    "platforms": [
+      "ios",
+      "web"
+    ],
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./Assets/appicon.png",
+    "splash": {
+      "image": "./Assets/appicon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#2C2C2C"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "githubUrl": "https://github.com/PatheticMustan/ScoutingApp"
+  }
 }

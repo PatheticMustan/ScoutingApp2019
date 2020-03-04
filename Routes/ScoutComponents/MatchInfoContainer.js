@@ -8,7 +8,7 @@ import {
 
 import Incrementer from "../../Components/Utility/Incrementer.js"
 import CustomTextBox from "../../Components/Utility/CustomTextBox.js";
-import MatchPicker from "../../Components/Utility/MatchPicker.js";
+import MatchPicker from "../../Components/OneUse/MatchPicker.js";
 
 export default class MatchInfoContainer extends React.Component {
     render() {

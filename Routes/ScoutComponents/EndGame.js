@@ -10,9 +10,9 @@ import SegmentedControl from "../../Components/Buttons/SegmentedControl.js";
 import NumButton from "../../Components/Buttons/NumButton.js";
 import RadioButton from "../../Components/Buttons/RadioButton.js"
 import CustomTextBox from "../../Components/Utility/CustomTextBox"
-import Timer from "../../Components/Utility/Timer.js";
-import ClimbHeight from "../../Components/Utility/ClimbHeight.js";
-import ClimbPosition from '../../Components/Utility/ClimbPosition.js';
+import Timer from "../../Components/OneUse/Timer.js";
+import ClimbHeight from "../../Components/OneUse/ClimbHeight.js";
+import ClimbPosition from '../../Components/OneUse/ClimbPosition.js';
 
 export default class Endgame extends React.Component {
     constructor() {
