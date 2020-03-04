@@ -14,10 +14,6 @@ export default class SegmentedControl extends React.Component {
         }
         global.data[props.id] = this.state.val;
     }
-    
-    handleIndexChange = index => {
-        global.data[this.props.id] = index;
-    }
 
     render() {
         return (
