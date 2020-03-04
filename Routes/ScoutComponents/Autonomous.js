@@ -52,7 +52,7 @@ export default class Autonomous extends React.Component {
                         <CustomTextBox
                             multi={true}
                             id="AutonomousComments"
-                            width={975}
+                            width={900}
                             placeholder="Type your comments here..."
                             backgroundColor={"#DDD"}
                             borderRadius={10}

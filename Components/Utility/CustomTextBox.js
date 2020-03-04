@@ -21,7 +21,7 @@ export default class CustomTextBox extends React.Component {
         return (
             <View style={{
                 width: this.props.width,
-                height: this.props.height || 200
+                height: this.props.height || 40
             }}>
                 <TextInput
                     multiline={this.props.multi==true}
@@ -30,7 +30,7 @@ export default class CustomTextBox extends React.Component {
                     style={{
                         flex: 1,
                         padding: 10,
-                        backgroundColor: (this.props.backgroundColor? this.props.backgroundColor : "#FFF"),
+                        backgroundColor: (this.props.backgroundColor? this.props.backgroundColor : "#DDD"),
                         borderColor: "#AAA",
                         borderWidth: StyleSheet.hairlineWidth,
                         borderRadius: (this.props.borderRadius? this.props.borderRadius : this.props.height / 5)

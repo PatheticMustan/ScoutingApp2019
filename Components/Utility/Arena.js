@@ -35,8 +35,8 @@ export default class Arena extends React.Component {
 
 const styles = StyleSheet.create({
     imageBackground: {
-        height: 300,
-        width: 700,
+        width: 900,
+        height: 453,
         marginTop: 20,
         flexDirection: "row"
     }
