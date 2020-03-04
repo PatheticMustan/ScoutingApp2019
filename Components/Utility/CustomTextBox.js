@@ -38,7 +38,11 @@ export default class CustomTextBox extends React.Component {
                     {...this.props.options}
 
                     onChangeText={text => this.setState(
-                        {text: text.replace(/\r?\n|\r/g, " ").replace(",", " ")},
+                        {text: text
+                                    .replace(/\n/g, " ")
+                                    .replace(/,/g, " ")
+                                    /** pretty sure there are many more instances. */
+                        },
                         () => {global.data[this.props.id] = this.state.text}
                     )}
                 />

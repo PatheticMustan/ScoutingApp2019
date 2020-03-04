@@ -53,11 +53,11 @@ export default class Data extends React.Component {
             g`Rotation`? "Yes" : "No",
             g`Color`? "Yes" : "No",
             g`TeleopComments`,
-            ["Park", "Climb", "None"][g`EndgameType`],
+            g`EndgameType`,
             g`BallsScored`,
-            g`EndgameType`==1? g`ClimbHeight` : "",
-            g`EndgameType`==1? g`ClimbPosition` : "",
-            g`EndgameType`==1? g`Time` : "",
+            g`EndgameType`=="Climb"? g`ClimbHeight` : "",
+            g`EndgameType`=="Climb"? g`ClimbPosition` : "",
+            g`EndgameType`=="Climb"? g`Time` : "",
             g`EndgameComments`
         ];
 
