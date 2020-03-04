@@ -44,7 +44,9 @@ export default class Endgame extends React.Component {
                             id="EndgameType"
                             data={["Park", "Climb", "None"]}
                             bgc={"orange"}
-                            segmentedButton={true}
+                            segmentedButton
+                            forceOption
+                            default={"None"}
                             options={{
                                 flex: 1,
                                 flexDirection: "row",

@@ -10,7 +10,7 @@ export default class RadioButton extends React.Component {
     constructor(props) {
         super(props);
         /** Set default */
-        global.data[props.id] = "";
+        global.data[props.id] = this.props.default || "";
         /** Update */
         this.interval = setInterval(() => {this.setState({ time: Date.now() });}, 20);
     }
@@ -23,7 +23,10 @@ export default class RadioButton extends React.Component {
             <View style={{...p.options}}>
                 {
                     p.data.map((v, i) =>
-                        <TouchableWithoutFeedback key={v} onPress={() => global.data[p.id] = (global.data[p.id]==v? "" : v)}>
+                        <TouchableWithoutFeedback
+                            key={v}
+                            onPress={() => global.data[p.id] = this.props.forceOption? v : (global.data[p.id]!=v? v : "")}
+                        >
                             <View style={{
                                 justifyContent: "center",
                                 borderWidth: StyleSheet.hairlineWidth,
