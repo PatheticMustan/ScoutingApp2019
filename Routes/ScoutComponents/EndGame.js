@@ -5,10 +5,9 @@ import {
     View
 } from "react-native";
 
-import SegmentedControl from "../../Components/Buttons/SegmentedControl.js";
 import NumButton from "../../Components/Buttons/NumButton.js";
-import RadioButton from "../../Components/Buttons/RadioButton.js"
-import CustomTextBox from "../../Components/Utility/CustomTextBox"
+import RadioButton from "../../Components/Buttons/RadioButton.js";
+import CustomTextBox from "../../Components/Utility/CustomTextBox";
 import Timer from "../../Components/OneUse/Timer.js";
 import ClimbHeight from "../../Components/OneUse/ClimbHeight.js";
 import ClimbPosition from '../../Components/OneUse/ClimbPosition.js';
@@ -35,48 +34,41 @@ export default class Endgame extends React.Component {
                     <NumButton id="BallsScored" width={120}>Balls Scored</NumButton>
 
                     <View style={{margin: 20}}>
-                        <SegmentedControl
-                            id="EndgameType"
-                            data={["Park", "Climb", "None"]}
-                            default={2}
-                        />
                         <RadioButton
                             id="EndgameType"
                             data={["Park", "Climb", "None"]}
-                            bgc={"orange"}
+                            bgc="orange"
                             segmentedButton
                             forceOption
-                            default={"None"}
+                            default="None"
                             options={{
-                                flex: 1,
                                 flexDirection: "row",
-                                justifyContent: "space-between"
                             }}
                         />
                     </View>
 
-                    <View style={{display: global.data["EndgameType"] == 1 ? "flex" : "none"}}>
+                    <View style={{display: global.data["EndgameType"]=="Climb" ? "flex" : "none"}}>
                         <Timer id="Time"/>
                     </View>
                     
-                    <View style={{paddingTop: 20, paddingBottom: 10, display: global.data["EndgameType"] == 1 ? "flex" : "none"}}>
+                    <View style={{paddingTop: 20, paddingBottom: 10, display: global.data["EndgameType"]=="Climb" ? "flex" : "none"}}>
                         <Text style={{fontSize: 20, fontWeight: "bold"}}>Initial Climb Height</Text>
                     </View>
                     
-                    <View style={[styles.climbContainer, {display: global.data["EndgameType"] == 1 ? "block" : "none"}]}>
+                    <View style={[styles.climbContainer, {display: global.data["EndgameType"]=="Climb" ? "block" : "none"}]}>
                         <ClimbHeight id="ClimbHeight" bgc={"orange"}/>
                         
 
 
-                        <View style = {styles.climbPosition}>
-                            <Text style = {{fontWeight: "bold", fontSize: 20}}>Climb Position</Text>
+                        <View style={styles.climbPosition}>
+                            <Text style={{fontWeight: "bold", fontSize: 20}}>Climb Position</Text>
                             
                             <ClimbPosition id="ClimbPosition" bgc={"orange"}/>
                         </View>
                     </View>
                     <View style = {styles.climbComments}>
-                            <Text style = {{fontWeight: "bold", fontSize: 20}}>Comments</Text>
-                            <Text style = {{fontSize: 12, textAlign: "center"}}>
+                            <Text style={{fontWeight: "bold", fontSize: 20}}>Comments</Text>
+                            <Text style={{fontSize: 12, textAlign: "center"}}>
                                 Add any comments that you feel are useful. Do they attempt to climb but fall?
                                 Do they get in the way of other robots? Do they swing a lot on the climb? Are they able to balance the rung?
                                 Are they able to adjust their climb position? Do they slide on the run? Anything else that shows evidence of

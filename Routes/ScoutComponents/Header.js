@@ -5,7 +5,9 @@ import {
     View,
     Alert
 } from "react-native";
+
 import * as Sharing from "expo-sharing";
+import RadioButton from "../../Components/Buttons/RadioButton.js";
 import Link from "../../Components/Utility/Link.js";
 import SegmentedControl from "../../Components/Buttons/SegmentedControl.js";
 
@@ -43,20 +45,22 @@ export default class Header extends React.Component {
 
     render() {
         return (
-            <View style={{backgroundColor: !global.data["Team"]? "#D0F4FF" : "#FFD0D0"}}>
+            <View style={{backgroundColor: global.data["Team"]=="Red Alliance"? "#FFD0D0" : "#D0F4FF"}}>
                 <Text style={styles.headerText}>2020 - Infinite Recharge</Text>
 
                 <View style={styles.linkContainer}>
                         <Link color="red" onPress={() => this.reset()}>Reset</Link>
-                        <SegmentedControl
+
+                        <RadioButton
                             id="Team"
                             data={["Blue Alliance", "Red Alliance"]}
+                            bgc="orange"
+                            segmentedButton
+                            forceOption
+                            default="Blue Alliance"
                             options={{
-                                firstTabStyle: {backgroundColor: "#007FFF"},
-                                lastTabStyle: {backgroundColor: "#FF3E3E"},
-                                tabTextStyle: {color: "white"}
+                                flexDirection: "row",
                             }}
-                            default={0}
                         />
 
                     <Link color="blue" onPress={() => this.save()}>Save</Link>

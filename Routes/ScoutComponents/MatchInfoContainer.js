@@ -6,9 +6,9 @@ import {
     Image
 } from "react-native";
 
-import Incrementer from "../../Components/Utility/Incrementer.js"
+import Incrementer from "../../Components/Utility/Incrementer.js";
 import CustomTextBox from "../../Components/Utility/CustomTextBox.js";
-import MatchPicker from "../../Components/OneUse/MatchPicker.js";
+import RadioButton from "../../Components/Buttons/RadioButton.js"
 
 export default class MatchInfoContainer extends React.Component {
     render() {
@@ -17,7 +17,7 @@ export default class MatchInfoContainer extends React.Component {
                 <Text style={{textAlign: "center", fontSize: 35, fontWeight: "bold"}}>Match Info</Text>
 
                 <View style={styles.matchInfoContainer}>
-                    <View style={{flex: 1, paddingHorizontal: 30}}>
+                    <View style={styles.piecesContainer}>
                         <View style={styles.inputContainer}>
                             <Text style={styles.bold}>Team Number: </Text>
                             <View style={{flex: 1, paddingLeft: 5}}>
@@ -30,9 +30,19 @@ export default class MatchInfoContainer extends React.Component {
                             <Incrementer id="MatchNumber"/>
                         </View>
 
-                        <View style={{flex: 1, marginTop: -45, flexDirection: "row"}}>
-                            <MatchPicker id="MatchType" default="Qualification"/>
-                            <Text style={{fontSize: 13, marginTop: 3}}> Change Match Type</Text>
+                        <View style={styles.inputContainer}>
+                            <Text style={styles.bold}>Match Type: </Text>
+                            <RadioButton
+                                id="MatchType"
+                                data={["Qualification", "Quarterfinal", "Semifinal"]}
+                                bgc="orange"
+                                segmentedButton
+                                forceOption
+                                default="Qualification"
+                                options={{
+                                    flexDirection: "row",
+                                }}
+                            />
                         </View>
 
                         <View style={styles.inputContainer}>
@@ -84,6 +94,7 @@ const styles=StyleSheet.create({
     inputContainer: {
         flex: 1,
         flexDirection: "row",
+        alignItems: "center",
         paddingVertical: 15
     },
     inputContainer2: {
@@ -93,6 +104,8 @@ const styles=StyleSheet.create({
         paddingVertical: 15
     },
     piecesContainer: {
-        flex: 1
+        flex: 1,
+        paddingHorizontal: 30,
+        paddingVertical: 10
     },
 });
