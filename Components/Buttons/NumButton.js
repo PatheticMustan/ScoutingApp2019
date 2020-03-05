@@ -11,7 +11,7 @@ export default class NumButton extends React.Component {
         super(props);
         /** Set default */
         this.state = {
-            val: 0
+            val: global.data[props.id]
         }
         global.data[props.id] = this.state.val;
 

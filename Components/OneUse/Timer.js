@@ -15,7 +15,7 @@ export default class Timer extends React.Component {
             sec: 0
         }
 
-        this.time = "0:00";
+        this.time = global.data[props.id];
         global.data[this.props.id] = this.time;
     }
 

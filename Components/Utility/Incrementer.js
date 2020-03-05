@@ -13,7 +13,7 @@ export default class Incrementer extends React.Component {
         super(props);
         /** Set default */
         this.state = {
-            val: props.default || 0
+            val: global.data[props.id]
         }
         global.data[props.id] = this.state.val;
 

@@ -12,8 +12,9 @@ export default class ClimbPosition extends React.Component {
     constructor(props) {
         super(props);
         /** Set default */
-        global.data[this.props.id] = "";
-        this.state = {flipFlop: false}
+        this.state = {
+            flipFlop: global.data[props.id]
+        }
         this.data = ["Edge", "Middle Bar", "Center"];
         /** Update */
         this.interval = setInterval(() => {this.setState({ flipFlop: !this.state.flipFlop })}, 50);

@@ -11,7 +11,7 @@ export default class BoolButton extends React.Component {
         super(props);
         /** Set default */
         this.state = {
-            val: false
+            val: global.data[props.id] 
         }
         global.data[props.id] = this.state.val;
     }
