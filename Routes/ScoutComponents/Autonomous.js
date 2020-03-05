@@ -53,6 +53,7 @@ export default class Autonomous extends React.Component {
                             multi={true}
                             id="AutonomousComments"
                             width={900}
+                            height={250}
                             placeholder="Type your comments here..."
                             backgroundColor={"#DDD"}
                             borderRadius={10}

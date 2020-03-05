@@ -24,13 +24,14 @@ export default class CustomTextBox extends React.Component {
                 height: this.props.height || 40
             }}>
                 <TextInput
-                    multiline={this.props.multi==true}
+                    multiline={this.props.multi}
+                    numberOfLines={this.props.multi? this.props.lines : 1}
                     editable
                     placeholder={this.props.placeholder || ""}
                     style={{
                         flex: 1,
                         padding: 10,
-                        backgroundColor: (this.props.backgroundColor? this.props.backgroundColor : "#DDD"),
+                        backgroundColor: (this.props.backgroundColor? this.props.backgroundColor : "#FFFFFF"),
                         borderColor: "#AAA",
                         borderWidth: StyleSheet.hairlineWidth,
                         borderRadius: (this.props.borderRadius? this.props.borderRadius : this.props.height / 5)
