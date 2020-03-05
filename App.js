@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Text, View } from "react-native";
+import { Text, View, AsyncStorage } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {
@@ -57,6 +57,9 @@ function MyTabs() {
 }
 
 export default function App() {
+    (async () => {
+        await AsyncStorage.setItem("matches", "[]")
+    })();
     return (
         <NavigationContainer>
             <MyTabs/>

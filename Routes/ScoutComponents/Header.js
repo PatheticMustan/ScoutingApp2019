@@ -3,7 +3,8 @@ import {
     StyleSheet,
     Text,
     View,
-    Alert
+    Alert,
+    AsyncStorage
 } from "react-native";
 
 import * as Sharing from "expo-sharing";
@@ -31,6 +32,7 @@ export default class Header extends React.Component {
 
     save() {
         (async () => {
+            await AsyncStorage.setItem("matches", JSON.stringify(JSON.parse(await AsyncStorage.getItem("matches")).push(JSON.stringify(global.data))))
         })();
     }
 
