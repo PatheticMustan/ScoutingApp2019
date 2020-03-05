@@ -52,7 +52,7 @@ export default class Timer extends React.Component {
     
     render() {
         return (
-            <View>
+            <View style = {{flex: 1}}>
                 <View style = {{flex: 1, alignSelf: "center", paddingBottom: 5}}>
                     <Text>{this.time}</Text>
                 </View>
