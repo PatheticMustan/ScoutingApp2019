@@ -75,15 +75,14 @@ export default class Endgame extends React.Component {
                                 good/poor performance?
                             </Text>
                             <CustomTextBox
+                                multi={true}
                                 id="EndgameComments"
+                                width={900}
+                                height={250}
                                 placeholder="Type your comments here..."
-                                width={975}
                                 backgroundColor={"#DDD"}
                                 borderRadius={10}
-                                options={{
-                                    multiline: true,
-                                    numberOfLines: 10
-                            }}/>
+                            />
                         </View>
                 </View>
             </View>

@@ -122,6 +122,7 @@ export default class Data extends React.Component {
 
                 <Button onPress={() => {
                     // do share things
+                    
                 }} title={"SHARE"}/>
 
                 <Text>{global.output}</Text>

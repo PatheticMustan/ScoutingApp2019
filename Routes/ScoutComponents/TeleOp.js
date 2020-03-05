@@ -78,14 +78,12 @@ export default class TeleOp extends React.Component {
                         <CustomTextBox
                             multi={true}
                             id="TeleopComments"
+                            width={900}
+                            height={250}
                             placeholder="Type your comments here..."
-                            width={975}
                             backgroundColor={"#DDD"}
                             borderRadius={10}
-                            options={{
-                                multiline: true,
-                                numberOfLines: 10
-                            }}/>
+                        />
                     </View>
                 </View>
             </View>
