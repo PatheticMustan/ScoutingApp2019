@@ -47,7 +47,7 @@ export default class Endgame extends React.Component {
                         />
                     </View>
 
-                    <View style={{display: global.data["EndgameType"]=="Climb" ? "flex" : "none"}}>
+                    <View style={{display: global.data["EndgameType"]=="Climb" ? "flex" : "none", flex: 1}}>
                         <Timer id="Time"/>
                     </View>
                     

@@ -12,7 +12,7 @@ export default class ClimbHeight extends React.Component {
         super(props);
         /** Set default */
         this.state = {
-            val: ""
+            val: global.data[props.id]
         }
         global.data[props.id] = this.state.val;
 

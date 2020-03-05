@@ -12,7 +12,7 @@ export default class CustomTextBox extends React.Component {
         super(props);
         /** Set default */
         this.state = {
-            text: ""
+            text: global.data[props.id]
         }
         global.data[props.id] = this.state.text;
     }
