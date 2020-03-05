@@ -2,7 +2,8 @@ import React from "react";
 import {
     View,
     Text,
-    Button
+    Button,
+    Share
 } from "react-native";
 
 import { AsyncStorage } from 'react-native';
@@ -116,16 +117,38 @@ export default class Data extends React.Component {
 
                 <Button onPress={() => this.exportMatch()} title={"Export"}/>
                 <Button onPress={async () => {
-                    await AsyncStorage.setItem("@test", "Shizune Hakamichi is best girl");
+                    await AsyncStorage.setItem("@test", "Kevin is a nasty weeb");
                     alert(await AsyncStorage.getItem("@test"))
                 }} title={"SAVE TEST"}/>
 
                 <Button onPress={() => {
-                    // do share things
+                    ShareClass.onShare()
                 }} title={"SHARE"}/>
 
                 <Text>{global.output}</Text>
             </View>
         );
+    }
+}
+
+class ShareClass extends React.Component {
+    static onShare = async () => {
+        try {
+            const result = await Share.share({
+                message: JSON.stringify(global.data)
+            });
+
+            if (result.action == Share.sharedAction) {
+                if (result.activityType) {
+                    // do nothing
+                } else {
+                    // do nothing
+                }
+            } else if (result.action == Share.dismissedAction) {
+                // do nothing
+            }
+        } catch (error) {
+            alert(error.message);
+        }
     }
 }
