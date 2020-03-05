@@ -32,6 +32,7 @@ export default class Header extends React.Component {
 
     save() {
         (async () => {
+            console.log(JSON.parse(await AsyncStorage.getItem("matches")))
             await AsyncStorage.setItem("matches", JSON.stringify(JSON.parse(await AsyncStorage.getItem("matches")).push(JSON.stringify(global.data))))
         })();
     }

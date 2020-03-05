@@ -16,7 +16,7 @@ export default function List() {
     return (
         <SafeAreaView style={styles.container}>
             <FlatList
-                data={DATA}
+                data={console.log(DATA)}
                 renderItem={({ item }) => <Item title={item.title} />}
                 keyExtractor={item => item.id}
             />
