@@ -11,7 +11,7 @@ export default class RadioButton extends React.Component {
         super(props);
         /** Set default */
         this.state = {
-            val: props.default || ""
+            val: global.data[props.id]
         }
         global.data[props.id] = this.state.val;
         this.BORDER_RADIUS = 10;

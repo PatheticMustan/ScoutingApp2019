@@ -15,7 +15,7 @@ export default class Timer extends React.Component {
             sec: 0
         }
 
-        this.time = "0:00";
+        this.time = global.data[props.id];
         global.data[this.props.id] = this.time;
     }
 
@@ -52,7 +52,7 @@ export default class Timer extends React.Component {
     
     render() {
         return (
-            <View>
+            <View style = {{flex: 1}}>
                 <View style = {{flex: 1, alignSelf: "center", paddingBottom: 5}}>
                     <Text>{this.time}</Text>
                 </View>
