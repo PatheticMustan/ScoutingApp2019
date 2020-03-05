@@ -34,13 +34,15 @@ export default class Timer extends React.Component {
             }, 1000);
         } else {
             clearInterval(this.interval);
-            this.setState({
-                start: false
-            });
-            global.data[this.props.id] = this.time;
+            this.setState(
+                {start: false},
+                () => global.data[this.props.id] = this.time
+            );
+            
         }
     };
 
+    /** Unused. */
     onResetTimer = () => {
         this.setState ({
             sec: 0,
