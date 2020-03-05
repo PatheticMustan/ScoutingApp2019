@@ -120,6 +120,10 @@ export default class Data extends React.Component {
                     alert(await AsyncStorage.getItem("@test"))
                 }} title={"SAVE TEST"}/>
 
+                <Button onPress={() => {
+                    // do share things
+                }} title={"SHARE"}/>
+
                 <Text>{global.output}</Text>
             </View>
         );
