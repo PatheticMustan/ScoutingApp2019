@@ -1,7 +1,8 @@
 import React from "react";
 import {
     View,
-    ScrollView
+    ScrollView,
+    Button
 } from "react-native";
 
 import Header from "./ScoutComponents/Header.js";
@@ -29,9 +30,20 @@ export default class Scout extends React.Component {
     componentWillUnmount() {clearInterval(this.interval)}
     
     render() {
+        alert(JSON.stringify(this.props.navigation.data + "1"));
+        if (this.props.data) {
+            global.data = this.props.data;
+            
+        }
+
         if (global.condition==true) {
             return (
                 <ScrollView>
+
+                    <Button onPress={() => {
+                        alert(JSON.stringify(this.props.nav + "1"));
+                    }} title="Test" />
+
                     <View>
                         <Data data={this.props.data}/>
               

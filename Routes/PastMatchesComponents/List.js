@@ -46,6 +46,7 @@ export default class List extends React.Component {
                 renderItem={(data) => {
                     return (
                         <TouchableOpacity onPress={ () => {
+                            //alert(typeof data.item[0]);
                             this.props.nav.navigate("Scout", {data: data.item[0]});
                         }}>
                             <View style={styles.item}>

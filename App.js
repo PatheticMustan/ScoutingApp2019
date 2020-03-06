@@ -58,7 +58,9 @@ function MyTabs() {
 
 export default function App() {
     (async () => {
-        await AsyncStorage.setItem("matches", "[]")
+        if (await AsyncStorage.getItem("matches") == null) {
+            await AsyncStorage.setItem("matches", "[]")
+        }
     })();
     return (
         <NavigationContainer>
