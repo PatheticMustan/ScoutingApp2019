@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
         flexDirection: "column"
     },
     image: {
-        width: 300,
+        width: 280,
         height: 150,
         borderRadius: 10
     }
