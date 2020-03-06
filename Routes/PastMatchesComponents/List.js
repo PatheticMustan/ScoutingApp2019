@@ -45,10 +45,8 @@ export default class List extends React.Component {
                 data={this.state.data}
                 renderItem={(data) => {
                     return (
-                        <TouchableOpacity onPress={() => {
-                            global.data = data.item[0];
-                            this.props.nav.navigate("Scout");
-                            // global.condition = false;
+                        <TouchableOpacity onPress={ () => {
+                            this.props.nav.navigate("Scout", {data: data.item[0]});
                         }}>
                             <View style={styles.item}>
                                 <Text style={styles.text}>{`${data.item[0]["MatchType"]} #${data.item[0]["MatchNumber"]} (Team ${data.item[0]["TeamNumber"]})`}</Text>

@@ -29,7 +29,7 @@ function MyTabs() {
                     tabBarLabel: "Scout",
                     tabBarIcon: ({ color, size }) => (
                         <Octicons name="checklist" color={color} size={size} />
-                    ),
+                    )
                 }}
             />
             <Tab.Screen
@@ -39,8 +39,8 @@ function MyTabs() {
                     tabBarLabel: "Past Matches",
                     tabBarIcon: ({ color, size }) => (
                         <Entypo name="back-in-time" color={color} size={size} />
-                    ),
-                }}
+                    )
+                }}  
             />
             <Tab.Screen
                 name="Settings"
@@ -49,7 +49,7 @@ function MyTabs() {
                     tabBarLabel: "Settings",
                     tabBarIcon: ({ color, size }) => (
                         <Ionicons name="ios-settings" color={color} size={size} />
-                    ),
+                    )
                 }}
             />
         </Tab.Navigator>

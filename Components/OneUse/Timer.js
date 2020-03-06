@@ -12,11 +12,17 @@ export default class Timer extends React.Component {
 
         this.state = {
             start: false,
-            sec: 0
+            sec: global.data[props.id]
         }
-
-        this.time = global.data[props.id];
-        global.data[this.props.id] = this.time;
+    }
+    componentWillUnmount() {
+        clearInterval(this.interval);
+        this.setState(
+            {start: false},
+            () => {
+                global.data[this.props.id] = this.state.sec;
+            }
+        );
     }
 
     timerClick = () => {
@@ -27,6 +33,7 @@ export default class Timer extends React.Component {
                 this.setState(
                     {sec: this.state.sec + 1},
                     () => {
+                        global.data[this.props.id] = this.state.sec;
                         const s = this.state.sec;
                         this.time = (`${(s-(s%60))/60}:${s < 10?"0":""}${(s % 60)}`)
                     }
@@ -36,7 +43,7 @@ export default class Timer extends React.Component {
             clearInterval(this.interval);
             this.setState(
                 {start: false},
-                () => global.data[this.props.id] = this.time
+                () => global.data[this.props.id] = this.state.sec
             );
             
         }
@@ -54,7 +61,7 @@ export default class Timer extends React.Component {
         return (
             <View style = {{flex: 1}}>
                 <View style = {{flex: 1, alignSelf: "center", paddingBottom: 5}}>
-                    <Text>{this.time}</Text>
+                    <Text>{(`${(this.state.sec-(this.state.sec%60))/60}:${this.state.sec < 10?"0":""}${(this.state.sec % 60)}`)}</Text>
                 </View>
 
                 <BoolButton
