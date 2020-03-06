@@ -5,7 +5,6 @@ import {
     View,
     Alert
 } from "react-native";
-import * as Sharing from "expo-sharing";
 import Link from "../../Components/Utility/Link.js";
 
 
@@ -16,15 +15,8 @@ export default class Header extends React.Component {
 
     render() {
         return (
-            <View style={{backgroundColor: "#DDDDDD"}}>
-                <Text style={styles.headerText}>2020 - Infinite Recharge</Text>
-
-                <View style={styles.linkContainer}>
-
-                    <Link color="blue" onPress={()=>{}}>Edit</Link>
-
-                    <Link color="blue" onPress={()=>{}}>Add Competition</Link>
-                </View>
+            <View style={styles.container}>
+                <Text style={styles.headerText}>Past Matches</Text>
             </View>
         );
     }
@@ -32,7 +24,10 @@ export default class Header extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: "#DDD"
+        backgroundColor: "#DDD",
+        padding: 20,
+        borderColor: "#696969",
+        borderWidth: 1
     },
     headerText: {
         flex: 1,

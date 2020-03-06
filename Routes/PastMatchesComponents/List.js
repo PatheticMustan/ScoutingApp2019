@@ -47,25 +47,14 @@ export default class List extends React.Component {
                 renderItem={(data) => {
                     return (
                         <View style={styles.item}>
-                            <Text style={styles.title}>{data.item[0]["Team"]}</Text>
+                            <Text style={styles.text}>{`${data.item[0]["MatchType"]} #${data.item[0]["MatchNumber"]} (Team ${data.item[0]["TeamNumber"]})`}</Text>
                         </View>
                     )
                 }}
                 ListEmptyComponent={() => {
                     return (
-                        <View
-                            style={{
-                                flex: 1,
-                                justifyContent: "center",
-                                alignItems: "center"
-                            }}
-                        >
-                            <Text
-                                style={{
-                                    margin: 100,
-                                    fontSize: 21 /** 9 + 10... */
-                                }}
-                            >There are no items!</Text>
+                        <View style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
+                            <Text style={{margin: 100,fontSize: 21}}>There are no items!</Text>
                         </View>
                     )
                 }}
@@ -81,12 +70,11 @@ const styles = StyleSheet.create({
         marginTop: Constants.statusBarHeight,
     },
     item: {
-        backgroundColor: '#F9C2FF',
         padding: 20,
         borderColor: "#696969",
         borderWidth: 1
     },
-    title: {
-        fontSize: 32,
+    text: {
+        fontSize: 20,
     },
 });
