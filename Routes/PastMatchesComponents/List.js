@@ -4,7 +4,8 @@ import {
     FlatList,
     StyleSheet,
     Text,
-    AsyncStorage
+    AsyncStorage,
+    TouchableOpacity
 } from 'react-native';
 
 import Constants from 'expo-constants';
@@ -17,8 +18,6 @@ export default class List extends React.Component {
             data: [], /** Contains list of displayed past matches. */
             len: 0
         };
-
-        
     }
 
     componentDidMount() {
@@ -46,9 +45,15 @@ export default class List extends React.Component {
                 data={this.state.data}
                 renderItem={(data) => {
                     return (
-                        <View style={styles.item}>
-                            <Text style={styles.text}>{`${data.item[0]["MatchType"]} #${data.item[0]["MatchNumber"]} (Team ${data.item[0]["TeamNumber"]})`}</Text>
-                        </View>
+                        <TouchableOpacity onPress={() => {
+                            global.data = data.item[0];
+                            this.props.nav.navigate("Scout");
+                            // global.condition = false;
+                        }}>
+                            <View style={styles.item}>
+                                <Text style={styles.text}>{`${data.item[0]["MatchType"]} #${data.item[0]["MatchNumber"]} (Team ${data.item[0]["TeamNumber"]})`}</Text>
+                            </View>
+                        </TouchableOpacity>
                     )
                 }}
                 ListEmptyComponent={() => {

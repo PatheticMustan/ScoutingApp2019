@@ -12,7 +12,7 @@ export default class PastMatches extends React.Component {
         return (
             <ScrollView style={{flex: 1}}>
                 <Header/>
-                <List/>
+                <List nav={this.props.navigation}/>
             </ScrollView>
         );
     }

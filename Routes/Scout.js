@@ -16,14 +16,24 @@ import Data from "./ScoutComponents/Data.js";
 /** Test Components */
 
 export default class Scout extends React.Component {
-    state = {condition: true};
+    constructor(props) {
+        super(props);
+
+        global.condition = true
+    }
+    componentDidMount() {this.interval = setInterval(() => {
+        if (global.condition == false) {
+            this.setState({ time: Date.now() })
+        }
+    }, 1000)}
+    componentWillUnmount() {clearInterval(this.interval)}
     
     render() {
-        if (this.state.condition) {
+        if (global.condition==true) {
             return (
                 <ScrollView>
                     <View>
-                        <Data/>
+                        <Data data={this.props.data}/>
               
                         <Header onReset={() => this.setState({condition: false})}/>
                         

@@ -25,7 +25,7 @@ export default class Header extends React.Component {
             "Reset",
             "Are you sure you want to reset the Scoutsheet?",
             [
-                {text: 'Reset', onPress: () => this.props.onReset()},
+                {text: 'Reset', onPress: () => global.condition=false},
                 {text: 'Cancel', style: 'cancel'}
             ]
           );
