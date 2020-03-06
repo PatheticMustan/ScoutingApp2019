@@ -1,22 +1,20 @@
 import React from 'react';
-import { SafeAreaView, View, FlatList, StyleSheet, Text, AsyncStorage } from 'react-native';
+import {
+    View,
+    FlatList,
+    StyleSheet,
+    Text,
+    AsyncStorage
+} from 'react-native';
+
 import Constants from 'expo-constants';
-
-
-function Item({data}) {
-    return (
-        <View style={styles.item}>
-            <Text style={styles.title}>{data["Team"]}</Text>
-        </View>
-    );
-}
 
 export default class List extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            data: []
+            data: [] /** Contains list of displayed past matches. */
         };
 
         (async () => {
@@ -32,28 +30,42 @@ export default class List extends React.Component {
 
     render() {
         return (
-            <SafeAreaView style={styles.container}>
-                <FlatList
-                    data={this.state.data}
-                    renderItem={(data) => {
-                        alert(JSON.stringify(data));
-                        return (
-                            <View style={styles.item}>
-                                <Text style={styles.title}>{data.item[0]["Team"]}</Text>
-                            </View>
-                        )
-                        
-                    }}
-                    keyExtractor={data => data[1].toString()} /** https://stackoverflow.com/a/49577737/12894940 */
-                />
-            </SafeAreaView>
+            <FlatList
+                data={this.state.data}
+                renderItem={(data) => {
+                    return (
+                        <View style={styles.item}>
+                            <Text style={styles.title}>{data.item[0]["Team"]}</Text>
+                        </View>
+                    )
+                }}
+                ListEmptyComponent={() => {
+                    return (
+                        <View
+                            style={{
+                                flex: 1,
+                                justifyContent: "center",
+                                alignItems: "center"
+                            }}
+                        >
+                            <Text
+                                style={{
+                                    margin: 100,
+                                    fontSize: 21 /** 9 + 10... */
+                                }}
+                            >There are no items!</Text>
+                        </View>
+                    )
+                }}
+                keyExtractor={data => data[1].toString()} /** https://stackoverflow.com/a/49577737/12894940 */
+            />
         );
     }
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        flexGrow: 1,
         marginTop: Constants.statusBarHeight,
     },
     item: {

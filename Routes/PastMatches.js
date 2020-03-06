@@ -10,11 +10,9 @@ import List from "./PastMatchesComponents/List.js";
 export default class PastMatches extends React.Component {
     render() {
         return (
-            <ScrollView>
-                <View>
-                    <Header/>
-                    <List/>
-                </View>
+            <ScrollView style={{flex: 1}}>
+                <Header/>
+                <List/>
             </ScrollView>
         );
     }

@@ -72,9 +72,9 @@ export default class Data extends React.Component {
 
                 <Button onPress={() => this.exportMatch()} title={"Export"}/>
                 <Button onPress={async () => {
-                    await AsyncStorage.setItem("@test", "Kevin is a nasty weeb");
-                    alert(await AsyncStorage.getItem("@test"))
-                }} title={"SAVE TEST"}/>
+                    await AsyncStorage.clear();
+                    alert("Storage cleared.");
+                }} title={"RESET STORAGE"}/>
 
                 <Button onPress={() => {
                     ShareClass.onShare()
