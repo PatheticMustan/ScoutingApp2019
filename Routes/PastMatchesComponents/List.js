@@ -2,7 +2,10 @@ import React from 'react';
 import { SafeAreaView, View, FlatList, StyleSheet, Text, AsyncStorage } from 'react-native';
 import Constants from 'expo-constants';
 
-const DATA = (async () => JSON.parse(await AsyncStorage.getItem("matches")))()
+const DATA = (async () => {
+    return JSON.parse(await AsyncStorage.getItem("matches")).map(e=>JSON.parse(e))
+})()
+
 
 function Item({ title }) {
     return (
@@ -12,17 +15,12 @@ function Item({ title }) {
     );
 }
 
-export default function List() {
+export default async function List() {
     return (
         <SafeAreaView style={styles.container}>
             <FlatList
-                data={(async () => {
-                    JSON.parse(await AsyncStorage.getItem("matches"))
-                })().map(match => {
-                    return {title: "test"}
-                })}
+                data={console.log(Object.values(await DATA).map(m=>m))}
                 renderItem={({ item }) => <Item title={item.title} />}
-                keyExtractor={item => item.id}
             />
         </SafeAreaView>
     );
