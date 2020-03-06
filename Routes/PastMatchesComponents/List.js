@@ -14,19 +14,27 @@ export default class List extends React.Component {
         super(props);
 
         this.state = {
-            data: [] /** Contains list of displayed past matches. */
+            data: [], /** Contains list of displayed past matches. */
+            len: 0
         };
 
-        (async () => {
-            global.matches = JSON.parse(await AsyncStorage.getItem("matches"));
-            global.matches = global.matches.map(v => JSON.parse(v));
-            global.matches.forEach((v, i) => {
-                this.setState({
-                    data: [...this.state.data, [v, i]]
-                });
-            });
-        })();
+        
     }
+
+    componentDidMount() {
+        this.interval = setInterval(() => {
+            (async () => {
+                global.matches = JSON.parse(await AsyncStorage.getItem("matches"));
+                global.matches = global.matches.map(v => JSON.parse(v));
+                global.matches.forEach((v, i) => {
+                    this.setState({
+                        data: [...this.state.data, [v, i]]
+                    });
+                });
+            })();
+        });
+    }
+    componentWillUnmount() {clearInterval(this.interval)}
 
     render() {
         return (
