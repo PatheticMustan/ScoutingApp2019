@@ -14,7 +14,6 @@ export default class About extends React.Component {
             <View>
                 <View style = {styles.aboutHeader}>
                     <Text style = {styles.aboutHeaderText}>About</Text>
-                    {/*<Link color="blue" onPress={() => alert("Kevin is a hentai addict")}>Close</Link>*/}
                 </View>
 
 
@@ -23,8 +22,8 @@ export default class About extends React.Component {
                         source={require("../../Assets/appicon.png")}
                         style={{borderRadius: 10, width: 350, height: 350, margin: 10}}
                     />
-                    <Text style = {styles.imageTeamVersionText}>2638 Scout</Text>
-                    <Text style = {styles.imageTeamVersionText}>Version 2.0 3/6/20</Text>
+                    <Text style = {styles.text}>2638 Scout</Text>
+                    <Text style = {styles.text}>Version 2.0 3/6/2020</Text>
                     <View
                         style={{backgroundColor: "#DDDDDD", borderRadius: 10, height: 5, width: 1000, margin: 20}}
                     ></View>
@@ -32,10 +31,10 @@ export default class About extends React.Component {
 
 
                 <View style = {styles.credits}>
-                    <Text style = {styles.creditsBoldUnderL}>UI Design and Concept by</Text>
-                    <Text style = {styles.creditsBoldUnderL}>App Development Team (React Native)</Text>
-                    <Text style = {styles.creditsBoldUnderL}>Made in</Text>
-                    <Text style = {styles.creditsBoldUnderL}>Special Thanks to</Text>
+                    <Text style = {styles.text}>UI Design and Concept by</Text>
+                    <Text style = {styles.text}>App Development Team (React Native)</Text>
+                    <Text style = {styles.text}>Made in</Text>
+                    <Text style = {styles.text}>Special Thanks to</Text>
                 </View>
             </View>
         );
@@ -54,21 +53,15 @@ const styles = StyleSheet.create({
         fontSize: 30
     },
     imageTeamVersion: {
-        flexDirection: "column",
         justifyContent: "center",
         alignItems: "center"
     },
-    imageTeamVersionText: {
+    text: {
         fontWeight: "bold",
         fontSize: 16
     },
     credits: {
-        flexDirection: "column",
         justifyContent: "center",
         alignItems: "center"
-    },
-    creditsBoldUnderL: {
-        fontWeight: "bold",
-        fontSize: 16
     }
 });
