@@ -23,7 +23,7 @@ export default class Scout extends React.Component {
                 <ScrollView>
                     <View>
                         <Data/>
-    
+              
                         <Header onReset={() => this.setState({condition: false})}/>
                         
                         <MatchInfoContainer/>
