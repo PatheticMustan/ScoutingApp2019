@@ -4,7 +4,8 @@ import {
     Text,
     View,
     Alert,
-    AsyncStorage
+    AsyncStorage,
+    Share
 } from "react-native";
 
 import * as Sharing from "expo-sharing";
@@ -32,13 +33,42 @@ export default class Header extends React.Component {
 
     save() {
         (async () => {
-            await AsyncStorage.setItem("matches", JSON.stringify([...JSON.parse(await AsyncStorage.getItem("matches")),JSON.stringify(global.data)]))
+            await AsyncStorage.setItem(
+                "matches", 
+                JSON.stringify(
+                    [...JSON.parse(await AsyncStorage.getItem("matches")), JSON.stringify(global.data)]
+                )
+            )
         })();
     }
 
     saveAndExport() {
-        this.save();
-        // export
+        (async () => {
+            await AsyncStorage.setItem(
+                "matches", 
+                JSON.stringify(
+                    [...JSON.parse(await AsyncStorage.getItem("matches")), JSON.stringify(global.data)]
+                )
+            )
+
+            try {
+                const result = await Share.share({
+                    message: JSON.stringify(global.data)
+                });
+    
+                if (result.action == Share.sharedAction) {
+                    if (result.activityType) {
+                        // do nothing
+                    } else {
+                        // do nothing
+                    }
+                } else if (result.action == Share.dismissedAction) {
+                    // do nothing
+                }
+            } catch (error) {
+                alert(error.message);
+            }
+        })();
     }
 
     render() {

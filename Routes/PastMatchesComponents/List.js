@@ -27,9 +27,13 @@ export default class List extends React.Component {
                 global.matches = JSON.parse(await AsyncStorage.getItem("matches"));
                 global.matches = global.matches.map(v => JSON.parse(v));
                 global.matches.forEach((v, i) => {
-                    this.setState({
-                        data: [...this.state.data, [v, i]]
-                    });
+                    if (i >= this.state.len) {
+                        this.setState({
+                            data: [...this.state.data, [v, i]],
+                            len: this.state.len + 1
+                        });
+                    }
+                    
                 });
             })();
         });
