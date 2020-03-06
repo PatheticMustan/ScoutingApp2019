@@ -25,9 +25,7 @@ export default class Data extends React.Component {
         // damn good job on backend, Kevin. I do read your comments lol
         const g = id => global.data[id] //.split(`"`).join("").split(",").join("");
 
-
         const header = ",,Other,,,Autonomous,,,,,,,,,Balls Picked Up,,Balls Scored,,,,,Control Panel,,,End Game,Balls Scored,If Climb...,,,\nTeam #,Match #,Fits under trench?,Defense,Penalties,Starting Balls,Starting Position,Cross Line,Balls Picked Up,Low Goal,Outer Goal,Inner Goal,Shots Missed,Comments,Loading Station,Floor,Low Goal,Outer Goal,Inner Goal,Shots Missed,Location of Shots,Rotation,Color,Comments,Endgame Type,Balls Scored,Initial Climb Height,Initial Climb Position,Climb Time,Comments\n"
-
         const entry = [
             g`TeamNumber`,
             g`MatchNumber`,
@@ -62,50 +60,7 @@ export default class Data extends React.Component {
         ];
 
         let output = header + entry;
-
         global.output = output;
-    }
-
-
-
-    reset() {
-        global.data = {
-            Team: 0,
-            MatchType: "Qualification",
-            BallsPickedUp: 0,
-            CrossesInitiationLine: false,
-            LinePosition: "",
-            AutoLow: 0,
-            AutoOuter: 0,
-            AutoInner: 0,
-            AutoMissed: 0,
-            PlaysDefense: false,
-            BallsPickedUpFromLoadingStation: 0,
-            Rotation: false,
-            Color: false,
-            ShootFrom: "",
-            BallsPickedUpFromFloor: 0,
-            FitsUnderTrench: false,
-            TeleLow: 0,
-            TeleOuter: 0,
-            TeleInner: 0,
-            TeleMissed: 0,
-            BallsScored: 0,
-            EndgameType: 2,
-            Time: "0:00",
-            TimerClicked: false,
-            ClimbHeight: "",
-            ClimbPosition: "",
-            YellowCard: false,
-            RedCard: false,
-            TeamNumber: "",
-            MatchNumber: 0,
-            Scouters: "",
-            StartingPieces: 0,
-            AutonomousComments: "",
-            TeleopComments: "",
-            EndgameComments: "",
-        }
     }
 
 
@@ -117,7 +72,6 @@ export default class Data extends React.Component {
 
                 <Button onPress={() => this.exportMatch()} title={"Export"}/>
                 <Button onPress={async () => {
-                    alert(AsyncStorage.getItem())
                     await AsyncStorage.setItem("@test", "Kevin is a nasty weeb");
                     alert(await AsyncStorage.getItem("@test"))
                 }} title={"SAVE TEST"}/>

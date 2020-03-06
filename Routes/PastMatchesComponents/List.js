@@ -2,15 +2,11 @@ import React from 'react';
 import { SafeAreaView, View, FlatList, StyleSheet, Text, AsyncStorage } from 'react-native';
 import Constants from 'expo-constants';
 
-const DATA = (async () => {
-    return JSON.parse(await AsyncStorage.getItem("matches")).map(e=>JSON.parse(e))
-})()
 
-
-function Item({ title }) {
+function Item({data}) {
     return (
         <View style={styles.item}>
-            <Text style={styles.title}>{title}</Text>
+            <Text style={styles.title}>{data["Team"]}</Text>
         </View>
     );
 }
@@ -24,8 +20,13 @@ export default class List extends React.Component {
         };
 
         (async () => {
-            let data = JSON.parse(await AsyncStorage.getItem("matches"));
-            alert(data);
+            global.matches = JSON.parse(await AsyncStorage.getItem("matches"));
+            global.matches = global.matches.map(v => JSON.parse(v));
+            global.matches.forEach((v, i) => {
+                this.setState({
+                    data: [...this.state.data, [v, i]]
+                });
+            });
         })();
     }
 
@@ -34,8 +35,16 @@ export default class List extends React.Component {
             <SafeAreaView style={styles.container}>
                 <FlatList
                     data={this.state.data}
-                    renderItem={({ item }) => <Item title={item.title} />}
-                    keyExtractor={item => item.id}
+                    renderItem={(data) => {
+                        alert(JSON.stringify(data));
+                        return (
+                            <View style={styles.item}>
+                                <Text style={styles.title}>{data.item[0]["Team"]}</Text>
+                            </View>
+                        )
+                        
+                    }}
+                    keyExtractor={data => data[1].toString()} /** https://stackoverflow.com/a/49577737/12894940 */
                 />
             </SafeAreaView>
         );

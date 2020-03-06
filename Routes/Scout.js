@@ -17,6 +17,7 @@ import Data from "./ScoutComponents/Data.js";
 
 export default class Scout extends React.Component {
     state = {condition: true};
+    
     render() {
         if (this.state.condition) {
             return (
