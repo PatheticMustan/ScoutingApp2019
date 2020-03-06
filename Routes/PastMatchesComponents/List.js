@@ -15,15 +15,26 @@ function Item({ title }) {
     );
 }
 
-export default async function List() {
-    return (
-        <SafeAreaView style={styles.container}>
-            <FlatList
-                data={console.log(Object.values(await DATA).map(m=>m))}
-                renderItem={({ item }) => <Item title={item.title} />}
-            />
-        </SafeAreaView>
-    );
+export default class List extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            
+        }
+    }
+
+    render() {
+        return (
+            <SafeAreaView style={styles.container}>
+                <FlatList
+                    data={this.state.data}
+                    renderItem={({ item }) => <Item title={item.title} />}
+                    keyExtractor={item => item.id}
+                />
+            </SafeAreaView>
+        );
+    }
 }
 
 const styles = StyleSheet.create({
