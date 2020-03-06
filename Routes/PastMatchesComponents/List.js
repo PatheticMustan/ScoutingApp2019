@@ -20,8 +20,13 @@ export default class List extends React.Component {
         super(props);
 
         this.state = {
-            
-        }
+            data: []
+        };
+
+        (async () => {
+            let data = JSON.parse(await AsyncStorage.getItem("matches"));
+            alert(data);
+        })();
     }
 
     render() {
