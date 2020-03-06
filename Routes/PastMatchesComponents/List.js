@@ -16,7 +16,11 @@ export default function List() {
     return (
         <SafeAreaView style={styles.container}>
             <FlatList
-                data={console.log(DATA)}
+                data={(async () => {
+                    JSON.parse(await AsyncStorage.getItem("matches"))
+                })().map(match => {
+                    return {title: "test"}
+                })}
                 renderItem={({ item }) => <Item title={item.title} />}
                 keyExtractor={item => item.id}
             />
