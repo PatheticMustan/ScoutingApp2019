@@ -32,7 +32,7 @@ export default class CustomTextBox extends React.Component {
                         flex: 1,
                         padding: 10,
                         backgroundColor: (this.props.backgroundColor? this.props.backgroundColor : "#FFFFFF"),
-                        borderColor: "#AAA",
+                        borderColor: "#666",
                         borderWidth: StyleSheet.hairlineWidth,
                         borderRadius: (this.props.borderRadius? this.props.borderRadius : this.props.height / 5)
                     }}

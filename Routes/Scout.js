@@ -30,10 +30,8 @@ export default class Scout extends React.Component {
     componentWillUnmount() {clearInterval(this.interval)}
     
     render() {
-        alert(JSON.stringify(this.props.navigation.data + "1"));
         if (this.props.data) {
             global.data = this.props.data;
-            
         }
 
         if (global.condition==true) {
