@@ -35,8 +35,8 @@ export default class Scout extends React.Component {
         return (
             <View style = {{flex: 1}}>
             <View style = {{flex: 1, justifyContent: "center"}}>
-            <Header onReset={() => this.setState({condition: false})}/>
             <Data />
+            <Header onReset={() => this.setState({condition: false})}/>
             </View>
             <View style = {{flex: 7}}>
             <ScrollView>

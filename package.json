@@ -13,6 +13,7 @@
         "@react-navigation/bottom-tabs": "^5.0.7",
         "@react-navigation/native": "^5.0.7",
         "expo": "~36.0.0",
+        "expo-file-system": "^8.0.0",
         "expo-sharing": "^8.0.0",
         "json2csv": "^4.5.4",
         "react": "~16.9.0",

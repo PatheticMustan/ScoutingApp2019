@@ -8,9 +8,11 @@ import {
     Share
 } from "react-native";
 
+import * as Sharing from 'expo-sharing'
+import * as FileSystem from 'expo-file-system'
 import RadioButton from "../../Components/Buttons/RadioButton.js";
 import Link from "../../Components/Utility/Link.js";
-
+var path = './data.csv';
 
 export default class Header extends React.Component {
     constructor(props) {
@@ -90,19 +92,8 @@ export default class Header extends React.Component {
                 let output = header + entry;
                 global.output = output;
 
-                const result = await Share.share({
-                    message: JSON.stringify(global.output)
-                });
-    
-                if (result.action == Share.sharedAction) {
-                    if (result.activityType) {
-                        // do nothing
-                    } else {
-                        // do nothing
-                    }
-                } else if (result.action == Share.dismissedAction) {
-                    // do nothing
-                }
+                FileSystem.writeAsStringAsync(FileSystem.documentDirectory+path, JSON.stringify(global.output), { encoding: FileSystem.EncodingType.UTF8 })
+                Sharing.shareAsync(FileSystem.documentDirectory+path)
             } catch (error) {
                 alert(error.message);
             }

@@ -44,6 +44,12 @@ export default class Autonomous extends React.Component {
                             </View>
 
                             <View style={{flex: 1, justifyContent: "center", flexDirection: "column"}}>
+                                <Text
+                                    style= {{fontSize: 12, color: "white", width: 120, textAlign: "center"}}
+                                    margin = {0}
+                                >
+                                    Balls Scored
+                                </Text>
                                 <NumButton id="AutoLow">Low</NumButton>
                                 <NumButton id="AutoOuter">Outer</NumButton>
                                 <NumButton id="AutoInner">Inner</NumButton>
@@ -99,6 +105,12 @@ export default class Autonomous extends React.Component {
                                 <NumButton id="AutoOuter">Outer</NumButton>
                                 <NumButton id="AutoInner">Inner</NumButton>
                                 <NumButton id="AutoMissed">Missed</NumButton>
+                                <Text
+                                    style= {{fontSize: 12, color: "white", width: 120, textAlign: "center"}}
+                                    margin = {0}
+                                >
+                                    Balls Scored
+                                </Text>
                             </View>
                         </Arena>
 

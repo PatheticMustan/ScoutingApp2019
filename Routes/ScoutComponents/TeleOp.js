@@ -67,13 +67,21 @@ export default class TeleOp extends React.Component {
                                 <View style = {{flex: 4}}></View>
                             </View>
 
+                            
+                                
                             <View style = {{flex: 1, justifyContent: "center", alignItems: "center", flexDirection: "column"}}>
+                                <Text
+                                    style= {{fontSize: 12, color: "white", width: 120, textAlign: "center"}}
+                                    margin = {0}
+                                >
+                                    Balls Scored
+                                </Text>
                                 <NumButton id="TeleLow">Low</NumButton>
                                 <NumButton id="TeleOuter">Outer</NumButton>
                                 <NumButton id="TeleInner">Inner</NumButton>
                                 <NumButton id="TeleMissed">Missed</NumButton>
                             </View>
-                        
+                            
                         </Arena>
 
                         <Text style = {{textAlign: "center", fontSize: 20, fontWeight: "bold"}}>Comments</Text>
@@ -148,6 +156,12 @@ export default class TeleOp extends React.Component {
                                 <NumButton id="TeleOuter">Outer</NumButton>
                                 <NumButton id="TeleInner">Inner</NumButton>
                                 <NumButton id="TeleMissed">Missed</NumButton>
+                                <Text
+                                    style= {{fontSize: 12, color: "white", width: 120, textAlign: "center"}}
+                                    margin = {0}
+                                >
+                                    Balls Scored
+                                </Text>
                             </View>
                         
                         </Arena>
