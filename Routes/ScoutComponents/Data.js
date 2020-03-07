@@ -65,19 +65,6 @@ export default class Data extends React.Component {
     }
 
     render() {
-        return (
-            <View>
-                <Text>{Object.entries(global.data).map(e=>`${e[0]}: ${JSON.stringify(e[1])}`).join("\n")}</Text>
-
-                <Button onPress={() => this.exportMatch()} title={"Export"}/>
-                <Button onPress={async () => {
-                    await AsyncStorage.clear();
-                    alert("Storage cleared.");
-                }} title={"RESET STORAGE"}/>
-
-
-                <Text>{global.output}</Text>
-            </View>
-        );
+        return <View />
     }
 }

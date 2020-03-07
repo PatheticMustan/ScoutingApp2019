@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Scouting App",
-    "description": "Scouting but in an app, so it's cooler. Please don't use this app.",
+    "description": "Scouting but in an app, so it's cooler.",
     "slug": "Scouting-App",
     "privacy": "public",
     "sdkVersion": "36.0.0",
@@ -9,8 +9,8 @@
       "ios",
       "web"
     ],
-    "version": "1.0.0",
-    "orientation": "portrait",
+    "version": "2.0.0",
+    "orientation": "landscape",
     "icon": "./Assets/appicon.png",
     "splash": {
       "image": "./Assets/appicon.png",
@@ -24,7 +24,14 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.reidf.2638scout",
+      "buildNumber": "2.0.0"
+    },
+    
+    "android": {
+      "package": "com.reidf.scout2638",
+      "versionCode": 1
     },
     "githubUrl": "https://github.com/PatheticMustan/ScoutingApp"
   }

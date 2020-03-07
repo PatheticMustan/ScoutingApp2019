@@ -25,7 +25,7 @@ export default class Endgame extends React.Component {
     }
 
     render() {
-
+        if(global.data["EndgameType"] == "Climb") {
         return (
             <View style = {styles.container}>
                 <Text style = {{textAlign: "center", fontSize: 35, fontWeight: "bold"}}>Endgame</Text>
@@ -47,15 +47,15 @@ export default class Endgame extends React.Component {
                         />
                     </View>
 
-                    <View style={{display: global.data["EndgameType"]=="Climb" ? "flex" : "none", flex: 1}}>
+                    <View style={{flex: 1}}>
                         <Timer id="Time"/>
                     </View>
                     
-                    <View style={{paddingTop: 20, paddingBottom: 10, display: global.data["EndgameType"]=="Climb" ? "flex" : "none"}}>
+                    <View style={{paddingTop: 20, paddingBottom: 10}}>
                         <Text style={{fontSize: 20, fontWeight: "bold"}}>Initial Climb Height</Text>
                     </View>
                     
-                    <View style={[styles.climbContainer, {display: global.data["EndgameType"]=="Climb" ? "block" : "none"}]}>
+                    <View style={styles.climbContainer}>
                         <ClimbHeight id="ClimbHeight" bgc={"orange"}/>
                         
 
@@ -87,7 +87,52 @@ export default class Endgame extends React.Component {
                 </View>
             </View>
         );
+    } else {
+        return (
+            <View style = {styles.container}>
+                <Text style = {{textAlign: "center", fontSize: 35, fontWeight: "bold"}}>Endgame</Text>
+
+                <View style = {styles.endgameContainer}>
+                    <NumButton id="BallsScored" width={120}>Balls Scored</NumButton>
+
+                    <View style={{margin: 20}}>
+                        <RadioButton
+                            id="EndgameType"
+                            data={["Park", "Climb", "None"]}
+                            bgc="orange"
+                            segmentedButton
+                            forceOption
+                            default="None"
+                            options={{
+                                flexDirection: "row",
+                            }}
+                        />
+                    </View>
+
+                    
+                    <View style = {styles.climbComments}>
+                        <Text style={{fontWeight: "bold", fontSize: 20}}>Comments</Text>
+                        <Text style={{fontSize: 12, textAlign: "center"}}>
+                            Add any comments that you feel are useful. Do they attempt to climb but fall?
+                            Do they get in the way of other robots? Do they swing a lot on the climb? Are they able to balance the rung?
+                            Are they able to adjust their climb position? Do they slide on the run? Anything else that shows evidence of
+                            good/poor performance?
+                        </Text>
+                        <CustomTextBox
+                            multi={true}
+                            id="EndgameComments"
+                            width={900}
+                            height={250}
+                            placeholder="Type your comments here..."
+                            backgroundColor={"#DDD"}
+                            borderRadius={10}
+                        />
+                    </View>
+                </View>
+            </View>
+        );
     }
+}
 }
 
 const styles=StyleSheet.create({

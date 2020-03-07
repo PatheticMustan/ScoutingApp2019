@@ -34,9 +34,6 @@ export default class Scout extends React.Component {
         if(this.state.condition == true) {
         return (
             <ScrollView>
-                <Button onPress={() => {
-                    alert(global.currentMatchIndex);
-                }} title="CurrentMatchID" />
 
                 <View>
                     <Data />
