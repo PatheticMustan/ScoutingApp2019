@@ -12,8 +12,19 @@ export default class Timer extends React.Component {
 
         this.state = {
             start: false,
-            sec: global.data[props.id]
+            sec: global.data[props.id],
+            cm: -1
         }
+    }
+    componentDidMount() {
+        this.matchUpdate = setInterval(() => {
+            if (global.currentMatchID != this.state.cm) {
+                this.setState({
+                    sec: global.data[this.props.id],
+                    cm: global.currentMatchID
+                });
+            }
+        }, 500);
     }
     componentWillUnmount() {
         clearInterval(this.interval);

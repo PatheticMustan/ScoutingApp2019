@@ -32,9 +32,11 @@ export default class About extends React.Component {
 
                 <View style = {styles.credits}>
                     <Text style = {styles.text}>UI Design and Concept by</Text>
+                    <Text style = {styles.text}>Reid Fleishman</Text>
                     <Text style = {styles.text}>App Development Team (React Native)</Text>
-                    <Text style = {styles.text}>Made in</Text>
-                    <Text style = {styles.text}>Special Thanks to</Text>
+                    <Text style = {styles.text}>Kevin Wang</Text>
+                    <Text style = {styles.text}>Eric Yachbes</Text>
+                    <Text style = {styles.text}>Aidan Din</Text>
                 </View>
             </View>
         );

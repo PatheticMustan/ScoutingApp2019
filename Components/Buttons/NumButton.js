@@ -11,7 +11,8 @@ export default class NumButton extends React.Component {
         super(props);
         /** Set default */
         this.state = {
-            val: global.data[props.id]
+            val: global.data[props.id],
+            cm: -1
         }
         global.data[props.id] = this.state.val;
 
@@ -24,7 +25,16 @@ export default class NumButton extends React.Component {
             () => {global.data[this.props.id] = this.state.val}
         );
     }
-
+    componentDidMount() {
+        this.matchUpdate = setInterval(() => {
+            if (global.currentMatchID != this.state.cm) {
+                this.setState({
+                    val: global.data[this.props.id],
+                    cm: global.currentMatchID
+                });
+            }
+        }, 500);
+    }
     render() {
         const p = this.props;
 

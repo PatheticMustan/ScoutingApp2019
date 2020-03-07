@@ -13,11 +13,22 @@ export default class ClimbPosition extends React.Component {
         super(props);
         /** Set default */
         this.state = {
-            flipFlop: global.data[props.id]
+            flipFlop: global.data[props.id],
+            cm: -1
         }
         this.data = ["Edge", "Middle Bar", "Center"];
         /** Update */
         this.interval = setInterval(() => {this.setState({ flipFlop: !this.state.flipFlop })}, 50);
+    }
+    componentDidMount() {
+        this.matchUpdate = setInterval(() => {
+            if (global.currentMatchID != this.state.cm) {
+                this.setState({
+                    flipFlop: global.data[this.props.id],
+                    cm: global.currentMatchID
+                });
+            }
+        }, 500);
     }
     componentWillUnmount() {clearInterval(this.interval)}
 
