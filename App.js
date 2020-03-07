@@ -62,6 +62,9 @@ export default function App() {
             await AsyncStorage.setItem("matches", "[]")
         }
     })();
+
+    global.currentMatchIndex = -1;
+
     return (
         <NavigationContainer>
             <MyTabs/>

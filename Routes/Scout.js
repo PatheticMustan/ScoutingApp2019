@@ -20,44 +20,28 @@ export default class Scout extends React.Component {
     constructor(props) {
         super(props);
 
-        global.condition = true
+        global.currentMatchIndex = -1;
     }
-    componentDidMount() {this.interval = setInterval(() => {
-        if (global.condition == false) {
-            this.setState({ time: Date.now() })
-        }
-    }, 1000)}
-    componentWillUnmount() {clearInterval(this.interval)}
     
     render() {
-        if (this.props.data) {
-            global.data = this.props.data;
-        }
+        return (
+            <ScrollView>
+                <Button onPress={() => {
+                    alert(global.currentMatchIndex);
+                }} title="CurrentMatchID" />
 
-        if (global.condition==true) {
-            return (
-                <ScrollView>
+                <View>
+                    <Data data={this.props.data}/>
 
-                    <Button onPress={() => {
-                        alert(JSON.stringify(this.props.nav + "1"));
-                    }} title="Test" />
-
-                    <View>
-                        <Data data={this.props.data}/>
-              
-                        <Header onReset={() => this.setState({condition: false})}/>
-                        
-                        <MatchInfoContainer/>
-                        <Autonomous/>
-                        <TeleOp/>
-                        <Endgame/>
-                        <Other/>
-                    </View>
-                </ScrollView>
+                    <Header onReset={() => this.setState({condition: false})}/>
+                    
+                    <MatchInfoContainer/>
+                    <Autonomous/>
+                    <TeleOp/>
+                    <Endgame/>
+                    <Other/>
+                </View>
+            </ScrollView>
             );
-        } else {
-            this.setState({condition: true});
-            return <View />;
-        }
     }
 }
