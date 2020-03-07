@@ -31,7 +31,7 @@ export default class Scout extends React.Component {
                 }} title="CurrentMatchID" />
 
                 <View>
-                    <Data data={this.props.data}/>
+                    <Data/>
 
                     <Header onReset={() => this.setState({condition: false})}/>
                     

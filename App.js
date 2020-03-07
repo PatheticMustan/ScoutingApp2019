@@ -57,13 +57,12 @@ function MyTabs() {
 }
 
 export default function App() {
+    /** If not found, set empty match data in AsyncStorage. */
     (async () => {
         if (await AsyncStorage.getItem("matches") == null) {
             await AsyncStorage.setItem("matches", "[]")
         }
     })();
-
-    global.currentMatchIndex = -1;
 
     return (
         <NavigationContainer>
