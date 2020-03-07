@@ -12,11 +12,21 @@ export default class CustomTextBox extends React.Component {
         super(props);
         /** Set default */
         this.state = {
-            text: global.data[props.id]
+            text: global.data[props.id],
+            cm: -1
         }
         global.data[props.id] = this.state.text;
     }
-    
+    componentDidMount() {
+        this.matchUpdate = setInterval(() => {
+            if (global.currentMatchID != this.state.cm) {
+                this.setState({
+                    text: global.data[this.props.id],
+                    cm: global.currentMatchID
+                });
+            }
+        }, 500);
+    }
     render() {
         return (
             <View style={{
@@ -28,6 +38,7 @@ export default class CustomTextBox extends React.Component {
                     numberOfLines={this.props.multi? this.props.lines : 1}
                     editable
                     placeholder={this.props.placeholder || ""}
+                    value={this.state.text}
                     style={{
                         flex: 1,
                         padding: 10,

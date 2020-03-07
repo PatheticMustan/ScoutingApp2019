@@ -43,12 +43,12 @@ function MyTabs() {
                 }}  
             />
             <Tab.Screen
-                name="Settings"
+                name="About"
                 component={Settings}
                 options={{
-                    tabBarLabel: "Settings",
+                    tabBarLabel: "About",
                     tabBarIcon: ({ color, size }) => (
-                        <Ionicons name="ios-settings" color={color} size={size} />
+                        <Ionicons name="ios-information-circle" color={color} size={size} />
                     )
                 }}
             />

@@ -21,9 +21,17 @@ export default class Scout extends React.Component {
         super(props);
 
         global.currentMatchIndex = -1;
+        global.condition=true;
+        this.state = {condition: true}
     }
-    
+    componentDidMount() {this.interval = setInterval(() => {
+        if (global.condition == false) {
+            this.setState({ time: Date.now() })
+        }
+    }, 1000)}
+    componentWillUnmount() {clearInterval(this.interval)}
     render() {
+        if(this.state.condition == true) {
         return (
             <ScrollView>
                 <Button onPress={() => {
@@ -31,7 +39,7 @@ export default class Scout extends React.Component {
                 }} title="CurrentMatchID" />
 
                 <View>
-                    <Data/>
+                    <Data />
 
                     <Header onReset={() => this.setState({condition: false})}/>
                     
@@ -43,5 +51,9 @@ export default class Scout extends React.Component {
                 </View>
             </ScrollView>
             );
+        } else {
+            this.setState({condition: true});
+            return <View />
+        }
     }
 }
