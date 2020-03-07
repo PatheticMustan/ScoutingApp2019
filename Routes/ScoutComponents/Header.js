@@ -111,12 +111,13 @@ export default class Header extends React.Component {
 
     render() {
         return (
-            <View style={{backgroundColor: global.data["Team"]=="Red Alliance"? "#FFD0D0" : "#D0F4FF"}}>
+            <View style={{backgroundColor: global.data["Team"]=="Red Alliance"? "#FFD0D0" : "#D0F4FF", flex: 1}}>
                 <Text style={styles.headerText}>2020 - Infinite Recharge</Text>
 
                 <View style={styles.linkContainer}>
                         <Link color="red" onPress={() => this.reset()}>Reset</Link>
-
+                        <Link color="red" onPress={() => 1}></Link>
+                        <Link color="red" onPress={() => 1}></Link>
                         <RadioButton
                             id="Team"
                             data={["Blue Alliance", "Red Alliance"]}
@@ -128,7 +129,7 @@ export default class Header extends React.Component {
                                 flexDirection: "row",
                             }}
                         />
-
+                    
                     <Link color="blue" onPress={() => this.save()}>Save</Link>
 
                     <Link color="blue" onPress={() => this.saveAndExport()}>Save and Export</Link>
@@ -144,7 +145,7 @@ const styles = StyleSheet.create({
     },
     headerText: {
         flex: 1,
-        fontSize: 30,
+        fontSize: 20,
         paddingTop: 10,
         textAlign: "center"
     },
