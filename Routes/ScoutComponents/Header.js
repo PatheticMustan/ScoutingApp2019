@@ -29,7 +29,7 @@ export default class Header extends React.Component {
                 {text: 'Reset', onPress: () => this.props.onReset()},
                 {text: 'Cancel', style: 'cancel'}
             ]
-          );
+        );
     }
 
     save() {
@@ -92,7 +92,7 @@ export default class Header extends React.Component {
                 let output = header + entry;
                 global.output = output;
 
-                FileSystem.writeAsStringAsync(FileSystem.documentDirectory+path, JSON.stringify(global.output), { encoding: FileSystem.EncodingType.UTF8 })
+                FileSystem.writeAsStringAsync(FileSystem.documentDirectory+path, global.output, { encoding: FileSystem.EncodingType.UTF8 })
                 Sharing.shareAsync(FileSystem.documentDirectory+path)
             } catch (error) {
                 alert(error.message);
