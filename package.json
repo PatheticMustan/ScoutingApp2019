@@ -16,6 +16,7 @@
         "expo-file-system": "^8.0.0",
         "expo-sharing": "^8.0.0",
         "json2csv": "^4.5.4",
+        "metro-minify-terser": "^0.56.4",
         "react": "~16.9.0",
         "react-dom": "~16.9.0",
         "react-json-to-csv": "^1.0.4",
