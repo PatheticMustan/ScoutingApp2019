@@ -37,13 +37,12 @@ export default class About extends React.Component {
                     <Text style={styles.title}>App Development Team (React Native)</Text>
                     <Text style={styles.text}><u>Developer</u> Kevin Wang</Text>
                     <Text style={styles.text}><u>Developer</u> Eric Yachbes</Text>
-                    <Text style={styles.text}><u>Helper</u> Aidan Din</Text>
+                    <Text style={styles.text}><u>Developer</u> Aidan Din</Text>
                     <br/>
                     <Text style={styles.title}>Tools Used</Text>
                     <Text style={styles.text}>React Native</Text>
                     <Text style={styles.text}>Expo</Text>
                     <Text style={styles.text}>VSCode</Text>
-                    <Text style={styles.text}>Snacks</Text>
                     <br/>
                     <Text style={styles.title}>Special Thanks To</Text>
                     <Text style={styles.text}>John Motchkavitz</Text>
