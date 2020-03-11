@@ -31,23 +31,24 @@ export default class Scout extends React.Component {
     }, 1000)}
     componentWillUnmount() {clearInterval(this.interval)}
     render() {
-        if(this.state.condition == true) {
-        return (
-            <View style = {{flex: 1}}>
-            <View style = {{flex: 1, justifyContent: "center"}}>
-            <Data />
-            <Header onReset={() => this.setState({condition: false})}/>
-            </View>
-            <View style = {{flex: 7}}>
-            <ScrollView>
-                    <MatchInfoContainer/>
-                    <Autonomous/>
-                    <TeleOp/>
-                    <Endgame/>
-                    <Other/>
-            </ScrollView>
-            </View>
-            </View>
+        if (this.state.condition == true) {
+            return (
+                <View style = {{flex: 1}}>
+                    <View style = {{flex: 1, justifyContent: "center"}}>
+                        <Data />
+                        <Header onReset={() => this.setState({condition: false})}/>
+                    </View>
+
+                    <View style = {{flex: 7}}>
+                        <ScrollView>
+                            <MatchInfoContainer/>
+                            <Autonomous/>
+                            <TeleOp/>
+                            <Endgame/>
+                            <Other/>
+                        </ScrollView>
+                    </View>
+                </View>
             );
         } else {
             this.setState({condition: true});
