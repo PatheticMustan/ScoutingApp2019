@@ -4,15 +4,14 @@ import {
     Text,
     View,
     Alert,
-    AsyncStorage,
-    Share
+    AsyncStorage
 } from "react-native";
 
 import * as Sharing from 'expo-sharing'
 import * as FileSystem from 'expo-file-system'
 import RadioButton from "../../Components/Buttons/RadioButton.js";
 import Link from "../../Components/Utility/Link.js";
-var path = './data.csv';
+const path = './data.csv';
 
 export default class Header extends React.Component {
     constructor(props) {
@@ -92,7 +91,9 @@ export default class Header extends React.Component {
                 let output = header + entry;
                 global.output = output;
 
+                // write new csv file
                 FileSystem.writeAsStringAsync(FileSystem.documentDirectory+path, global.output, { encoding: FileSystem.EncodingType.UTF8 })
+                // share the new csv file we just made
                 Sharing.shareAsync(FileSystem.documentDirectory+path)
             } catch (error) {
                 alert(error.message);
@@ -104,11 +105,10 @@ export default class Header extends React.Component {
         return (
             <View style={{backgroundColor: global.data["Team"]=="Red Alliance"? "#FFD0D0" : "#D0F4FF", flex: 1}}>
                 <Text style={styles.headerText}>2020 - Infinite Recharge</Text>
-
+                <br/>
                 <View style={styles.linkContainer}>
                         <Link color="red" onPress={() => this.reset()}>Reset</Link>
-                        <Link color="red" onPress={() => 1}></Link>
-                        <Link color="red" onPress={() => 1}></Link>
+                        <Link></Link>
                         <RadioButton
                             id="Team"
                             data={["Blue Alliance", "Red Alliance"]}
@@ -125,6 +125,7 @@ export default class Header extends React.Component {
 
                     <Link color="blue" onPress={() => this.saveAndExport()}>Save and Export</Link>
                 </View>
+                <br/>
             </View>
         );
     }
