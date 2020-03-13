@@ -35,9 +35,9 @@ export default class About extends React.Component {
                     <Text style={styles.text}>Reid Fleishman{"\n"}</Text>
 
                     <Text style={styles.title}>App Development Team (React Native)</Text>
-                    <Text style={styles.text}><u>Developer</u> Kevin Wang</Text>
-                    <Text style={styles.text}><u>Developer</u> Eric Yachbes</Text>
-                    <Text style={styles.text}><u>Developer</u> Aidan Din{"\n"}</Text>
+                    <Text style={styles.text}><Text style={styles.underline}>Developer</Text> Kevin Wang</Text>
+                    <Text style={styles.text}><Text style={styles.underline}>Developer</Text> Eric Yachbes</Text>
+                    <Text style={styles.text}><Text style={styles.underline}>Developer</Text> Aidan Din{"\n"}</Text>
 
                     <Text style={styles.title}>Tools Used</Text>
                     <Text style={styles.text}>React Native</Text>
@@ -48,7 +48,7 @@ export default class About extends React.Component {
                     <Text style={styles.text}>John Motchkavitz</Text>
                     <Text style={styles.text}>Matthew Corrigan</Text>
                     <Text style={styles.text}>Andrea Zinn</Text>
-                    <Text style={styles.text}><i>And all of our amazing mentors!</i>{"\n"}</Text>
+                    <Text style={styles.text}><Text style={styles.italic}>And all of our amazing mentors!</Text>{"\n"}</Text>
 
                     <Text style={styles.text}>Questions or Comments? Please email reidfleishman5@gmail.com{"\n"}</Text>
 
@@ -80,9 +80,12 @@ const styles = StyleSheet.create({
         textDecorationLine: "underline",
         fontSize: 16
     },
-    text: {
-        fontSize: 16
-    },
+
+    text: {fontSize: 16},
+    italic: {fontStyle: "italic"},
+    bold: {fontWeight: "bold"},
+    underline: {textDecorationLine: "underline"},
+
     credits: {
         justifyContent: "center",
         alignItems: "center",
