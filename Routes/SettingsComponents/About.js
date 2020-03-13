@@ -31,7 +31,6 @@ export default class About extends React.Component {
 
 
                 <View style={styles.credits}>
-                    /** Replace br with \n */
                     <Text style={styles.title}>UI Design and Concept by</Text>
                     <Text style={styles.text}>Reid Fleishman{"\n"}</Text>
 
