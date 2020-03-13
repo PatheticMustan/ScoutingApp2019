@@ -105,8 +105,7 @@ export default class Header extends React.Component {
     render() {
         return (
             <View style={{backgroundColor: global.data["Team"]=="Red Alliance"? "#FFD0D0" : "#D0F4FF", flex: 1}}>
-                <Text style={styles.headerText}>2020 - Infinite Recharge</Text>
-                <br/>
+                <Text style={styles.headerText}>2020 - Infinite Recharge{"\n"}</Text>
                 <View style={styles.linkContainer}>
                         <Link color="red" onPress={() => this.reset()}>Reset</Link>
                         <Link></Link>
@@ -126,7 +125,6 @@ export default class Header extends React.Component {
 
                     <Link color="blue" onPress={() => this.saveAndExport()}>Save and Export</Link>
                 </View>
-                <br/>
             </View>
         );
     }
