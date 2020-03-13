@@ -38,7 +38,8 @@ export default class Header extends React.Component {
                 JSON.stringify(
                     [...JSON.parse(await AsyncStorage.getItem("matches")), JSON.stringify(global.data)]
                 )
-            )
+            );
+            alert("Saved Match #" + global.data["MatchNumber"]);
         })();
     }
 
