@@ -22,21 +22,38 @@ export default class About extends React.Component {
                         source={require("../../Assets/appicon.png")}
                         style={{borderRadius: 10, width: 350, height: 350, margin: 10}}
                     />
-                    <Text style = {styles.text}>2638 Scout</Text>
-                    <Text style = {styles.text}>Version 2.0 3/6/2020</Text>
+                    <Text style = {styles.title}>2638 Scout</Text>
+                    <Text style = {styles.title}>Version 2.0 3/6/2020</Text>
                     <View
                         style={{backgroundColor: "#DDDDDD", borderRadius: 10, height: 5, width: 1000, margin: 20}}
                     ></View>
                 </View>
 
 
-                <View style = {styles.credits}>
-                    <Text style = {styles.text}>UI Design and Concept by</Text>
-                    <Text style = {styles.text}>Reid Fleishman</Text>
-                    <Text style = {styles.text}>App Development Team (React Native)</Text>
-                    <Text style = {styles.text}>Kevin Wang</Text>
-                    <Text style = {styles.text}>Eric Yachbes</Text>
-                    <Text style = {styles.text}>Aidan Din</Text>
+                <View style={styles.credits}>
+                    <Text style={styles.title}>UI Design and Concept by</Text>
+                    <Text style={styles.text}>Reid Fleishman{"\n"}</Text>
+
+                    <Text style={styles.title}>App Development Team (React Native)</Text>
+                    <Text style={styles.text}><Text style={styles.underline}>Developer</Text> Kevin Wang</Text>
+                    <Text style={styles.text}><Text style={styles.underline}>Developer</Text> Eric Yachbes</Text>
+                    <Text style={styles.text}><Text style={styles.underline}>Developer</Text> Aidan Din{"\n"}</Text>
+
+                    <Text style={styles.title}>Tools Used</Text>
+                    <Text style={styles.text}>React Native</Text>
+                    <Text style={styles.text}>Expo</Text>
+                    <Text style={styles.text}>VSCode{"\n"}</Text>
+
+                    <Text style={styles.title}>Special Thanks To</Text>
+                    <Text style={styles.text}>John Motchkavitz</Text>
+                    <Text style={styles.text}>Matthew Corrigan</Text>
+                    <Text style={styles.text}>Andrea Zinn</Text>
+                    <Text style={styles.text}><Text style={styles.italic}>And all of our amazing mentors!</Text>{"\n"}</Text>
+
+                    <Text style={styles.text}>Questions or Comments? Please email reidfleishman5@gmail.com{"\n"}</Text>
+
+                    <Text style={styles.title}>© 2020 Rebel Robotics</Text>
+                    <Text style={styles.title}>gnsrobotics.com</Text>
                 </View>
             </View>
         );
@@ -58,12 +75,20 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center"
     },
-    text: {
+    title: {
         fontWeight: "bold",
+        textDecorationLine: "underline",
         fontSize: 16
     },
+
+    text: {fontSize: 16},
+    italic: {fontStyle: "italic"},
+    bold: {fontWeight: "bold"},
+    underline: {textDecorationLine: "underline"},
+
     credits: {
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+        paddingBottom: 50
     }
 });

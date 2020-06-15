@@ -4,13 +4,14 @@ import {
     Text,
     View,
     Alert,
-    AsyncStorage,
-    Share
+    AsyncStorage
 } from "react-native";
 
+import * as Sharing from 'expo-sharing'
+import * as FileSystem from 'expo-file-system'
 import RadioButton from "../../Components/Buttons/RadioButton.js";
 import Link from "../../Components/Utility/Link.js";
-
+const path = './data.csv';
 
 export default class Header extends React.Component {
     constructor(props) {
@@ -27,7 +28,7 @@ export default class Header extends React.Component {
                 {text: 'Reset', onPress: () => this.props.onReset()},
                 {text: 'Cancel', style: 'cancel'}
             ]
-          );
+        );
     }
 
     save() {
@@ -37,7 +38,8 @@ export default class Header extends React.Component {
                 JSON.stringify(
                     [...JSON.parse(await AsyncStorage.getItem("matches")), JSON.stringify(global.data)]
                 )
-            )
+            );
+            alert("Saved Match #" + global.data["MatchNumber"]);
         })();
     }
 
@@ -90,19 +92,10 @@ export default class Header extends React.Component {
                 let output = header + entry;
                 global.output = output;
 
-                const result = await Share.share({
-                    message: JSON.stringify(global.output)
-                });
-    
-                if (result.action == Share.sharedAction) {
-                    if (result.activityType) {
-                        // do nothing
-                    } else {
-                        // do nothing
-                    }
-                } else if (result.action == Share.dismissedAction) {
-                    // do nothing
-                }
+                // write new csv file
+                FileSystem.writeAsStringAsync(FileSystem.documentDirectory+path, global.output, { encoding: FileSystem.EncodingType.UTF8 })
+                // share the new csv file we just made
+                Sharing.shareAsync(FileSystem.documentDirectory+path)
             } catch (error) {
                 alert(error.message);
             }
@@ -111,12 +104,11 @@ export default class Header extends React.Component {
 
     render() {
         return (
-            <View style={{backgroundColor: global.data["Team"]=="Red Alliance"? "#FFD0D0" : "#D0F4FF"}}>
-                <Text style={styles.headerText}>2020 - Infinite Recharge</Text>
-
+            <View style={{backgroundColor: global.data["Team"]=="Red Alliance"? "#FFD0D0" : "#D0F4FF", flex: 1}}>
+                <Text style={styles.headerText}>2020 - Infinite Recharge{"\n"}</Text>
                 <View style={styles.linkContainer}>
                         <Link color="red" onPress={() => this.reset()}>Reset</Link>
-
+                        <Link></Link>
                         <RadioButton
                             id="Team"
                             data={["Blue Alliance", "Red Alliance"]}
@@ -128,7 +120,7 @@ export default class Header extends React.Component {
                                 flexDirection: "row",
                             }}
                         />
-
+                    
                     <Link color="blue" onPress={() => this.save()}>Save</Link>
 
                     <Link color="blue" onPress={() => this.saveAndExport()}>Save and Export</Link>
@@ -144,7 +136,7 @@ const styles = StyleSheet.create({
     },
     headerText: {
         flex: 1,
-        fontSize: 30,
+        fontSize: 20,
         paddingTop: 10,
         textAlign: "center"
     },
