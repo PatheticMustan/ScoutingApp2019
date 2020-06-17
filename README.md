@@ -139,7 +139,7 @@ Finally. Our torment is over.
 
 ## Act VI, Looking Back, Things we found useful
 
-All of this pain could have been solved with something like [Redux](https://redux.js.org/). It pains me inside to see so much spaghetti depended upon. Since we have more years to work on this, I'll be able to compile this huge pile of spaghetti.
+All of this pain could have been solved with something like [Redux](https://redux.js.org/). It pains me inside to see so much spaghetti depended upon. Since we have more years to work on this, I'll be able to clean up this huge pile of spaghetti.
 
 We made the app look sorta presentable with lots of cool CSS. Really helpful things to know:
 
@@ -156,10 +156,13 @@ React Native is huge, so learning can be challenging. Luckily, they have AWESOME
 
 More important things to read:
 
-* [Redux](https://redux.js.org/) would have prevented so much pain.
-  * [Getting Started](https://redux.js.org/introduction/getting-started)
 * Make sure you properly learn how to use Git. Very important.
   * [Cannot do a partial commit during a merge](http://thomas-cokelaer.info/blog/2015/02/git-error-cannot-do-a-partial-commit-during-a-merge/): Fix for when you merge stuff wrong
   * [How to undo a checkout](https://stackoverflow.com/questions/3601911/how-do-i-undo-a-checkout-in-git)
   * [Git broken cuz self signed cert](https://confluence.atlassian.com/fishkb/unable-to-clone-git-repository-due-to-self-signed-certificate-376838977.html): We couldn't use git because the school network had weird certificates or something. This is only a temporary workaround, and not very safe. Make sure to disable this after you're done. 
   * [Oh Shit, Git!?!](https://ohshitgit.com/): Super helpful guide on undoing everything in git. God tier.
+
+## Act VI, Looking Forward, Things we should have done
+
+* [Redux](https://redux.js.org/) would have prevented so much pain.
+  * [Getting Started](https://redux.js.org/introduction/getting-started)
