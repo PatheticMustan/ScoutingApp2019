@@ -113,3 +113,26 @@ Unfortunately, this meant it was also way harder to modify the fields. Now, ever
 ## Act V, Torment
 
 Actually, that importing/resetting matches was really important. We really need to fix that.
+
+For now, let's focus on how we're going to store the matches. Looking for a simple way to store JSON data, I found [AsyncStorage](https://docs.expo.io/versions/latest/react-native/asyncstorage/), which is like LocalStorage, but async. Very strange.
+
+At this point, we were rushing to get the app finished. Whenever a match is changed/edited, we stringify the global object, and save it.
+When we load the app, we can load the entire global object from storage. Very cool.
+
+Staying up late enough to feel my eyeballs in my head, I finally came up with the idea of having a *current match ID*.
+
+Using setState to keep track of values solves all the rendering problems, and the lag, but it becomes really hard to sync and set data.
+
+Thinking carefully, we only need to change the state in a few instances.
+
+* When we reset a match
+* When we import a match
+
+Either way, we're only changing data when we do a new match.
+Our horrible, but working solution, is to have each component track the latest match they updated to.
+
+* If the match ID is different (if we reset/import), global should be updating the state.
+* If the match ID is the same, the state should be updating global.
+
+With this, we have forms that don't rubberband, don't cause extreme lag, save, reset, import, and look cool.
+Finally. Our torment is over.
