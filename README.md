@@ -36,7 +36,7 @@ this caused lots of pain 😭
 
 This was actually way harder than I thought, not even with Bluetooth. (Suffering continued below)
 
-## Act I, Starting Out
+## Act I, Curiosity
 
 Since we were completely new the React Native, we didn't really know the common issues/painpoints, and didn't learn about Redux in time.
 
@@ -136,3 +136,30 @@ Our horrible, but working solution, is to have each component track the latest m
 
 With this, we have forms that don't rubberband, don't cause extreme lag, save, reset, import, and look cool.
 Finally. Our torment is over.
+
+## Act VI, Looking Back, Things we found useful
+
+All of this pain could have been solved with something like [Redux](https://redux.js.org/). It pains me inside to see so much spaghetti depended upon. Since we have more years to work on this, I'll be able to compile this huge pile of spaghetti.
+
+We made the app look sorta presentable with lots of cool CSS. Really helpful things to know:
+
+* [Border-Radius](https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius): Gives containers round edges, very cool.
+* [Margin vs Padding](https://stackoverflow.com/questions/5958699/difference-between-margin-and-padding): Margin is outside space, padding is inside space.
+* [Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/): Very important, basically aligning items left/center/right, top/center/bottom.
+* [Just CSS in general](https://cssreference.io/)
+
+React Native is huge, so learning can be challenging. Luckily, they have AWESOME documentaion, and tons of guides online. Here are some important guides:
+
+* [React Native Core Concepts](https://reactnative.dev/docs/intro-react-native-components): Just read it.
+* [React Native Fundamentals](https://reactnative.dev/docs/intro-react): Absolutely essential to starting RN.
+* [Expo Docs](https://docs.expo.io/): Also essential
+
+More important things to read:
+
+* [Redux](https://redux.js.org/) would have prevented so much pain.
+  * [Getting Started](https://redux.js.org/introduction/getting-started)
+* Make sure you properly learn how to use Git. Very important.
+  * [Cannot do a partial commit during a merge](http://thomas-cokelaer.info/blog/2015/02/git-error-cannot-do-a-partial-commit-during-a-merge/): Fix for when you merge stuff wrong
+  * [How to undo a checkout](https://stackoverflow.com/questions/3601911/how-do-i-undo-a-checkout-in-git)
+  * [Git broken cuz self signed cert](https://confluence.atlassian.com/fishkb/unable-to-clone-git-repository-due-to-self-signed-certificate-376838977.html): We couldn't use git because the school network had weird certificates or something. This is only a temporary workaround, and not very safe. Make sure to disable this after you're done. 
+  * [Oh Shit, Git!?!](https://ohshitgit.com/): Super helpful guide on undoing everything in git. God tier.
