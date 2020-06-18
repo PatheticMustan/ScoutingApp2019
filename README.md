@@ -164,5 +164,8 @@ More important things to read:
 
 ## Act VI, Looking Forward, Things we should have done
 
-* [Redux](https://redux.js.org/) would have prevented so much pain.
-  * [Getting Started](https://redux.js.org/introduction/getting-started)
+* Everytime we made a new thing, we just threw in a new component. It's really messy, and I'd like to have some more intuitive way for managing components.
+* I'm extremely dissatisfied with how we managed CSS. It was all over the place. Maybe we should try having a global CSS, or use a library?
+* We desperately need to refactor everything. The global state is horrible, and I'd like to replace it with [Redux](https://redux.js.org/). Redux would help avoid most of the pain of development.
+* Lots of code is unused, I think a linter would be helpful in standardizing the style of the code, and prevent rookie mistakes.
+* We should spend more time looking into scrolling, lists, and tabs. 
