@@ -162,7 +162,7 @@ More important things to read:
   * [Git broken cuz self signed cert](https://confluence.atlassian.com/fishkb/unable-to-clone-git-repository-due-to-self-signed-certificate-376838977.html): We couldn't use git because the school network had weird certificates or something. This is only a temporary workaround, and not very safe. Make sure to disable this after you're done. 
   * [Oh Shit, Git!?!](https://ohshitgit.com/): Super helpful guide on undoing everything in git. God tier.
 
-## Act VI, Looking Forward, Things we should have done
+## Act VII, Looking Forward, Things we should have done
 
 * Everytime we made a new thing, we just threw in a new component. It's really messy, and I'd like to have some more intuitive way for managing components.
 * I'm extremely dissatisfied with how we managed CSS. It was all over the place. Maybe we should try having a global CSS, or use a library?
