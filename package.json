@@ -14,7 +14,7 @@
         "@react-navigation/native": "^5.5.1",
         "expo": "~37.0.12",
         "expo-file-system": "^8.1.0",
-        "expo-sharing": "^8.1.0",
+        "expo-sharing": "^8.2.1",
         "json2csv": "^5.0.1",
         "metro-minify-terser": "^0.59.0",
         "react": "~16.13.1",
@@ -23,15 +23,15 @@
         "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz",
         "react-native-gesture-handler": "1.6.1",
         "react-native-reanimated": "^1.9.0",
-        "react-native-safe-area-context": "^3.0.5",
+        "react-native-safe-area-context": "^3.0.6",
         "react-native-screens": "2.8.0",
         "react-native-unimodules": "^0.9.1",
         "react-native-vector-icons": "^6.6.0",
         "react-native-web": "~0.12.3"
     },
     "devDependencies": {
-        "babel-preset-expo": "~8.2.1",
-        "@babel/core": "^7.10.2"
+        "@babel/core": "^7.10.3",
+        "babel-preset-expo": "^8.2.3"
     },
     "private": true
 }
