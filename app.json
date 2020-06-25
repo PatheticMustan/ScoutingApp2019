@@ -4,7 +4,6 @@
     "description": "Scouting but in an app, so it's cooler.",
     "slug": "Scouting-App",
     "privacy": "public",
-    "sdkVersion": "36.0.0",
     "platforms": [
       "ios",
       "web"
@@ -28,7 +27,6 @@
       "bundleIdentifier": "com.reidf.2638scout",
       "buildNumber": "2.0.3"
     },
-    
     "android": {
       "package": "com.reidf.scout2638",
       "versionCode": 1
