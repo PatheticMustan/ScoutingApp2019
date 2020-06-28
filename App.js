@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Text, View, AsyncStorage } from "react-native";
+import { AsyncStorage } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {
@@ -8,10 +8,19 @@ import {
     Ionicons 
 } from "react-native-vector-icons";
 
+import { createStore } from "redux";
+import { Provider } from "react-redux";
+
 import Scout from "./Routes/Scout.js";
 import PastMatches from "./Routes/PastMatches.js";
 import Settings from "./Routes/Settings.js";
 
+// create redux store
+const rootReducer = (state={}, action) => {
+    return state;
+}
+
+// create bottom tab navigation
 const Tab = createBottomTabNavigator();
 
 function MyTabs() {
@@ -65,8 +74,10 @@ export default function App() {
     })();
 
     return (
-        <NavigationContainer>
-            <MyTabs/>
-        </NavigationContainer>
+        <Provider store={store}>
+            <NavigationContainer>
+                <MyTabs/>
+            </NavigationContainer>
+        </Provider>
     );
 }
