@@ -1,9 +1,7 @@
 {
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "loc": "expo start --localhost",
-    "lint": "eslint *.js",
-    "lintf": "eslint *.js --fix"
+    "loc": "expo start --localhost"
   },
   "dependencies": {
     "@react-native-community/async-storage": "~1.11.0",
@@ -31,6 +29,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.10.3",
+    "babel-eslint": "^10.1.0",
     "babel-preset-expo": "^8.2.3",
     "eslint": "^7.4.0",
     "eslint-plugin-react": "^7.20.3",
