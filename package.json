@@ -34,7 +34,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.10.3",
-    "babel-preset-expo": "^8.2.3"
+    "babel-preset-expo": "^8.2.3",
+    "eslint": "^7.4.0"
   },
   "private": true
 }
