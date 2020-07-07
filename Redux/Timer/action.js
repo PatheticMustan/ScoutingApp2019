@@ -4,9 +4,9 @@ export const RESET_TIMER = "RESET_TIMER";
 
 export function startTimer(baseTime=0) {
     return {
-      type: START_TIMER,
-      baseTime: baseTime,
-      now: new Date().getTime()
+        type: START_TIMER,
+        baseTime: baseTime,
+        now: new Date().getTime()
     };
 }
 
