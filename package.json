@@ -1,7 +1,9 @@
 {
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "loc": "expo start --localhost"
+    "loc": "expo start --localhost",
+    "lint": "eslint **/*.js",
+    "lintf": "eslint **/*.js --fix"
   },
   "dependencies": {
     "@react-native-community/async-storage": "~1.11.0",

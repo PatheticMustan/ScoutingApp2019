@@ -12,6 +12,11 @@
         "es6": true,
         "react-native/react-native": true
     },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    },
     /*
     https://github.com/codeclimate/codeclimate-eslint/issues/413
     Not sure why it's not working, commented this out for now
