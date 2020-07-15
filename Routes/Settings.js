@@ -11,59 +11,73 @@ export default class Settings extends React.Component {
 	render() {
 		return (
 			<ScrollView>
-				<View style = {styles.aboutHeader}>
-					<Text style = {styles.aboutHeaderText}>About</Text>
-				</View>
-
-
-				<View style = {styles.imageTeamVersion}>
-					<Image
-						source={require("../Assets/appicon.png")}
-						style={{borderRadius: 10, width: 350, height: 350, margin: 10}}
-					/>
-					<Text style = {styles.title}>2638 Scout</Text>
-					<Text style = {styles.title}>Version 2.0 3/6/2020</Text>
-					<View
-						style={{backgroundColor: "#DDDDDD", borderRadius: 10, height: 5, width: 1000, margin: 20}}
-					></View>
+				<View style={styles.aboutHeader}>
+					<Text style={styles.aboutHeaderText}>About</Text>
 				</View>
 
 
 				<View style={styles.credits}>
-					<Text style={styles.title}>UI Design and Concept by</Text>
-					<Text style={styles.text}>Reid Fleishman{"\n"}</Text>
+					<Image
+						source={require("../Assets/appicon.png")}
+						style={styles.image}
+					/>
 
-					<Text style={styles.title}>App Development Team (React Native)</Text>
-					<Text style={styles.text}><Text style={styles.underline}>Developer</Text> Kevin Wang</Text>
-					<Text style={styles.text}><Text style={styles.underline}>Developer</Text> Eric Yachbes</Text>
-					<Text style={styles.text}><Text style={styles.underline}>Developer</Text> Aidan Din{"\n"}</Text>
+					{title("2638 Scout")}
+					{text("Version 2.0 3/6/2020")}
 
-					<Text style={styles.title}>Tools Used</Text>
-					<Text style={styles.text}>React Native</Text>
-					<Text style={styles.text}>Expo</Text>
-					<Text style={styles.text}>VSCode{"\n"}</Text>
+					{spacer}
+					
+					{title("UI Design and Concept by")}
+					{person("App Designer", "Reid Fleishman")}
 
-					<Text style={styles.title}>Special Thanks To</Text>
-					<Text style={styles.text}>John Motchkavitz</Text>
-					<Text style={styles.text}>Matthew Corrigan</Text>
-					<Text style={styles.text}>Andrea Zinn</Text>
-					<Text style={styles.text}><Text style={styles.italic}>And all of our amazing mentors!</Text>{"\n"}</Text>
+					{spacer}
 
-					<Text style={styles.text}>Questions or Comments? Please email reidfleishman5@gmail.com{"\n"}</Text>
+					{title("App Development Team (React Native)")}
+					{person("Developer", "Kevin Wang")}
+					{person("Developer", "Eric Yachabes")}
+					{person("Developer", "Aidan Din")}
 
-					<Text style={styles.title}>© 2020 Rebel Robotics</Text>
-					<Text style={styles.title}>gnsrobotics.com</Text>
+					{spacer}
+
+					{title("Tools Used")}
+					{text("React Native")}
+					{text("Expo")}
+					{text("VSCode")}
+
+					{spacer}
+
+					{title("Special Thanks To")}
+					{text("John Motchkavitz")}
+					{text("Matthew Corrigan")}
+					{text("Andrea Zinn")}
+					{text(<Text style={styles.italic}>And all of our amazing mentors!</Text>)}
+
+					{spacer}
+					
+					{text("Questions or Comments? Please email reidfleishman5@gmail.com")}
+
+					{title("© 2020 Rebel Robotics")}
+					{title("gnsrobotics.com")}
 				</View>
 			</ScrollView>
 		);
 	}
 }
 
+const title = input => <Text style={styles.title}>{input}</Text>;
+const text = input => <Text style={styles.text}>{input}</Text>;
+const person = (title, name) => <Text style={styles.text}><Text style={styles.underline}>{title}</Text> {name}</Text>;
+const spacer = <Text>{"\n\n"}</Text>;
+
+
+const colors = {
+	gray: "#DDDDDD"
+};
 
 const styles = StyleSheet.create({
 	aboutHeader: {
 		alignItems: "center",
-		backgroundColor: "#DDDDDD",
+		backgroundColor: colors.gray,
 		flexDirection: "row",
 		justifyContent: "center"
 	},
@@ -71,16 +85,16 @@ const styles = StyleSheet.create({
 		fontSize: 30,
 		padding: 10
 	},
-	bold: {fontWeight: "bold"},
 	credits: {
 		alignItems: "center",
 		justifyContent: "center",
 		paddingBottom: 50
 	},
-
-	imageTeamVersion: {
-		alignItems: "center",
-		justifyContent: "center"
+	image: {
+		borderRadius: 10,
+		height: 350,
+		margin: 10,
+		width: 350
 	},
 	italic: {fontStyle: "italic"},
 	text: {fontSize: 16},
@@ -89,6 +103,8 @@ const styles = StyleSheet.create({
 		fontWeight: "bold",
 		textDecorationLine: "underline"
 	},
-
-	underline: {textDecorationLine: "underline"}
+	underline: {
+		fontSize: 16,
+		textDecorationLine: "underline"
+	}
 });
