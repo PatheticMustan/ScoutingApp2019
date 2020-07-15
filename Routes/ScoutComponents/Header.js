@@ -120,7 +120,7 @@ export default class Header extends React.Component {
 							flexDirection: "row",
 						}}
 					/>
-                    
+					
 					<Link color="blue" onPress={() => this.save()}>Save</Link>
 
 					<Link color="blue" onPress={() => this.saveAndExport()}>Save and Export</Link>
