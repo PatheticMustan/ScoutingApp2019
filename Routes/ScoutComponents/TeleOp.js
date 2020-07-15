@@ -2,8 +2,7 @@ import React from "react";
 import {
 	StyleSheet,
 	Text,
-	View,
-	ImageBackground
+	View
 } from "react-native";
 
 import BoolButton from "../../Components/Buttons/BoolButton.js";
