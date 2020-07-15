@@ -1,8 +1,7 @@
 import React from "react";
 import {
 	View,
-	ScrollView,
-	Button
+	ScrollView
 } from "react-native";
 
 import Header from "./ScoutComponents/Header.js";

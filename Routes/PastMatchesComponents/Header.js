@@ -22,10 +22,15 @@ export default class Header extends React.Component {
 	}
 }
 
+const colors = {
+	lightGray: "#DDD",
+	gray: "#696969"
+};
+
 const styles = StyleSheet.create({
 	container: {
-		backgroundColor: "#DDD",
-		borderColor: "#696969",
+		backgroundColor: colors.gray,
+		borderColor: colors.lightGray,
 		borderWidth: 1,
 		padding: 20
 	},
@@ -34,13 +39,5 @@ const styles = StyleSheet.create({
 		fontSize: 30,
 		paddingTop: 10,
 		textAlign: "center"
-	},
-	linkContainer: {
-		flex: 1,
-		flexDirection: "row",
-		justifyContent: "space-between",
-		paddingHorizontal: 30,
-		paddingBottom: 15,
-		paddingTop: 10
 	}
 });
