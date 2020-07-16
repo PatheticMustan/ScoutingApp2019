@@ -1,5 +1,6 @@
 import React from "react";
 
+
 export default class Data extends React.Component {
 	constructor(props) {
 		super(props);
@@ -9,7 +10,7 @@ export default class Data extends React.Component {
 		global.currentMatchID = -1;
 	}
 
-	/** Update data every second. */
-	componentDidMount() {this.interval = setInterval(() => {this.setState({ time: Date.now() });}, 100);}
-	componentWillUnmount() {clearInterval(this.interval);}
+	render() {
+		return <></>;
+	}	
 }
