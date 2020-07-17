@@ -8,7 +8,7 @@ import {
 	Ionicons 
 } from "react-native-vector-icons";
 
-import { createStore } from "redux";
+import store from "./Features/Store.js";
 import { Provider } from "react-redux";
 
 import Scout from "./Routes/Scout.js";
@@ -74,8 +74,10 @@ export default function App() {
 	})();
 
 	return (
-		<NavigationContainer>
-			<MyTabs/>
-		</NavigationContainer>
+		<Provider store={store}>
+			<NavigationContainer>
+				<MyTabs/>
+			</NavigationContainer>
+		</Provider>
 	);
 }
