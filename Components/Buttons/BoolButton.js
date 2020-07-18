@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
 	StyleSheet,
 	Text,
@@ -6,11 +6,10 @@ import {
 	TouchableWithoutFeedback
 } from "react-native";
 
-import { setValue, selectData } from "../../Redux/Features/dataSlice.js";
+import { setKeyPair, selectData } from "../../Redux/Features/dataSlice.js";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function BoolButton(props) {
-	const data = useSelector(selectData);
 	const dispatch = useDispatch();
 	const [isEnabled, setEnabled] = useState(false);
 
@@ -19,11 +18,13 @@ export default function BoolButton(props) {
 			// if the press event exists, run it
 			props.press && props.press();
 
+			const r = !isEnabled;
+
 			// dispatch to redux
-			dispatch(setValue([props.id, !isEnabled]));
+			dispatch(setKeyPair([props.id, r]));
 
 			// toggle isEnabled value
-			setEnabled(!isEnabled);
+			setEnabled(r);
 		}}>
 			<View style = {{
 				justifyContent: "center",
@@ -39,5 +40,3 @@ export default function BoolButton(props) {
 		</TouchableWithoutFeedback>
 	);
 }
-
-// const styles = new StyleSheet({});

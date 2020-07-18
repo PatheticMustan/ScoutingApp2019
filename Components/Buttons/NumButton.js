@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
 	StyleSheet,
 	Text,
@@ -6,54 +6,43 @@ import {
 	TouchableWithoutFeedback
 } from "react-native";
 
-export default class NumButton extends React.Component {
-	constructor(props) {
-		super(props);
-		/** Set default */
-		this.state = {
-			val: global.data[props.id],
-			cm: -1
-		};
-		global.data[props.id] = this.state.val;
+import { setKeyPair, selectData } from "../../Redux/Features/dataSlice.js";
+import { useDispatch, useSelector } from "react-redux";
 
-		this.increment = () => this.setState(
-			{val: this.state.val + 1},
-			() => {global.data[this.props.id] = this.state.val;}
-		);
-		this.decrement = () => this.setState(
-			{val: Math.max(0, this.state.val - 1)},
-			() => {global.data[this.props.id] = this.state.val;}
-		);
-	}
-	componentDidMount() {
-		this.matchUpdate = setInterval(() => {
-			if (global.currentMatchID != this.state.cm) {
-				this.setState({
-					val: global.data[this.props.id],
-					cm: global.currentMatchID
-				});
-			}
-		}, 500);
-	}
-	render() {
-		const p = this.props;
+export default function NumButton(props) {
+	const dispatch = useDispatch();
+	const [value, setValue] = useState(0);
 
-		return (
-			<TouchableWithoutFeedback onPress={this.increment} onLongPress={this.decrement} >
+	return (
+		<TouchableWithoutFeedback
+			onPress={() => {
+				const r = value + 1;
+
+				// dispatch to redux and set state
+				dispatch(setKeyPair([props.id, r]));
+				setValue(r);
+			}}
+			onLongPress={() => {
+				const r = Math.max((value - 1), 0);
+
+				// dispatch to redux and set state
+				dispatch(setKeyPair([props.id, r]));
+				setValue(r);
+			}}
+		>
 				<View style = {{
 					justifyContent: "center",
 					borderRadius: 10,
 					borderWidth: StyleSheet.hairlineWidth,
-					width: (p.width? p.width : 100),
-					height: (p.height? p.height : 40),
+					width: (props.width? props.width : 100),
+					height: (props.height? props.height : 40),
 					backgroundColor: "white",
 					justifyContent: "center",
 				}}>
 					<View style = {{flex: 1, justifyContent: "center"}}>
-						<Text style={{textAlign: "center"}}>{p.children} {`(${this.state.val})`}</Text>
+						<Text style={{textAlign: "center"}}>{props.children} {`(${value})`}</Text>
 					</View>
 				</View>
 			</TouchableWithoutFeedback>
-		);
-	}
+	);
 }

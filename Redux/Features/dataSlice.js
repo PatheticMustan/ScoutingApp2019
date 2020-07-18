@@ -6,7 +6,7 @@ export const dataSlice = createSlice({
 		keyPairValues: [],
 	},
 	reducers: {
-		setValue: (state, action) => {
+		setKeyPair: (state, action) => {
 			if (!(action.payload instanceof Array))		console.log("WARNING! Expected key-value array");
 			if (typeof action.payload[0] !== "string")	console.log("WARNING! Expected key to be string.");
 			if (action.payload.length !== 2)			console.log("WARNING! Expected key-value array to have two items.");
@@ -27,7 +27,7 @@ export const dataSlice = createSlice({
 	},
 });
 
-export const { setValue } = dataSlice.actions;
+export const { setKeyPair } = dataSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
