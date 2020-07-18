@@ -1,87 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import {
 	View,
 	Text
 } from "react-native";
 import BoolButton from "../Buttons/BoolButton.js";
 
-export default class Timer extends React.Component {
-	constructor(props) {
-		super(props);
+import { setKeyPair } from "../../Redux/Features/dataSlice.js";
+import { useDispatch } from "react-redux";
 
-		this.state = {
-			start: false,
-			sec: global.data[props.id],
-			cm: -1
-		};
-	}
-	componentDidMount() {
-		this.matchUpdate = setInterval(() => {
-			if (global.currentMatchID != this.state.cm) {
-				this.setState({
-					sec: global.data[this.props.id],
-					cm: global.currentMatchID
-				});
-			}
-		}, 500);
-	}
-	componentWillUnmount() {
-		clearInterval(this.interval);
-		this.setState(
-			{start: false},
-			() => {
-				global.data[this.props.id] = this.state.sec;
-			}
-		);
-	}
-	
-	timerClick = () => {
-		if (this.state.start == false) {
-			this.setState({start: true});
+export default function Timer(props) {
+	const dispatch = useDispatch();
+	const [isEnabled, setEnabled] = useState(false);
+	const [seconds, setSeconds] = useState(0);
 
-			this.interval = setInterval(() => {
-				this.setState(
-					{sec: this.state.sec + 1},
-					() => {
-						global.data[this.props.id] = this.state.sec;
-						const s = this.state.sec;
-						this.time = (`${(s-(s%60))/60}:${s < 10?"0":""}${(s % 60)}`);
-					}
-				);
-			}, 1000);
-		} else {
-			clearInterval(this.interval);
-			this.setState(
-				{start: false},
-				() => global.data[this.props.id] = this.state.sec
-			);
-		}
-	};
-	
-	/** Unused. */
-	onResetTimer = () => {
-		this.setState ({
-			sec: 0,
-			start: false
-		});
-	}
+	console.log(isEnabled, seconds);
 
-	render() {
-		return (
-			<View style = {{flex: 1}}>
-				<View style = {{flex: 1, alignSelf: "center", paddingBottom: 5}}>
-					<Text>{(`${(this.state.sec-(this.state.sec%60))/60}:${this.state.sec < 10?"0":""}${(this.state.sec % 60)}`)}</Text>
-				</View>
-				
-				<BoolButton
-					id="TimerClicked"
-					bgc="lime"
-					width={160}
-					press={this.timerClick}
-				>
-					{this.state.start ? "Stop" : "Start"} Stopwatch
-				</BoolButton>
+	return (
+		<View style = {{flex: 1}}>
+			<View style = {{flex: 1, alignSelf: "center", paddingBottom: 5}}>
+				<Text>{(`${(seconds-(seconds%60))/60}:${((seconds % 60)+"").padStart(2, "0")}`)}</Text>
 			</View>
-		);
-	}
+				
+			<BoolButton
+				id="TimerClicked"
+				bgc="lime"
+				width={160}
+				press={() => {
+					if (!isEnabled) {
+						setEnabled(true);
+			
+						window.timerInterval = setInterval(() => {
+							// increase seconds passed
+							console.log(seconds);
+							setSeconds(seconds + 1);
+						}, 1000);
+					} else {
+						clearInterval(window.timerInterval);
+						setEnabled(false);
+						dispatch(setKeyPair([props.id, seconds]));
+					}
+				}}
+			>
+				{!isEnabled? "Start" : "Stop" } Stopwatch
+			</BoolButton>
+		</View>
+	);
 }
