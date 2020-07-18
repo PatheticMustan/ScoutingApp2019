@@ -6,8 +6,8 @@ import {
 	TouchableWithoutFeedback
 } from "react-native";
 
-import { setKeyPair, selectData } from "../../Redux/Features/dataSlice.js";
-import { useDispatch, useSelector } from "react-redux";
+import { setKeyPair } from "../../Redux/Features/dataSlice.js";
+import { useDispatch } from "react-redux";
 
 export default function BoolButton(props) {
 	const dispatch = useDispatch();
@@ -19,11 +19,8 @@ export default function BoolButton(props) {
 			props.press && props.press();
 
 			const r = !isEnabled;
-
-			// dispatch to redux
+			// dispatch to redux and toggle isEnabled value
 			dispatch(setKeyPair([props.id, r]));
-
-			// toggle isEnabled value
 			setEnabled(r);
 		}}>
 			<View style = {{

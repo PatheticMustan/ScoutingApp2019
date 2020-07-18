@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
 	StyleSheet,
 	Text,
@@ -6,68 +6,52 @@ import {
 	TouchableWithoutFeedback
 } from "react-native";
 
-export default class RadioButton extends React.Component {
-	constructor(props) {
-		super(props);
-		/** Set default */
-		this.state = {
-			val: global.data[props.id],
-			cm: -1
-		};
-		global.data[props.id] = this.state.val;
-		this.BORDER_RADIUS = 10;
-	}
-	componentDidMount() {
-		this.matchUpdate = setInterval(() => {
-			if (global.currentMatchID != this.state.cm) {
-				this.setState({
-					val: global.data[this.props.id],
-					cm: global.currentMatchID
-				});
-			}
-		}, 500);
-	}
-	componentWillUnmount() {clearInterval(this.interval);}
+import { setKeyPair } from "../../Redux/Features/dataSlice.js";
+import { useDispatch } from "react-redux";
 
-	render() {
-		const p = this.props;
+export default function RadioButton(props) {
+	const dispatch = useDispatch();
+	const [selectedIndex, setSelectedIndex] = useState(0);
+	
+	const BORDER_RADIUS = 10;
 
-		return (
-			<View style={{...p.options}}>
-				{
-					p.data.map((v, i) =>
-						<TouchableWithoutFeedback
-							key={v}
-							onPress={
-								() => this.setState(
-									{val: p.forceOption? v : (global.data[p.id]!=v? v : "")},
-									() => global.data[p.id] = this.state.val
-								)
+	return (
+		<View style={{...props.options}}>
+			{
+				props.data.map((v, i) =>
+					<TouchableWithoutFeedback
+						key={v}
+						onPress={
+							() => {
+								const r = i;
+								// dispatch to redux and set state
+								dispatch(setKeyPair([props.id, r]));
+								setSelectedIndex(r);
 							}
-						>
-							<View style={{
-								justifyContent: "center",
-								borderWidth: StyleSheet.hairlineWidth,
-								margin: p.margin? p.margin : 0,
-								width: (p.width? p.width : 100),
-								height: 40,
-								backgroundColor: (this.state.val === v? p.bgc : "white"),
-                                
-								/** The ternary operator pretends to be your friend, until you realize a few months later,
-                                 * when you don't understand any of your code, that it was actually the spawn of Satan
-                                 */
-								borderTopLeftRadius: p.segmentedButton?(i==0? this.BORDER_RADIUS : 0) : this.BORDER_RADIUS,
-								borderBottomLeftRadius: p.segmentedButton?(i==0? this.BORDER_RADIUS : 0) : this.BORDER_RADIUS,
+						}
+					>
+						<View style={{
+							justifyContent: "center",
+							borderWidth: StyleSheet.hairlineWidth,
+							margin: props.margin? props.margin : 0,
+							width: (props.width? props.width : 100),
+							height: 40,
+							backgroundColor: (selectedIndex === i? props.bgc : "white"),
 
-								borderTopRightRadius: p.segmentedButton?(i==p.data.length-1? this.BORDER_RADIUS : 0) : this.BORDER_RADIUS,
-								borderBottomRightRadius: p.segmentedButton?(i==p.data.length-1? this.BORDER_RADIUS : 0) : this.BORDER_RADIUS
-							}}>
-								<Text style={{textAlign: "center"}}>{v}</Text>
-							</View>
-						</TouchableWithoutFeedback>
-					)
-				}
-			</View>
-		);
-	}
+							/** The ternary operator pretends to be your friend, until you realize a few months later,
+							 *  when you don't understand any of your code, that it was actually the spawn of Satan
+							 **/
+							borderTopLeftRadius: props.segmentedButton?(i==0? BORDER_RADIUS : 0) : BORDER_RADIUS,
+							borderBottomLeftRadius: props.segmentedButton?(i==0? BORDER_RADIUS : 0) : BORDER_RADIUS,
+
+							borderTopRightRadius: props.segmentedButton?(i==props.data.length-1? BORDER_RADIUS : 0) : BORDER_RADIUS,
+							borderBottomRightRadius: props.segmentedButton?(i==props.data.length-1? BORDER_RADIUS : 0) : BORDER_RADIUS
+						}}>
+							<Text style={{textAlign: "center"}}>{v}</Text>
+						</View>
+					</TouchableWithoutFeedback>
+				)
+			}
+		</View>
+	);
 }

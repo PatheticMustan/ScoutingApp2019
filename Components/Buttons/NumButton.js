@@ -6,8 +6,8 @@ import {
 	TouchableWithoutFeedback
 } from "react-native";
 
-import { setKeyPair, selectData } from "../../Redux/Features/dataSlice.js";
-import { useDispatch, useSelector } from "react-redux";
+import { setKeyPair } from "../../Redux/Features/dataSlice.js";
+import { useDispatch } from "react-redux";
 
 export default function NumButton(props) {
 	const dispatch = useDispatch();
@@ -17,14 +17,12 @@ export default function NumButton(props) {
 		<TouchableWithoutFeedback
 			onPress={() => {
 				const r = value + 1;
-
 				// dispatch to redux and set state
 				dispatch(setKeyPair([props.id, r]));
 				setValue(r);
 			}}
 			onLongPress={() => {
 				const r = Math.max((value - 1), 0);
-
 				// dispatch to redux and set state
 				dispatch(setKeyPair([props.id, r]));
 				setValue(r);
