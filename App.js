@@ -64,7 +64,7 @@ export default function App() {
 
 	// make store global bc I want to see the data pls
 	window.natsumi = store;
-	console.log("Natsumi's state")
+	console.log("Natsumi's state");
 	console.log(natsumi.getState());
 
 	return (

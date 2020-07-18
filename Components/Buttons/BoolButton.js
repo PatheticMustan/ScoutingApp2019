@@ -6,6 +6,9 @@ import {
 	TouchableWithoutFeedback
 } from "react-native";
 
+import { setValue } from "../../Redux/Features/dataSlice.js";
+import { useDispatch } from "react-redux";
+
 export default class BoolButton extends React.Component {
 	constructor(props) {
 		super(props);
