@@ -128,7 +128,7 @@ export default class Endgame extends React.Component {
     			</View>
     		);
     	}
-   }
+	}
 }
 
 const styles=StyleSheet.create({

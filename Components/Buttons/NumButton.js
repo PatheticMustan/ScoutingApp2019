@@ -28,19 +28,19 @@ export default function NumButton(props) {
 				setValue(r);
 			}}
 		>
-				<View style = {{
-					justifyContent: "center",
-					borderRadius: 10,
-					borderWidth: StyleSheet.hairlineWidth,
-					width: (props.width? props.width : 100),
-					height: (props.height? props.height : 40),
-					backgroundColor: "white",
-					justifyContent: "center",
-				}}>
-					<View style = {{flex: 1, justifyContent: "center"}}>
-						<Text style={{textAlign: "center"}}>{props.children} {`(${value})`}</Text>
-					</View>
+			<View style = {{
+				justifyContent: "center",
+				borderRadius: 10,
+				borderWidth: StyleSheet.hairlineWidth,
+				width: (props.width? props.width : 100),
+				height: (props.height? props.height : 40),
+				backgroundColor: "white",
+				justifyContent: "center",
+			}}>
+				<View style = {{flex: 1, justifyContent: "center"}}>
+					<Text style={{textAlign: "center"}}>{props.children} {`(${value})`}</Text>
 				</View>
-			</TouchableWithoutFeedback>
+			</View>
+		</TouchableWithoutFeedback>
 	);
 }
