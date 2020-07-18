@@ -12,16 +12,18 @@ import { useDispatch, useSelector } from "react-redux";
 export default function BoolButton(props) {
 	const data = useSelector(selectData);
 	const dispatch = useDispatch();
-	const [isEnabled, toggle] = useState(false);
+	const [isEnabled, setEnabled] = useState(false);
 
 	return (
 		<TouchableWithoutFeedback onPress={() => {
-			toggle();
-                
+			// if the press event exists, run it
 			props.press && props.press();
 
-			dispatch(setValue());
-			console.log(data);
+			// dispatch to redux
+			dispatch(setValue([props.id, !isEnabled]));
+
+			// toggle isEnabled value
+			setEnabled(!isEnabled);
 		}}>
 			<View style = {{
 				justifyContent: "center",
