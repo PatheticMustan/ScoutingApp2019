@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from 'react';
 import {
 	StyleSheet,
 	Text,
@@ -6,54 +6,36 @@ import {
 	TouchableWithoutFeedback
 } from "react-native";
 
-import { setValue } from "../../Redux/Features/dataSlice.js";
-import { useDispatch } from "react-redux";
+import { setValue, selectData } from "../../Redux/Features/dataSlice.js";
+import { useDispatch, useSelector } from "react-redux";
 
-export default class BoolButton extends React.Component {
-	constructor(props) {
-		super(props);
-		/** Set default */
-		this.state = {
-			val: global.data[props.id],
-			cm: -1
-		};
-		global.data[props.id] = this.state.val;
-	}
-	componentDidMount() {
-		this.matchUpdate = setInterval(() => {
-			if (global.currentMatchID != this.state.cm) {
-				this.setState({
-					val: global.data[this.props.id],
-					cm: global.currentMatchID
-				});
-			}
-		}, 500);
-	}
+export default function BoolButton(props) {
+	const data = useSelector(selectData);
+	const dispatch = useDispatch();
+	const [isEnabled, toggle] = useState(false);
 
-	render() {
-		const p = this.props;
-
-		return (
-			<TouchableWithoutFeedback onPress={() => {
-				this.setState(
-					{val: !this.state.val},
-					() => {global.data[this.props.id] = this.state.val;}
-				);
+	return (
+		<TouchableWithoutFeedback onPress={() => {
+			toggle();
                 
-				this.props.press && this.props.press();
+			props.press && props.press();
+
+			dispatch(setValue());
+			console.log(data);
+		}}>
+			<View style = {{
+				justifyContent: "center",
+				borderRadius: 10,
+				borderWidth: StyleSheet.hairlineWidth,
+				margin: 10,
+				width: (props.width? props.width : 100),
+				height: 40,
+				backgroundColor: (isEnabled? props.bgc : "white")
 			}}>
-				<View style = {{
-					justifyContent: "center",
-					borderRadius: 10,
-					borderWidth: StyleSheet.hairlineWidth,
-					margin: 10,
-					width: (p.width? p.width : 100),
-					height: 40,
-					backgroundColor: (this.state.val? p.bgc : "white")
-				}}>
-					<Text style={{textAlign: "center"}}>{p.children}</Text>
-				</View>
-			</TouchableWithoutFeedback>
-		);
-	}
+				<Text style={{textAlign: "center"}}>{props.children}</Text>
+			</View>
+		</TouchableWithoutFeedback>
+	);
 }
+
+// const styles = new StyleSheet({});
