@@ -19,8 +19,10 @@ export const dataSlice = createSlice({
 
 			// if the key isn't in the state yet...
 			if (payloadIndex === -1) {
+				// push it real good
 				state.keyPairValues.push([action.payload[0], action.payload[1]]);
 			} else {
+				// otherwise, just modify the value of the existing key
 				state.keyPairValues[payloadIndex][1] = value;
 			}
 		}

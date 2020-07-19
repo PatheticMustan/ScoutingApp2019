@@ -13,7 +13,7 @@ export default function Timer(props) {
 	const [isEnabled, setEnabled] = useState(false);
 	const [seconds, setSeconds] = useState(0);
 
-	console.log(isEnabled, seconds);
+
 
 	return (
 		<View style = {{flex: 1}}>
@@ -28,9 +28,8 @@ export default function Timer(props) {
 				press={() => {
 					if (!isEnabled) {
 						setEnabled(true);
-			
-						window.timerInterval = setInterval(() => {
-							// increase seconds passed
+						
+						setInterval(() => {
 							console.log(seconds);
 							setSeconds(seconds + 1);
 						}, 1000);
