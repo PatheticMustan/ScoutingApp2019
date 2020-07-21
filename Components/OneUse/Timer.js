@@ -13,8 +13,6 @@ export default function Timer(props) {
 	const [isEnabled, setEnabled] = useState(false);
 	const [seconds, setSeconds] = useState(0);
 
-
-
 	return (
 		<View style = {{flex: 1}}>
 			<View style = {{flex: 1, alignSelf: "center", paddingBottom: 5}}>
@@ -29,9 +27,8 @@ export default function Timer(props) {
 					if (!isEnabled) {
 						setEnabled(true);
 						
-						setInterval(() => {
-							console.log(seconds);
-							setSeconds(seconds + 1);
+						setInterval(async () => {
+							await setSeconds(oldSeconds => oldSeconds + 1);
 						}, 1000);
 					} else {
 						clearInterval(window.timerInterval);
