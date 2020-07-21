@@ -20,8 +20,6 @@ export default function ClimbHeight(props) {
 		["High",    require("../../Assets/EndHigh.png")]
 	];
 
-	const p = props;
-
 	return (
 		<View style={{
 			flex: 1,
@@ -29,8 +27,8 @@ export default function ClimbHeight(props) {
 			justifyContent: "space-around"
 		}}>
 			{
-				data.map((v, i) => {
-					return <TouchableWithoutFeedback
+				data.map((v, i) => 
+					<TouchableWithoutFeedback
 						key={data[i][0]}
 						onPress={() => {
 							const r = i;
@@ -41,13 +39,13 @@ export default function ClimbHeight(props) {
 					>
 						<View style={[
 							styles.container,
-							{backgroundColor: (selectedIndex === i? p.bgc : "white")}
+							{backgroundColor: (selectedIndex === i? props.bgc : "white")}
 						]}>
 							<Image source={data[i][1]} style={styles.image} />
 							<Text style={{textAlign: "center"}}>{data[i][0]}</Text>
 						</View>
 					</TouchableWithoutFeedback>
-				})
+				)
 			}
 		</View>
 	);
