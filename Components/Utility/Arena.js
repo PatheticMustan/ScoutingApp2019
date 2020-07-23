@@ -16,15 +16,13 @@ export default class Arena extends React.Component {
 	componentWillUnmount() {clearInterval(this.interval);}
 
 	render() {
-		if(global.data["Team"] == "Blue Alliance") {
+		if (global.data["Team"] == "Blue Alliance") {
 			return (
 				<View>
 					<ImageBackground
 						source={require("../../Assets/2020Field.png")}
 						style={styles.imageBackgroundBlue}
-						imageStyle={{
-							borderRadius: 10
-						}}
+						imageStyle={{borderRadius: 10}}
 					>
 						{this.props.children}
 					</ImageBackground>

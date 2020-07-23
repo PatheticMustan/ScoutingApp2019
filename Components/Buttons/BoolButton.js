@@ -5,6 +5,7 @@ import {
 	View,
 	TouchableWithoutFeedback
 } from "react-native";
+import PropTypes from "prop-types";
 
 import { setKeyPair } from "../../Redux/Features/dataSlice.js";
 import { useDispatch } from "react-redux";
@@ -37,3 +38,11 @@ export default function BoolButton(props) {
 		</TouchableWithoutFeedback>
 	);
 }
+
+BoolButton.propTypes = {
+	id: PropTypes.string.isRequired,
+	press: PropTypes.func,
+	width: PropTypes.number,
+	bgc: PropTypes.string,
+	children: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
+};

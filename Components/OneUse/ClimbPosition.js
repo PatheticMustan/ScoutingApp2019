@@ -43,7 +43,7 @@ export default function ClimbPosition(props) {
 										margin: props.margin || 10,
 										width: (props.width? props.width : 100),
 										height: 40,
-										backgroundColor: (selectedIndex === i? props.bgc : "white")
+										backgroundColor: (selectedIndex === i? props.bgc : colors.white)
 									}}>
 										<Text style={{textAlign: "center"}}>{data[i][0]}</Text>
 									</View>
