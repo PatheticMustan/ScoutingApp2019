@@ -7,6 +7,7 @@ export const dataSlice = createSlice({
 	},
 	reducers: {
 		setKeyPair: (state, action) => {
+			// so many annoying checks
 			if (!(action.payload instanceof Array))		console.log("WARNING! Expected key-value array");
 			if (typeof action.payload[0] !== "string")	console.log("WARNING! Expected key to be string.");
 			if (action.payload.length !== 2)			console.log("WARNING! Expected key-value array to have two items.");
@@ -20,16 +21,30 @@ export const dataSlice = createSlice({
 			// if the key isn't in the state yet...
 			if (payloadIndex === -1) {
 				// push it real good
-				state.keyPairValues.push([action.payload[0], action.payload[1]]);
+				state.keyPairValues.push([key, value]);
 			} else {
 				// otherwise, just modify the value of the existing key
 				state.keyPairValues[payloadIndex][1] = value;
 			}
+		},
+
+		setDefault: (state, action) => {
+			if (!(action.payload instanceof Array))		console.log("WARNING! Expected key-value array");
+			if (typeof action.payload[0] !== "string")	console.log("WARNING! Expected key to be string.");
+			if (action.payload.length !== 2)			console.log("WARNING! Expected key-value array to have two items.");
+
+			const key = action.payload[0];
+			const value = action.payload[1];
+
+			const payloadIndex = state.keyPairValues.findIndex(v => v[0] === key);
+
+			if (payloadIndex === -1) state.keyPairValues.push([key, value]);
 		}
 	},
 });
 
-export const { setKeyPair } = dataSlice.actions;
+export const { setKeyPair, setDefault } = dataSlice.actions;
+window.skp = dataSlice.actions.setKeyPair;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of

@@ -27,7 +27,7 @@ export default function Timer(props) {
 					if (!isEnabled) {
 						setEnabled(true);
 						
-						setInterval(async () => {
+						window.timerInterval = setInterval(async () => {
 							await setSeconds(oldSeconds => oldSeconds + 1);
 						}, 1000);
 					} else {
@@ -37,7 +37,7 @@ export default function Timer(props) {
 					}
 				}}
 			>
-				{!isEnabled? "Start" : "Stop" } Stopwatch
+				<Text>{!isEnabled? "Start" : "Stop" } Stopwatch</Text>
 			</BoolButton>
 		</View>
 	);

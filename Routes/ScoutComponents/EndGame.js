@@ -25,8 +25,8 @@ export default class Endgame extends React.Component {
 			return (
 				<View style = {styles.container}>
 					<Text style = {{textAlign: "center", fontSize: 35, fontWeight: "bold"}}>Endgame</Text>
-
-    				<View style = {styles.endgameContainer}>
+					
+					<View style = {styles.endgameContainer}>
     					<NumButton id="BallsScored" width={120}>Balls Scored</NumButton>
 
     					<View style={{margin: 20}}>

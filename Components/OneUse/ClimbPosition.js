@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
 	StyleSheet,
 	Text,
@@ -6,14 +6,22 @@ import {
 	TouchableWithoutFeedback,
 	ImageBackground
 } from "react-native";
-
-import { setKeyPair } from "../../Redux/Features/dataSlice.js";
-import { useDispatch } from "react-redux";
+import { setKeyPair, setDefault, selectData } from "../../Redux/Features/dataSlice.js";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function ClimbPosition(props) {
 	const dispatch = useDispatch();
-	const [selectedIndex, setSelectedIndex] = useState(0);
 
+	// set default value
+	const d = 0;
+	dispatch(setDefault([props.id, d]));
+
+	// get value from store
+	const kpv = useSelector(selectData);
+	const selectedIndex = kpv.find(v => v[0] === props.id)[1];
+
+	// all possible options.
+	// [name, flexSpace]
 	const data = [
 		["Edge", 1.4],
 		["Middle Bar", 0.8],
@@ -33,7 +41,6 @@ export default function ClimbPosition(props) {
 										const r = i;
 										// dispatch to redux and set state
 										dispatch(setKeyPair([props.id, r]));
-										setSelectedIndex(r);
 									}}
 								>
 									<View style={{
