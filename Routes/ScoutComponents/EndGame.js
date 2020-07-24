@@ -15,22 +15,18 @@ import ClimbPosition from "../../Components/OneUse/ClimbPosition.js";
 export default class Endgame extends React.Component {
 	constructor() {
 		super();
-
-		/** This is an exception I promise. */
-		this.interval = setInterval(() => this.setState({time: Date.now()}), 100);
+	}
+	state = {
+		mode: 0
 	}
 
-    state = {
-    	mode: 0
-    }
-
-    render() {
-    	if(global.data["EndgameType"] == "Climb") {
-    		return (
-    			<View style = {styles.container}>
-    				<Text style = {{textAlign: "center", fontSize: 35, fontWeight: "bold"}}>Endgame</Text>
-
-    				<View style = {styles.endgameContainer}>
+	render() {
+		if(true) {
+			return (
+				<View style = {styles.container}>
+					<Text style = {{textAlign: "center", fontSize: 35, fontWeight: "bold"}}>Endgame</Text>
+					
+					<View style = {styles.endgameContainer}>
     					<NumButton id="BallsScored" width={120}>Balls Scored</NumButton>
 
     					<View style={{margin: 20}}>
@@ -132,7 +128,7 @@ export default class Endgame extends React.Component {
     			</View>
     		);
     	}
-    }
+	}
 }
 
 const styles=StyleSheet.create({

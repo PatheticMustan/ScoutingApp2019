@@ -7,112 +7,52 @@ import {
 	Image
 } from "react-native";
 
-export default class ClimbHeight extends React.Component {
-	constructor(props) {
-		super(props);
-		/** Set default */
-		this.state = {
-			val: global.data[props.id],
-			cm: -1
-		};
-		global.data[props.id] = this.state.val;
+import { setKeyPair, setDefault, selectData } from "../../Redux/Features/dataSlice.js";
+import { useDispatch, useSelector } from "react-redux";
 
-		this.data = [
-			["Low",     require("../../Assets/EndLow.png")],
-			["Leveled", require("../../Assets/EndLevel.png")],
-			["High",    require("../../Assets/EndHigh.png")]
-		];
-	}
-	componentDidMount() {
-		this.matchUpdate = setInterval(() => {
-			if (global.currentMatchID != this.state.cm) {
-				this.setState({
-					val: global.data[this.props.id],
-					cm: global.currentMatchID
-				});
+export default function ClimbHeight(props) {
+	const dispatch = useDispatch();
+	// set default value
+	const d = 0;
+	dispatch(setDefault([props.id, d]));
+	// get value from store
+	const kpv = useSelector(selectData);
+	const selectedIndex = kpv.find(v => v[0] === props.id)[1];
+
+	const data = [
+		["Low",     require("../../Assets/EndLow.png")],
+		["Leveled", require("../../Assets/EndLevel.png")],
+		["High",    require("../../Assets/EndHigh.png")]
+	];
+
+	return (
+		<View style={{
+			flex: 1,
+			flexDirection: "row",
+			justifyContent: "space-around"
+		}}>
+			{
+				data.map((v, i) => 
+					<TouchableWithoutFeedback
+						key={data[i][0]}
+						onPress={() => {
+							const r = i;
+							// dispatch to redux and set state
+							dispatch(setKeyPair([props.id, r]));
+						}}
+					>
+						<View style={[
+							styles.container,
+							{backgroundColor: (selectedIndex === i? props.bgc : "white")}
+						]}>
+							<Image source={data[i][1]} style={styles.image} />
+							<Text style={{textAlign: "center"}}>{data[i][0]}</Text>
+						</View>
+					</TouchableWithoutFeedback>
+				)
 			}
-		}, 500);
-	}
-	componentWillUnmount() {clearInterval(this.interval);}
-
-	render() {
-		const p = this.props;
-
-		return (
-			<View style={{
-				flex: 1,
-				flexDirection: "row",
-				justifyContent: "space-around"
-			}}>
-				<TouchableWithoutFeedback
-					key={this.data[0][0]}
-					onPress={() => {
-						this.setState(
-							{val: this.state.val==this.data[0][0]? "" : this.data[0][0]},
-							() => global.data[p.id] = this.state.val
-						);
-					}}
-				>
-					<View style={[
-						styles.container,
-						{backgroundColor: (this.state.val === this.data[0][0]? p.bgc : "white")}
-					]}>
-						<Image
-							source={this.data[0][1]}
-							style={styles.image}
-						/>
-						<Text style={{textAlign: "center"}}>{this.data[0][0]}</Text>
-					</View>
-				</TouchableWithoutFeedback>
-
-
-
-				<TouchableWithoutFeedback
-					key={this.data[1][0]}
-					onPress={() => {
-						this.setState(
-							{val: this.state.val==this.data[1][0]? "" : this.data[1][0]},
-							() => global.data[p.id] = this.state.val
-						);
-					}}
-				>
-					<View style={[
-						styles.container,
-						{backgroundColor: (this.state.val === this.data[1][0]? p.bgc : "white")}
-					]}>
-						<Image
-							source={this.data[1][1]}
-							style={styles.image}
-						/>
-						<Text style={{textAlign: "center"}}>{this.data[1][0]}</Text>
-					</View>
-				</TouchableWithoutFeedback>
-
-
-
-				<TouchableWithoutFeedback
-					key={this.data[2][0]}
-					onPress={() => {
-						this.setState(
-							{val: this.state.val==this.data[2][0]? "" : this.data[2][0]},
-							() => global.data[p.id] = this.state.val
-						);
-					}}
-				>
-					<View style={[
-						styles.container,
-						{backgroundColor: (this.state.val === this.data[2][0]? p.bgc : "white")}
-					]}>
-						<Image
-							source={this.data[2][1]}
-							style={styles.image}
-						/>
-						<Text style={{textAlign: "center"}}>{this.data[2][0]}</Text>
-					</View>
-				</TouchableWithoutFeedback>
-			</View>
-		);
-	}
+		</View>
+	);
 }
 
 const styles = StyleSheet.create({

@@ -7,9 +7,7 @@ const reducer = {
 };
 
 // initial state
-const preloadedState = {
-	data: []
-};
+const preloadedState = {};
 
 
 

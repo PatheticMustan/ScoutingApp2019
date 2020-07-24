@@ -1,59 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import {
 	StyleSheet,
 	Text,
 	View,
 	TouchableWithoutFeedback
 } from "react-native";
+import PropTypes from "prop-types";
 
-import { setValue } from "../../Redux/Features/dataSlice.js";
+import { setKeyPair } from "../../Redux/Features/dataSlice.js";
 import { useDispatch } from "react-redux";
 
-export default class BoolButton extends React.Component {
-	constructor(props) {
-		super(props);
-		/** Set default */
-		this.state = {
-			val: global.data[props.id],
-			cm: -1
-		};
-		global.data[props.id] = this.state.val;
-	}
-	componentDidMount() {
-		this.matchUpdate = setInterval(() => {
-			if (global.currentMatchID != this.state.cm) {
-				this.setState({
-					val: global.data[this.props.id],
-					cm: global.currentMatchID
-				});
-			}
-		}, 500);
-	}
+export default function BoolButton(props) {
+	const dispatch = useDispatch();
+	const [isEnabled, setEnabled] = useState(false);
 
-	render() {
-		const p = this.props;
+	return (
+		<TouchableWithoutFeedback onPress={() => {
+			// if the press event exists, run it
+			props.press && props.press();
 
-		return (
-			<TouchableWithoutFeedback onPress={() => {
-				this.setState(
-					{val: !this.state.val},
-					() => {global.data[this.props.id] = this.state.val;}
-				);
-                
-				this.props.press && this.props.press();
+			const r = !isEnabled;
+			// dispatch to redux and toggle isEnabled value
+			dispatch(setKeyPair([props.id, r]));
+			setEnabled(r);
+		}}>
+			<View style = {{
+				justifyContent: "center",
+				borderRadius: 10,
+				borderWidth: StyleSheet.hairlineWidth,
+				margin: 10,
+				width: (props.width? props.width : 100),
+				height: 40,
+				backgroundColor: (isEnabled? props.bgc : "white")
 			}}>
-				<View style = {{
-					justifyContent: "center",
-					borderRadius: 10,
-					borderWidth: StyleSheet.hairlineWidth,
-					margin: 10,
-					width: (p.width? p.width : 100),
-					height: 40,
-					backgroundColor: (this.state.val? p.bgc : "white")
-				}}>
-					<Text style={{textAlign: "center"}}>{p.children}</Text>
-				</View>
-			</TouchableWithoutFeedback>
-		);
-	}
+				<Text style={{textAlign: "center"}}>{props.children}</Text>
+			</View>
+		</TouchableWithoutFeedback>
+	);
 }
+
+BoolButton.propTypes = {
+	id: PropTypes.string.isRequired,
+	press: PropTypes.func,
+	width: PropTypes.number,
+	bgc: PropTypes.string,
+	children: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
+};
