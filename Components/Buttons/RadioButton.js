@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
 	StyleSheet,
 	Text,
@@ -6,12 +6,16 @@ import {
 	TouchableWithoutFeedback
 } from "react-native";
 
-import { setKeyPair } from "../../Redux/Features/dataSlice.js";
-import { useDispatch } from "react-redux";
+import { setKeyPair, setDefault, selectData } from "../../Redux/Features/dataSlice.js";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function RadioButton(props) {
 	const dispatch = useDispatch();
-	const [selectedIndex, setSelectedIndex] = useState(0);
+	// set default value
+	dispatch(setDefault([props.id, 0]));
+	// get value from store
+	const kpv = useSelector(selectData);
+	const selectedIndex = kpv.find(v => v[0] === props.id)[1];
 	
 	const BORDER_RADIUS = 10;
 
@@ -23,10 +27,8 @@ export default function RadioButton(props) {
 						key={v}
 						onPress={
 							() => {
-								const r = i;
 								// dispatch to redux and set state
-								dispatch(setKeyPair([props.id, r]));
-								setSelectedIndex(r);
+								dispatch(setKeyPair([props.id, i]));
 							}
 						}
 					>
