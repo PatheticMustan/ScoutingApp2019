@@ -145,7 +145,11 @@ export default class TeleOp extends React.Component {
 									>
                                         Where can they shoot from?
 									</Text>
-									<RadioButton id="ShootFrom" data={["Target Zone", "Trench Zone", "Other"]} margin={0} bgc={"orange"} />
+									<BoolButton id="TargetZone" bgc="lime">Target Zone</BoolButton>
+									<BoolButton id="TrenchZone" bgc="lime">Trench Zone</BoolButton>
+									<BoolButton id="Other" bgc="lime">Other</BoolButton>
+									
+
 								</View>
 								<View style = {{flex: 4}}></View>
 							</View>
