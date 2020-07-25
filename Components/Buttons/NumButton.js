@@ -6,26 +6,24 @@ import {
 	TouchableWithoutFeedback
 } from "react-native";
 
-import { setKeyPair } from "../../Redux/Features/dataSlice.js";
-import { useDispatch } from "react-redux";
+import { setKeyPair, setDefault, selectData } from "../../Redux/Features/dataSlice.js";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function NumButton(props) {
 	const dispatch = useDispatch();
-	const [value, setValue] = useState(0);
+	// set default value
+	dispatch(setDefault([props.id, 0]));
+	// get value from store
+	const kpv = useSelector(selectData);
+	const value = kpv.find(v => v[0] === props.id)[1];
 
 	return (
 		<TouchableWithoutFeedback
 			onPress={() => {
-				const r = value + 1;
-				// dispatch to redux and set state
-				dispatch(setKeyPair([props.id, r]));
-				setValue(r);
+				dispatch(setKeyPair([props.id, value + 1]));
 			}}
 			onLongPress={() => {
-				const r = Math.max((value - 1), 0);
-				// dispatch to redux and set state
-				dispatch(setKeyPair([props.id, r]));
-				setValue(r);
+				dispatch(setKeyPair(props.id, [Math.max((value - 1), 0)]));
 			}}
 		>
 			<View style = {{

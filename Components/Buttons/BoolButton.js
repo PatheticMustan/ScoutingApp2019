@@ -7,22 +7,24 @@ import {
 } from "react-native";
 import PropTypes from "prop-types";
 
-import { setKeyPair } from "../../Redux/Features/dataSlice.js";
-import { useDispatch } from "react-redux";
+import { setKeyPair, setDefault, selectData } from "../../Redux/Features/dataSlice.js";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function BoolButton(props) {
 	const dispatch = useDispatch();
-	const [isEnabled, setEnabled] = useState(false);
+	// set default value
+	dispatch(setDefault([props.id, false]));
+	// get value from store
+	const kpv = useSelector(selectData);
+	const value = kpv.find(v => v[0] === props.id)[1];
 
 	return (
 		<TouchableWithoutFeedback onPress={() => {
 			// if the press event exists, run it
 			props.press && props.press();
 
-			const r = !isEnabled;
-			// dispatch to redux and toggle isEnabled value
-			dispatch(setKeyPair([props.id, r]));
-			setEnabled(r);
+			// dispatch to redux
+			dispatch(setKeyPair([props.id, !value]));
 		}}>
 			<View style = {{
 				justifyContent: "center",
@@ -31,7 +33,7 @@ export default function BoolButton(props) {
 				margin: 10,
 				width: (props.width? props.width : 100),
 				height: 40,
-				backgroundColor: (isEnabled? props.bgc : "white")
+				backgroundColor: (value? props.bgc : "white")
 			}}>
 				<Text style={{textAlign: "center"}}>{props.children}</Text>
 			</View>
