@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
 	StyleSheet,
 	Text,
@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 export default function BoolButton(props) {
 	const dispatch = useDispatch();
+
 	// set default value
 	dispatch(setDefault([props.id, false]));
 	// get value from store
@@ -23,7 +24,6 @@ export default function BoolButton(props) {
 			// if the press event exists, run it
 			props.press && props.press();
 
-			// dispatch to redux
 			dispatch(setKeyPair([props.id, !value]));
 		}}>
 			<View style = {{

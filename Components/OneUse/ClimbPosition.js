@@ -11,9 +11,9 @@ import { useDispatch, useSelector } from "react-redux";
 
 export default function ClimbPosition(props) {
 	const dispatch = useDispatch();
+
 	// set default value
-	const d = 0;
-	dispatch(setDefault([props.id, d]));
+	dispatch(setDefault([props.id, 0]));
 	// get value from store
 	const kpv = useSelector(selectData);
 	const selectedIndex = kpv.find(v => v[0] === props.id)[1];

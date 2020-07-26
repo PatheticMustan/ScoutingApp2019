@@ -12,9 +12,9 @@ import { useDispatch, useSelector } from "react-redux";
 
 export default function ClimbHeight(props) {
 	const dispatch = useDispatch();
+	
 	// set default value
-	const d = 0;
-	dispatch(setDefault([props.id, d]));
+	dispatch(setDefault([props.id, 0]));
 	// get value from store
 	const kpv = useSelector(selectData);
 	const selectedIndex = kpv.find(v => v[0] === props.id)[1];
@@ -36,9 +36,7 @@ export default function ClimbHeight(props) {
 					<TouchableWithoutFeedback
 						key={data[i][0]}
 						onPress={() => {
-							const r = i;
-							// dispatch to redux and set state
-							dispatch(setKeyPair([props.id, r]));
+							dispatch(setKeyPair([props.id, i]));
 						}}
 					>
 						<View style={[

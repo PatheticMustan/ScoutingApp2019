@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 export default function RadioButton(props) {
 	const dispatch = useDispatch();
+	
 	// set default value
 	dispatch(setDefault([props.id, 0]));
 	// get value from store
@@ -25,12 +26,9 @@ export default function RadioButton(props) {
 				props.data.map((v, i) =>
 					<TouchableWithoutFeedback
 						key={v}
-						onPress={
-							() => {
-								// dispatch to redux and set state
-								dispatch(setKeyPair([props.id, i]));
-							}
-						}
+						onPress={() => {
+							dispatch(setKeyPair([props.id, i]));
+						}}
 					>
 						<View style={{
 							justifyContent: "center",

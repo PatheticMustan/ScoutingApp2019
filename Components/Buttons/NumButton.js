@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
 	StyleSheet,
 	Text,
@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 export default function NumButton(props) {
 	const dispatch = useDispatch();
+
 	// set default value
 	dispatch(setDefault([props.id, 0]));
 	// get value from store

@@ -1,62 +1,37 @@
 import React from "react";
 import {
 	View,
-	ImageBackground,
-	StyleSheet
+	ImageBackground
 } from "react-native";
 
+import { selectData, setDefault } from "../../Redux/Features/dataSlice.js";
+import { useSelector, useDispatch } from "react-redux";
 
+export default function Arena(props) {
+	const dispatch = useDispatch();
+	const arenaID = "arena";
 
-export default class Arena extends React.Component {
-	componentDidMount() {
-		this.interval = setInterval(() => {
-			this.setState({ time: Date.now() });
-		}, 100);
-	}
-	componentWillUnmount() {clearInterval(this.interval);}
+	// set default value
+	dispatch(setDefault([arenaID, "Blue Alliance"]));
+	// since this isn't an input, no need to set default.
+	// get value from store
+	const kpv = useSelector(selectData);
+	const selectedTeam = kpv.find(v => v[0] === arenaID)[1];
 
-	render() {
-		if (global.data["Team"] == "Blue Alliance") {
-			return (
-				<View>
-					<ImageBackground
-						source={require("../../Assets/2020Field.png")}
-						style={styles.imageBackgroundBlue}
-						imageStyle={{borderRadius: 10}}
-					>
-						{this.props.children}
-					</ImageBackground>
-				</View>
-			);
-		} else {
-			return (
-				<View>
-					<ImageBackground
-						source={require("../../Assets/2020Field.png")}
-						style={styles.imageBackgroundRed}
-						imageStyle={{
-							borderRadius: 10
-						}}
-					>
-						{this.props.children}
-					</ImageBackground>
-				</View>
-			);
-		}
-	}
+	return (
+		<View>
+			<ImageBackground
+				source={require("../../Assets/2020Field.png")}
+				style={{
+					flexDirection: selectedTeam=="Blue Alliance"? "row" : "row-reverse",
+					height: 453,
+					marginTop: 20,
+					width: 900
+				}}
+				imageStyle={{borderRadius: 10}}
+			>
+				{props.children}
+			</ImageBackground>
+		</View>
+	);
 }
-
-const styles = StyleSheet.create({
-	imageBackgroundBlue: {
-		flexDirection: "row",
-		height: 453,
-		marginTop: 20,
-		width: 900
-	},
-	imageBackgroundRed: {
-		flexDirection: "row-reverse",
-		height: 453,
-		marginTop: 20,
-		width: 900
-	}
-}); 
