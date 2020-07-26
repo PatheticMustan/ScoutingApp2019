@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
 	View,
 	TextInput,
@@ -11,12 +11,25 @@ import { useDispatch, useSelector } from "react-redux";
 export default function CustomTextBox(props) {
 	const dispatch = useDispatch();
 
+	const [text, setText] = useState("");
+
 	// set default value
 	dispatch(setDefault([props.id, ""]));
 
 	// get value from store
 	const kpv = useSelector(selectData);
-	const text = kpv.find(v => v[0] === props.id)[1];
+	const reduxText = kpv.find(v => v[0] === props.id)[1];
+
+	useEffect(() => {
+		const interval = setInterval(() => {
+			if (reduxText !== text) {
+				dispatch(setKeyPair([props.id, text]));
+			}
+		}, 1000);
+
+		// basically componentWillUnmount but this time it's for React hooks
+		return () => clearInterval(interval);
+	}, []);
 
 	return (
 		<View style={{
@@ -38,20 +51,15 @@ export default function CustomTextBox(props) {
 					borderRadius: (props.borderRadius? props.borderRadius : props.height / 5)
 				}}
 				{...props.options}
-
 				onChangeText={text => {
 					// TODO: instead of just filtering text, encode it!
-					let filtered = text
+					const filtered = text
 						.replace(/\n/g, " ")
 						.replace(/,/g, " ");
 
-					// dispatch to redux
-					dispatch(setKeyPair([props.id, filtered]));
-					
-					console.log(filtered);
+					setText(filtered);
 				}}
 			/>
 		</View>
 	);
-
 }
