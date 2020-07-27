@@ -20,7 +20,7 @@ export default function Scout() {
 		<View style = {{flex: 1}}>
 			<View style = {{flex: 1, justifyContent: "center"}}>
 				<Data />
-				<Header onReset={() => this.setState({condition: false})}/>
+				<Header/>
 			</View>
 
 			<View style = {{flex: 7}}>

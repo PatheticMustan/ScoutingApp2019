@@ -1,12 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export const dataSlice = createSlice({
-	name: "dataSlice",
+export const matchSlice = createSlice({
+	name: "matchSlice",
 	initialState: {
-		keyPairValues: [],
+		matches: [],
 	},
 	reducers: {
-		setKeyPair: (state, action) => {
+		setMatch: (state, action) => {
 			// so many annoying checks
 			if (!(action.payload instanceof Array))		console.log("WARNING! Expected key-value array");
 			if (typeof action.payload[0] !== "string")	console.log("WARNING! Expected key to be string.");
@@ -43,12 +43,11 @@ export const dataSlice = createSlice({
 	},
 });
 
-export const { setKeyPair, setDefault } = dataSlice.actions;
-window.skp = dataSlice.actions.setKeyPair;
+export const { setKeyPair, setDefault } = matchSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
 // in the slice file. For example: `useSelector((state) => state.counter.value)`
 export const selectData = state => state.data.keyPairValues;
 
-export default dataSlice.reducer;
+export default matchSlice.reducer;
