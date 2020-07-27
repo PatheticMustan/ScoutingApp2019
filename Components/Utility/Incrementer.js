@@ -6,68 +6,53 @@ import {
 	TouchableOpacity
 } from "react-native";
 
-import {FontAwesome} from "react-native-vector-icons";
+import { setKeyPair, setDefault, selectData } from "../../Redux/Features/dataSlice.js";
+import { useDispatch, useSelector } from "react-redux";
 
-export default class Incrementer extends React.Component {
-	constructor(props) {
-		super(props);
-		/** Set default */
-		this.state = {
-			val: global.data[props.id],
-			cm: -1
-		};
-		global.data[props.id] = this.state.val;
+import { FontAwesome } from "react-native-vector-icons";
 
+export default function Incrementer(props) {
+	const dispatch = useDispatch();
 
-		this.increment = () => {
-			this.setState(
-				{val: props.max? Math.min(props.max, this.state.val + 1) : (this.state.val + 1)},
-				() => global.data[props.id] = this.state.val
-			);
-		};
-		this.decrement = () => {
-			this.setState(
-				{val: Math.max(0, this.state.val - 1)},
-				() => global.data[props.id] = this.state.val
-			);
-		};
-	}
+	// set default value
+	dispatch(setDefault([props.id, 0]));
+	// get value from store
+	const kpv = useSelector(selectData);
+	const value = kpv.find(v => v[0] === props.id)[1];
 
-	componentDidMount() {
-		this.matchUpdate = setInterval(() => {
-			if (global.currentMatchID != this.state.cm) {
-				this.setState({
-					val: global.data[this.props.id],
-					cm: global.currentMatchID
-				});
-			}
-		}, 500);
-	}
-
-	render() {
-		return (
-			<View style={styles.container}>
-				<TouchableOpacity onPress={this.decrement}>
-					<View style={styles.iconContainer}>
-						<FontAwesome name="minus" size={30} color="#29ADFF"/>
-					</View>
-				</TouchableOpacity>
+	return (
+		<View style={styles.container}>
+			<TouchableOpacity onPress={() => {
+				// minimum value is 0
+				dispatch(setKeyPair([props.id, Math.max(0, value - 1)]));
+			}}>
+				<View style={styles.iconContainer}>
+					{ /** I'm so lonely */}
+					<FontAwesome name="minus" size={30} color={colors.skyBlue}/>
+				</View>
+			</TouchableOpacity>
                 
-				<Text style = {{fontSize: 30}}>{this.state.val}{this.props.max? `/${this.props.max}` : ""}</Text>
+			<Text style = {{fontSize: 30}}>{value}{props.max? `/${props.max}` : ""}</Text>
 
-				<TouchableOpacity onPress={this.increment}>
-					<View style = {styles.iconContainer}>
-						<FontAwesome name="plus" size={30} color="#29ADFF"/>
-					</View>
-				</TouchableOpacity>
-			</View>
-		);
-	}
+			<TouchableOpacity onPress={() => {
+				dispatch(setKeyPair([props.id, value + 1]));
+			}}>
+				<View style = {styles.iconContainer}>
+					<FontAwesome name="plus" size={30} color={colors.skyBlue}/>
+				</View>
+			</TouchableOpacity>
+		</View>
+	);
 }
+
+const colors = {
+	white: "#FFFFFF",
+	skyBlue: "#29ADFF"
+};
 
 const styles = StyleSheet.create({
 	container: {
-		backgroundColor: "#FFF",
+		backgroundColor: colors.white,
 		flex: 1,
 		flexDirection: "row"
 	},

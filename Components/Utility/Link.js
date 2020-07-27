@@ -5,19 +5,17 @@ import {
 	View
 } from "react-native";
 
-export default class Link extends React.Component {
-	render() {
-		return (
-			<View style={styles.container}>
-				<Text
-					style={{color: this.props.color, fontSize: 17}}
-					onPress={this.props.onPress}
-				>
-					{this.props.children}
-				</Text>
-			</View>
-		);
-	}
+export default function Link(props) {
+	return (
+		<View style={styles.container}>
+			<Text
+				style={{color: props.color, fontSize: 17}}
+				onPress={props.onPress}
+			>
+				{props.children}
+			</Text>
+		</View>
+	);
 }
 
 const styles = StyleSheet.create({
