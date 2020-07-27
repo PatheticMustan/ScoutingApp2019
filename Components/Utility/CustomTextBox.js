@@ -22,14 +22,12 @@ export default function CustomTextBox(props) {
 
 	useEffect(() => {
 		const interval = setInterval(() => {
-			if (reduxText !== text) {
-				dispatch(setKeyPair([props.id, text]));
-			}
+			if (reduxText !== text) dispatch(setKeyPair([props.id, text]));
 		}, 1000);
-
+		
 		// basically componentWillUnmount but this time it's for React hooks
 		return () => clearInterval(interval);
-	}, []);
+	}, [text]);
 
 	return (
 		<View style={{

@@ -9,7 +9,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 export default function Arena(props) {
 	const dispatch = useDispatch();
-	const arenaID = "arena";
+	const arenaID = "Team";
 
 	// set default value
 	dispatch(setDefault([arenaID, "Blue Alliance"]));
