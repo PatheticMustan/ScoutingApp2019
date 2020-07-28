@@ -3,13 +3,12 @@ import { createSlice } from "@reduxjs/toolkit";
 export const matchSlice = createSlice({
 	name: "matchSlice",
 	initialState: {
-		matches: [],
+		matches: {},
 	},
 	reducers: {
-		setMatch: (state, action) => {
-			// so many annoying checks
-			if (!(action.payload instanceof Array))		console.log("WARNING! Expected key-value array");
-			if (typeof action.payload[0] !== "string")	console.log("WARNING! Expected key to be string.");
+		writeMatch: (state, action) => {
+			if (!(action.payload instanceof Array))		console.log("WARNING! Expected match to be array");
+			if (action.payload.every())	console.log("WARNING! Expected key to be string.");
 			if (action.payload.length !== 2)			console.log("WARNING! Expected key-value array to have two items.");
 
 			// key-values are stored in the format [key, value]
@@ -26,19 +25,6 @@ export const matchSlice = createSlice({
 				// otherwise, just modify the value of the existing key
 				state.keyPairValues[payloadIndex][1] = value;
 			}
-		},
-
-		setDefault: (state, action) => {
-			if (!(action.payload instanceof Array))		console.log("WARNING! Expected key-value array");
-			if (typeof action.payload[0] !== "string")	console.log("WARNING! Expected key to be string.");
-			if (action.payload.length !== 2)			console.log("WARNING! Expected key-value array to have two items.");
-
-			const key = action.payload[0];
-			const value = action.payload[1];
-
-			const payloadIndex = state.keyPairValues.findIndex(v => v[0] === key);
-
-			if (payloadIndex === -1) state.keyPairValues.push([key, value]);
 		}
 	},
 });
