@@ -24,7 +24,9 @@ export default function Incrementer(props) {
 		<View style={styles.container}>
 			<TouchableOpacity onPress={() => {
 				// minimum value is 0
-				dispatch(setKeyPair([props.id, Math.max(0, value - 1)]));
+				if (value - 1 >= 0) {
+					dispatch(setKeyPair([props.id, value - 1]));
+				}
 			}}>
 				<View style={styles.iconContainer}>
 					{ /** I'm so lonely */}
@@ -35,7 +37,10 @@ export default function Incrementer(props) {
 			<Text style = {{fontSize: 30}}>{value}{props.max? `/${props.max}` : ""}</Text>
 
 			<TouchableOpacity onPress={() => {
-				dispatch(setKeyPair([props.id, value + 1]));
+				// first make sure max value exists, then do comparison
+				if (!props.max || value+1 <= props.max) {
+					dispatch(setKeyPair([props.id, value + 1]));
+				}
 			}}>
 				<View style = {styles.iconContainer}>
 					<FontAwesome name="plus" size={30} color={colors.skyBlue}/>
@@ -48,6 +53,21 @@ export default function Incrementer(props) {
 const colors = {
 	white: "#FFFFFF",
 	skyBlue: "#29ADFF"
+	/**
+	 * Why do birds suddenly appear, everytime you are near?
+	 * Just like me, they want to be... close to you...
+	 * 
+	 * on the day that you were born the angels got together
+	 * and decided to create a dream come true
+	 * so they sprinkled moonlight in your hair
+	 * and gold in your golden eyes of blue! (????)
+	 * 
+	 * that is why, all the girls in town, follow you, all around!
+	 * Just like me, they want to be, close to youuuuu?
+	 * 
+	 * WHYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYyyyyyyyYyyyyy close to youuuuuuuu
+	 * WHYYYYYYYYYYYYYYYYYYYYYYYYYYYYyyyyYyyyyyyyyYyyyyy close to you......
+	 **/
 };
 
 const styles = StyleSheet.create({
