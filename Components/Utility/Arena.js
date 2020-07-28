@@ -12,7 +12,7 @@ export default function Arena(props) {
 	const arenaID = "Team";
 
 	// set default value
-	dispatch(setDefault([arenaID, "Blue Alliance"]));
+	dispatch(setDefault([arenaID, 0]));
 	// since this isn't an input, no need to set default.
 	// get value from store
 	const kpv = useSelector(selectData);
@@ -23,7 +23,7 @@ export default function Arena(props) {
 			<ImageBackground
 				source={require("../../Assets/2020Field.png")}
 				style={{
-					flexDirection: selectedTeam=="Blue Alliance"? "row" : "row-reverse",
+					flexDirection: selectedTeam==0? "row" : "row-reverse",
 					height: 453,
 					marginTop: 20,
 					width: 900

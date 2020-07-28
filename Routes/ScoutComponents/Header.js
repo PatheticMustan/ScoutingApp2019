@@ -115,7 +115,6 @@ export default class Header extends React.Component {
 						bgc="orange"
 						segmentedButton
 						forceOption
-						default="Blue Alliance"
 						options={{
 							flexDirection: "row",
 						}}
