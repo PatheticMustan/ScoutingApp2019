@@ -11,12 +11,15 @@ import NumButton from "../../Components/Buttons/NumButton.js";
 import RadioButton from "../../Components/Buttons/RadioButton.js";
 import CustomTextBox from "../../Components/Utility/CustomTextBox.js";
 import Arena from "../../Components/Utility/Arena.js";
-import { useSelector } from "react-redux";
-import { selectData } from "../../Redux/Features/dataSlice.js";
+import { useSelector, useDispatch } from "react-redux";
+import { selectData, setDefault } from "../../Redux/Features/dataSlice.js";
 
 export default function Autonomous() {
 	const arenaID = "Team";
+	const dispatch = useDispatch();
 
+	// set default
+	dispatch(setDefault([arenaID, 0]));
 	// get value from store
 	const kpv = useSelector(selectData);
 	const selectedTeam = kpv.find(v => v[0] === arenaID)[1];
@@ -30,7 +33,7 @@ export default function Autonomous() {
 					<View style = {{
 						flex: 1,
 						justifyContent: "space-between",
-						flexDirection: selectedTeam==1? "column" : "column-reverse"
+						flexDirection: selectedTeam==1? "column-reverse" : "column"
 					}}>
 						<View style = {{flex: 4}}/>
 						<View style = {{flex: 1, alignItems: "center"}}>
@@ -43,7 +46,7 @@ export default function Autonomous() {
 						flex: 1,
 						justifyContent: "space-between",
 						alignItems: "center",
-						flexDirection: selectedTeam==1? "column" : "column-reverse"
+						flexDirection: selectedTeam==1? "column-reverse" : "column"
 					}}>
 						<View style = {{flex: 0.25, justifyContent: "space-between", alignSelf: "center"}}>
 							<BoolButton id="CrossesInitiationLine" bgc="lime" width={160}>Crosses Initation Line</BoolButton>
@@ -59,14 +62,15 @@ export default function Autonomous() {
 					<View style={{
 						flex: 1,
 						justifyContent: "center",
-						flexDirection: selectedTeam==1? "column" : "column-reverse"
+						flexDirection: selectedTeam==1? "column-reverse" : "column"
 					}}>
 						<Text
 							style= {{fontSize: 12, color: "white", width: 120, textAlign: "center"}}
 							margin = {0}
 						>
-                                    Balls Scored
+							Balls Scored
 						</Text>
+
 						<NumButton id="AutoLow">Low</NumButton>
 						<NumButton id="AutoOuter">Outer</NumButton>
 						<NumButton id="AutoInner">Inner</NumButton>
@@ -76,9 +80,9 @@ export default function Autonomous() {
 
 				<Text style={{textAlign: "center", fontSize: 20, fontWeight: "bold"}}>Comments</Text>
 				<Text style = {{textAlign: "center", fontSize: 14, marginLeft: 20, marginRight: 20, marginTop: 10}}>
-                            Add any comments that you feel are useful. Does the robot get any penalties? Does the robot cycle
-                            efficiently? Do they struggle with picking up balls or shooting? Do they play defense, and if so,
-                            how? Where do they usually shoot from? Anything else that shows evidence of good/poor performance?
+					Add any comments that you feel are useful. Does the robot get any penalties? Does the robot cycle
+					efficiently? Do they struggle with picking up balls or shooting? Do they play defense, and if so,
+					how? Where do they usually shoot from? Anything else that shows evidence of good/poor performance?
 				</Text>
 				<View style={{padding: 20}}>
 					<CustomTextBox

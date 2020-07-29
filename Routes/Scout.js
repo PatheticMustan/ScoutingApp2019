@@ -11,15 +11,12 @@ import TeleOp from "./ScoutComponents/TeleOp.js";
 import Endgame from "./ScoutComponents/EndGame.js";
 import Other from "./ScoutComponents/Other.js";
 
-import Data from "./ScoutComponents/Data.js";
-
 /** Test Components */
 
 export default function Scout() {
 	return (
 		<View style = {{flex: 1}}>
 			<View style = {{flex: 1, justifyContent: "center"}}>
-				<Data />
 				<Header/>
 			</View>
 
