@@ -1,9 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
+
 import dataReducer from "./Features/dataSlice.js";
+import matchReducer from "./Features/matchSlice.js";
 
 // reducer list
 const reducer = {
-	data: dataReducer
+	data: dataReducer,
+	matches: matchReducer
 };
 
 // initial state

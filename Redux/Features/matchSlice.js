@@ -10,7 +10,7 @@ export const matchSlice = createSlice({
 			if (!(action.payload instanceof Array))             console.log("WARNING! Expected match to be array");
 			if (!action.payload.every(v => v instanceof Array)) console.log("WARNING! Expected each item to be an array.");
 
-			state.matches;
+			if (action.payload) state.matches;
 		}
 	},
 });

@@ -7,18 +7,18 @@ import {
 	AsyncStorage,
 	TouchableOpacity
 } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
+import { selectData } from "../../Redux/Features/matchSlice";
 
 import Constants from "expo-constants";
+
 
 export default function List(props) {
 	const dispatch = useDispatch();
 
-	// set default value
-	dispatch(setDefault([props.id, false]));
 	// get value from store
-	const kpv = useSelector(selectData);
-	const matches = kpv.find(v => v[0] === props.id)[1];
-
+	const matches = useSelector(selectData);
+	const find = key => matches.find(v => v[0] === key)[1];
 
 	// matches = storage
 	// parse matches
@@ -26,12 +26,10 @@ export default function List(props) {
 
 	return (
 		<FlatList
-			data={this.state.data}
+			data={matches}
 			renderItem={(data) => {
 				return (
 					<TouchableOpacity onPress={() => {
-						global.data = data.item[0];
-						global.currentMatchID = data.index;
 						props.nav.navigate("Scout");
 					}}>
 						<View style={styles.item}>

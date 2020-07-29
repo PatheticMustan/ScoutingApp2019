@@ -11,131 +11,89 @@ import NumButton from "../../Components/Buttons/NumButton.js";
 import RadioButton from "../../Components/Buttons/RadioButton.js";
 import CustomTextBox from "../../Components/Utility/CustomTextBox.js";
 import Arena from "../../Components/Utility/Arena.js";
+import { useSelector } from "react-redux";
+import { selectData } from "../../Redux/Features/dataSlice.js";
 
-export default class Autonomous extends React.Component {
-	componentDidMount() {
-		this.interval = setInterval(() => {
-			this.setState({ time: Date.now() });
-		}, 100);
-	}
-	componentWillUnmount() {clearInterval(this.interval);}
-	render() {
-		if(global.data["Team"] == "Blue Alliance") {
-			return (
-				<View style={styles.container}>
-					<Text style={{textAlign: "center", fontSize: 35, fontWeight: "bold"}}>Autonomous</Text>
-					<View style={styles.autonomousContainer}>
-						<Arena>
-							<View style = {{flex: 4, justifyContent: "center"}}></View>
-							<View style = {{flex: 1, justifyContent: "space-between", flexDirection: "column"}}>
-								<View style = {{flex: 4}}/>
-								<View style = {{flex: 1, alignItems: "center"}}>
-									<NumButton id="BallsPickedUp" width={160}>Balls Picked Up</NumButton>
-								</View>
-								<View style = {{flex: 0.6}}/>
-							</View>
+export default function Autonomous() {
+	const arenaID = "Team";
 
-							<View style = {{flex: 1, justifyContent: "space-between", alignItems: "center", flexDirection: "column"}}>
-								<View style = {{flex: 0.25, justifyContent: "space-between", alignSelf: "center"}}>
-									<BoolButton id="CrossesInitiationLine" bgc="lime" width={160}>Crosses Initation Line</BoolButton>
-								</View>
-								<RadioButton id="LinePosition" data={["Left", "Middle", "Right"]} bgc={"orange"} options = {{flex: 1, justifyContent: "space-between", flexDirection: "column-reverse"}}/>
-								<View style = {{flex: 0.25}}/>
-							</View>
+	// get value from store
+	const kpv = useSelector(selectData);
+	const selectedTeam = kpv.find(v => v[0] === arenaID)[1];
 
-							<View style={{flex: 1, justifyContent: "center", flexDirection: "column"}}>
-								<Text
-									style= {{fontSize: 12, color: "white", width: 120, textAlign: "center"}}
-									margin = {0}
-								>
+	return (
+		<View style={styles.container}>
+			<Text style={{textAlign: "center", fontSize: 35, fontWeight: "bold"}}>Autonomous</Text>
+			<View style={styles.autonomousContainer}>
+				<Arena>
+					<View style = {{flex: 4, justifyContent: "center"}}></View>
+					<View style = {{
+						flex: 1,
+						justifyContent: "space-between",
+						flexDirection: selectedTeam==1? "column" : "column-reverse"
+					}}>
+						<View style = {{flex: 4}}/>
+						<View style = {{flex: 1, alignItems: "center"}}>
+							<NumButton id="BallsPickedUp" width={160}>Balls Picked Up</NumButton>
+						</View>
+						<View style = {{flex: 0.6}}/>
+					</View>
+
+					<View style = {{
+						flex: 1,
+						justifyContent: "space-between",
+						alignItems: "center",
+						flexDirection: selectedTeam==1? "column" : "column-reverse"
+					}}>
+						<View style = {{flex: 0.25, justifyContent: "space-between", alignSelf: "center"}}>
+							<BoolButton id="CrossesInitiationLine" bgc="lime" width={160}>Crosses Initation Line</BoolButton>
+						</View>
+						<RadioButton id="LinePosition" data={["Left", "Middle", "Right"]} bgc={"orange"} options = {{
+							flex: 1,
+							justifyContent: "space-between",
+							flexDirection: selectedTeam==1? "column-reverse" : "column"
+						}}/>
+						<View style = {{flex: 0.25}}/>
+					</View>
+
+					<View style={{
+						flex: 1,
+						justifyContent: "center",
+						flexDirection: selectedTeam==1? "column" : "column-reverse"
+					}}>
+						<Text
+							style= {{fontSize: 12, color: "white", width: 120, textAlign: "center"}}
+							margin = {0}
+						>
                                     Balls Scored
-								</Text>
-								<NumButton id="AutoLow">Low</NumButton>
-								<NumButton id="AutoOuter">Outer</NumButton>
-								<NumButton id="AutoInner">Inner</NumButton>
-								<NumButton id="AutoMissed">Missed</NumButton>
-							</View>
-						</Arena>
+						</Text>
+						<NumButton id="AutoLow">Low</NumButton>
+						<NumButton id="AutoOuter">Outer</NumButton>
+						<NumButton id="AutoInner">Inner</NumButton>
+						<NumButton id="AutoMissed">Missed</NumButton>
+					</View>
+				</Arena>
 
-						<Text style={{textAlign: "center", fontSize: 20, fontWeight: "bold"}}>Comments</Text>
-						<Text style = {{textAlign: "center", fontSize: 14, marginLeft: 20, marginRight: 20, marginTop: 10}}>
+				<Text style={{textAlign: "center", fontSize: 20, fontWeight: "bold"}}>Comments</Text>
+				<Text style = {{textAlign: "center", fontSize: 14, marginLeft: 20, marginRight: 20, marginTop: 10}}>
                             Add any comments that you feel are useful. Does the robot get any penalties? Does the robot cycle
                             efficiently? Do they struggle with picking up balls or shooting? Do they play defense, and if so,
                             how? Where do they usually shoot from? Anything else that shows evidence of good/poor performance?
-						</Text>
-						<View style={{padding: 20}}>
-							<CustomTextBox
-								multi={true}
-								id="AutonomousComments"
-								width={900}
-								height={250}
-								placeholder="Type your comments here..."
-								backgroundColor={"#DDD"}
-								borderRadius={10}
-							/>
-						</View>
-					</View>
+				</Text>
+				<View style={{padding: 20}}>
+					<CustomTextBox
+						multi={true}
+						id="AutonomousComments"
+						width={900}
+						height={250}
+						placeholder="Type your comments here..."
+						backgroundColor={"#DDD"}
+						borderRadius={10}
+					/>
 				</View>
-			);
-		} else {
-			return (
-				<View style={styles.container}>
-					<Text style={{textAlign: "center", fontSize: 35, fontWeight: "bold"}}>Autonomous</Text>
-					<View style={styles.autonomousContainer}>
-						<Arena>
-							<View style = {{flex: 4, justifyContent: "center"}}></View>
-							<View style = {{flex: 1, justifyContent: "space-between", flexDirection: "column-reverse"}}>
-								<View style = {{flex: 4}}/>
-								<View style = {{flex: 1, alignItems: "center"}}>
-									<NumButton id="BallsPickedUp" width={160}>Balls Picked Up</NumButton>
-								</View>
-								<View style = {{flex: 0.6}}/>
-							</View>
-
-							<View style = {{flex: 1, justifyContent: "space-between", alignItems: "center", flexDirection: "column-reverse"}}>
-								<View style = {{flex: 0.25, justifyContent: "space-between", alignSelf: "center"}}>
-									<BoolButton id="CrossesInitiationLine" bgc="lime" width={160}>Crosses Initation Line</BoolButton>
-								</View>
-								<RadioButton id="LinePosition" data={["Left", "Middle", "Right"]} bgc={"orange"} options = {{flex: 1, justifyContent: "space-between", flexDirection: "column-reverse"}}/>
-								<View style = {{flex: 0.25}}/>
-							</View>
-
-							<View style={{flex: 1, justifyContent: "center", flexDirection: "column-reverse"}}>
-								<NumButton id="AutoLow">Low</NumButton>
-								<NumButton id="AutoOuter">Outer</NumButton>
-								<NumButton id="AutoInner">Inner</NumButton>
-								<NumButton id="AutoMissed">Missed</NumButton>
-								<Text
-									style= {{fontSize: 12, color: "white", width: 120, textAlign: "center"}}
-									margin = {0}
-								>
-                                    Balls Scored
-								</Text>
-							</View>
-						</Arena>
-
-						<Text style={{textAlign: "center", fontSize: 20, fontWeight: "bold"}}>Comments</Text>
-						<Text style = {{textAlign: "center", fontSize: 14, marginLeft: 20, marginRight: 20, marginTop: 10}}>
-                            Add any comments that you feel are useful. Does the robot get any penalties? Does the robot cycle
-                            efficiently? Do they struggle with picking up balls or shooting? Do they play defense, and if so,
-                            how? Where do they usually shoot from? Anything else that shows evidence of good/poor performance?
-						</Text>
-						<View style={{padding: 20}}>
-							<CustomTextBox
-								multi={true}
-								id="AutonomousComments"
-								width={900}
-								height={250}
-								placeholder="Type your comments here..."
-								backgroundColor={"#DDD"}
-								borderRadius={10}
-							/>
-						</View>
-					</View>
-				</View>
-			);
-		}
-	}
+			</View>
+		</View>
+	);
 }
 
 const styles = StyleSheet.create({
