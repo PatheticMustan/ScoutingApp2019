@@ -30,8 +30,8 @@ export default function Header() {
 
 	function reset() {
 		alert("Everyone needs a fresh start. Why not now?");
-		dispatch(freshStart());
 
+		// TODO: Test if Alert.alert works. Also search for web friendly options????
 		Alert.alert(
 			"Reset",
 			"Are you sure you want to reset the Scoutsheet?",
@@ -44,6 +44,15 @@ export default function Header() {
 	
 	function save() {
 		(async () => {
+			const match = kpv;
+
+			const keyParts = 
+				["Team", "TeamNumber", "MatchNumber", "MatchType", "Scouters", "StartingPieces"]
+					.map(k => match.find(v => v[0] === k)[0])
+					.join("");
+			
+			console.log(keyParts)
+			/*
 			await AsyncStorage.setItem(
 				"matches", 
 				JSON.stringify(
@@ -51,6 +60,7 @@ export default function Header() {
 				)
 			);
 			alert("Saved Match #" + global.data["MatchNumber"]);
+			*/
 		})();
 	}
 	

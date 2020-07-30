@@ -57,7 +57,7 @@ export const dataSlice = createSlice({
 
 			state.keyPairValues = state.keyPairValues.filter(v =>
 				// whitelist vals not to remove
-				["Team", "TeamNumber", "TeamNumber", "MatchType", "Scouters", "StartingPieces"].includes(v[0])
+				["Team", "TeamNumber", "MatchNumber", "MatchType", "Scouters", "StartingPieces"].includes(v[0])
 			);
 		}
 	},

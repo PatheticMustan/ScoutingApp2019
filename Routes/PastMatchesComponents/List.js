@@ -18,7 +18,6 @@ export default function List(props) {
 
 	// get value from store
 	const matches = useSelector(selectData);
-	const find = key => matches.find(v => v[0] === key)[1];
 
 	// matches = storage
 	// parse matches
