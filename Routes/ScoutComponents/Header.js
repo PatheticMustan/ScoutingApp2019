@@ -45,17 +45,22 @@ export default function Header() {
 	
 	function save() {
 		(async () => {
-			
+			// match is current scout sheet, the entire redux thingy
+			// fun fact, kpv is short for KeyPairValue, because it's filled with [key, value]
 			const match = kpv;
+			// matchKey is a unique identifier for a match. Right now I could have Team
 			const matchKey = 
-				["Team", "TeamNumber", "MatchNumber", "MatchType", "Scouters", "StartingPieces"]
+				["Team", "TeamNumber", "MatchNumber", "MatchType", "Scouters"]
 					.map(k => kpv.find(v => v[0] === k)[1])
 					.join("");
 			const final = [matchKey, match];
 
+			// get matches OR default []
 			const matches = JSON.parse(await AsyncStorage.getItem("matches")) || [];
+			// make sure the item actually exists, then check against matchKey
 			const mki = matches.findIndex(v => v && v[0] === matchKey);
 			
+			// add our lovely changes
 			if (mki === -1) {
 				// if the match key is not found
 				// push
@@ -63,12 +68,15 @@ export default function Header() {
 			} else {
 				// if the match key IS found
 				// overwrite
+				// TODO: Prompt for confirmation of overwrite, not adding it now since I'm testing
 				matches[mki] = final;
 			}
 
+			// put all our matches back in a place where it'll be safe and sound <3
 			await AsyncStorage.setItem("matches", JSON.stringify(matches));
 
-			alert("Saved Match #" + kpv.find(v => v[0] === "MatchNumber"));
+			// "hey you saved a match lmao"
+			alert("Saved Match #" + kpv.find(v => v[0] === "MatchNumber")[1]);
 		})();
 	}
 	
