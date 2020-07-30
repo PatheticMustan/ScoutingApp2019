@@ -29,7 +29,8 @@ export default function Header() {
 	const selectedTeam = kpv.find(v => v[0] === arenaID)[1];
 
 	function reset() {
-		alert("Everyone needs a fresh start. Why not now?");
+		// alert("Everyone needs a fresh start. Why not now?");
+		// dispatch(freshStart());
 
 		// TODO: Test if Alert.alert works. Also search for web friendly options????
 		Alert.alert(
@@ -44,23 +45,30 @@ export default function Header() {
 	
 	function save() {
 		(async () => {
-			const match = kpv;
-
-			const keyParts = 
-				["Team", "TeamNumber", "MatchNumber", "MatchType", "Scouters", "StartingPieces"]
-					.map(k => match.find(v => v[0] === k)[0])
-					.join("");
 			
-			console.log(keyParts)
-			/*
-			await AsyncStorage.setItem(
-				"matches", 
-				JSON.stringify(
-					[...JSON.parse(await AsyncStorage.getItem("matches")), JSON.stringify(global.data)]
-				)
-			);
-			alert("Saved Match #" + global.data["MatchNumber"]);
-			*/
+			const match = kpv;
+			const matchKey = 
+				["Team", "TeamNumber", "MatchNumber", "MatchType", "Scouters", "StartingPieces"]
+					.map(k => kpv.find(v => v[0] === k)[1])
+					.join("");
+			const final = [matchKey, match];
+
+			const matches = JSON.parse(await AsyncStorage.getItem("matches")) || [];
+			const mki = matches.findIndex(v => v && v[0] === matchKey);
+			
+			if (mki === -1) {
+				// if the match key is not found
+				// push
+				matches.push(final);
+			} else {
+				// if the match key IS found
+				// overwrite
+				matches[mki] = final;
+			}
+
+			await AsyncStorage.setItem("matches", JSON.stringify(matches));
+
+			alert("Saved Match #" + kpv.find(v => v[0] === "MatchNumber"));
 		})();
 	}
 	
