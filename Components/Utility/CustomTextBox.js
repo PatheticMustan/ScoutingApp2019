@@ -35,6 +35,7 @@ export default function CustomTextBox(props) {
 			height: props.height || 40
 		}}>
 			<TextInput
+				keyboardType={props.keyboardType}
 				multiline={props.multi}
 				numberOfLines={props.multi? props.lines : 1}
 				editable
