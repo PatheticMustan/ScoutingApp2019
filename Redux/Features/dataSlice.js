@@ -39,11 +39,31 @@ export const dataSlice = createSlice({
 			const payloadIndex = state.keyPairValues.findIndex(v => v[0] === key);
 
 			if (payloadIndex === -1) state.keyPairValues.push([key, value]);
+		},
+
+		freshStart: (state) => {
+			/**
+			 * wipe the slate clean
+			 * commit magnet on hard-drive
+			 * 
+			 * if you have spotify:
+			 * Amnesia, by 5 Seconds of Summer: https://open.spotify.com/track/1JCCdiru7fhstOIF4N7WJC
+			 * 
+			 * "I wish that I could wake up with Amnesia"
+			 * Well loverboy, today's your lucky day
+			 **/
+			
+			// if you couldn't tell, this erases everything but info
+
+			state.keyPairValues = state.keyPairValues.filter(v =>
+				// whitelist vals not to remove
+				["Team", "TeamNumber", "TeamNumber", "MatchType", "Scouters", "StartingPieces"].includes(v[0])
+			);
 		}
 	},
 });
 
-export const { setKeyPair, setDefault } = dataSlice.actions;
+export const { setKeyPair, setDefault, freshStart } = dataSlice.actions;
 window.skp = dataSlice.actions.setKeyPair;
 
 // The function below is called a selector and allows us to select a value from

@@ -13,7 +13,7 @@ import RadioButton from "../../Components/Buttons/RadioButton.js";
 import Link from "../../Components/Utility/Link.js";
 
 import { useDispatch, useSelector } from "react-redux";
-import { setDefault, selectData } from "../../Redux/Features/dataSlice.js";
+import { setDefault, freshStart, selectData } from "../../Redux/Features/dataSlice.js";
 
 const path = "./data.csv";
 
@@ -29,11 +29,14 @@ export default function Header() {
 	const selectedTeam = kpv.find(v => v[0] === arenaID)[1];
 
 	function reset() {
+		alert("Everyone needs a fresh start. Why not now?");
+		dispatch(freshStart());
+
 		Alert.alert(
 			"Reset",
 			"Are you sure you want to reset the Scoutsheet?",
 			[
-				{text: "Reset", onPress: () => this.props.onReset()},
+				{text: "Reset", onPress: () => dispatch(freshStart())},
 				{text: "Cancel", style: "cancel"}
 			]
 		);
