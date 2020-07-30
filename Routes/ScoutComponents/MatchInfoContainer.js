@@ -21,7 +21,7 @@ export default class MatchInfoContainer extends React.Component {
 						<View style={styles.inputContainer}>
 							<Text style={styles.bold}>Team Number: </Text>
 							<View style={{flex: 1, paddingLeft: 5}}>
-								<CustomTextBox id="TeamNumber" placeholder="1234" width={80} height={40}/>
+								<CustomTextBox id="TeamNumber" placeholder="2638" width={80} height={40}/>
 							</View>
 						</View>
                         
