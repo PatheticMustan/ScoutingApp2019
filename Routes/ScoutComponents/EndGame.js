@@ -44,7 +44,7 @@ export default class Endgame extends React.Component {
     					</View>
 
     					<View style={{flex: 1}}>
-    						<Timer id="Time"/>
+    						<Timer/>
     					</View>
                     
     					<View style={{paddingTop: 20, paddingBottom: 10}}>

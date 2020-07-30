@@ -45,7 +45,7 @@ export default function List(props) {
 					</View>
 				);
 			}}
-			keyExtractor={data => data[1].toString()} /** https://stackoverflow.com/a/49577737/12894940 */
+			// keyExtractor={data => data[1].toString()} /** https://stackoverflow.com/a/49577737/12894940 */
 		/>
 	);
 }
