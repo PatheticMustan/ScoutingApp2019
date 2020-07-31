@@ -7,8 +7,26 @@ export const matchSlice = createSlice({
 	},
 	reducers: {
 		writeMatch: (state, action) => {
-			if (!(action.payload instanceof Array))             console.log("WARNING! Expected match to be array");
-			if (!action.payload.every(v => v instanceof Array)) console.log("WARNING! Expected each item to be an array.");
+			// action is in format
+			// [index, payload]
+			// Tracer: ESCOURT THE PAYLOAD!
+
+			const [index, kpv] = action.payload;
+
+			if (!(typeof index === "number"))          console.log("WARNING! Expected index to be number.");
+			if (!(kpv instanceof Array))             console.log("WARNING! Expected match to be array.");
+			if (!kpv.every(v => v instanceof Array)) console.log("WARNING! Expected each item to be an array.");
+
+			if (index === -1) {
+				// if the match key is not found
+				// push
+				state.matches.push(action.payload);
+			} else {
+				// if the match key IS found
+				// overwrite
+				// TODO: Prompt for confirmation of overwrite, not adding it now since I'm testing
+				state.matches[index] = action.payload;
+			}
 
 			state.matches.push(action.payload);
 		}

@@ -70,15 +70,13 @@ export default function Header() {
 				// stop save()'ing
 				return;
 			}
-
-			alert("saved");
-					
+			
 			const final = [matchKey.join(""), match];
 
 			// get matches OR default []
 			const matches = JSON.parse(await AsyncStorage.getItem("matches")) || [];
 			// make sure the item actually exists, then check against matchKey
-			const mki = matches.findIndex(v => v && v[0] === matchKey);
+			const mki = matches.findIndex(v => v && (v[0] === final[0]));
 			
 			// add our lovely changes
 			if (mki === -1) {
@@ -96,7 +94,7 @@ export default function Header() {
 			await AsyncStorage.setItem("matches", JSON.stringify(matches));
 
 			// now update matches in redux
-			dispatch(writeMatch(kpv));
+			dispatch(writeMatch([mki, kpv]));
 
 			// "hey you saved a match lmao"
 			alert("Saved Match #" + kpv.find(v => v[0] === "MatchNumber")[1]);
