@@ -29,13 +29,17 @@ export const matchSlice = createSlice({
 			}
 
 			state.matches.push(action.payload);
+		},
+
+		resetMatches: (state) => {
+			state.matches = [];
 		}
 	},
 });
 
 // dispatch(writeMatch(kpv))
 
-export const { writeMatch } = matchSlice.actions;
+export const { writeMatch, resetMatches } = matchSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of

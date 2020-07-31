@@ -10,6 +10,7 @@ import Link from "../../Components/Utility/Link.js";
 
 import { useDispatch, useSelector } from "react-redux";
 import { setDefault, selectData } from "../../Redux/Features/dataSlice.js";
+import { resetMatches } from "../../Redux/Features/matchSlice.js";
 
 export default function Header() {
 	const dispatch = useDispatch();
@@ -28,6 +29,9 @@ export default function Header() {
 			<View style={styles.linkContainer}>
 				<Link color="red" onPress={() => {
 					AsyncStorage.removeItem("matches");
+
+					dispatch(resetMatches());
+
 					// TODO: Add confirmation
 					alert("Cleared all the matches!");
 				}}>
