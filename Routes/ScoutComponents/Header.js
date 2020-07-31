@@ -50,11 +50,30 @@ export default function Header() {
 			// fun fact, kpv is short for KeyPairValue, because it's filled with [key, value]
 			const match = kpv;
 			// matchKey is a unique identifier for a match. Right now I could have Team
-			const matchKey = 
-				["Team", "TeamNumber", "MatchNumber", "MatchType", "Scouters"]
-					.map(k => kpv.find(v => v[0] === k)[1])
-					.join("");
-			const final = [matchKey, match];
+			const matchKey = ["Team", "TeamNumber", "MatchNumber", "MatchType", "Scouters"]
+				.map(k => [k, kpv.find(v => v[0] === k)[1]]); // "Team" --> ["Team", value]
+			
+			// if a single one of them is ""...
+			if (matchKey.some(v => v[1] === "")) {
+				// find em
+				// ["Team", value] --> "Team"
+				const blank = matchKey
+					.filter(v => v[1] === "")
+					.map(v => v[0]);
+
+				// formatting
+				// prepend "and " to last item
+				// 1, 2, 3, 4, and 5 are blank
+				if (blank.length > 1) { blank[blank.length-1] = "and " + blank[blank.length-1]; }
+
+				alert(`${blank.join(", ")} is blank!`);
+				// stop save()'ing
+				return;
+			}
+
+			alert("saved");
+					
+			const final = [matchKey.join(""), match];
 
 			// get matches OR default []
 			const matches = JSON.parse(await AsyncStorage.getItem("matches")) || [];
