@@ -64,15 +64,13 @@ export default function TeleOp() {
 								style= {{fontSize: 12, color: "white", width: 120, textAlign: "center"}}
 								margin = {0}
 							>
-                                        Where can they shoot from?
+								Where can they shoot from?
 							</Text>
 							<RadioButton id="ShootFrom" data={["Trench Zone", "Target Zone", "Other"]} margin={0} bgc={"orange"} />
 						</View>
 						<View style = {{flex: 4}}></View>
 					</View>
-
-                            
-                                
+					
 					<View style = {{flex: 1, justifyContent: "center", alignItems: "center", flexDirection: selectedTeam==1? "column-reverse" : "column"}}>
 						<View style = {{flex: 2}}></View>
 

@@ -33,7 +33,7 @@ export default function Incrementer(props) {
 					<FontAwesome name="minus" size={30} color={colors.skyBlue}/>
 				</View>
 			</TouchableOpacity>
-                
+			
 			<Text style = {{fontSize: 30}}>{value}{props.max? `/${props.max}` : ""}</Text>
 
 			<TouchableOpacity onPress={() => {
