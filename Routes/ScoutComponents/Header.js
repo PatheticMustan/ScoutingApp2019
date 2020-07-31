@@ -14,6 +14,7 @@ import Link from "../../Components/Utility/Link.js";
 
 import { useDispatch, useSelector } from "react-redux";
 import { setDefault, freshStart, selectData } from "../../Redux/Features/dataSlice.js";
+import { writeMatch  } from "../../Redux/Features/matchSlice.js";
 
 const path = "./data.csv";
 
@@ -74,6 +75,9 @@ export default function Header() {
 
 			// put all our matches back in a place where it'll be safe and sound <3
 			await AsyncStorage.setItem("matches", JSON.stringify(matches));
+
+			// now update matches in redux
+			dispatch(writeMatch(kpv));
 
 			// "hey you saved a match lmao"
 			alert("Saved Match #" + kpv.find(v => v[0] === "MatchNumber")[1]);

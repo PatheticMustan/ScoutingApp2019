@@ -19,6 +19,8 @@ export default function List(props) {
 	// get value from store
 	const matches = useSelector(selectData);
 
+	
+
 	// matches = storage
 	// parse matches
 	// if new match add to state
