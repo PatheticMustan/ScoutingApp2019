@@ -16,55 +16,57 @@ export default function About() {
 
 	return (
 		<View style={styles.flex}>
-			<View>
+			<View style={{flex: 1}}>
 				<Header/>
 			</View>
+			
+			<View style={{flex: 7}}>
+				<ScrollView>
+					<View style={styles.credits}>
+						<Image
+							source={require("../Assets/appicon.png")}
+							style={styles.image}
+						/>
 
-			<ScrollView>
-				<View style={styles.credits}>
-					<Image
-						source={require("../Assets/appicon.png")}
-						style={styles.image}
-					/>
+						{title("2638 Scout")}
+						{text("Version 2.0 3/6/2020")}
 
-					{title("2638 Scout")}
-					{text("Version 2.0 3/6/2020")}
+						{spacer}
+							
+						{title("UI Design and Concept by")}
+						{person("App Designer", "Reid Fleishman")}
 
-					{spacer}
-						
-					{title("UI Design and Concept by")}
-					{person("App Designer", "Reid Fleishman")}
+						{spacer}
 
-					{spacer}
+						{title("App Development Team (React Native)")}
+						{person("Developer", "Kevin Wang")}
+						{person("Developer", "Eric Yachabes")}
+						{person("Developer", "Aidan Din")}
 
-					{title("App Development Team (React Native)")}
-					{person("Developer", "Kevin Wang")}
-					{person("Developer", "Eric Yachabes")}
-					{person("Developer", "Aidan Din")}
+						{spacer}
 
-					{spacer}
+						{title("Tools Used")}
+						{text("React Native")}
+						{text("Expo")}
+						{text("VSCode")}
 
-					{title("Tools Used")}
-					{text("React Native")}
-					{text("Expo")}
-					{text("VSCode")}
+						{spacer}
 
-					{spacer}
+						{title("Special Thanks To")}
+						{text("John Motchkavitz")}
+						{text("Matthew Corrigan")}
+						{text("Andrea Zinn")}
+						{text(<Text style={styles.italic}>And all of our amazing mentors!</Text>)}
 
-					{title("Special Thanks To")}
-					{text("John Motchkavitz")}
-					{text("Matthew Corrigan")}
-					{text("Andrea Zinn")}
-					{text(<Text style={styles.italic}>And all of our amazing mentors!</Text>)}
+						{spacer}
+							
+						{text("Questions or Comments? Please email reidfleishman5@gmail.com")}
 
-					{spacer}
-						
-					{text("Questions or Comments? Please email reidfleishman5@gmail.com")}
-
-					{title("© 2020 Rebel Robotics")}
-					{title("gnsrobotics.com")}
-				</View>
-			</ScrollView>
+						{title("© 2020 Rebel Robotics")}
+						{title("gnsrobotics.com")}
+					</View>
+				</ScrollView>
+			</View>
 		</View>
 	);
 }

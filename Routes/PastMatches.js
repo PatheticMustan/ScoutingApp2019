@@ -1,16 +1,21 @@
 import React from "react";
 import {
-	ScrollView
+	View
 } from "react-native";
 
 import Header from "./PastMatchesComponents/Header.js";
 import List from "./PastMatchesComponents/List.js";
 
-export default function PastMatches({navigation}) {
+export default function PastMatches(props) {
 	return (
-		<ScrollView style={{flex: 1}}>
-			<Header/>
-			<List nav={navigation}/>
-		</ScrollView>
+		<View>
+			<View style={{flex: 1}}>
+				<Header/>
+			</View>
+			
+			<View style={{flex: 7}}>
+				<List nav={props.navigation}/>
+			</View>
+		</View>
 	);
 }

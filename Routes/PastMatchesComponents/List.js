@@ -8,7 +8,7 @@ import {
 	TouchableOpacity
 } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
-import { selectData } from "../../Redux/Features/matchSlice";
+import { selectData } from "../../Redux/Features/matchSlice.js";
 
 import Constants from "expo-constants";
 

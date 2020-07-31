@@ -186,9 +186,6 @@ export default function Header() {
 }
 
 const styles = StyleSheet.create({
-	container: {
-		backgroundColor: "#DDD"
-	},
 	headerText: {
 		flex: 1,
 		fontSize: 20,
