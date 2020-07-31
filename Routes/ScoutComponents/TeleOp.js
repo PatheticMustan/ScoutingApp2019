@@ -13,6 +13,7 @@ import Arena from "../../Components/Utility/Arena.js";
 
 import { useDispatch, useSelector } from "react-redux";
 import { setDefault, selectData } from "../../Redux/Features/dataSlice.js";
+import ScoutingColors from "../../ScoutingColors.js";
 
 export default function TeleOp() {
 	const dispatch = useDispatch();
@@ -116,13 +117,13 @@ export default function TeleOp() {
 
 const styles = StyleSheet.create({
 	container: {
-		backgroundColor: "#FFF",
+		backgroundColor: ScoutingColors.white,
 		paddingHorizontal: 50,
 		paddingVertical: 20
 	},
 	teleOpContainer: {
 		alignItems: "center",
-		borderColor: "black",
+		borderColor: ScoutingColors.black,
 		borderRadius: 10,
 		borderWidth: StyleSheet.hairlineWidth
 	}
