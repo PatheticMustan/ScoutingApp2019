@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import { setKeyPair, setDefault, selectData } from "../../Redux/Features/dataSlice.js";
 import { useDispatch, useSelector } from "react-redux";
+import ScoutingColors from "../../ScoutingColors.js";
 
 export default function ClimbPosition(props) {
 	const dispatch = useDispatch();
@@ -48,7 +49,7 @@ export default function ClimbPosition(props) {
 										margin: props.margin || 10,
 										width: (props.width? props.width : 100),
 										height: 40,
-										backgroundColor: (selectedIndex === i? props.bgc : colors.white)
+										backgroundColor: (selectedIndex === i? props.bgc : ScoutingColors.white)
 									}}>
 										<Text style={{textAlign: "center"}}>{data[i][0]}</Text>
 									</View>
@@ -61,10 +62,6 @@ export default function ClimbPosition(props) {
 		</View>
 	);
 }
-
-const colors = {
-	white: "#FFF"
-};
 
 const styles = StyleSheet.create({
 	container: {

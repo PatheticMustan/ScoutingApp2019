@@ -10,6 +10,7 @@ import { setKeyPair, setDefault, selectData } from "../../Redux/Features/dataSli
 import { useDispatch, useSelector } from "react-redux";
 
 import { FontAwesome } from "react-native-vector-icons";
+import ScoutingColors from "../../ScoutingColors.js";
 
 export default function Incrementer(props) {
 	const dispatch = useDispatch();
@@ -30,7 +31,7 @@ export default function Incrementer(props) {
 			}}>
 				<View style={styles.iconContainer}>
 					{ /** I'm so lonely */}
-					<FontAwesome name="minus" size={30} color={colors.skyBlue}/>
+					<FontAwesome name="minus" size={30} color={ScoutingColors.skyBlue}/>
 				</View>
 			</TouchableOpacity>
 			
@@ -43,36 +44,16 @@ export default function Incrementer(props) {
 				}
 			}}>
 				<View style = {styles.iconContainer}>
-					<FontAwesome name="plus" size={30} color={colors.skyBlue}/>
+					<FontAwesome name="plus" size={30} color={ScoutingColors.skyBlue}/>
 				</View>
 			</TouchableOpacity>
 		</View>
 	);
 }
 
-const colors = {
-	white: "#FFFFFF",
-	skyBlue: "#29ADFF"
-	/**
-	 * Why do birds suddenly appear, everytime you are near?
-	 * Just like me, they want to be... close to you...
-	 * 
-	 * on the day that you were born the angels got together
-	 * and decided to create a dream come true
-	 * so they sprinkled moonlight in your hair
-	 * and gold in your golden eyes of blue! (????)
-	 * 
-	 * that is why, all the girls in town, follow you, all around!
-	 * Just like me, they want to be, close to youuuuu?
-	 * 
-	 * WHYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYyyyyyyyYyyyyy close to youuuuuuuu
-	 * WHYYYYYYYYYYYYYYYYYYYYYYYYYYYYyyyyYyyyyyyyyYyyyyy close to you......
-	 **/
-};
-
 const styles = StyleSheet.create({
 	container: {
-		backgroundColor: colors.white,
+		backgroundColor: ScoutingScoutingColors.white,
 		flex: 1,
 		flexDirection: "row"
 	},

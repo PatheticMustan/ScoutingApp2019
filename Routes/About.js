@@ -69,11 +69,6 @@ export default function About() {
 	);
 }
 
-
-const colors = {
-	gray: "#DDDDDD"
-};
-
 const styles = StyleSheet.create({
 	credits: {
 		alignItems: "center",
