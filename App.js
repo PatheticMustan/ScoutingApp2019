@@ -13,7 +13,7 @@ import { Provider } from "react-redux";
 
 import Scout from "./Routes/Scout.js";
 import PastMatches from "./Routes/PastMatches.js";
-import Settings from "./Routes/Settings.js";
+import About from "./Routes/About.js";
 
 // create bottom tab navigation
 const Tab = createBottomTabNavigator();
@@ -44,7 +44,7 @@ function MyTabs() {
 			/>
 			<Tab.Screen
 				name="About"
-				component={Settings}
+				component={About}
 				options={{
 					tabBarLabel: "About",
 					tabBarIcon: ({ color, size }) => <Ionicons name="ios-information-circle" color={color} size={size} />

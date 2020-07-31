@@ -6,16 +6,21 @@ import {
 	Text,
 	Image
 } from "react-native";
+import Header from "./AboutComponents/Header";
 
-export default class Settings extends React.Component {
-	render() {
-		return (
+export default function About() {
+	const title = input => <Text style={styles.title}>{input}</Text>;
+	const text = input => <Text style={styles.text}>{input}</Text>;
+	const person = (title, name) => <Text style={styles.text}><Text style={styles.underline}>{title}</Text> {name}</Text>;
+	const spacer = <Text>{"\n\n"}</Text>;
+
+	return (
+		<View style={styles.flex}>
+			<View>
+				<Header/>
+			</View>
+
 			<ScrollView>
-				<View style={styles.aboutHeader}>
-					<Text style={styles.aboutHeaderText}>About</Text>
-				</View>
-
-
 				<View style={styles.credits}>
 					<Image
 						source={require("../Assets/appicon.png")}
@@ -26,7 +31,7 @@ export default class Settings extends React.Component {
 					{text("Version 2.0 3/6/2020")}
 
 					{spacer}
-					
+						
 					{title("UI Design and Concept by")}
 					{person("App Designer", "Reid Fleishman")}
 
@@ -53,21 +58,16 @@ export default class Settings extends React.Component {
 					{text(<Text style={styles.italic}>And all of our amazing mentors!</Text>)}
 
 					{spacer}
-					
+						
 					{text("Questions or Comments? Please email reidfleishman5@gmail.com")}
 
 					{title("© 2020 Rebel Robotics")}
 					{title("gnsrobotics.com")}
 				</View>
 			</ScrollView>
-		);
-	}
+		</View>
+	);
 }
-
-const title = input => <Text style={styles.title}>{input}</Text>;
-const text = input => <Text style={styles.text}>{input}</Text>;
-const person = (title, name) => <Text style={styles.text}><Text style={styles.underline}>{title}</Text> {name}</Text>;
-const spacer = <Text>{"\n\n"}</Text>;
 
 
 const colors = {
@@ -75,21 +75,12 @@ const colors = {
 };
 
 const styles = StyleSheet.create({
-	aboutHeader: {
-		alignItems: "center",
-		backgroundColor: colors.gray,
-		flexDirection: "row",
-		justifyContent: "center"
-	},
-	aboutHeaderText: {
-		fontSize: 30,
-		padding: 10
-	},
 	credits: {
 		alignItems: "center",
 		justifyContent: "center",
 		paddingBottom: 50
 	},
+	flex: {flex: 1},
 	image: {
 		borderRadius: 10,
 		height: 350,
