@@ -24,7 +24,7 @@ export default function NumButton(props) {
 				dispatch(setKeyPair([props.id, value + 1]));
 			}}
 			onLongPress={() => {
-				dispatch(setKeyPair(props.id, [Math.max((value - 1), 0)]));
+				dispatch(setKeyPair([props.id, Math.max((value - 1), 0)]));
 			}}
 		>
 			<View style = {{
