@@ -11,8 +11,6 @@ import Link from "../../Components/Utility/Link.js";
 import { useDispatch, useSelector } from "react-redux";
 import { setDefault, selectData } from "../../Redux/Features/dataSlice.js";
 
-const path = "./data.csv";
-
 export default function Header() {
 	const dispatch = useDispatch();
 	const arenaID = "Team";
@@ -28,7 +26,13 @@ export default function Header() {
 		<View style={{backgroundColor: selectedTeam==1? "#FFD0D0" : "#D0F4FF", flex: 1}}>
 			<Text style={styles.headerText}>2020 - Infinite Recharge{"\n"}</Text>
 			<View style={styles.linkContainer}>
-				<Link color="red" onPress={() => AsyncStorage.reset()}>Reset All Matches</Link>
+				<Link color="red" onPress={() => {
+					AsyncStorage.removeItem("matches");
+					// TODO: Add confirmation
+					alert("Cleared all the matches!");
+				}}>
+					Reset All Matches
+				</Link>
 			</View>
 		</View>
 	);

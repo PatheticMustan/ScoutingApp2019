@@ -53,7 +53,7 @@ export default function Incrementer(props) {
 
 const styles = StyleSheet.create({
 	container: {
-		backgroundColor: ScoutingScoutingColors.white,
+		backgroundColor: ScoutingColors.white,
 		flex: 1,
 		flexDirection: "row"
 	},

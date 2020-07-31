@@ -47,7 +47,7 @@ BoolButton.propTypes = {
 	children: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
 };
 
-const styles = new StyleSheet({
+const styles = new StyleSheet.create({
 	boolButtonContainer: {
 		justifyContent: "center",
 		borderRadius: 10,
