@@ -54,6 +54,7 @@ function MyTabs() {
 		</Tab.Navigator>
 	);
 }
+
 // Async
 // Storage
 // Setter
@@ -79,8 +80,6 @@ function ASS() {
 }
 
 export default function App() {
-	
-
 	// make store global bc I want to see the data pls
 	window.natsumi = store;
 
