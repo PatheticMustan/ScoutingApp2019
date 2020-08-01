@@ -9,11 +9,12 @@ import {
 } from "react-native-vector-icons";
 
 import store from "./Redux/Store.js";
-import { Provider } from "react-redux";
+import { Provider, useDispatch } from "react-redux";
 
 import Scout from "./Routes/Scout.js";
 import PastMatches from "./Routes/PastMatches.js";
 import About from "./Routes/About.js";
+import { importMatches } from "./Redux/Features/matchSlice.js";
 
 // create bottom tab navigation
 const Tab = createBottomTabNavigator();
@@ -21,7 +22,7 @@ const Tab = createBottomTabNavigator();
 function MyTabs() {
 	return (
 		<Tab.Navigator
-			initialRouteName="Feed"
+			initialRouteName="Scout"
 			tabBarOptions={{
 				activeTintColor: "#e91e63",
 			}}
@@ -53,22 +54,41 @@ function MyTabs() {
 		</Tab.Navigator>
 	);
 }
+// Async
+// Storage
+// Setter
+// ;)
+// The ASS handles stuff like setting matches to [] if empty, and syncing AsyncStorage and state.matches
+function ASS() {
+	const dispatch = useDispatch();
 
-export default function App() {
-	/** If not found, set empty match data in AsyncStorage. */
 	(async () => {
-		if (await AsyncStorage.getItem("matches") == null) {
+		const matches = await AsyncStorage.getItem("matches");
+
+		if (matches == null) {
+			//  If not found, set empty match data in AsyncStorage.
 			await AsyncStorage.setItem("matches", "[]");
+		} else {
+			// otherwise sync state.matches.matches and AsyncStorage
+			dispatch(importMatches(JSON.parse(matches)));
 		}
 	})();
 
+	// mmmm, look at that empty component return, it just gives me chills O_o
+	return <></>;
+}
+
+export default function App() {
+	
+
 	// make store global bc I want to see the data pls
 	window.natsumi = store;
-	console.log("Natsumi's state");
-	console.log(natsumi.getState());
 
 	return (
 		<Provider store={store}>
+			{/** ASS must be inside the Provider to dispatch importMatches(), so I made it into a component. */}
+			<ASS/>
+
 			<NavigationContainer>
 				<MyTabs/>
 			</NavigationContainer>

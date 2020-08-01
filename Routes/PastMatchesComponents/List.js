@@ -19,6 +19,10 @@ export default function List(props) {
 	// get value from store
 	const matches = useSelector(selectData);
 
+	const find = (kpv, id) => kpv.find(v => v[1][0] === id)[1];
+
+	console.log(matches);
+
 	
 
 	// matches = storage
@@ -27,14 +31,14 @@ export default function List(props) {
 
 	return (
 		<FlatList
-			data={matches}
+			data={matches.matches}
 			renderItem={(data) => {
 				return (
 					<TouchableOpacity onPress={() => {
 						props.nav.navigate("Scout");
 					}}>
 						<View style={styles.item}>
-							<Text style={styles.text}>{`${data.item[0]["MatchType"]} #${data.item[0]["MatchNumber"]} (Team ${data.item[0]["TeamNumber"]})`}</Text>
+							<Text style={styles.text}>{`${find(data.item, "MatchType")} `}</Text>
 						</View>
 					</TouchableOpacity>
 				);

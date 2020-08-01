@@ -94,7 +94,7 @@ export default function Header() {
 			await AsyncStorage.setItem("matches", JSON.stringify(matches));
 
 			// now update matches in redux
-			dispatch(writeMatch([mki, kpv]));
+			dispatch(writeMatch(final));
 
 			// "hey you saved a match lmao"
 			alert("Saved Match #" + kpv.find(v => v[0] === "MatchNumber")[1]);

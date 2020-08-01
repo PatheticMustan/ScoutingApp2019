@@ -8,16 +8,18 @@ export const matchSlice = createSlice({
 	reducers: {
 		writeMatch: (state, action) => {
 			// action is in format
-			// [index, payload]
+			// [key, payload]
 			// Tracer: ESCOURT THE PAYLOAD!
 
-			const [index, kpv] = action.payload;
+			const [key, kpv] = action.payload;
 
-			if (!(typeof index === "number"))          console.log("WARNING! Expected index to be number.");
+			if (!(typeof key === "string"))        console.log("WARNING! Expected key to be string.");
 			if (!(kpv instanceof Array))             console.log("WARNING! Expected match to be array.");
 			if (!kpv.every(v => v instanceof Array)) console.log("WARNING! Expected each item to be an array.");
 
-			if (index === -1) {
+			const mki = state.matches.findIndex(v => v && (v[0] === key));
+
+			if (mki === -1) {
 				// if the match key is not found
 				// push
 				state.matches.push(action.payload);
@@ -25,10 +27,15 @@ export const matchSlice = createSlice({
 				// if the match key IS found
 				// overwrite
 				// TODO: Prompt for confirmation of overwrite, not adding it now since I'm testing
-				state.matches[index] = action.payload;
+				state.matches[mki] = action.payload;
 			}
+		},
 
-			state.matches.push(action.payload);
+		importMatches: (state, action) => {
+			// should only be used when the app starts
+			console.log("MATCHES HAVE BEEN IMPORTED!!!");
+			// import that bad boy
+			state.matches = action.payload;
 		},
 
 		resetMatches: (state) => {
@@ -39,7 +46,7 @@ export const matchSlice = createSlice({
 
 // dispatch(writeMatch(kpv))
 
-export const { writeMatch, resetMatches } = matchSlice.actions;
+export const { writeMatch, importMatches, resetMatches } = matchSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
