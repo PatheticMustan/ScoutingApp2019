@@ -13,7 +13,7 @@ import Arena from "../../Components/Utility/Arena.js";
 
 import { useDispatch, useSelector } from "react-redux";
 import { setDefault, selectData } from "../../Redux/Features/dataSlice.js";
-import ScoutingColors from "../../ScoutingColors.js";
+import ScoutingColors from "../../Config/ScoutingColors.js";
 
 export default function TeleOp() {
 	const dispatch = useDispatch();

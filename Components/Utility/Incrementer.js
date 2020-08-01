@@ -10,7 +10,7 @@ import { setKeyPair, setDefault, selectData } from "../../Redux/Features/dataSli
 import { useDispatch, useSelector } from "react-redux";
 
 import { FontAwesome } from "react-native-vector-icons";
-import ScoutingColors from "../../ScoutingColors.js";
+import ScoutingColors from "../../Config/ScoutingColors.js";
 
 export default function Incrementer(props) {
 	const dispatch = useDispatch();

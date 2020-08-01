@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import { setKeyPair, setDefault, selectData } from "../../Redux/Features/dataSlice.js";
 import { useDispatch, useSelector } from "react-redux";
-import ScoutingColors from "../../ScoutingColors.js";
+import ScoutingColors from "../../Config/ScoutingColors.js";
 
 export default function ClimbPosition(props) {
 	const dispatch = useDispatch();

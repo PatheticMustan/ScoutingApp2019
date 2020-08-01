@@ -41,6 +41,13 @@ export const dataSlice = createSlice({
 			if (payloadIndex === -1) state.keyPairValues.push([key, value]);
 		},
 
+		loadMatch: (state, action) => {
+			// should only be used when clicking on a match in Past Matches
+			console.log("A match has been loaded.");
+			// import that bad boy
+			state.keyPairValues = action.payload;
+		},
+
 		freshStart: (state) => {
 			/**
 			 * wipe the slate clean
@@ -63,7 +70,7 @@ export const dataSlice = createSlice({
 	},
 });
 
-export const { setKeyPair, setDefault, freshStart } = dataSlice.actions;
+export const { setKeyPair, setDefault, loadMatch, freshStart } = dataSlice.actions;
 window.skp = dataSlice.actions.setKeyPair;
 
 // The function below is called a selector and allows us to select a value from

@@ -8,6 +8,7 @@ import {
 	TouchableOpacity
 } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
+import { loadMatch } from "../../Redux/Features/matchSlice.js";
 import { selectData } from "../../Redux/Features/matchSlice.js";
 
 import Constants from "expo-constants";
@@ -19,7 +20,7 @@ export default function List(props) {
 	// get value from store
 	const matches = useSelector(selectData);
 
-	const find = (kpv, id) => kpv.find(v => v[1][0] === id)[1];
+	const find = (pmm, id) => pmm[1].find(v => v[0] === id)[1];
 
 	console.log(matches);
 
@@ -31,14 +32,18 @@ export default function List(props) {
 
 	return (
 		<FlatList
-			data={matches.matches}
+			data={matches}
 			renderItem={(data) => {
 				return (
 					<TouchableOpacity onPress={() => {
 						props.nav.navigate("Scout");
+
+						dispatch(loadMatch(data.item[1]));
 					}}>
 						<View style={styles.item}>
-							<Text style={styles.text}>{`${find(data.item, "MatchType")} `}</Text>
+							<Text style={styles.text}>
+								{find(data.item, "MatchType")} #{find(data.item, "MatchNumber")} (Team {find(data.item, "TeamNumber")})
+							</Text>
 						</View>
 					</TouchableOpacity>
 				);

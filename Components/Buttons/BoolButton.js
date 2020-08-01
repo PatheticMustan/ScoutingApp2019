@@ -9,7 +9,7 @@ import PropTypes from "prop-types";
 
 import { setKeyPair, setDefault, selectData } from "../../Redux/Features/dataSlice.js";
 import { useDispatch, useSelector } from "react-redux";
-import ScoutingColors from "../../ScoutingColors.js";
+import ScoutingColors from "../../Config/ScoutingColors.js";
 
 export default function BoolButton(props) {
 	const dispatch = useDispatch();

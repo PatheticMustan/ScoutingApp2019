@@ -24,7 +24,7 @@ function MyTabs() {
 		<Tab.Navigator
 			initialRouteName="Scout"
 			tabBarOptions={{
-				activeTintColor: "#e91e63",
+				activeTintColor: "#E91E63",
 			}}
 		>
 			<Tab.Screen

@@ -8,7 +8,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { setDefault, selectData } from "../../Redux/Features/dataSlice.js";
 import Link from "../../Components/Utility/Link.js";
-import ScoutingColors from "../../ScoutingColors.js";
+import ScoutingColors from "../../Config/ScoutingColors.js";
 
 export default function Header() {
 	const dispatch = useDispatch();
