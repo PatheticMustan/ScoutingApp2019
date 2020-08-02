@@ -4,11 +4,10 @@ import {
 	FlatList,
 	StyleSheet,
 	Text,
-	AsyncStorage,
 	TouchableOpacity
 } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
-import { loadMatch } from "../../Redux/Features/matchSlice.js";
+import { loadMatch } from "../../Redux/Features/dataSlice.js";
 import { selectData } from "../../Redux/Features/matchSlice.js";
 
 import Constants from "expo-constants";
@@ -21,8 +20,6 @@ export default function List(props) {
 	const matches = useSelector(selectData);
 
 	const find = (pmm, id) => pmm[1].find(v => v[0] === id)[1];
-
-	console.log(matches);
 
 	
 
@@ -42,7 +39,7 @@ export default function List(props) {
 					}}>
 						<View style={styles.item}>
 							<Text style={styles.text}>
-								{find(data.item, "MatchType")} #{find(data.item, "MatchNumber")} (Team {find(data.item, "TeamNumber")})
+								{["Qualification", "Quarterfinal", "Semifinal"][find(data.item, "MatchType")]} #{find(data.item, "MatchNumber")} (Team {find(data.item, "TeamNumber")})
 							</Text>
 						</View>
 					</TouchableOpacity>
