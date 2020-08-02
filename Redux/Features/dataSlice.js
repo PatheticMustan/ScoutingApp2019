@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export const dataSlice = createSlice({
-	name: "data",
+	name: "dataSlice",
 	initialState: {
 		keyPairValues: [],
 	},
@@ -39,11 +39,38 @@ export const dataSlice = createSlice({
 			const payloadIndex = state.keyPairValues.findIndex(v => v[0] === key);
 
 			if (payloadIndex === -1) state.keyPairValues.push([key, value]);
+		},
+
+		loadMatch: (state, action) => {
+			// should only be used when clicking on a match in Past Matches
+			console.log("A match has been loaded.");
+			// import that bad boy
+			state.keyPairValues = action.payload;
+		},
+
+		freshStart: (state) => {
+			/**
+			 * wipe the slate clean
+			 * commit magnet on hard-drive
+			 * 
+			 * if you have spotify:
+			 * Amnesia, by 5 Seconds of Summer: https://open.spotify.com/track/1JCCdiru7fhstOIF4N7WJC
+			 * 
+			 * "I wish that I could wake up with Amnesia"
+			 * Well loverboy, today's your lucky day
+			 **/
+			
+			// if you couldn't tell, this erases everything but info
+
+			state.keyPairValues = state.keyPairValues.filter(v =>
+				// whitelist vals not to remove
+				["Team", "TeamNumber", "MatchNumber", "MatchType", "Scouters", "StartingPieces"].includes(v[0])
+			);
 		}
 	},
 });
 
-export const { setKeyPair, setDefault } = dataSlice.actions;
+export const { setKeyPair, setDefault, loadMatch, freshStart } = dataSlice.actions;
 window.skp = dataSlice.actions.setKeyPair;
 
 // The function below is called a selector and allows us to select a value from

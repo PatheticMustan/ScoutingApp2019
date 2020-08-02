@@ -21,10 +21,10 @@ export default class MatchInfoContainer extends React.Component {
 						<View style={styles.inputContainer}>
 							<Text style={styles.bold}>Team Number: </Text>
 							<View style={{flex: 1, paddingLeft: 5}}>
-								<CustomTextBox id="TeamNumber" placeholder="1234" width={80} height={40}/>
+								<CustomTextBox id="TeamNumber" placeholder="2638" keyboardType="numeric" width={80} height={40}/>
 							</View>
 						</View>
-                        
+						
 						<View style={styles.inputContainer}>
 							<Text style={styles.bold}>Match Number: Qualification # </Text>
 							<Incrementer id="MatchNumber"/>
@@ -54,7 +54,7 @@ export default class MatchInfoContainer extends React.Component {
 						</View>
 					</View>
 
-                    
+					
 
 					<View style={styles.piecesContainer}>
 						<View style={styles.inputContainer2}>

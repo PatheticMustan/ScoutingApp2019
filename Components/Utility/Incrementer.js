@@ -10,6 +10,7 @@ import { setKeyPair, setDefault, selectData } from "../../Redux/Features/dataSli
 import { useDispatch, useSelector } from "react-redux";
 
 import { FontAwesome } from "react-native-vector-icons";
+import ScoutingColors from "../../Config/ScoutingColors.js";
 
 export default function Incrementer(props) {
 	const dispatch = useDispatch();
@@ -24,35 +25,35 @@ export default function Incrementer(props) {
 		<View style={styles.container}>
 			<TouchableOpacity onPress={() => {
 				// minimum value is 0
-				dispatch(setKeyPair([props.id, Math.max(0, value - 1)]));
+				if (value - 1 >= 0) {
+					dispatch(setKeyPair([props.id, value - 1]));
+				}
 			}}>
 				<View style={styles.iconContainer}>
 					{ /** I'm so lonely */}
-					<FontAwesome name="minus" size={30} color={colors.skyBlue}/>
+					<FontAwesome name="minus" size={30} color={ScoutingColors.skyBlue}/>
 				</View>
 			</TouchableOpacity>
-                
+			
 			<Text style = {{fontSize: 30}}>{value}{props.max? `/${props.max}` : ""}</Text>
 
 			<TouchableOpacity onPress={() => {
-				dispatch(setKeyPair([props.id, value + 1]));
+				// first make sure max value exists, then do comparison
+				if (!props.max || value+1 <= props.max) {
+					dispatch(setKeyPair([props.id, value + 1]));
+				}
 			}}>
 				<View style = {styles.iconContainer}>
-					<FontAwesome name="plus" size={30} color={colors.skyBlue}/>
+					<FontAwesome name="plus" size={30} color={ScoutingColors.skyBlue}/>
 				</View>
 			</TouchableOpacity>
 		</View>
 	);
 }
 
-const colors = {
-	white: "#FFFFFF",
-	skyBlue: "#29ADFF"
-};
-
 const styles = StyleSheet.create({
 	container: {
-		backgroundColor: colors.white,
+		backgroundColor: ScoutingColors.white,
 		flex: 1,
 		flexDirection: "row"
 	},

@@ -3,14 +3,12 @@ import {
 	StyleSheet,
 	Text,
 	View,
-	AsyncStorage
 } from "react-native";
-
-import Link from "../../Components/Utility/Link.js";
 
 import { useDispatch, useSelector } from "react-redux";
 import { setDefault, selectData } from "../../Redux/Features/dataSlice.js";
-import { resetMatches } from "../../Redux/Features/matchSlice.js";
+import Link from "../../Components/Utility/Link.js";
+import ScoutingColors from "../../Config/ScoutingColors.js";
 
 export default function Header() {
 	const dispatch = useDispatch();
@@ -24,25 +22,21 @@ export default function Header() {
 	const selectedTeam = kpv.find(v => v[0] === arenaID)[1];
 
 	return (
-		<View style={{backgroundColor: selectedTeam==1? "#FFD0D0" : "#D0F4FF", flex: 1}}>
+		<View style={[
+			styles.flex,
+			{backgroundColor: selectedTeam==1? ScoutingColors.red : ScoutingColors.lightBlue}
+		]}>
 			<Text style={styles.headerText}>2020 - Infinite Recharge{"\n"}</Text>
+			
 			<View style={styles.linkContainer}>
-				<Link color="red" onPress={() => {
-					AsyncStorage.removeItem("matches");
-
-					dispatch(resetMatches());
-
-					// TODO: Add confirmation
-					alert("Cleared all the matches!");
-				}}>
-					Reset All Matches
-				</Link>
+				<Link>About</Link>
 			</View>
 		</View>
 	);
 }
 
 const styles = StyleSheet.create({
+	flex: {flex: 1},
 	headerText: {
 		flex: 1,
 		fontSize: 20,

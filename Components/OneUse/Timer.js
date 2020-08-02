@@ -5,13 +5,15 @@ import {
 } from "react-native";
 import BoolButton from "../Buttons/BoolButton.js";
 
-import { setKeyPair } from "../../Redux/Features/dataSlice.js";
+import { setKeyPair, setDefault } from "../../Redux/Features/dataSlice.js";
 import { useDispatch } from "react-redux";
 
-export default function Timer(props) {
+export default function Timer() {
 	const dispatch = useDispatch();
 	const [isEnabled, setEnabled] = useState(false);
 	const [seconds, setSeconds] = useState(0);
+
+	dispatch(setDefault(["Time", 0]));
 
 	return (
 		<View style = {{flex: 1}}>
@@ -27,13 +29,13 @@ export default function Timer(props) {
 					if (!isEnabled) {
 						setEnabled(true);
 						
-						window.timerInterval = setInterval(async () => {
+						global.timerInterval = setInterval(async () => {
 							await setSeconds(oldSeconds => oldSeconds + 1);
 						}, 1000);
 					} else {
-						clearInterval(window.timerInterval);
+						clearInterval(global.timerInterval);
 						setEnabled(false);
-						dispatch(setKeyPair([props.id, seconds]));
+						dispatch(setKeyPair(["Time", seconds]));
 					}
 				}}
 			>

@@ -22,12 +22,13 @@ export default function CustomTextBox(props) {
 
 	useEffect(() => {
 		const interval = setInterval(() => {
+			console.log("ugh, " + reduxText);
 			if (reduxText !== text) dispatch(setKeyPair([props.id, text]));
 		}, 1000);
 		
 		// basically componentWillUnmount but this time it's for React hooks
 		return () => clearInterval(interval);
-	}, [text]);
+	}, [reduxText, text]);
 
 	return (
 		<View style={{
@@ -35,6 +36,7 @@ export default function CustomTextBox(props) {
 			height: props.height || 40
 		}}>
 			<TextInput
+				keyboardType={props.keyboardType}
 				multiline={props.multi}
 				numberOfLines={props.multi? props.lines : 1}
 				editable
