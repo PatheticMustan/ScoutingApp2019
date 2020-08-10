@@ -35,7 +35,8 @@ export default function List(props) {
 					<TouchableOpacity onPress={() => {
 						props.nav.navigate("Scout");
 
-						dispatch(loadMatch(data.item[1]));
+						// the VERY VERY lazy solution
+						dispatch(loadMatch(data.item.toString()));
 					}}>
 						<View style={styles.item}>
 							<Text style={styles.text}>
@@ -52,7 +53,10 @@ export default function List(props) {
 					</View>
 				);
 			}}
-			// keyExtractor={data => data[1].toString()} /** https://stackoverflow.com/a/49577737/12894940 */
+			keyExtractor={data => {
+				console.log(data);
+				return Date.now();
+			}} /** https://stackoverflow.com/a/49577737/12894940 */
 		/>
 	);
 }

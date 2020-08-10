@@ -71,7 +71,17 @@ function ASS() {
 			await AsyncStorage.setItem("matches", "[]");
 		} else {
 			// otherwise sync state.matches.matches and AsyncStorage
-			dispatch(importMatches(JSON.parse(matches)));
+			// remove any null entries
+			const parsedMatches = JSON.parse(matches);
+			const filteredMatches = parsedMatches.filter(v => v instanceof Array);
+
+			// dispatch filteredMatches to redux matches
+			dispatch(importMatches(filteredMatches));
+
+			// save filteredMatches to AsyncStorage
+			if (parsedMatches !== filteredMatches) {
+				await AsyncStorage.setItem("matches", JSON.stringify(filteredMatches));
+			}
 		}
 	})();
 

@@ -37,6 +37,12 @@ export default function Header() {
 				}}>
 					Reset All Matches
 				</Link>
+
+				<Link color="blue" onPress={() => {
+					// aw fuck
+				}}>
+					Reset All Matches
+				</Link>
 			</View>
 		</View>
 	);
