@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 import * as React from "react";
 import { AsyncStorage } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
@@ -92,6 +93,9 @@ function ASS() {
 export default function App() {
 	// make store global bc I want to see the data pls
 	window.natsumi = store;
+
+	// shut up console.warn
+	// console.warn = () => {}
 
 	return (
 		<Provider store={store}>
