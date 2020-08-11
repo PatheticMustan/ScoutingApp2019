@@ -9,14 +9,21 @@ import {
 import * as Sharing from "expo-sharing";
 import Link from "../../Components/Utility/Link.js";
 
+import kpvToCsv from "../../Config/kpvToCsv.js";
+
 import { useDispatch, useSelector } from "react-redux";
 import { setDefault, selectData } from "../../Redux/Features/dataSlice.js";
+
+import { selectData as matchSelectData } from "../../Redux/Features/matchSlice.js";
+
 import { resetMatches } from "../../Redux/Features/matchSlice.js";
 import { FileSystem } from "react-native-unimodules";
 
 export default function Header() {
 	const dispatch = useDispatch();
 	const arenaID = "Team";
+
+	const matches = useSelector(matchSelectData);
 
 	// set default value
 	dispatch(setDefault([arenaID, 0]));
@@ -45,7 +52,8 @@ export default function Header() {
 					console.log("REMINDER: Sharing doesn't work on web!");
 					const path = "./data.csv";
 					// write new csv file
-					const output = kpvToCsv();
+					const output = kpvToCsv(matches);
+					console.log(matches);
 
 					FileSystem.writeAsStringAsync(FileSystem.documentDirectory+path, global.output, { encoding: FileSystem.EncodingType.UTF8 });
 					// share the new csv file we just made
