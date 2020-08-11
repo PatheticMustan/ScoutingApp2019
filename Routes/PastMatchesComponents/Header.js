@@ -6,11 +6,13 @@ import {
 	AsyncStorage
 } from "react-native";
 
+import * as Sharing from "expo-sharing";
 import Link from "../../Components/Utility/Link.js";
 
 import { useDispatch, useSelector } from "react-redux";
 import { setDefault, selectData } from "../../Redux/Features/dataSlice.js";
 import { resetMatches } from "../../Redux/Features/matchSlice.js";
+import { FileSystem } from "react-native-unimodules";
 
 export default function Header() {
 	const dispatch = useDispatch();
@@ -39,9 +41,17 @@ export default function Header() {
 				</Link>
 
 				<Link color="blue" onPress={() => {
-					// aw fuck
+					// sharing doesn't work on web.
+					console.log("REMINDER: Sharing doesn't work on web!");
+					const path = "./data.csv";
+					// write new csv file
+					const output = kpvToCsv();
+
+					FileSystem.writeAsStringAsync(FileSystem.documentDirectory+path, global.output, { encoding: FileSystem.EncodingType.UTF8 });
+					// share the new csv file we just made
+					Sharing.shareAsync(FileSystem.documentDirectory+path);
 				}}>
-					Reset All Matches
+					Export All Matches
 				</Link>
 			</View>
 		</View>

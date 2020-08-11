@@ -54,8 +54,8 @@ export default function List(props) {
 				);
 			}}
 			keyExtractor={data => {
-				console.log(data);
-				return Date.now();
+				// very lazy solution but whatever, I'm a pretty lazy person
+				return data.toString();
 			}} /** https://stackoverflow.com/a/49577737/12894940 */
 		/>
 	);

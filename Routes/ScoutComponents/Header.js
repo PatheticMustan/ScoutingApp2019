@@ -7,7 +7,6 @@ import {
 	AsyncStorage
 } from "react-native";
 
-import * as Sharing from "expo-sharing";
 import * as FileSystem from "expo-file-system";
 import RadioButton from "../../Components/Buttons/RadioButton.js";
 import Link from "../../Components/Utility/Link.js";
@@ -16,7 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setDefault, freshStart, selectData } from "../../Redux/Features/dataSlice.js";
 import { writeMatch  } from "../../Redux/Features/matchSlice.js";
 
-const path = "./data.csv";
+
 
 export default function Header() {
 	const dispatch = useDispatch();
