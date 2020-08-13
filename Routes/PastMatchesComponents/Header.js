@@ -51,8 +51,9 @@ export default function Header() {
 					// sharing doesn't work on web.
 					console.log("REMINDER: Sharing doesn't work on web!");
 					const path = "./data.csv";
-					
+
 					// write new csv file
+					console.log(matches);
 					const output = kpvToCsv(matches);
 					console.log(output);
 

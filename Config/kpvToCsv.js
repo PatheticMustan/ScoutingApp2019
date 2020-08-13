@@ -2,7 +2,12 @@
 
 // matches: KPV[]
 export default function kpvToCsv(matches) {
-	const find = (kpv, id) => kpv.find(v => v[0] === id)[1];
+	const find = (kpv, id) => {
+		const val = kpv.find(v => v[0] === id);
+
+		if (val === undefined) throw new Error(`Cannot find value ${id} in kpv.`);
+		return val[1];
+	};
 
 	// the holy grail contains all the data for converting the kpv's to one giant csv file
 	const theHolyGrail = [
@@ -124,10 +129,15 @@ export default function kpvToCsv(matches) {
 		const row = [];
 		// loop through each column, and calculate the row's values.
 		theHolyGrail.forEach(col => {
-			const filteredCell = col.vf(match).replaceAll("\"", "").replaceAll("\n", "");
+			const filteredCell =
+				col.vf(match)
+					.replaceAll("\"", "")
+					.replaceAll("\n", "");
 
 			row.push(`"${filteredCell}"`);
 		});
+
+		csv += row.join(",") + "\r\n";
 	});
 	
 
