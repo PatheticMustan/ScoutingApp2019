@@ -118,5 +118,18 @@ export default function kpvToCsv(matches) {
 
 	csv += header.join(",") + "\r\n";
 
+	// now we make the body
+	// loop through each match
+	matches.forEach(match => {
+		const row = [];
+		// loop through each column, and calculate the row's values.
+		theHolyGrail.forEach(col => {
+			const filteredCell = col.vf(match).replaceAll("\"", "").replaceAll("\n", "");
+
+			row.push(`"${filteredCell}"`);
+		});
+	});
+	
+
 	return csv;
 }
