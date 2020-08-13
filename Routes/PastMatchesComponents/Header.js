@@ -51,9 +51,10 @@ export default function Header() {
 					// sharing doesn't work on web.
 					console.log("REMINDER: Sharing doesn't work on web!");
 					const path = "./data.csv";
+					
 					// write new csv file
 					const output = kpvToCsv(matches);
-					console.log(matches);
+					console.log(output);
 
 					FileSystem.writeAsStringAsync(FileSystem.documentDirectory+path, global.output, { encoding: FileSystem.EncodingType.UTF8 });
 					// share the new csv file we just made

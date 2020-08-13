@@ -1,8 +1,10 @@
 // as the name suggests, kpvToCsv takes the important parts of the kpv, and converts it into a neat csv.
 
+// matches: KPV[]
 export default function kpvToCsv(matches) {
 	const find = (kpv, id) => kpv.find(v => v[0] === id)[1];
 
+	// the holy grail contains all the data for converting the kpv's to one giant csv file
 	const theHolyGrail = [
 		{	name: "Team Number",
 			vf: kpv => find(kpv, "TeamNumber")},
@@ -102,11 +104,19 @@ export default function kpvToCsv(matches) {
 		{	name: "Endgame Comments",
 			vf: kpv => find(kpv, "EndgameComments")}
 	];
-	
-	
-	
-	// write new csv file
-	FileSystem.writeAsStringAsync(FileSystem.documentDirectory+path, global.output, { encoding: FileSystem.EncodingType.UTF8 });
-	// share the new csv file we just made
-	Sharing.shareAsync(FileSystem.documentDirectory+path);
+
+	let csv = "";
+
+	// make header
+	const header = [];
+	theHolyGrail.forEach(col => {
+		const filteredCell = col.name.replaceAll("\"", "");
+		// https://stackoverflow.com/a/566059/12894940
+		// the quotes around the cell ensure the newlines and commas are encoded properly.
+		header.push(`"${filteredCell}"`);
+	});
+
+	csv += header.join(",") + "\r\n";
+
+	return csv;
 }
