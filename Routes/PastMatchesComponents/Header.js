@@ -69,6 +69,7 @@ export default function Header() {
 }
 
 const styles = StyleSheet.create({
+	flex: {flex: 1},
 	headerText: {
 		flex: 1,
 		fontSize: 20,
