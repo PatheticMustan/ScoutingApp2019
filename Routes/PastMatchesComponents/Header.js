@@ -18,6 +18,7 @@ import { selectData as matchSelectData } from "../../Redux/Features/matchSlice.j
 
 import { resetMatches } from "../../Redux/Features/matchSlice.js";
 import { FileSystem } from "react-native-unimodules";
+import ScoutingColors from "../../Config/ScoutingColors.js";
 
 export default function Header() {
 	const dispatch = useDispatch();
@@ -32,37 +33,41 @@ export default function Header() {
 	const kpv = useSelector(selectData);
 	const selectedTeam = kpv.find(v => v[0] === arenaID)[1];
 
+	const clickResetMatches = () => {
+		AsyncStorage.removeItem("matches");
+
+		dispatch(resetMatches());
+
+		// TODO: Add confirmation
+		alert("Cleared all the matches!");
+	};
+
+	const clickExportAllMatches = () => {
+		// sharing doesn't work on web.
+		console.log("REMINDER: Sharing doesn't work on web!");
+		const path = "./data.csv";
+
+		// write new csv file
+		console.log(matches);
+		const output = kpvToCsv(matches);
+		console.log(output);
+
+		FileSystem.writeAsStringAsync(FileSystem.documentDirectory+path, global.output, { encoding: FileSystem.EncodingType.UTF8 });
+		// share the new csv file we just made
+		Sharing.shareAsync(FileSystem.documentDirectory+path);
+	};
+
 	return (
-		<View style={{backgroundColor: selectedTeam==1? "#FFD0D0" : "#D0F4FF", flex: 1}}>
+		<View style={[
+			styles.flex,
+			{backgroundColor: selectedTeam==1? ScoutingColors.red : ScoutingColors.lightBlue}
+		]}>
 			<Text style={styles.headerText}>2020 - Infinite Recharge{"\n"}</Text>
+			
 			<View style={styles.linkContainer}>
-				<Link color="red" onPress={() => {
-					AsyncStorage.removeItem("matches");
+				<Link color="red" onPress={clickResetMatches}>Reset All Matches</Link>
 
-					dispatch(resetMatches());
-
-					// TODO: Add confirmation
-					alert("Cleared all the matches!");
-				}}>
-					Reset All Matches
-				</Link>
-
-				<Link color="blue" onPress={() => {
-					// sharing doesn't work on web.
-					console.log("REMINDER: Sharing doesn't work on web!");
-					const path = "./data.csv";
-
-					// write new csv file
-					console.log(matches);
-					const output = kpvToCsv(matches);
-					console.log(output);
-
-					FileSystem.writeAsStringAsync(FileSystem.documentDirectory+path, global.output, { encoding: FileSystem.EncodingType.UTF8 });
-					// share the new csv file we just made
-					Sharing.shareAsync(FileSystem.documentDirectory+path);
-				}}>
-					Export All Matches
-				</Link>
+				<Link color="blue" onPress={clickExportAllMatches}>Export All Matches</Link>
 			</View>
 		</View>
 	);
