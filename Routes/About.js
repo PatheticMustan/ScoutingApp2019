@@ -29,7 +29,7 @@ export default function About() {
 						/>
 
 						{title("2638 Scout")}
-						{text("Version 2.0 3/6/2020")}
+						{text("Version 3.0 3/6/2020")}
 
 						{spacer}
 							
