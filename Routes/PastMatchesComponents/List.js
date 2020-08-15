@@ -36,7 +36,7 @@ export default function List(props) {
 						props.nav.navigate("Scout");
 
 						// the VERY VERY lazy solution
-						dispatch(loadMatch(data.item.toString()));
+						dispatch(loadMatch(data.item));
 					}}>
 						<View style={styles.item}>
 							<Text style={styles.text}>
