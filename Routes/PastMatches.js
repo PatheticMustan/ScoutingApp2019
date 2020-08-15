@@ -36,7 +36,7 @@ export default function PastMatches(props) {
 						props.navigation.navigate("Scout");
 
 						// the VERY VERY lazy solution
-						dispatch(loadMatch(data.item));
+						dispatch(loadMatch(data.item[1]));
 					}}>
 						<View style={styles.item}>
 							<Text style={styles.text}>
