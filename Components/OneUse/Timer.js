@@ -29,6 +29,9 @@ export default function Timer() {
 					if (!isEnabled) {
 						setEnabled(true);
 						
+						// the only exception I'll make to "no globals"
+						// we can probably assume we'll only ever need one timer
+						// if we DO need more than one timer, I'm sure we can figure out a solution by then
 						global.timerInterval = setInterval(async () => {
 							await setSeconds(oldSeconds => oldSeconds + 1);
 						}, 1000);

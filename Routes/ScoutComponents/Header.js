@@ -123,7 +123,9 @@ export default function Header() {
 			<Text style={styles.headerText}>2020 - Infinite Recharge{"\n"}</Text>
 			<View style={styles.linkContainer}>
 				<Link color="red" onPress={() => reset()}>Reset</Link>
-				<Link></Link>
+
+				<Link></Link> {/** The spacer, since I'm too lazy to make a real spacer */}
+				
 				<RadioButton
 					id="Team"
 					data={["Blue Alliance", "Red Alliance"]}
