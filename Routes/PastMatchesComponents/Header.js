@@ -52,7 +52,7 @@ export default function Header() {
 		const output = kpvToCsv(matches);
 		console.log(output);
 
-		FileSystem.writeAsStringAsync(FileSystem.documentDirectory+path, global.output, { encoding: FileSystem.EncodingType.UTF8 });
+		FileSystem.writeAsStringAsync(FileSystem.documentDirectory+path, output, { encoding: FileSystem.EncodingType.UTF8 });
 		// share the new csv file we just made
 		Sharing.shareAsync(FileSystem.documentDirectory+path);
 	};
