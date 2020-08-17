@@ -3,6 +3,8 @@ import * as React from "react";
 import { AsyncStorage } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { StatusBar } from "expo-status-bar";
+
 import {
 	Entypo,
 	Octicons,
@@ -11,11 +13,11 @@ import {
 
 import store from "./Redux/Store.js";
 import { Provider, useDispatch } from "react-redux";
+import { importMatches } from "./Redux/Features/matchSlice.js";
 
 import Scout from "./Routes/Scout.js";
 import PastMatches from "./Routes/PastMatches.js";
 import About from "./Routes/About.js";
-import { importMatches } from "./Redux/Features/matchSlice.js";
 
 // create bottom tab navigation
 const Tab = createBottomTabNavigator();
@@ -105,6 +107,8 @@ export default function App() {
 			<NavigationContainer>
 				<MyTabs/>
 			</NavigationContainer>
+
+			<StatusBar style="dark"/>
 		</Provider>
 	);
 }
