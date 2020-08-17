@@ -100,22 +100,29 @@ export default function Header() {
 
 			// "hey you saved a match lmao"
 			alert("Saved Match #" + kpv.find(v => v[0] === "MatchNumber")[1]);
+			return matchKey;
 		})();
 	}
 	
 	function saveAndExport() {
-		// save first lol
-		save();
-
-		console.log("REMINDER: Sharing doesn't work on web!");
-		const path = "./data.csv";
+		(async () => {
+			const matchKey = save();
+			if (!matchKey) {
+				// if save() doesn't save properly, stop exporting.
+				return;
+			} else {
+				console.log("REMINDER: Sharing doesn't work on web!");
+				const path = "./data.csv";
 	
-		// write new csv file
-		const output = kpvToCsv([kpv]);
+				// write new csv file
+				// kpvToCsv takes an array, [matchKey, kpv]
+				const output = kpvToCsv([matchKey, kpv]);
 	
-		FileSystem.writeAsStringAsync(FileSystem.documentDirectory+path, output, { encoding: FileSystem.EncodingType.UTF8 });
-		// share the new csv file we just made
-		Sharing.shareAsync(FileSystem.documentDirectory+path);
+				FileSystem.writeAsStringAsync(FileSystem.documentDirectory+path, output, { encoding: FileSystem.EncodingType.UTF8 });
+				// share the new csv file we just made
+				Sharing.shareAsync(FileSystem.documentDirectory+path);
+			}
+		});
 	}
 
 	return (
@@ -124,7 +131,7 @@ export default function Header() {
 			<View style={styles.linkContainer}>
 				<Link color="red" onPress={() => reset()}>Reset</Link>
 
-				<Link></Link> {/** The spacer, since I'm too lazy to make a real spacer */}
+				<Link></Link>
 				
 				<RadioButton
 					id="Team"
