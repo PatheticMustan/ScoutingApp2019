@@ -34,8 +34,6 @@ export default function Header() {
 	function reset() {
 		// alert("Everyone needs a fresh start. Why not now?");
 		// dispatch(freshStart());
-
-		// TODO: Test if Alert.alert works. Also search for web friendly options????
 		Alert.alert(
 			"Reset",
 			"Are you sure you want to reset the Scoutsheet?",
@@ -79,49 +77,79 @@ export default function Header() {
 			const matches = JSON.parse(await AsyncStorage.getItem("matches")) || [];
 			// make sure the item actually exists, then check against matchKey
 			const mki = matches.findIndex(v => v && (v[0] === final[0]));
+
+			const saveMatch = () => {
+				// put all our matches back in a place where it'll be safe and sound <3
+					AsyncStorage.setItem("matches", JSON.stringify(matches));
+
+				// now update matches in redux
+				dispatch(writeMatch(final));
+
+				// "hey you saved a match lmao"
+				alert("Saved Match #" + kpv.find(v => v[0] === "MatchNumber")[1]);
+			};
 			
 			// add our lovely changes
 			if (mki === -1) {
 				// if the match key is not found
 				// push
 				matches.push(final);
+				saveMatch();
 			} else {
 				// if the match key IS found
 				// overwrite
 				// TODO: Prompt for confirmation of overwrite, not adding it now since I'm testing
-				matches[mki] = final;
+				Alert.alert(
+					"Overwrite",
+					"A match already exists with this match key. Are you sure you want to overwrite it?",
+					[
+						{text: "Overwrite", onPress: () => {
+							matches[mki] = final;
+							saveMatch();
+						}},
+						{text: "Cancel", style: "cancel"}
+					]
+				);
 			}
 
-			// put all our matches back in a place where it'll be safe and sound <3
-			await AsyncStorage.setItem("matches", JSON.stringify(matches));
-
-			// now update matches in redux
-			dispatch(writeMatch(final));
-
-			// "hey you saved a match lmao"
-			alert("Saved Match #" + kpv.find(v => v[0] === "MatchNumber")[1]);
-			return matchKey;
+			
 		})();
 	}
 	
 	function saveAndExport() {
 		(async () => {
-			const matchKey = save();
-			if (!matchKey) {
-				// if save() doesn't save properly, stop exporting.
+			// copy pasted from save()
+			const match = kpv;
+			const matchKey = ["Team", "TeamNumber", "MatchNumber", "MatchType", "Scouters"].map(k => [k, kpv.find(v => v[0] === k)[1]]);
+
+			if (matchKey.some(v => v[1] === "")) {
+				const blank = matchKey.filter(v => v[1] === "").map(v => v[0]);
+				if (blank.length > 1) { blank[blank.length-1] = "and " + blank[blank.length-1]; }
+				alert(`${blank.join(", ")} is blank!`);
 				return;
-			} else {
-				console.log("REMINDER: Sharing doesn't work on web!");
-				const path = "./data.csv";
-	
-				// write new csv file
-				// kpvToCsv takes an array, [matchKey, kpv]
-				const output = kpvToCsv([matchKey, kpv]);
-	
-				FileSystem.writeAsStringAsync(FileSystem.documentDirectory+path, output, { encoding: FileSystem.EncodingType.UTF8 });
-				// share the new csv file we just made
-				Sharing.shareAsync(FileSystem.documentDirectory+path);
 			}
+
+			const final = [matchKey.join(""), match];
+			const matches = JSON.parse(await AsyncStorage.getItem("matches")) || [];
+			const mki = matches.findIndex(v => v && (v[0] === final[0]));
+
+			if (mki === -1) {matches.push(final);}
+			else {matches[mki] = final;}
+
+			await AsyncStorage.setItem("matches", JSON.stringify(matches));
+			dispatch(writeMatch(final));
+			alert("Saved Match #" + kpv.find(v => v[0] === "MatchNumber")[1]);
+
+			console.log("REMINDER: Sharing doesn't work on web!");
+			const path = "./data.csv";
+	
+			// write new csv file
+			// kpvToCsv takes an array, [matchKey, kpv]
+			const output = kpvToCsv([matchKey, kpv]);
+	
+			FileSystem.writeAsStringAsync(FileSystem.documentDirectory+path, output, { encoding: FileSystem.EncodingType.UTF8 });
+			// share the new csv file we just made
+			Sharing.shareAsync(FileSystem.documentDirectory+path);
 		});
 	}
 
