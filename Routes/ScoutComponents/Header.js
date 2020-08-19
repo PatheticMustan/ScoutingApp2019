@@ -45,9 +45,7 @@ export default function Header() {
 	}
 	
 	async function save() {
-		// match is current scout sheet, the entire redux thingy
 		// fun fact, kpv is short for KeyPairValue, because it's filled with [key, value]
-		const match = kpv;
 		// matchKey is a unique identifier for a match. Right now I could have Team
 		const matchKey = ["Team", "TeamNumber", "MatchNumber", "MatchType", "Scouters"]
 			.map(k => [k, kpv.find(v => v[0] === k)[1]]); // "Team" --> ["Team", value]
@@ -70,7 +68,7 @@ export default function Header() {
 			return;
 		}
 			
-		const final = [matchKey.join(""), match];
+		const final = [matchKey.join(""), kpv];
 
 		// get matches OR default []
 		const matches = JSON.parse(await AsyncStorage.getItem("matches")) || [];
@@ -95,7 +93,6 @@ export default function Header() {
 		} else {
 			// if the match key IS found
 			// overwrite
-			// TODO: Prompt for confirmation of overwrite, not adding it now since I'm testing
 			Alert.alert(
 				"Overwrite",
 				"A match already exists with this match key. Are you sure you want to overwrite it?",
@@ -113,15 +110,16 @@ export default function Header() {
 	}
 	
 	async function saveAndExport() {
-		const save = await save();
-		if (save === undefined) return;
+		const saveResult = await save();
+		if (saveResult === undefined) return;
 
 		console.log("REMINDER: Sharing doesn't work on web!");
 		const path = "./data.csv";
 	
 		// write new csv file
 		// kpvToCsv takes an array, [matchKey, kpv]
-		const output = kpvToCsv(save.final);
+		const output = kpvToCsv(saveResult.final);
+		console.log(output);
 	
 		FileSystem.writeAsStringAsync(FileSystem.documentDirectory+path, output, { encoding: FileSystem.EncodingType.UTF8 });
 		// share the new csv file we just made
