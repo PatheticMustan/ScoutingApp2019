@@ -113,16 +113,15 @@ export default function Header() {
 	}
 	
 	async function saveAndExport() {
-		const { final } = await save();
-
-		if (final === undefined) return;
+		const save = await save();
+		if (save === undefined) return;
 
 		console.log("REMINDER: Sharing doesn't work on web!");
 		const path = "./data.csv";
 	
 		// write new csv file
 		// kpvToCsv takes an array, [matchKey, kpv]
-		const output = kpvToCsv(final);
+		const output = kpvToCsv(save.final);
 	
 		FileSystem.writeAsStringAsync(FileSystem.documentDirectory+path, output, { encoding: FileSystem.EncodingType.UTF8 });
 		// share the new csv file we just made
