@@ -117,8 +117,8 @@ export default function Header() {
 		const path = "./data.csv";
 	
 		// write new csv file
-		// kpvToCsv takes an array, [matchKey, kpv]
-		const output = kpvToCsv(saveResult.final);
+		// kpvToCsv takes an array of [matchKey, kpv]
+		const output = kpvToCsv([saveResult.final]);
 		console.log(output);
 	
 		FileSystem.writeAsStringAsync(FileSystem.documentDirectory+path, output, { encoding: FileSystem.EncodingType.UTF8 });
