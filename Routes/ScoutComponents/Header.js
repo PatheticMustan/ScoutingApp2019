@@ -44,7 +44,7 @@ export default function Header() {
 		);
 	}
 	
-	async function save() {
+	async function save(successCallback=()=>{}) {
 		// fun fact, kpv is short for KeyPairValue, because it's filled with [key, value]
 		// matchKey is a unique identifier for a match. Right now I could have Team
 		const matchKey = ["Team", "TeamNumber", "MatchNumber", "MatchType", "Scouters"]
@@ -82,6 +82,9 @@ export default function Header() {
 			dispatch(writeMatch(final));
 			// "hey you saved a match lmao"
 			alert("Saved Match #" + kpv.find(v => v[0] === "MatchNumber")[1]);
+
+			// now we're finished
+			successCallback(final);
 		};
 			
 		// add our lovely changes
@@ -105,25 +108,23 @@ export default function Header() {
 				]
 			);
 		}
-		// now we're finished
-		return { final };
 	}
 	
 	async function saveAndExport() {
-		const saveResult = await save();
-		if (saveResult === undefined) return;
+		save(final => {
+			if (final === undefined) return;
+			
+			console.log("REMINDER: Sharing doesn't work on web!");
+			const path = "./data.csv";
 
-		console.log("REMINDER: Sharing doesn't work on web!");
-		const path = "./data.csv";
+			const output = kpvToCsv([final]);
+			console.log(output);
 	
-		// write new csv file
-		// kpvToCsv takes an array of [matchKey, kpv]
-		const output = kpvToCsv([saveResult.final]);
-		console.log(output);
-	
-		FileSystem.writeAsStringAsync(FileSystem.documentDirectory+path, output, { encoding: FileSystem.EncodingType.UTF8 });
-		// share the new csv file we just made
-		Sharing.shareAsync(FileSystem.documentDirectory+path);
+			FileSystem.writeAsStringAsync(FileSystem.documentDirectory+path, output, { encoding: FileSystem.EncodingType.UTF8 });
+			// share the new csv file we just made
+			Sharing.shareAsync(FileSystem.documentDirectory+path);
+		});
+		
 	}
 
 	return (
