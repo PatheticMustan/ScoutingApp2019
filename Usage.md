@@ -20,12 +20,13 @@ Great! Now we need to install the dependencies our project relies on. Be warned,
 
 ```cmd
 npm install
+npm install -g expo-cli
 ```
 
 Now to run the app, you can use the `loc` shortcut I prepared.
 
 ```cmd
-npm run loc
+expo start --tunnel
 ```
 
 Great job! It should open a tab saying something about "(1) Scouting App on Expo Developer Tools", or "Metro Bundler".
