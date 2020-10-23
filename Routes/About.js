@@ -40,7 +40,7 @@ export default function About() {
 
 						{title("App Development Team (React Native)")}
 						{person("Developer", "Kevin Wang")}
-						{person("Developer", "Eric Yachabes")}
+						{person("Developer", "Eric Yachbes")}
 						{person("Developer", "Aidan Din")}
 
 						{spacer}
